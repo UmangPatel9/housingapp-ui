@@ -1,0 +1,7 @@
+{
+  "name": "housingapp-ui",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
