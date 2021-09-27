@@ -1,0 +1,26 @@
+@media (max-width: 767px) {
+
+    .logo {
+        max-width: 36vw;
+    }
+}
+
+@media (max-width: 575px) {
+    .main-header {
+        border-radius: 0 0 10px 10px;
+        padding: 25px 0;
+    }
+    .login-form .password-field {
+        margin-top: 5px;
+    }
+    .login-form .forget-password {
+        margin-top: 0px;
+    }
+    .login-form .sign-up-btn,
+    .login-form .login-btn {
+        margin-top: 10px;
+    }
+    .login-form .gmail-btn {
+        margin-top: 5px;
+    }
+}
