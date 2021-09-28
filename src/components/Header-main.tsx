@@ -64,8 +64,24 @@ const HeaderMain: React.FC = () => {
                     <IonButton className="account-button" fill="clear" href="#">
                         <IonIcon slot="icon-only" icon={personOutline} />
                     </IonButton>
-
-                    <IonButton className="change-property" fill="clear" href="#">
+                    
+                    <IonPopover
+                        cssClass='change-property-popup'
+                        event={popoverState.event}
+                        isOpen={popoverState.showPopover}
+                        onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined })}
+                    >
+                        <p>This is popover content</p>
+                    </IonPopover>
+                    <IonButton 
+                        className="change-property" 
+                        fill="clear" 
+                        onClick={
+                            (e: any) => {
+                            e.persist();
+                            setShowPopover({ showPopover: true, event: e })
+                        }}
+                    >
                         <IonIcon slot="icon-only" src="/assets/images/icon-home.svg" />
                         <div className="proerty-name">BL1 <span className="ion-hide-lg-down">- Belvedaire 1</span></div>
                     </IonButton>
