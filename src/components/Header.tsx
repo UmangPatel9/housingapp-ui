@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IonHeader, IonToolbar, IonImg } from '@ionic/react';
+import { IonHeader, IonImg } from '@ionic/react';
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';

@@ -1,4 +1,120 @@
 /* Default CSS start */
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../fonts/SegoeUI-Semibold.eot');
+    src: url('../fonts/SegoeUI-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SegoeUI-Semibold.woff2') format('woff2'),
+        url('../fonts/SegoeUI-Semibold.woff') format('woff'),
+        url('../fonts/SegoeUI-Semibold.ttf') format('truetype'),
+        url('../fonts/SegoeUI-Semibold.svg#SegoeUI-Semibold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../fonts/SegoeUI.eot');
+    src: url('../fonts/SegoeUI.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SegoeUI.woff2') format('woff2'),
+        url('../fonts/SegoeUI.woff') format('woff'),
+        url('../fonts/SegoeUI.ttf') format('truetype'),
+        url('../fonts/SegoeUI.svg#SegoeUI') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI Semilight';
+    src: url('../fonts/SegoeUI-Semilight.eot');
+    src: url('../fonts/SegoeUI-Semilight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SegoeUI-Semilight.woff2') format('woff2'),
+        url('../fonts/SegoeUI-Semilight.woff') format('woff'),
+        url('../fonts/SegoeUI-Semilight.ttf') format('truetype'),
+        url('../fonts/SegoeUI-Semilight.svg#SegoeUI-Semilight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../fonts/SegoeUI-Light.eot');
+    src: url('../fonts/SegoeUI-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/SegoeUI-Light.woff2') format('woff2'),
+        url('../fonts/SegoeUI-Light.woff') format('woff'),
+        url('../fonts/SegoeUI-Light.ttf') format('truetype'),
+        url('../fonts/SegoeUI-Light.svg#SegoeUI-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arial';
+    src: url('../fonts/Arial-BoldMT.eot');
+    src: url('../fonts/Arial-BoldMT.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Arial-BoldMT.woff2') format('woff2'),
+        url('../fonts/Arial-BoldMT.woff') format('woff'),
+        url('../fonts/Arial-BoldMT.ttf') format('truetype'),
+        url('../fonts/Arial-BoldMT.svg#Arial-BoldMT') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arial';
+    src: url('../fonts/Arial-Mdm.eot');
+    src: url('../fonts/Arial-Mdm.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Arial-Mdm.woff2') format('woff2'),
+        url('../fonts/Arial-Mdm.woff') format('woff'),
+        url('../fonts/Arial-Mdm.ttf') format('truetype'),
+        url('../fonts/Arial-Mdm.svg#Arial-Mdm') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arial';
+    src: url('../fonts/Arial-Black.eot');
+    src: url('../fonts/Arial-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Arial-Black.woff2') format('woff2'),
+        url('../fonts/Arial-Black.woff') format('woff'),
+        url('../fonts/Arial-Black.ttf') format('truetype'),
+        url('../fonts/Arial-Black.svg#Arial-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arial';
+    src: url('../fonts/Arial-Lgt.eot');
+    src: url('../fonts/Arial-Lgt.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Arial-Lgt.woff2') format('woff2'),
+        url('../fonts/Arial-Lgt.woff') format('woff'),
+        url('../fonts/Arial-Lgt.ttf') format('truetype'),
+        url('../fonts/Arial-Lgt.svg#Arial-Lgt') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Arial';
+    src: url('../fonts/ArialMT.eot');
+    src: url('../fonts/ArialMT.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ArialMT.woff2') format('woff2'),
+        url('../fonts/ArialMT.woff') format('woff'),
+        url('../fonts/ArialMT.ttf') format('truetype'),
+        url('../fonts/ArialMT.svg#ArialMT') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 :focus {
 	outline: 0 none !important;
 }
@@ -9,10 +125,13 @@ html {
 	scroll-behavior: smooth;
 }
 
-body {
+body,
+ion-app,
+ion-app.ion-page {
 	font-size: 16px;
 	line-height: 1.2;
-	color: #888;
+	color: #575757;
+    font-family: 'Segoe UI';
 	font-weight: normal;
 	text-align: left;
 }
@@ -56,6 +175,31 @@ button {
 
 /* Default CSS end */
 
+/* Button css start */
+body .button.button-block {
+    --color: #888;
+    --color-focused: #fff;
+    --color-hover: #fff;
+    --border-color: #888;
+    --background-focused: #FFBB00;
+    --background-hover: #FFBB00;
+    --background-focused-opacity: 1;
+    --background-hover-opacity: 1;
+    height: 45px;
+    --border-width: 1px;
+    font-weight: normal;
+    text-transform: none;
+    font-size: 16px;
+    font-family: 'Segoe UI';
+}
+body .button.button-block.secondary-button {
+    --background: #FFFEFA;
+    --background-focused: #FFBB00;
+    --background-hover: #FFBB00;
+    --color: #FFBB00;
+    --color-focused: #ffffff;
+}
+/* Button css end */
 
 /* Header css start */
 .main-header {
@@ -77,6 +221,76 @@ button {
 .logo {
     max-width: 150px;
     margin: 0 auto;
+}
+
+/* .inner-main-header ion-toolbar {
+    display: flex;
+    align-items: center;
+} */
+.inner-main-header {
+    padding: 5px 20px;
+    background-color: #fff;
+}
+.apart-logo {
+    display: inline-block;
+}
+.notification-button {
+    margin: 0 0 0 auto;
+    position: relative;
+}
+.notification-button span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    background-color: #FF6363;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 13px;
+    top: 0;
+    left: 20px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+}
+.message-button,
+.account-button {
+    margin: 0 0 0 25px;
+    color: #636161;
+}
+.account-button {
+    margin-left: 10px;
+}
+.message-button ion-icon {
+    font-size: 35px;
+}
+.account-button ion-icon {
+    font-size: 30px;
+}
+.change-property .proerty-name {
+    background-color: #fff6dc;
+    display: inline-block;
+    color: #fb0;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 5px;
+    position: relative;
+    bottom: -7px;
+    font-family: 'Arial';
+    font-weight: bold;
+}
+.change-property .proerty-name:after {
+    content: "";
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid transparent;
+    border-left: 3px solid #636161;
+    position: absolute;
+    bottom: -1px;
+    transform: rotate(45deg);
+    right: 0px;
 }
 /* Header css end */
 
@@ -109,6 +323,7 @@ body .native-input.sc-ion-input-md {
     background-color: #fff;
     height: 45px;
     padding: 5px 15px;
+    font-size: 16px;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #888;
@@ -138,21 +353,6 @@ body .native-input.sc-ion-input-md {
 .back-to-login a:focus {
     color: #FFBB00;
 }
-body .button.button-block {
-    --color: #888;
-    --color-focused: #fff;
-    --color-hover: #fff;
-    --border-color: #888;
-    --background-focused: #FFBB00;
-    --background-hover: #FFBB00;
-    --background-focused-opacity: 1;
-    --background-hover-opacity: 1;
-    height: 45px;
-    --border-width: 1px;
-    font-weight: normal;
-    text-transform: none;
-    font-size: 16px;
-}
 .login-form .sign-up-btn .button.button-block {
     --color: #FFBB00;
     --color-focused: #ffffff;
@@ -165,8 +365,227 @@ body .button.button-block {
 /* Login ppage end */
 
 
+/* Signup page css start */
+.signup-form {
+    flex-direction: column;
+}
+.signup-form ion-list-header {
+    padding: 0;
+    visibility: inherit;
+    font-size: 16px;
+    color: #575757;
+    font-weight: normal;
+    font-size: 18px;
+}
+.user-select-item {
+    --background: #f4f4f4;
+    --border-radius: 10px;
+    --background-hover: #FEFBF2;
+    --background-focused-opacity: 1;
+    --background-activated: #FEFBF2;
+    --background-activated-opacity: 1;
+    --background-focused: #FEFBF2;
+    --highlight-color-focused: #FEFBF2;
+    --background-focused-opacity: 1;
+    --border-color: #ccc;
+    --border-width: 1px;
+    --inner-border-width: 0;
+    --padding-start: 30px;
+    --padding-end: 30px;
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+    --inner-padding-end: 0;
+}
+.user-select-item + .user-select-item {
+    margin-top: 15px;
+}
+.user-select-item:hover,
+.user-select-item:focus,
+.user-select-item.item-radio-checked,
+.user-select-item.ion-activated {
+    --background: #FEFBF2;
+}
+.user-select-item.item .sc-ion-label-md-h {
+    color: #575757;
+    overflow: visible;
+    white-space: normal;
+    font-size: 18px;
+}
+.user-select-item ion-label p {
+    margin: 10px 0 0;
+    font-size: 16px;
+}
+.user-select-item ion-radio {
+    --color-checked: #FFBB00;
+    width: 30px;
+    height: 30px;
+}
+body .signup-form .button {
+    margin-top: 18px;
+}
+
+body .swiper-container-horizontal>.swiper-pagination-bullets {
+    position: relative;
+    bottom: auto;
+    margin-bottom: 30px;
+}
+body .swiper-pagination-bullet {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+}
+body .swiper-pagination-bullet:hover,
+body .swiper-pagination-bullet:focus,
+body .swiper-pagination-bullet-active {
+    background-color: #FFBB00;
+    border-color: #FFBB00;
+}
+body .swiper-slide {
+    text-align: left;
+}
+.swiper-slide .form-lable {
+    color: #575757;
+    font-size: 14px;
+}
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+.signup-form ion-slides {
+    display: flex;
+    flex-direction: column-reverse;
+}
+/* Signup page css end */
+
+/* Management dashboar css start */
+.dashboard-wrapper {
+    background-color: #F9F9F9;
+    --background: #F9F9F9;
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+}
+.dashboard-wrapper ion-grid {
+    height: 100%;
+}
+.dashboard-wrapper ion-grid, 
+.dashboard-wrapper ion-row,
+.dashboard-wrapper .sidebar-menu-list {
+    padding: 0;
+    height: 100%;
+}
+.dashboard-sidebar, 
+.dashboard-posts {
+    background-color: #fff;
+    border-radius: 4px;
+}
+.dashboard-wrapper ion-col {
+    padding: 0 8px;
+}
+.dashboard-sidebar ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --inner-border-width: 0;
+}
+.dashboard-button {
+    height: auto;
+    width: 100%;
+    font-size: 16px;
+    text-transform: none;
+    color: #575757;
+    font-family: 'Segoe UI';
+    font-weight: normal;
+    margin: 0;
+    padding: 15px 0;
+    --background: transparent;
+    --background-hover: transparent;
+    --background-focused-opacity: 1;
+    --background-activated: transparent;
+    --background-activated-opacity: 1;
+    --background-focused: transparent;
+    --highlight-color-focused: transparent;
+    --background-focused-opacity: 1;
+    --border-color: transparent;
+    --border-width: 0;
+    --inner-border-width: 0;
+    --padding-start: 30px;
+    --padding-end: 30px;
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+    --inner-padding-end: 0;
+}
+.dashboard-button .button-inner {
+    display: block;
+}
+.item .dashboard-button .sc-ion-label-md-h {
+    color: #575757;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    letter-spacing: normal;
+    overflow: visible;
+    white-space: normal;
+    text-align: left;
+}
+.item .dashboard-button .sc-ion-label-md-h b {
+    font-weight: normal;
+}
+.dashboard-button ion-avatar {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+    margin-right: 15px;
+}
+.dashboard-wrapper ion-col.dashboard-content {
+    padding: 0 16px;
+    color: #575757;
+    font-family: 'Segoe UI';
+}
+.dashboard-content p {
+    font-size: 15px;
+}
+.property-list {
+    padding: 0;
+}
+.property-list-item {
+    padding: 17px 20px 20px;
+    border: 0.5px solid #7C7C7C;
+    border-radius: 4px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    backdrop-filter: blur(1px);
+    --webkit-backdrop-filter: blur(1px);
+}
+.property-name {
+    font-weight: normal;
+    margin: 0 0 15px;
+}
+.property-address {
+    font-family: 'Segoe UI Semilight';
+    font-weight: 300;
+    margin: 0 0 15px;
+}
+.property-owner {
+    margin: 0;
+    font-weight: normal;
+}
+/* Management dashboar css end */
 
 /* 
+font-family: 'Segoe UI';
+regular: normal
+light: 300
+semibold: 600
+
+font-family: 'Segoe UI Semilight';
+semilight: 300
+
+font-family: 'Arial';
+regular: normal
+light: 300
+medium: 500
+bold: bold
+black: 900
 
 Dark Orange color: #FFBB00;
 Light Orange color: #FFC107;

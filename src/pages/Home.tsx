@@ -1,10 +1,34 @@
-import { IonContent, IonPage, IonIcon, IonInput, IonButton, IonGrid, IonRow, IonCol } from '@ionic/react';
+import { 
+  IonContent, 
+  IonPage, 
+  IonIcon, 
+  IonInput, 
+  IonButton, 
+  IonGrid, 
+  IonRow, 
+  IonCol 
+} from '@ionic/react';
+import { useHistory } from "react-router-dom";
+
+import { FormProvider, useForm } from "react-hook-form";
+import { ErrorMessage } from '@hookform/error-message';
+
 import Header from '../components/Header';
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 
 const Home: React.FC = () => {
+
+  let history = useHistory();
+  const methods = useForm();
+  const { register, handleSubmit, formState: { errors } } = methods;
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+    history.push("/Management-dashboard");
+  };
+
   return (
     <IonPage>
 
@@ -14,43 +38,73 @@ const Home: React.FC = () => {
         <IonGrid className="full-height-div">
           <IonRow className="login-form-row">
             <IonCol size="10" sizeMd="6" sizeLg="4">
-              <form className="login-form">
-                <IonGrid>
-                  <IonRow>
-                      <IonCol size="12" className="email-field">
-                        <IonInput placeholder="Email"/>
-                      </IonCol>
+              <FormProvider {...methods}>
+                <form className="login-form" onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+                  <IonGrid>
+                    <IonRow>
+                        <IonCol size="12" className="email-field">
+                          {/* <IonInput placeholder="Email"/> */}
+                          <IonInput
+                            type="email"
+                            placeholder="Email"
+                            {...register('email', {
+                              required: 'Email is a required',
+                              pattern: {
+                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                              message: 'Invalid email address'
+                              }
+                            })}
+                          />
+                          <ErrorMessage
+                            errors={errors}
+                            name="email"
+                            as={<div className="error-message" style={{ color: 'red' }} />}
+                          />
+                        </IonCol>
 
-                      <IonCol size="12" className="password-field">
-                        <IonInput type="password" placeholder="Password" />
-                      </IonCol>
+                        <IonCol size="12" className="password-field">
+                          {/* <IonInput type="password" placeholder="Password" /> */}
+                          <IonInput 
+                            type="password" 
+                            placeholder="Password"
+                            {...register('password1', {
+                              required: 'Password is required'
+                            })}
+                          />
+                          <ErrorMessage
+                            errors={errors}
+                            name="password1"
+                            as={<div className="error-message" style={{ color: 'red' }} />}
+                          />
+                        </IonCol>
 
-                      <IonCol size="12" className="forget-password ion-text-right">
-                        <a href="/Forget-Password">Forget password?</a>
-                      </IonCol>
+                        <IonCol size="12" className="forget-password ion-text-right">
+                          <a href="/Forget-Password">Forget password?</a>
+                        </IonCol>
 
-                      <IonCol size="6" className="sign-up-btn">
-                        <IonButton href="/Signup" expand="block" shape="round" fill="outline">
-                          Sign Up
-                        </IonButton>
-                      </IonCol>
+                        <IonCol size="6" className="sign-up-btn">
+                          <IonButton href="/Signup" expand="block" shape="round" fill="outline">
+                            Sign Up
+                          </IonButton>
+                        </IonCol>
 
-                      <IonCol size="6" className="login-btn">
-                        <IonButton type="submit" expand="block" shape="round" fill="outline" >
-                          Login
-                        </IonButton>
-                      </IonCol>
+                        <IonCol size="6" className="login-btn">
+                          <IonButton type="submit" expand="block" shape="round" fill="outline" >
+                            Login
+                          </IonButton>
+                        </IonCol>
 
-                      <IonCol size="12" className="gmail-btn">
-                        <IonButton href="#" expand="block" shape="round" fill="outline" >
-                          <IonIcon slot="start" src="/assets/icon/google.svg" />
-                          Login with Gmail
-                        </IonButton>
-                      </IonCol>
+                        <IonCol size="12" className="gmail-btn">
+                          <IonButton href="#" expand="block" shape="round" fill="outline" >
+                            <IonIcon slot="start" src="/assets/images/google.svg" />
+                            Login with Gmail
+                          </IonButton>
+                        </IonCol>
 
-                  </IonRow>
-                </IonGrid>
-              </form>
+                    </IonRow>
+                  </IonGrid>
+                </form>
+              </FormProvider>
             </IonCol>
 
           </IonRow>
