@@ -83,7 +83,7 @@ const Home: React.FC = () => {
                         </IonCol>
 
                         <IonCol size="6" className="sign-up-btn">
-                          <IonButton href="/Signup" expand="block" shape="round" fill="outline">
+                          <IonButton  className="secondary-button" href="/Signup" expand="block" shape="round" fill="outline">
                             Sign Up
                           </IonButton>
                         </IonCol>

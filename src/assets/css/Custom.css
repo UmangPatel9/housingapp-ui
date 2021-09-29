@@ -186,6 +186,7 @@ body .button.button-block {
     --color-focused: #fff;
     --color-hover: #fff;
     --border-color: #888;
+    --background: #fff;
     --background-focused: #FFBB00;
     --background-hover: #FFBB00;
     --background-focused-opacity: 1;
@@ -194,15 +195,15 @@ body .button.button-block {
     --border-width: 1px;
     font-weight: normal;
     text-transform: none;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Segoe UI';
     white-space: normal;
 }
 body .button.button-block.secondary-button {
     --background: #FFFEFA;
-    --background-focused: #FFBB00;
-    --background-hover: #FFBB00;
-    --color: #FFBB00;
+    --background-focused: #FFA800;
+    --background-hover: #FFA800;
+    --color: #FFA800;
     --color-focused: #ffffff;
 }
 body .button.button-block.button-solid {
@@ -231,6 +232,7 @@ body .button.button-block.button-solid.secondary-button {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 /* Button css end */
 
@@ -353,6 +355,9 @@ ion-footer p {
 /* Footer css end */
 
 /* Login ppage start */
+ion-content {
+    --background: #FCFCFC;
+}
 .full-height-div {
     height: 100%;
 }
@@ -376,32 +381,33 @@ ion-footer p {
     margin-top: 15px;
 }
 body .native-input.sc-ion-input-md {
-    border: 1px solid #ccc;
+    border: 1px solid #7C7C7C;
     border-radius: 30px;
     background-color: #fff;
     height: 45px;
     padding: 5px 15px;
     font-size: 16px;
+    font-family: 'Segoe UI';
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #888;
-    font-size: 12px;
+    color: #7C7C7C;
+    font-size: 13px;
   }
 ::-moz-placeholder { /* Firefox 19+ */
-    color: #888;
-    font-size: 12px;
+    color: #7C7C7C;
+    font-size: 13px;
 }
 :-ms-input-placeholder { /* IE 10+ */
-    color: #888;
-    font-size: 12px;
+    color: #7C7C7C;
+    font-size: 13px;
 }
 :-moz-placeholder { /* Firefox 18- */
-    color: #888;
-    font-size: 12px;
+    color: #7C7C7C;
+    font-size: 13px;
 }
 .login-form a,
 .back-to-login a {
-    color: #888;
+    color: #7C7C7C;
     text-decoration: none;
     font-size: 14px;
 }
@@ -411,14 +417,17 @@ body .native-input.sc-ion-input-md {
 .back-to-login a:focus {
     color: #FFBB00;
 }
-.login-form .sign-up-btn .button.button-block {
+/* .login-form .sign-up-btn .button.button-block {
     --color: #FFBB00;
     --color-focused: #ffffff;
     --color-hover: #ffffff;
-}
+} */
 .form-lable {
     margin-bottom: 5px;
     display: block;
+}
+body .gmail-btn .button.button-block ion-icon {
+    margin-right: 20px;
 }
 /* Login ppage end */
 
@@ -427,13 +436,19 @@ body .native-input.sc-ion-input-md {
 .signup-form {
     flex-direction: column;
 }
+.signup-form ion-list {
+    background: transparent;
+}
 .signup-form ion-list-header {
     padding: 0;
     visibility: inherit;
     font-size: 16px;
     color: #575757;
-    font-weight: normal;
-    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Segoe UI Semilight';
+}
+.signup-form ion-list-header ion-label {
+    margin-bottom: 15px;
 }
 .user-select-item {
     --background: #f4f4f4;
@@ -463,15 +478,18 @@ body .native-input.sc-ion-input-md {
 .user-select-item.ion-activated {
     --background: #FEFBF2;
 }
-.user-select-item.item .sc-ion-label-md-h {
+.user-select-item.item ion-label {
     color: #575757;
     overflow: visible;
     white-space: normal;
     font-size: 18px;
+    font-family: 'Segoe UI';
 }
 .user-select-item ion-label p {
     margin: 10px 0 0;
-    font-size: 16px;
+    font-size: 15px;
+    font-family: 'Segoe UI Semilight';
+    font-weight: 300;
 }
 .user-select-item ion-radio {
     --color-checked: #FFBB00;
@@ -645,9 +663,6 @@ body .swiper-slide {
 i.change-property-popup on-backdrop {
     background-color: #fff;
 }
-.change-property-popup .sc-ion-popover-md {
-    cursor: inherit;
-}
 .change-property-popup .popover-content {
     top: 65px !important;
     padding: 30px 15px;
@@ -667,11 +682,29 @@ i.change-property-popup on-backdrop {
     right: 11vw;
     /* box-shadow: 0 0 5px rgb(0 0 0 / 50%); */
 }
+.change-property-popup .popover-viewport {
+    cursor: inherit;
+    height: 100%;
+    overflow: auto;
+}
+body .change-property-popup .button.button-block.button-solid {
+    --padding-start: 15px;
+    --padding-end: 15px;
+}
 .button-solid.manage-property-btn ion-icon {
     font-size: 60px;
 }
 .button-solid.add-property-btn ion-icon {
     font-size: 45px;
+}
+.change-property-popup .button-solid ion-icon {
+    flex: 0 0 45px;
+    max-width: 45px;
+}
+.change-property-popup .button-inner span {
+    flex: 0 0 calc(100% - 60px);
+    max-width: calc(100% - 60px);
+    text-align: left;
 }
 /* Management dashboar css end */
 
