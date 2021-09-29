@@ -1,15 +1,108 @@
+@media (max-width: 991px) {
+
+    /* header css start */
+    .inner-main-header {
+        padding: 5px 16px;
+        background-color: #FFFEFA;
+    }
+    /* header css end */
+
+    /* Management Dashboard css start */
+    .change-property {
+        margin-left: auto;
+        --padding-start: 0;
+        --padding-end: 0;
+    }
+    .dashboard-wrapper {
+        background-color: #fcfcfc;
+        --background: #fcfcfc;
+    }
+    .dashboard-content {
+        order: 1;
+    }
+    .dashboard-sidebar {
+        order: 2;
+        margin-top: 30px;
+        background-color: #fcfcfc;
+    }
+    .dashboard-wrapper ion-col {
+        padding: 0 16px;
+    }
+    .dashboard-wrapper .sidebar-menu-list {
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: space-between; */
+        margin: 0 -17.5px;
+    }
+    .dashboard-sidebar ion-item {
+        flex: 33.33%;
+        max-width: 33.33%;
+        --background: #fff;
+        --border-width: 1px;
+        --border-color: #7c7c7c;
+        --border-radius: 12px;
+        padding: 0 17.5px;
+    }
+    .dashboard-button {
+        padding: 5px 15px;
+        --padding-start: 0;
+        --padding-end: 0;
+        min-height: 108px;
+        display: flex;
+        align-items: center;
+    }
+    .dashboard-button-inner {
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 0;
+    }
+    .dashboard-button ion-avatar {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    .item .dashboard-button .dashboard-button-label {
+        text-align: center;
+    }
+    .change-property-popup .popover-content {
+        top: 70px !important;
+        left: auto !important;
+        right: 19px;
+    }
+    .change-property-popup .popover-arrow {
+        display: none;
+    }
+    .change-property-popup {
+        --width: 50vw;
+    }
+    /* Management Dashboard css close */
+}
+
 @media (max-width: 767px) {
 
+    /* header css start */
     .logo {
         max-width: 36vw;
     }
+    /* header css close */
+
+    /* Management Dashboard css start */
+    .dashboard-sidebar ion-item {
+        flex: 50%;
+        max-width: 50%;
+    }
+    /* Management Dashboard css close */
 }
 
 @media (max-width: 575px) {
+
+    /* header css start */
     .main-header {
         border-radius: 0 0 10px 10px;
         padding: 25px 0;
     }
+    /* header css close */
+
+    /* login css start */
     .login-form .password-field {
         margin-top: 5px;
     }
@@ -23,4 +116,14 @@
     .login-form .gmail-btn {
         margin-top: 5px;
     }
+    /* login css end */
+
+    /* Mmanagement Dashboard css start */
+    .item .dashboard-button .dashboard-button-label {
+        font-size: 13px;
+    }
+    .change-property-popup {
+        --width: 90vw;
+    }
+    /* Mmanagement Dashboard css close */
 }

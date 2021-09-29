@@ -125,7 +125,7 @@ html {
 	scroll-behavior: smooth;
 }
 
-body,
+:host,
 ion-app,
 ion-app.ion-page {
 	font-size: 16px;
@@ -134,6 +134,11 @@ ion-app.ion-page {
     font-family: 'Segoe UI';
 	font-weight: normal;
 	text-align: left;
+}
+
+ion-content {
+    --color: #575757;
+    font-family: 'Segoe UI';
 }
 
 img {
@@ -191,6 +196,7 @@ body .button.button-block {
     text-transform: none;
     font-size: 16px;
     font-family: 'Segoe UI';
+    white-space: normal;
 }
 body .button.button-block.secondary-button {
     --background: #FFFEFA;
@@ -198,6 +204,33 @@ body .button.button-block.secondary-button {
     --background-hover: #FFBB00;
     --color: #FFBB00;
     --color-focused: #ffffff;
+}
+body .button.button-block.button-solid {
+    --color: #fff;
+    --color-focused: #FFBB00;
+    --color-hover: #FFBB00;
+    --border-width: 0;
+    --background: #FFBB00;
+    --background-focused: #fff6dc;
+    --background-hover: #fff6dc;
+}
+body .button.button-block.button-solid.secondary-button {
+    --color: #fff;
+    --color-focused: #FFBB00;
+    --color-hover: #FFBB00;
+    --border-width: 0;
+    --background: #2B89E0;
+    --background-focused: #fff6dc;
+    --background-hover: #fff6dc;
+}
+.button-solid ion-icon {
+    font-size: 35px;
+    margin-right: 10px;
+}
+.button-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* Button css end */
 
@@ -230,6 +263,9 @@ body .button.button-block.secondary-button {
 .inner-main-header {
     padding: 5px 20px;
     background-color: #fff;
+}
+.inner-main-header ion-row {
+    align-items: center;
 }
 .apart-logo {
     display: inline-block;
@@ -293,6 +329,28 @@ body .button.button-block.secondary-button {
     right: 0px;
 }
 /* Header css end */
+
+/* Footer css start */
+ion-footer {
+    background-color: #fff;
+    padding: 20px 0 10px;
+}
+ion-footer ion-list {
+    display: flex;
+    justify-content: center;
+}
+ion-footer ion-list ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --inner-border-width: 0;
+    padding: 0 25px;
+}
+ion-footer ion-list ion-item a,
+ion-footer p {
+    color: #575757;
+    font-size: 15px;
+}
+/* Footer css end */
 
 /* Login ppage start */
 .full-height-div {
@@ -467,14 +525,14 @@ body .swiper-slide {
     --padding-top: 15px;
     --padding-bottom: 15px;
 }
-.dashboard-wrapper ion-grid {
-    height: 100%;
-}
-.dashboard-wrapper ion-grid, 
-.dashboard-wrapper ion-row,
-.dashboard-wrapper .sidebar-menu-list {
+.dashboard-wrapper .dashboard-main-grid {
     padding: 0;
+    min-height: 600px;
+}
+.dashboard-wrapper .dashboard-main-row,
+.dashboard-wrapper .sidebar-menu-list { 
     height: 100%;
+    background: inherit;
 }
 .dashboard-sidebar, 
 .dashboard-posts {
@@ -488,6 +546,13 @@ body .swiper-slide {
     --padding-start: 0;
     --inner-padding-end: 0;
     --inner-border-width: 0;
+    --background: #fff;
+    --background-activated: #FFF6DC;
+    --background-focused: #FFF6DC;
+    --background-hover: #FFF6DC;
+    --background-activated-opacity: 1;
+    --background-focused-opacity: 1;
+    --background-hover-opacity: 1;
 }
 .dashboard-button {
     height: auto;
@@ -498,7 +563,7 @@ body .swiper-slide {
     font-family: 'Segoe UI';
     font-weight: normal;
     margin: 0;
-    padding: 15px 0;
+    padding: 10px 0;
     --background: transparent;
     --background-hover: transparent;
     --background-focused-opacity: 1;
@@ -516,10 +581,13 @@ body .swiper-slide {
     --padding-bottom: 5px;
     --inner-padding-end: 0;
 }
-.dashboard-button .button-inner {
-    display: block;
+.dashboard-button-inner {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    margin-right: auto;
 }
-.item .dashboard-button .sc-ion-label-md-h {
+.item .dashboard-button .dashboard-button-label {
     color: #575757;
     font-family: 'Segoe UI';
     font-weight: 300;
@@ -528,7 +596,7 @@ body .swiper-slide {
     white-space: normal;
     text-align: left;
 }
-.item .dashboard-button .sc-ion-label-md-h b {
+.item .dashboard-button .dashboard-button-label b {
     font-weight: normal;
 }
 .dashboard-button ion-avatar {
@@ -553,8 +621,8 @@ body .swiper-slide {
     border: 0.5px solid #7C7C7C;
     border-radius: 4px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    backdrop-filter: blur(1px);
-    --webkit-backdrop-filter: blur(1px);
+    /* backdrop-filter: blur(1px);
+    --webkit-backdrop-filter: blur(1px); */
 }
 .property-name {
     font-weight: normal;
@@ -568,6 +636,42 @@ body .swiper-slide {
 .property-owner {
     margin: 0;
     font-weight: normal;
+}
+
+.change-property-popup {
+    --width: 30vw;
+    --backdrop-opacity: 0.8;
+}
+i.change-property-popup on-backdrop {
+    background-color: #fff;
+}
+.change-property-popup .sc-ion-popover-md {
+    cursor: inherit;
+}
+.change-property-popup .popover-content {
+    top: 65px !important;
+    padding: 30px 15px;
+    overflow: visible;
+    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+}
+.change-property-popup .popover-content:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-bottom: 18px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    display: inline-block;
+    bottom: 100%;
+    right: 11vw;
+    /* box-shadow: 0 0 5px rgb(0 0 0 / 50%); */
+}
+.button-solid.manage-property-btn ion-icon {
+    font-size: 60px;
+}
+.button-solid.add-property-btn ion-icon {
+    font-size: 45px;
 }
 /* Management dashboar css end */
 
