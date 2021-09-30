@@ -18,7 +18,6 @@ import { ErrorMessage } from '@hookform/error-message';
 
 import Header from '../components/Header';
 
-import 'swiper/swiper-bundle.min.css';
 import '@ionic/react/css/ionic-swiper.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
