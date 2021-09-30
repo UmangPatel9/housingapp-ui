@@ -105,6 +105,8 @@
     /* login css start */
     body .button.button-block {
         font-size: 16px;
+        --padding-start: 15px;
+        --padding-end: 15px;
     }
     .login-form .password-field {
         margin-top: 5px;
@@ -114,12 +116,25 @@
     }
     .login-form .sign-up-btn,
     .login-form .login-btn {
-        margin-top: 10px;
+        margin-top: 22px;
     }
     .login-form .gmail-btn {
-        margin-top: 5px;
+        margin-top: 12px;
     }
     /* login css end */
+
+    /* signup css start */
+    .user-select-item {
+        --padding-start: 20px;
+        --padding-end: 20px;
+    }
+    .user-select-item ion-label p {
+        max-width: 214px;
+    }
+    .signup-form ion-radio-group ion-item {
+        --min-height: 105px;
+    }
+    /* signup css end */
 
     /* Mmanagement Dashboard css start */
     .item .dashboard-button .dashboard-button-label {

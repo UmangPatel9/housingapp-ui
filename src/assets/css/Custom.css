@@ -191,7 +191,7 @@ body .button.button-block {
     --background-hover: #FFBB00;
     --background-focused-opacity: 1;
     --background-hover-opacity: 1;
-    height: 45px;
+    height: 48px;
     --border-width: 1px;
     font-weight: normal;
     text-transform: none;
@@ -384,8 +384,8 @@ body .native-input.sc-ion-input-md {
     border: 1px solid #7C7C7C;
     border-radius: 30px;
     background-color: #fff;
-    height: 45px;
-    padding: 5px 15px;
+    height: 48px;
+    padding: 5px 20px;
     font-size: 16px;
     font-family: 'Segoe UI';
 }
@@ -490,6 +490,7 @@ body .gmail-btn .button.button-block ion-icon {
     font-size: 15px;
     font-family: 'Segoe UI Semilight';
     font-weight: 300;
+    color: #575757;
 }
 .user-select-item ion-radio {
     --color-checked: #FFBB00;

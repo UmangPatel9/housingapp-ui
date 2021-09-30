@@ -76,6 +76,7 @@ const ManagementSignup: React.FC = () => {
                                        <IonCol size="12" className="email-field">
                                           <IonLabel className="form-lable">Email*</IonLabel>
                                           <IonInput
+                                             mode="md"
                                              type="email"
                                              {...register('email', {
                                                 required: 'Email is a required field',
@@ -85,7 +86,6 @@ const ManagementSignup: React.FC = () => {
                                                 }
                                              })}
                                           />
-                                          {/* {errors.email && <span className="error-message">Email Is Required.</span>} */}
                                           <ErrorMessage
                                              errors={errors}
                                              name="email"
@@ -96,12 +96,12 @@ const ManagementSignup: React.FC = () => {
                                        <IonCol size="12" className="password-field">
                                           <IonLabel className="form-lable">Password*</IonLabel>
                                           <IonInput 
+                                             mode="md"
                                              type="password" 
                                              {...register('password1', {
                                                 required: 'Password Is Required'
                                              })}
                                           />
-                                          {/* {errors.password1 && <span className="error-message">Please enter password.</span>} */}
                                           <ErrorMessage
                                              errors={errors}
                                              name="password1"
@@ -112,6 +112,7 @@ const ManagementSignup: React.FC = () => {
                                        <IonCol size="12" className="forget-password">
                                           <IonLabel className="form-lable">Confirm Password*</IonLabel>
                                           <IonInput 
+                                             mode="md"
                                              type="password" 
                                              {...register('password2', {
                                                 // required: true,
@@ -124,8 +125,6 @@ const ManagementSignup: React.FC = () => {
                                                 },
                                              })}
                                           />
-                                          {/* {errors.password2 && <span className="error-message">Please confirm password.</span>} */
-                                          }
                                           <ErrorMessage
                                              errors={errors}
                                              name="password2"
@@ -150,6 +149,7 @@ const ManagementSignup: React.FC = () => {
                                        <IonCol size="12" className="email-field">
                                           <IonLabel className="form-lable">First Name*</IonLabel>
                                           <IonInput
+                                             mode="md"
                                              type="text"   
                                              {...register('firstName', {
                                                 required: 'First name is a required field'
@@ -165,6 +165,7 @@ const ManagementSignup: React.FC = () => {
                                        <IonCol size="12" className="email-field">
                                           <IonLabel className="form-lable">Last Name*</IonLabel>
                                           <IonInput
+                                             mode="md"
                                              type="text" 
                                              {...register('lastName', {
                                                 required: 'Last name is a required field'
@@ -179,11 +180,8 @@ const ManagementSignup: React.FC = () => {
 
                                        <IonCol size="12" className="email-field">
                                           <IonLabel className="form-lable">Telephone:</IonLabel>
-                                          {/* <IonInput 
-                                             name="telephone" 
-                                             type="number"
-                                          ></IonInput> */}
                                           <IonInput
+                                             mode="md"
                                              type="number" 
                                              {...register('telephone', {
                                                 minLength: 6, maxLength: 12,

@@ -53,10 +53,10 @@ const Signup: React.FC = () => {
                     <IonCol size="10" sizeMd="6" sizeLg="6">
                         {/* <p>What are you registering as?</p> */}
                         <IonList>
-                          <IonRadioGroup onIonChange={inputChangeHandler}>
+                          <IonRadioGroup value="tenant" onIonChange={inputChangeHandler}>
                             <IonListHeader>
                               <IonLabel>
-                              What are you registering as?
+                                What are you registering as?
                               </IonLabel>
                             </IonListHeader>
 
@@ -65,9 +65,7 @@ const Signup: React.FC = () => {
                                 Tenant
                                 <p>I am (or plan on) renting an apartment, condos or houses.</p>
                               </IonLabel>
-                              <IonRadio 
-                                value="tenant"
-                              />
+                              <IonRadio mode="md" value="tenant" />
                             </IonItem>
 
                             <IonItem className="user-select-item">
@@ -75,7 +73,7 @@ const Signup: React.FC = () => {
                                 Management
                                 <p>I am plan to add and manage properties or apartments to rent.</p>
                               </IonLabel>
-                              <IonRadio value="management" />
+                              <IonRadio mode="md" value="management" />
                             </IonItem>
 
                             <IonItem className="user-select-item">
@@ -83,7 +81,7 @@ const Signup: React.FC = () => {
                                 Staff
                                 <p>I am staff member for a property.</p>
                               </IonLabel>
-                              <IonRadio value="staff" />
+                              <IonRadio mode="md" value="staff" />
                               
                             </IonItem>
 

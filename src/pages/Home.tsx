@@ -45,6 +45,7 @@ const Home: React.FC = () => {
                         <IonCol size="12" className="email-field">
                           {/* <IonInput placeholder="Email"/> */}
                           <IonInput
+                            mode="md"
                             type="email"
                             placeholder="Email"
                             {...register('email', {
@@ -65,6 +66,7 @@ const Home: React.FC = () => {
                         <IonCol size="12" className="password-field">
                           {/* <IonInput type="password" placeholder="Password" /> */}
                           <IonInput 
+                            mode="md"
                             type="password" 
                             placeholder="Password"
                             {...register('password1', {
