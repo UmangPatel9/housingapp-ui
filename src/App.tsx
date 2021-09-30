@@ -6,10 +6,10 @@ import Home from './pages/Home';
 import ForgetPassword from './pages/Forget-Password';
 import ResetPassword from './pages/Reset-Password';
 import Signup from './pages/Signup';
-import ManagementSignup from './pages/Management-signup';
 import StaffSignup from './pages/Staff-signup';
 import TenantSignup from './pages/Tenant-signup';
 import ManagementDashboard from './pages/Management-dashboard';
+import ManagementSignup from './pages/Management-signup';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -40,25 +40,25 @@ const App: React.FC = () => (
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
-        <Route exact path="/Forget-Password">
+        <Route exact path="/forget-password">
           <ForgetPassword />
         </Route>
-        <Route exact path="/Reset-Password">
+        <Route exact path="/reset-password">
           <ResetPassword />
         </Route>
-        <Route exact path="/Signup">
+        <Route exact path="/signup">
           <Signup />
         </Route>
-        <Route exact path="/Management-signup">
+        <Route exact path="/management-signup">
           <ManagementSignup />
         </Route>
-        <Route exact path="/Staff-signup">
+        <Route exact path="/staff-signup">
           <StaffSignup />
         </Route>
-        <Route exact path="/Tenant-signup">
+        <Route exact path="/tenant-signup">
           <TenantSignup />
         </Route>
-        <Route exact path="/Management-dashboard">
+        <Route exact path="/management-dashboard">
           <ManagementDashboard />
         </Route>
       </IonRouterOutlet>

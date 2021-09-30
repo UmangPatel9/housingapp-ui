@@ -189,8 +189,10 @@ body .button.button-block {
     --background: #fff;
     --background-focused: #FFBB00;
     --background-hover: #FFBB00;
+    --background-activated: #FFBB00;
     --background-focused-opacity: 1;
     --background-hover-opacity: 1;
+    --background-activated-opacity: 1;
     height: 48px;
     --border-width: 1px;
     font-weight: normal;
@@ -303,7 +305,7 @@ body .button.button-block.button-solid.secondary-button {
     font-size: 35px;
 }
 .account-button ion-icon {
-    font-size: 30px;
+    font-size: 38px;
 }
 .change-property .proerty-name {
     background-color: #fff6dc;
@@ -388,6 +390,9 @@ body .native-input.sc-ion-input-md {
     padding: 5px 20px;
     font-size: 16px;
     font-family: 'Segoe UI';
+    --placeholder-color: #7C7C7C;
+    --placeholder-font-weight: 300;
+    --placeholder-opacity: 1;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #7C7C7C;
@@ -636,12 +641,20 @@ body .swiper-slide {
     padding: 0;
 }
 .property-list-item {
-    padding: 17px 20px 20px;
-    border: 0.5px solid #7C7C7C;
+    position: relative;
+    background-image: url('../images/dark-border-new.png');
+    background-size: 100% 105%;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.property-list-item-content {
+    background-color: rgba(255,255,255,0.95);
+    border: 1px solid #7C7C7C;
     border-radius: 4px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    /* backdrop-filter: blur(1px);
-    --webkit-backdrop-filter: blur(1px); */
+    padding: 17px 20px 20px;
+    backdrop-filter: blur(1px);
+    --webkit-backdrop-filter: blur(1px);
 }
 .property-name {
     font-weight: normal;

@@ -20,7 +20,7 @@ import {
     IonRadio
 } from '@ionic/react';
 
-import { mailOutline, personOutline, createOutline, addOutline } from "ionicons/icons";
+import { createOutline, addOutline } from "ionicons/icons";
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
@@ -70,12 +70,12 @@ const HeaderMain: React.FC = () => {
                     </IonButton>
 
                     <IonButton className="message-button ion-hide-lg-down" fill="clear" href="#">
-                        <IonIcon slot="icon-only" icon={mailOutline} />
+                        <IonIcon slot="icon-only" src="/assets/images/mail_outline_black_24dp.svg" />
                         {/* <span className="notification-count">4</span> */}
                     </IonButton>
 
                     <IonButton className="account-button ion-hide-lg-down" fill="clear" href="#">
-                        <IonIcon slot="icon-only" icon={personOutline} />
+                        <IonIcon slot="icon-only" src="/assets/images/ios-person.svg"/>
                     </IonButton>
                     
                     <IonPopover

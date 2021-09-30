@@ -100,10 +100,12 @@ import {
 
                         <IonList className="property-list">
                             <div  className="property-list-item">
-                                <h4 className="property-name">BL1 - Belvedaire 1</h4>
-                                <p className="property-address">2030 Maisonneuve Ouest , Maisonneuve ouest</p>
-                                <div className="property-item-footer">
-                                    <p className="property-owner">Concierge: Jean Francois G.</p>
+                                <div  className="property-list-item-content">
+                                    <h4 className="property-name">BL1 - Belvedaire 1</h4>
+                                    <p className="property-address">2030 Maisonneuve Ouest , Maisonneuve ouest</p>
+                                    <div className="property-item-footer">
+                                        <p className="property-owner">Concierge: Jean Francois G.</p>
+                                    </div>
                                 </div>
                             </div>
                         </IonList>
