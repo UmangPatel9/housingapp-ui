@@ -236,6 +236,24 @@ body .button.button-block.button-solid.secondary-button {
     justify-content: center;
     flex-wrap: wrap;
 }
+body .button.button-clear {
+    font-size: 16px;
+    text-transform: none;
+    color: #575757;
+    font-family: 'Segoe UI';
+    font-weight: normal;
+    --background: transparent;
+    --background-hover: transparent;
+    --background-focused-opacity: 1;
+    --background-activated: transparent;
+    --background-activated-opacity: 1;
+    --background-focused: transparent;
+    --highlight-color-focused: transparent;
+    --background-focused-opacity: 1;
+    --border-color: transparent;
+    --border-width: 0;
+    --inner-border-width: 0;
+}
 /* Button css end */
 
 /* Header css start */
@@ -268,13 +286,24 @@ body .button.button-block.button-solid.secondary-button {
     padding: 5px 20px;
     background-color: #fff;
 }
+.inner-main-header::after {
+    left: 0;
+    bottom: -5px;
+    background-position: left 0 top -2px;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHBAMAAADzDtBxAAAAD1BMVEUAAAAAAAAAAAAAAAAAAABPDueNAAAABXRSTlMUCS0gBIh/TXEAAAAaSURBVAjXYxCEAgY4UIICBmMogMsgFLtAAQCNSwXZKOdPxgAAAABJRU5ErkJggg==);
+    background-repeat: repeat-x;
+    content: "";
+}
 .inner-main-header ion-row {
     align-items: center;
 }
 .apart-logo {
     display: inline-block;
 }
-.notification-button {
+body .button.notification-button {
     margin: 0 0 0 auto;
     position: relative;
 }
@@ -302,7 +331,7 @@ body .button.button-block.button-solid.secondary-button {
     margin-left: 10px;
 }
 .message-button ion-icon {
-    font-size: 35px;
+    font-size: 42px;
 }
 .account-button ion-icon {
     font-size: 38px;
@@ -652,7 +681,7 @@ body .swiper-slide {
     background-color: rgba(255,255,255,0.95);
     border: 1px solid #7C7C7C;
     border-radius: 4px;
-    padding: 17px 20px 20px;
+    padding: 17px 20px 10px;
     backdrop-filter: blur(1px);
     --webkit-backdrop-filter: blur(1px);
 }
@@ -704,6 +733,7 @@ i.change-property-popup on-backdrop {
 body .change-property-popup .button.button-block.button-solid {
     --padding-start: 15px;
     --padding-end: 15px;
+    font-size: 12px;
 }
 .button-solid.manage-property-btn ion-icon {
     font-size: 60px;
@@ -719,6 +749,22 @@ body .change-property-popup .button.button-block.button-solid {
     flex: 0 0 calc(100% - 60px);
     max-width: calc(100% - 60px);
     text-align: left;
+}
+.property-item-footer {
+    display: flex;
+    justify-content: space-between;
+}   
+body .change-property-button.button {
+    font-size: 14px;
+    color: #FFBB00;
+    font-weight: 600;
+    height: auto;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.change-property-button ion-icon {
+    font-size: 25px;
+    margin-left: 8px;
 }
 /* Management dashboar css end */
 

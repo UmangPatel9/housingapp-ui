@@ -42,11 +42,11 @@ const HeaderMain: React.FC = () => {
                 <IonRow className="">
 
                     <IonButtons slot="start">
-                        <IonBackButton icon="assets/images/back-arrow.svg" />
+                        <IonBackButton icon="assets/images/back-arrow.svg" text="back" defaultHref="/" />
                     </IonButtons>
 
                     <div className="apart-logo">
-                        <a href="/Home">
+                        <a href="/">
                             <IonImg className="logo" src="assets/images/aparto-logo.svg" />
                         </a>
                     </div>

@@ -45,7 +45,8 @@ const ResetPassword: React.FC = () => {
                                  <IonCol size="12" className="ion-margin-top">
                                     <IonLabel className="form-lable">Enter new password:</IonLabel>
                                     {/* <IonInput type="password" placeholder="Password" /> */}
-                                    <IonInput 
+                                    <IonInput
+                                       mode="md" 
                                        type="password" 
                                        {...register('password1', {
                                           required: 'Password Is Required'
@@ -62,6 +63,7 @@ const ResetPassword: React.FC = () => {
                                     <IonLabel className="form-lable">Cofnirm new password:</IonLabel>
                                     {/* <IonInput type="password" placeholder="Password" /> */}
                                     <IonInput 
+                                       mode="md"
                                        type="password" 
                                        {...register('password2', {
                                           // required: true,

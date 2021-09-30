@@ -9,7 +9,8 @@ import {
     IonCol, 
     IonList,
     IonItem,
-    IonAvatar 
+    IonAvatar,
+    IonIcon 
   } from '@ionic/react';
   
   import HeaderMain from '../components/Header-main';
@@ -105,6 +106,10 @@ import {
                                     <p className="property-address">2030 Maisonneuve Ouest , Maisonneuve ouest</p>
                                     <div className="property-item-footer">
                                         <p className="property-owner">Concierge: Jean Francois G.</p>
+                                        <IonButton className="change-property-button" fill="clear" href="#">
+                                            <span>Change</span>
+                                            <IonIcon src="/assets/images/exchange-icon.svg" />
+                                        </IonButton>
                                     </div>
                                 </div>
                             </div>

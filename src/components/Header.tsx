@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     return (
         <IonHeader className="main-header">
             <div className="main-logo">
-                <a href="/Home">
+                <a href="/">
                     <IonImg className="logo" src="assets/images/logo.svg" />
                 </a>
             </div>

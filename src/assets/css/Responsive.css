@@ -74,6 +74,9 @@
     .change-property-popup {
         --width: 50vw;
     }
+    .property-list-item {
+        background-size: cover;
+    }
     /* Management Dashboard css close */
 }
 
@@ -91,6 +94,18 @@
         max-width: 50%;
     }
     /* Management Dashboard css close */
+}
+
+@media (max-width: 767px) and (orientation : landscape)  {
+
+    /* header css start */
+    .main-header {
+        padding: 15px 0;
+    }
+    .logo {
+        max-width: 100px;
+    }
+    /* header css close */
 }
 
 @media (max-width: 575px) {
@@ -142,6 +157,9 @@
     }
     .change-property-popup {
         --width: 90vw;
+    }
+    body .change-property-button.button {
+        margin-top: 25px;
     }
     /* Mmanagement Dashboard css close */
 }

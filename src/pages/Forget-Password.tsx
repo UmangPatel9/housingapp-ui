@@ -43,6 +43,7 @@ const ForgetPassword: React.FC = () => {
                               <IonLabel className="form-lable ion-margin-top" >Email Address:</IonLabel>
                               {/* <IonInput className="ion-margin-top" placeholder="Email"/> */}
                               <IonInput
+                                 mode="md"
                                  type="email"
                                  // placeholder="Email"
                                  {...register('email', {
