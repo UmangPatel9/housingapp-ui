@@ -10,14 +10,10 @@ import {
     IonButton,
     IonPopover,
     IonIcon,
-    IonList,
-    IonRadioGroup,
-    IonItem,
-    IonLabel,
-    IonRadio
+    useIonPopover,
 } from '@ionic/react';
 
-import { createOutline, addOutline } from "ionicons/icons";
+import ChangePropertyPopover from './Change-Property-Popup';
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
@@ -25,13 +21,10 @@ import '../assets/css/Responsive.css';
 const HeaderMain: React.FC = () => {
     
     let history = useHistory();
-    const [popoverState, setShowPopover] = useState({ showPopover: false, event: undefined });
+    
+    const [popoverState, setShowPopover] = useState<{showPopover: boolean, event: Event | undefined}>({ showPopover: false, event: undefined });
 
-    const [changePropertypopoverState, setShowchangePropertyPopover] = useState({ showPopover: false, event: undefined });
-
-    const inputChangeHandler = (event: CustomEvent) => {
-
-    };
+    const [present, dismiss] = useIonPopover(ChangePropertyPopover, { onHide: () => dismiss() });
 
     const pageBack = () => {
       history.goBack();
@@ -63,9 +56,9 @@ const HeaderMain: React.FC = () => {
                         <p>This is popover content</p>
                     </IonPopover>
                     <IonButton className="notification-button ion-hide-lg-down" fill="clear" onClick={
-                        (e: any) => {
-                        e.persist();
-                        setShowPopover({ showPopover: true, event: e })
+                        (e) => {
+                        // e.persist();
+                        setShowPopover({ showPopover: true, event: e.nativeEvent })
                         }}
                     >
                         <IonIcon slot="icon-only" src="/assets/images/bell-icon.svg" />
@@ -80,82 +73,16 @@ const HeaderMain: React.FC = () => {
                     <IonButton className="account-button ion-hide-lg-down" fill="clear" href="#">
                         <IonIcon slot="icon-only" src="/assets/images/ios-person.svg"/>
                     </IonButton>
-                    
-                    <IonPopover
-                        cssClass='change-property-popup'
-                        event={changePropertypopoverState.event}
-                        isOpen={changePropertypopoverState.showPopover}
-                        onDidDismiss={() => setShowchangePropertyPopover({ showPopover: false, event: undefined })}
-                    >
-                        <p>Select a propeprty...</p>
-                        <IonList>
-                          <IonRadioGroup onIonChange={inputChangeHandler}>
 
-                            <IonItem className="user-select-item">
-                              <IonLabel>
-                                BL1 - Belvedaire 1
-                                <p>10 Maisonneuve, Montreal</p>
-                              </IonLabel>
-                              <IonRadio 
-                                value="BL1"
-                              />
-                            </IonItem>
-
-                            <IonItem className="user-select-item">
-                              <IonLabel>
-                                4MS - 400 Maisonneuve
-                                <p>400 Maisonneuve, Montreal</p>
-                              </IonLabel>
-                              <IonRadio value="4MS" />
-                            </IonItem>
-
-                            <IonItem className="user-select-item">
-                              <IonLabel>
-                                BL2 - Belvedaire 2
-                                <p>20 Maisonneuve, Montreal</p>
-                              </IonLabel>
-                              <IonRadio value="BL2" />
-                            </IonItem>
-
-                            <IonItem className="user-select-item">
-                              <IonLabel>
-                                1BR - 100 Berri
-                                <p>400 Maisonneuve, Montreal</p>
-                              </IonLabel>
-                              <IonRadio value="1BR" />
-                            </IonItem>
-
-                          </IonRadioGroup>
-                        </IonList>
-                        <IonGrid>
-                          <IonRow>
-                            <IonCol size="6" className="login-btn">
-                              <IonButton className="manage-property-btn" href="#" expand="block" shape="round" fill="solid" >
-                                <div className="button-inner">
-                                  <IonIcon icon={createOutline} />
-                                  <span>Manage List of Properties</span>
-                                </div>
-                              </IonButton>
-                            </IonCol>
-                            <IonCol size="6" className="login-btn">
-                              <IonButton className="add-property-btn secondary-button" href="#" expand="block" shape="round" fill="solid">
-                                <div className="button-inner">
-                                  <IonIcon icon={addOutline} />
-                                  <span>Add a Property</span>
-                                </div>
-                              </IonButton>
-                            </IonCol>
-                          </IonRow>
-                        </IonGrid>
-                    </IonPopover>
                     <IonButton 
                         className="change-property" 
                         fill="clear" 
-                        onClick={
-                            (e: any) => {
-                            e.persist();
-                            setShowchangePropertyPopover({ showPopover: true, event: e })
-                        }}
+                        onClick={(e) =>
+                          present({
+                            event: e.nativeEvent,
+                            cssClass: 'change-property-popup'
+                          })
+                        }
                     >
                         <IonIcon slot="icon-only" src="/assets/images/icon-home.svg" />
                         <div className="proerty-name">BL1 <span className="ion-hide-lg-down">- Belvedaire 1</span></div>

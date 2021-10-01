@@ -29,6 +29,37 @@
     }
     /* header css end */
 
+    /* footer css start */
+    ion-footer {
+        background-color: #EFEFEF;
+        padding: 5px 0;
+    }
+    body ion-footer .button.button-clear {
+        height: 100%;
+        margin: 0;
+    }
+    .footer-bottom-col {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .footer-notification-button ion-icon {
+        font-size: 25px;
+    }
+    .footer-home-button ion-icon {
+        font-size: 25px;
+    }
+    .footer-message-button ion-icon {
+        font-size: 30px;
+        position: relative;
+        top: 3px;
+    }
+    .footer-menu-button ion-icon {
+        font-size: 40px;
+        position: relative;
+        top: 5px;
+    }
+    /* footer css end */
+
     /* Management Dashboard css start */
     .dashboard-wrapper {
         background-color: #fcfcfc;
@@ -60,7 +91,7 @@
         --border-radius: 12px;
         padding: 0 17.5px;
     }
-    .dashboard-button {
+    body .button.dashboard-button {
         padding: 5px 15px;
         --padding-start: 0;
         --padding-end: 0;
@@ -97,6 +128,7 @@
     /* Management Dashboard css close */
 }
 
+
 @media (max-width: 767px) {
 
     /* header css start */
@@ -113,6 +145,7 @@
     /* Management Dashboard css close */
 }
 
+
 @media (max-width: 767px) and (orientation : landscape)  {
 
     /* header css start */
@@ -124,6 +157,7 @@
     }
     /* header css close */
 }
+
 
 @media (max-width: 575px) {
 
@@ -168,7 +202,7 @@
     }
     /* signup css end */
 
-    /* Mmanagement Dashboard css start */
+    /* Management Dashboard css start */
     .item .dashboard-button .dashboard-button-label {
         font-size: 13px;
     }
@@ -178,5 +212,36 @@
     body .change-property-button.button {
         margin-top: 25px;
     }
-    /* Mmanagement Dashboard css close */
+    body .change-property-popup .button.button-block.button-solid {
+        font-size: 12px;
+    }
+    
+.property-fab-button ion-fab-button {
+    width: 40px;
+    height: 40px;
+}
+.property-fab-button ion-fab-button ion-icon {
+    font-size: 28px;
+}
+    /* Management Dashboard css close */
+}
+
+@media (max-width: 320px) {
+
+    /* footer css start */
+    .change-property-popup .button-solid ion-icon {
+        flex: 0 0 30px;
+        max-width: 30px;
+        margin-right: 3px;
+    }
+    /* footer css end */
+
+    /* Management Dashboard css start */
+    .change-property-popup-wrapper .user-select-item.item ion-label {
+        font-size: 16px;
+    }
+    .change-property-popup-wrapper .user-select-item ion-label p {
+        font-size: 14px;
+    }
+    /* Management Dashboard css end */
 }

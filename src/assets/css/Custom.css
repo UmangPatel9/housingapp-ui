@@ -234,7 +234,7 @@ body .button.button-block.button-solid.secondary-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 body .button.button-clear {
     font-size: 16px;
@@ -321,6 +321,7 @@ body .button.notification-button {
     align-items: center;
     justify-content: center;
     font-weight: 300;
+    pointer-events: none;
 }
 .message-button,
 .account-button {
@@ -612,7 +613,7 @@ body .swiper-slide {
     --background-focused-opacity: 1;
     --background-hover-opacity: 1;
 }
-.dashboard-button {
+body .button.dashboard-button {
     height: auto;
     width: 100%;
     font-size: 16px;
@@ -706,16 +707,16 @@ body .swiper-slide {
 
 .change-property-popup {
     --width: 30vw;
-    --backdrop-opacity: 0.8;
 }
-i.change-property-popup on-backdrop {
-    background-color: #fff;
+.change-property-popup ion-backdrop {
+    cursor: inherit;
 }
 .change-property-popup .popover-content {
     top: 65px !important;
     padding: 30px 15px;
     overflow: visible;
     box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+    background-color: #fff;
 }
 .change-property-popup .popover-content:before {
     content: "";
@@ -733,26 +734,40 @@ i.change-property-popup on-backdrop {
 .change-property-popup .popover-viewport {
     cursor: inherit;
     height: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.change-property-popup-wrapper {
+    padding: 0;
+}
+body .change-property-popup ion-row {
+    margin: 0 -10px;
+}
+.change-property-popup-wrapper p {
+    margin-top: 0;
+}
+.change-property-popup-wrapper ion-list {
+    padding-top: 0;
 }
 body .change-property-popup .button.button-block.button-solid {
     --padding-start: 15px;
     --padding-end: 15px;
-    font-size: 12px;
+    font-size: 14px;
 }
 .button-solid.manage-property-btn ion-icon {
-    font-size: 60px;
+    font-size: 35px;
 }
 .button-solid.add-property-btn ion-icon {
     font-size: 45px;
 }
 .change-property-popup .button-solid ion-icon {
-    flex: 0 0 45px;
-    max-width: 45px;
+    flex: 0 0 35px;
+    max-width: 35px;
+    margin-right: 5px;
 }
 .change-property-popup .button-inner span {
-    flex: 0 0 calc(100% - 60px);
-    max-width: calc(100% - 60px);
+    /* flex: 0 0 calc(100% - 60px);
+    max-width: calc(100% - 60px); */
     text-align: left;
 }
 .property-item-footer {
@@ -772,6 +787,109 @@ body .change-property-button.button {
     margin-left: 8px;
 }
 /* Management dashboar css end */
+
+
+/* Manage property page css start */
+.manage-property-wrapper {
+    padding: 15px;
+}
+body .manage-property-more-menu {
+    --width: 125px;
+    --backdrop-opacity: 0;
+}
+.manage-property-wrapper ion-list {
+    background-color: transparent;
+}
+.manage-property-more-menu .popover-content,
+.property-fab-button .popover-content {
+    border-radius: 15px;
+}
+body .button.manage-property-more-menu-button {
+    --padding-start: 0;
+    --padding-end: 0;
+}
+.manage-property-more-menu-button ion-icon {
+    color: #c0c0c0;
+}
+.manage-property-more-menu ion-list,
+.property-fab-button  ion-list {
+    padding: 0;
+}
+.manage-property-more-menu ion-list ion-item,
+.property-fab-button  ion-list ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+}
+.manage-property-more-menu ion-list ion-item:last-child,
+.property-fab-button  ion-list ion-item:last-child {
+    --inner-border-width: 0;
+}
+.manage-property-more-menu .button.button-clear,
+.property-fab-button  .button.button-clear {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 14px;
+}
+.property-fab-button ion-fab-button {
+    --background: #2699FB;
+}
+.property-fab-button ion-fab-button ion-icon {
+    font-size: 35px;
+}
+.property-fab-button ion-fab-list {
+    right: 0;
+    
+}
+.property-fab-button ion-list {
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.property-fab-button ion-fab-list:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    right: 18px;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 1;
+}
+/* .property-fab-button ion-fab-button.fab-button-close-active:after { */
+.property-fab-button ion-fab-list:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border: 5px solid black;
+    border-color: transparent transparent #fff #fff;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    top: 100%;
+    right: 24px;
+    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+}
+.property-fab-button .button.button-clear {
+    font-size: 16px;
+    letter-spacing: 0;
+}
+.property-fab-button .button.button-clear ion-icon {
+    margin-right: 15px;
+    font-weight: bold;
+}
+body .manage-property-more-menu ion-backdrop {
+    /* display: none; */
+    cursor: inherit;
+}
+/* .manage-property-more-menu .popover-arrow,
+.manage-property-more-menu .popover-content {
+    box-shadow: 0 0 3px rgb(0 0 0 / 30%);
+} */
+/* Manage property page css end */
+
 
 /* 
 font-family: 'Segoe UI';

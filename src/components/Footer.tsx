@@ -31,6 +31,7 @@ const Footer: React.FC = () => {
                     </IonCol>
                    
                 </IonRow>
+
             </IonGrid>
         </IonFooter>
         
