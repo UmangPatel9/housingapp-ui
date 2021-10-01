@@ -28,7 +28,7 @@ const FooterMobile: React.FC = () => {
 
                     <IonCol className="footer-bottom-col" size="3">
                         <IonButton className="footer-home-button" fill="clear">
-                            <IonIcon slot="icon-only" src="/assets/images/icon-home.svg" />
+                            <IonIcon slot="icon-only" src="/assets/images/home-icon.svg" />
                         </IonButton>
                     </IonCol>
 

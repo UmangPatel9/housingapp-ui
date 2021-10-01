@@ -84,7 +84,7 @@ const HeaderMain: React.FC = () => {
                           })
                         }
                     >
-                        <IonIcon slot="icon-only" src="/assets/images/icon-home.svg" />
+                        <IonIcon slot="icon-only" src="/assets/images/home-icon.svg" />
                         <div className="proerty-name">BL1 <span className="ion-hide-lg-down">- Belvedaire 1</span></div>
                     </IonButton>
 

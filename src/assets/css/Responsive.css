@@ -27,6 +27,10 @@
         bottom: 0;
         border-radius: 2px;
     }
+    .change-property .proerty-name {
+        bottom: -9px;
+        margin-left: -6px;
+    }
     /* header css end */
 
     /* footer css start */
@@ -64,6 +68,9 @@
     .dashboard-wrapper {
         background-color: #fcfcfc;
         --background: #fcfcfc;
+    }
+    .dashboard-wrapper .dashboard-main-grid {
+        padding-bottom: 50px;
     }
     .dashboard-content {
         order: 1;
@@ -126,6 +133,12 @@
         background-size: cover;
     }
     /* Management Dashboard css close */
+
+    /* Manage properties css start */
+    .manage-property-wrapper .dashboard-sidebar {
+        display: none;
+    }
+    /* Manage properties css end */
 }
 
 

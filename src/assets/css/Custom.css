@@ -748,6 +748,7 @@ body .change-property-popup ion-row {
 }
 .change-property-popup-wrapper ion-list {
     padding-top: 0;
+    background-color: #fff;
 }
 body .change-property-popup .button.button-block.button-solid {
     --padding-start: 15px;
