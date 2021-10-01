@@ -361,6 +361,11 @@ body .button.notification-button {
     transform: rotate(45deg);
     right: 0px;
 }
+body .button.back-buton {
+    margin-right: 30px;
+    --padding-start: 0;
+    --padding-end: 0;
+}
 /* Header css end */
 
 /* Footer css start */

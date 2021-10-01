@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 
+import { useHistory } from "react-router-dom";
 import { 
     IonHeader, 
-    IonToolbar,
     IonGrid,
     IonRow,
     IonCol,
     IonImg,
     IonButton,
-    IonButtons,
-    IonBackButton,
     IonPopover,
     IonIcon,
     IonList,
     IonRadioGroup,
-    IonListHeader,
     IonItem,
     IonLabel,
     IonRadio
@@ -26,7 +23,8 @@ import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 
 const HeaderMain: React.FC = () => {
-
+    
+    let history = useHistory();
     const [popoverState, setShowPopover] = useState({ showPopover: false, event: undefined });
 
     const [changePropertypopoverState, setShowchangePropertyPopover] = useState({ showPopover: false, event: undefined });
@@ -35,15 +33,20 @@ const HeaderMain: React.FC = () => {
 
     };
 
+    const pageBack = () => {
+      history.goBack();
+    };
+
     return (
         
         <IonHeader className="inner-main-header">
             <IonGrid>
                 <IonRow className="">
 
-                    <IonButtons slot="start">
-                        <IonBackButton icon="assets/images/back-arrow.svg" text="back" defaultHref="/" />
-                    </IonButtons>
+                    <IonButton className="back-buton" fill="clear"  onClick={pageBack}>
+                        {/* <IonBackButton icon="assets/images/back-arrow.svg" text="back" defaultHref="/" /> */}
+                        <IonIcon slot="icon-only" src="/assets/images/back-arrow.svg" />
+                    </IonButton>
 
                     <div className="apart-logo">
                         <a href="/">
