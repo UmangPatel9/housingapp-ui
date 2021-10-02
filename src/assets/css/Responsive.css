@@ -80,7 +80,7 @@
         margin-top: 30px;
         background-color: #fcfcfc;
     }
-    .dashboard-wrapper ion-col {
+    .dashboard-wrapper .dashboard-main-row > ion-col {
         padding: 0 16px;
     }
     .dashboard-wrapper .sidebar-menu-list {

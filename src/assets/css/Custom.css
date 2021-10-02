@@ -178,6 +178,25 @@ button {
 	padding-bottom: 0;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.margin-right-auto {
+    margin-right: auto;
+}
+
+.margin-left-auto {
+    margin-left: auto;
+}
 /* Default CSS end */
 
 /* Button css start */
@@ -187,9 +206,9 @@ body .button.button-block {
     --color-hover: #fff;
     --border-color: #888;
     --background: #fff;
-    --background-focused: #FFBB00;
-    --background-hover: #FFBB00;
-    --background-activated: #FFBB00;
+    --background-focused: #FFA800;
+    --background-hover: #FFA800;
+    --background-activated: #FFA800;
     --background-focused-opacity: 1;
     --background-hover-opacity: 1;
     --background-activated-opacity: 1;
@@ -417,7 +436,8 @@ ion-content {
 .login-form .gmail-btn {
     margin-top: 15px;
 }
-body .native-input.sc-ion-input-md {
+body .native-input.sc-ion-input-md,
+body ion-select {
     border: 1px solid #7C7C7C;
     border-radius: 30px;
     background-color: #fff;
@@ -569,7 +589,7 @@ body .swiper-slide {
 .error-message {
     color: #ff0000;
     font-size: 14px;
-    margin: 5px 0 0;
+    margin: 2px 0 0;
 }
 .signup-form ion-slides {
     display: flex;
@@ -598,7 +618,7 @@ body .swiper-slide {
     background-color: #fff;
     border-radius: 4px;
 }
-.dashboard-wrapper ion-col {
+.dashboard-wrapper .dashboard-main-row > ion-col {
     padding: 0 8px;
 }
 .dashboard-sidebar ion-item {
@@ -665,7 +685,7 @@ body .button.dashboard-button {
     margin-right: 15px;
 }
 .dashboard-wrapper ion-col.dashboard-content {
-    padding: 0 16px;
+    padding: 0 16px 50px;
     color: #575757;
     font-family: 'Segoe UI';
 }
@@ -815,6 +835,7 @@ body .button.manage-property-more-menu-button {
 .manage-property-more-menu ion-list,
 .property-fab-button  ion-list {
     padding: 0;
+    background-color: #fff;
 }
 .manage-property-more-menu ion-list ion-item,
 .property-fab-button  ion-list ion-item {
@@ -885,11 +906,31 @@ body .manage-property-more-menu ion-backdrop {
     /* display: none; */
     cursor: inherit;
 }
-/* .manage-property-more-menu .popover-arrow,
-.manage-property-more-menu .popover-content {
-    box-shadow: 0 0 3px rgb(0 0 0 / 30%);
-} */
 /* Manage property page css end */
+
+
+/* Add property page css start  */
+.dashboard-content ion-slides {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.form-field + .form-field {
+    margin-top: 10px;
+}
+body .dashboard-content .native-input.sc-ion-input-md, 
+body .dashboard-content ion-select {
+    border-radius: 15px;
+}
+ion-note {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Segoe UI';
+    margin-bottom: 20px;
+    color: #575757;
+}
+/* Add property page css end  */
+
 
 
 /* 
@@ -908,7 +949,9 @@ medium: 500
 bold: bold
 black: 900
 
-Dark Orange color: #FFBB00;
-Light Orange color: #FFC107;
+color: #575757
+Dark Orange color 1: #FFA800;
+Dark Orange color 2: #FFBB00;
+Light Orange color: #FFF6DC;
 
 */

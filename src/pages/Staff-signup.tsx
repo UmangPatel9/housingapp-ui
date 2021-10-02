@@ -82,8 +82,8 @@ const StaffSignup: React.FC = () => {
                                              {...register('email', {
                                                 required: 'Email is a required field',
                                                 pattern: {
-                                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                                message: 'invalid email address'
+                                                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                                   message: 'invalid email address'
                                                 }
                                              })}
                                           />

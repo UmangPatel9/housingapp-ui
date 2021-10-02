@@ -92,7 +92,7 @@ const ChangePropertyPopover: React.FC <{
                         </IonButton>
                     </IonCol>
                     <IonCol size="6" className="login-btn">
-                        <IonButton className="add-property-btn secondary-button" href="#" expand="block" shape="round" fill="solid">
+                        <IonButton className="add-property-btn secondary-button" href="/add-new-property" expand="block" shape="round" fill="solid">
                         <div className="button-inner">
                             <IonIcon icon={addOutline} />
                             <span>Add a Property</span>
