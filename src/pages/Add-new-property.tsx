@@ -263,7 +263,7 @@ const AddNewProperty: React.FC = () => {
 
                                                 <IonNote>Roughly estimate the number of apartments per floor in your building. After generating the building, you will be able to specifically change the layout per floor if some floor do not have the same number of apartments.</IonNote>
 
-                                                <IonCol size="4" className="margin-right-auto form-filed">
+                                                <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="margin-right-auto form-filed">
                                                     <IonLabel className="form-lable">Number of Floors</IonLabel>
                                                     <IonInput
                                                         mode="md"
@@ -355,14 +355,15 @@ const AddNewProperty: React.FC = () => {
                                             <div className="generated-floor-box">
                                                 <IonGrid>
                                                     <IonRow className="ion-justify-content-center">
-                                                        <IonCol size="4" className="form-field margin-right-auto">
+                                                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="form-field margin-right-auto">
                                                             <IonLabel className="form-lable">Choose a floor</IonLabel>
                                                             <Controller
                                                                 render={({ field }) => (
                                                                 <IonSelect
                                                                     mode="md"
                                                                     placeholder=""
-                                                                    value={field.value}
+                                                                    // value={field.value}
+                                                                    value="5"
                                                                     onIonChange={e => setValue('chooseFloor', e.detail.value)}
                                                                 >
                                                                     <IonSelectOption value="5">5</IonSelectOption>

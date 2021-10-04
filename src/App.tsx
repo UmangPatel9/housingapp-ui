@@ -12,6 +12,7 @@ import ManagementDashboard from './pages/Management-dashboard';
 import ManagementSignup from './pages/Management-signup';
 import ManageProperties from './pages/Manage-properties';
 import AddNewProperty from './pages/Add-new-property';
+import ManageTenants from './pages/Manage-tenants';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -69,6 +70,15 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/add-new-property">
           <AddNewProperty />
+        </Route>
+        <Route exact path="/manage-tenants">
+          <ManageTenants />
+        </Route>
+        <Route exact path="/manage-tenants-general">
+          <ManageTenants />
+        </Route>
+        <Route exact path="/manage-tenants-search">
+          <ManageTenants />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

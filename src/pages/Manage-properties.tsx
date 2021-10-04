@@ -24,6 +24,7 @@ import HeaderMain from '../components/Header-main';
 import Footer from '../components/Footer';
 import FooterMobile from '../components/Footer-mobile';
 import ManagePropertyMoreMenu from '../components/ManagePropertyMoreMenu';
+import ManagePropertyArchievedMenu from '../components/ManagePropertyArchievedMenu';
 import DashboardSidebar from '../components/Dahsboard-sidebar';
 
 import { add } from "ionicons/icons";
@@ -76,12 +77,12 @@ const ManageProperties: React.FC = () => {
                                         <IonReorder slot="end" />
                                     </IonItem>
 
-                                    <IonItem className="user-select-item">
+                                    <IonItem className="user-select-item archieved-propeprty">
                                         <IonLabel>
                                             BL2 - Belvedaire 2
                                             <p>20 Maisonneuve, Montreal</p>
                                         </IonLabel>
-                                        <ManagePropertyMoreMenu />
+                                        <ManagePropertyArchievedMenu />
                                         <IonReorder slot="end" />
                                     </IonItem>
 
@@ -124,6 +125,12 @@ const ManageProperties: React.FC = () => {
                                 <IonButton fill="clear">
                                     <IonIcon icon="/assets/images/reorder.svg"  />
                                     <span>Rearrange List</span>
+                                </IonButton>
+                            </IonItem>
+                            <IonItem>
+                                <IonButton fill="clear">
+                                    <IonIcon />
+                                    <span>Hide Archieved</span>
                                 </IonButton>
                             </IonItem>
                         </IonList>

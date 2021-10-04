@@ -20,7 +20,7 @@ const DashboardSidebar: React.FC = () => {
 
             <IonList className="sidebar-menu-list">
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" href="#">
+                    <IonButton className="dashboard-button" fill="clear" href="/manage-tenants">
                         <div className="dashboard-button-inner">
                             <IonAvatar>
                                 <img src="assets/images/Manage-Lease-home.svg" />
