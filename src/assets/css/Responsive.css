@@ -135,8 +135,12 @@
     /* Management Dashboard css close */
 
     /* Manage properties css start */
-    .manage-property-wrapper .dashboard-sidebar {
+    .manage-property-wrapper .dashboard-sidebar,
+    .add-proepry-wrapper .dashboard-sidebar {
         display: none;
+    }
+    ion-note {
+        font-size: 16px;
     }
     /* Manage properties css end */
 }

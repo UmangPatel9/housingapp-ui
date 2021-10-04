@@ -928,6 +928,66 @@ ion-note {
     font-family: 'Segoe UI';
     margin-bottom: 20px;
     color: #575757;
+    display: block;
+}
+.apartment-info {
+    background: #fff;
+    border-radius: 15px;
+    border: 1px solid #C0C0C0;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 5px 10px;
+    box-shadow: 0 1px 1px #c0c0c0;
+    align-items: flex-end;
+    height: 100%;
+    overflow: hidden;
+    min-height: 75px;
+}
+.apartment-info ion-button {
+    margin: 0;
+    height: auto;
+    --padding-start: 0;
+    --padding-end: 0;
+}
+.apartment-info ion-icon {
+    color: red;
+    font-size: 20px;
+}
+.apartment-info input.native-input.sc-ion-input-md {
+    border: none;
+    height: auto;
+    /* border-bottom: 1px dashed; */
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 32px;
+    /* background: rgba(0,0,0,0.1); */
+    padding: 0;
+    text-align: center;
+}
+.apartment-info .sc-ion-input-md-h {
+    position: relative;
+}
+.apartment-info .sc-ion-input-md-h:after {
+    content: "";
+    position: absolute;
+    width: 54%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border-bottom: 4px dashed;
+    overflow: hidden;
+}
+.add-unit-button {
+    border: 2px dashed #539CDD;
+    padding: 0;
+}
+.add-unit-button .button.button-clear {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    color: #539CDD;
 }
 /* Add property page css end  */
 

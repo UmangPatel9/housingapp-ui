@@ -115,7 +115,7 @@ const ManageProperties: React.FC = () => {
                     <IonFabList side="top">
                         <IonList>
                             <IonItem>
-                                <IonButton fill="clear" href="#">
+                                <IonButton fill="clear" href="/add-new-property">
                                     <IonIcon icon={add} />  
                                     <span>Add a Property</span>
                                 </IonButton>

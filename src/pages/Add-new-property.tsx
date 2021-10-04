@@ -13,11 +13,15 @@ import {
     IonSlide, 
     IonSelect,
     IonSelectOption,
-    IonNote
+    IonNote,
+    IonItem,
+    IonIcon
 } from '@ionic/react';
 
 import { FormProvider, useForm, Controller } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
+
+import { close } from "ionicons/icons";
 
 import HeaderMain from '../components/Header-main';
 import Footer from '../components/Footer';
@@ -79,7 +83,7 @@ const AddNewProperty: React.FC = () => {
 
          <IonContent className="dashboard-wrapper" ref={contentRef} scrollEvents={true} fullscreen>
 
-            <IonGrid className="dashboard-main-grid">
+            <IonGrid className="dashboard-main-grid add-proepry-wrapper">
                 <IonRow className="ion-justify-content-between dashboard-main-row">
 
                     {/* sidebar start  */}
@@ -267,7 +271,7 @@ const AddNewProperty: React.FC = () => {
                                                         {...register('numberOfFloors', {
                                                             required: 'Please mention number of floors.',
                                                             pattern: {
-                                                                value: /^[0-9]{3}$/i,
+                                                                value: /\d{3}$/i,
                                                                 message: 'Invalid floor number'
                                                              }
                                                         })}
@@ -327,14 +331,142 @@ const AddNewProperty: React.FC = () => {
                                                     />
                                                 </IonCol>
 
-                                                <IonCol size="12" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
-                                                    <IonButton type="submit" expand="block" shape="round" fill="outline">
-                                                        Generate Property
+                                                {/* <IonCol  size="12" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
+                                                    <IonButton expand="block" shape="round" fill="outline" onClick={() => next(['numberOfFloors', 'numberOfApartments', 'unitesNumberFormat'])}>
+                                                        Continue
+                                                    </IonButton>
+                                                </IonCol> */}
+
+                                                <IonCol  size="12" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
+                                                    <IonButton expand="block" shape="round" fill="outline" onClick={() => next([])}>
+                                                        Continue
                                                     </IonButton>
                                                 </IonCol>
 
                                             </IonRow>
                                         </IonGrid>
+                                    </IonSlide>
+
+                                    <IonSlide>
+
+                                        <div>
+                                            <IonNote>You are almost done adding the property to your account. To customize a floor, select a floor from the dropdown menu, then add, remove or change the apartment number format to match the ones that you own.</IonNote>
+
+                                            <div className="generated-floor-box">
+                                                <IonGrid>
+                                                    <IonRow className="ion-justify-content-center">
+                                                        <IonCol size="4" className="form-field margin-right-auto">
+                                                            <IonLabel className="form-lable">Choose a floor</IonLabel>
+                                                            <Controller
+                                                                render={({ field }) => (
+                                                                <IonSelect
+                                                                    mode="md"
+                                                                    placeholder=""
+                                                                    value={field.value}
+                                                                    onIonChange={e => setValue('chooseFloor', e.detail.value)}
+                                                                >
+                                                                    <IonSelectOption value="5">5</IonSelectOption>
+                                                                    <IonSelectOption value="6">6</IonSelectOption>
+                                                                    <IonSelectOption value="7">7</IonSelectOption>
+                                                                    <IonSelectOption value="8">8</IonSelectOption>
+                                                                    <IonSelectOption value="9">9</IonSelectOption>
+                                                                </IonSelect>
+                                                                )}
+                                                                control={control}   
+                                                                name="chooseFloor"
+                                                                rules={{ required: 'Please choose floor' }}
+                                                            />
+                                                            <ErrorMessage
+                                                                errors={errors}
+                                                                name="unitesNumberFormat"
+                                                                as={<div className="error-message" style={{ color: 'red' }} />}
+                                                            />
+                                                        </IonCol>
+
+                                                        <IonCol size="12" className="form-field">
+                                                            <IonLabel className="form-lable">Add, rename or delete apartment:</IonLabel>
+                                                            <IonGrid>
+                                                                <IonRow className="ion-justify-content-start">
+                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
+                                                                        <div className="apartment-info">
+                                                                            <IonButton fill="clear">
+                                                                                <IonIcon icon={close} />
+                                                                            </IonButton>
+                                                                            <IonInput mode="md" type="text" value={"501"}></IonInput>
+                                                                        </div>
+                                                                    </IonCol>
+
+                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
+                                                                        <div className="apartment-info">
+                                                                            <IonButton fill="clear">
+                                                                                <IonIcon icon={close} />
+                                                                            </IonButton>
+                                                                            <IonInput mode="md" type="text" value={"502"}></IonInput>
+                                                                        </div>
+                                                                    </IonCol>
+
+                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
+                                                                        <div className="apartment-info">
+                                                                            <IonButton fill="clear">
+                                                                                <IonIcon icon={close} />
+                                                                            </IonButton>
+                                                                            <IonInput mode="md" type="text" value={"503"}></IonInput>
+                                                                        </div>
+                                                                    </IonCol>
+
+                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
+                                                                        <div className="apartment-info">
+                                                                            <IonButton fill="clear">
+                                                                                <IonIcon icon={close} />
+                                                                            </IonButton>
+                                                                            <IonInput mode="md" type="text" value={"504"}></IonInput>
+                                                                        </div>
+                                                                    </IonCol>
+
+                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
+                                                                        <div className="apartment-info">
+                                                                            <IonButton fill="clear">
+                                                                                <IonIcon icon={close} />
+                                                                            </IonButton>
+                                                                            <IonInput mode="md" type="text" value={"505"}></IonInput>
+                                                                        </div>
+                                                                    </IonCol>
+
+                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
+                                                                        <div className="apartment-info">
+                                                                            <IonButton fill="clear">
+                                                                                <IonIcon icon={close} />
+                                                                            </IonButton>
+                                                                            <IonInput mode="md" type="text" value={"506"}></IonInput>
+                                                                        </div>
+                                                                    </IonCol>
+
+                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
+                                                                        <div className="apartment-info add-unit-button">
+                                                                            <IonButton className="" fill="clear">
+                                                                                <IonLabel>Add a Unit</IonLabel>
+                                                                            </IonButton>
+                                                                            
+                                                                        </div>
+                                                                    </IonCol>
+                                                                </IonRow>
+                                                            </IonGrid>
+                                                        </IonCol>
+                                                    </IonRow>
+                                                </IonGrid>   
+                                            </div>
+
+                                            <IonGrid>
+                                                <IonRow className="ion-justify-content-center">                     <IonCol size="12" sizeMd="12" sizeLg="6" sizeXl="6"     className="form-field sign-up-btn">
+                                                        <IonButton type="submit" expand="block" shape="round" fill="outline">
+                                                                Submit
+                                                        </IonButton>
+                                                    </IonCol>
+
+                                                </IonRow>
+                                            </IonGrid>
+                                        </div>
+
                                     </IonSlide>
 
                                 </IonSlides>
