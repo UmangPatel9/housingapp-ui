@@ -836,6 +836,7 @@ body .manage-property-more-menu {
 .manage-property-more-menu .popover-content,
 .property-fab-button .popover-content {
     border-radius: 15px;
+    background-color: #fff;
 }
 body .button.manage-property-more-menu-button {
     --padding-start: 0;
