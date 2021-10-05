@@ -5,7 +5,6 @@ import {
     IonRow,
     IonCol,
     IonButton,
-    IonPopover,
     IonIcon,
     IonList,
     IonRadioGroup,

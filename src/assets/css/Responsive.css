@@ -1,3 +1,20 @@
+@media (min-width: 992px){
+    .dashboard-content .ion-page {
+        left: auto;
+        right: auto;
+        position: relative;
+        overflow: visible;
+        height: 100%;
+        top: auto;
+        bottom: auto;
+    }
+    .dashboard-content .ion-page .ion-page {
+        /* left: 22px; */
+        /* right: 22px; */
+        padding: 0 22px;
+    }
+}
+
 @media (max-width: 991px) {
 
     /* header css start */
@@ -155,17 +172,66 @@
     .property-list-item {
         background-size: cover;
     }
+    .change-property-popup .popover-content:before {
+        right: 35px;
+    }
     /* Management Dashboard css close */
 
     /* Manage properties css start */
     .manage-property-wrapper .dashboard-sidebar,
-    .add-proepry-wrapper .dashboard-sidebar {
+    .add-proepry-wrapper .dashboard-sidebar,
+    .manage-tenants-wrapper .dashboard-sidebar,
+    .manage-tenants-wrapper .dashboard-posts {
         display: none;
     }
     ion-note {
         font-size: 16px;
     }
     /* Manage properties css end */
+
+    /* Manage tenants css start  */
+    .manage-tenants-wrapper {
+        /* --padding-top: 0; */
+    }
+    .dashboard-content .ion-page .ion-page {
+        padding: 0;
+        background-color: #fcfcfc;
+    }
+    ion-tab-button ion-label {
+        font-size: 17px;
+        color: #575757;
+    }
+    .tab-content {
+        margin-top: 20px;
+        padding: 0 15px;
+    }
+    .title-with-line {
+        color: #575757;
+        font-size: 16px;
+    }
+    .tab-content .apartments-list-block ion-grid {
+        padding: 0 35px;
+    }
+    .tab-content .apartments-list .button.button-full {
+        --background: #ffffff;
+        --border-color: #c0c0c0;
+    }
+    .tab-content .button div {
+        color: #575757;
+    }
+    .tab-content .button h2 {
+        margin: 10px 0 0;
+    }
+    body .button.button-full.show-more-button {
+        --background: #FFFEFA;
+        --color: #7C7C7C;
+        --border-color: #E5E5E5;
+        --border-style: solid;
+    }
+    ion-tab-button {
+        border-bottom: 1px solid #CCE0F0;
+    }
+    /* Manage tenants css end  */
 }
 
 

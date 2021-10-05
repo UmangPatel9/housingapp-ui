@@ -25,7 +25,7 @@ const DashboardSidebar: React.FC = () => {
                             <IonAvatar>
                                 <img src="assets/images/Manage-Lease-home.svg" />
                             </IonAvatar>
-                            <IonLabel  className="dashboard-button-label">Manage <b>Tenants & Leases</b></IonLabel>
+                            <IonLabel  className="dashboard-button-label">Manage <b>Tenants</b> & <b>Leases</b></IonLabel>
                         </div>
                     </IonButton>
                 </IonItem>
@@ -69,7 +69,7 @@ const DashboardSidebar: React.FC = () => {
                             <IonAvatar>
                                 <img src="assets/images/Staff-home.svg" />
                             </IonAvatar>
-                            <IonLabel  className="dashboard-button-label">Manage <b>Staff accesses</b></IonLabel>
+                            <IonLabel  className="dashboard-button-label">Manage <b>Staff</b> accesses</IonLabel>
                         </div>
                     </IonButton>
                 </IonItem>

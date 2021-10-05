@@ -200,11 +200,12 @@ input[type=number] {
 /* Default CSS end */
 
 /* Button css start */
-body .button.button-block {
-    --color: #888;
+body .button.button-block,
+body .button.button-full {
+    --color: #575757;
     --color-focused: #fff;
     --color-hover: #fff;
-    --border-color: #888;
+    --border-color: #575757;
     --background: #fff;
     --background-focused: #FFA800;
     --background-hover: #FFA800;
@@ -219,6 +220,7 @@ body .button.button-block {
     font-size: 18px;
     font-family: 'Segoe UI';
     white-space: normal;
+    letter-spacing: 0.8px;
 }
 body .button.button-block.secondary-button {
     --background: #FFFEFA;
@@ -263,12 +265,12 @@ body .button.button-clear {
     font-weight: normal;
     --background: transparent;
     --background-hover: transparent;
-    --background-focused-opacity: 1;
+    --background-hover-opacity: 1;
     --background-activated: transparent;
     --background-activated-opacity: 1;
     --background-focused: transparent;
-    --highlight-color-focused: transparent;
     --background-focused-opacity: 1;
+    --highlight-color-focused: transparent;
     --border-color: transparent;
     --border-width: 0;
     --inner-border-width: 0;
@@ -277,7 +279,12 @@ body .button.button-clear {
 
 /* Header css start */
 .main-header {
-    background-color: #FFFEF9;
+    /* background-color: #FFFBF0; */
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fffefa+0,fffefa+50,fffbf0+50,fffbf0+100&1+0,0.95+50,1+100 */
+    background: -moz-linear-gradient(top,  rgba(255,254,250,1) 0%, rgba(255,251,240,0.95) 50%, rgba(255,251,240,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(255,254,250,1) 0%,rgba(255,251,240,0.95) 50%,rgba(255,251,240,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(255,254,250,1) 0%,rgba(255,251,240,0.95) 50%,rgba(255,251,240,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffefa', endColorstr='#fffbf0',GradientType=0 ); /* IE6-9 */
     border-radius: 0 0 15px 15px;
     padding: 30px 0;
     box-shadow: 0 0 5px rgb(0 0 0 / 50%);
@@ -322,6 +329,10 @@ body .button.button-clear {
 .apart-logo {
     display: inline-block;
 }
+body .inner-main-header .button.button-clear {
+    --background-activated-opacity: 0;
+    --background-focused-opacity: 0;
+}
 body .button.notification-button {
     margin: 0 0 0 auto;
     position: relative;
@@ -362,7 +373,7 @@ body .button.notification-button {
     color: #fb0;
     font-size: 12px;
     padding: 2px 4px;
-    border-radius: 5px;
+    border-radius: 60px;
     position: relative;
     bottom: -7px;
     font-family: 'Arial';
@@ -511,16 +522,16 @@ body .gmail-btn .button.button-block ion-icon {
     margin-bottom: 15px;
 }
 .user-select-item {
-    --background: #f4f4f4;
-    --border-radius: 10px;
-    --background-hover: #FEFBF2;
+    --background: #F2F2F2;
+    --border-radius: 11px;
+    --background-hover: #FFFBF0;
     --background-focused-opacity: 1;
-    --background-activated: #FEFBF2;
+    --background-activated: #FFFBF0;
     --background-activated-opacity: 1;
-    --background-focused: #FEFBF2;
-    --highlight-color-focused: #FEFBF2;
+    --background-focused: #FFFBF0;
+    --highlight-color-focused: #FFFBF0;
     --background-focused-opacity: 1;
-    --border-color: #ccc;
+    --border-color: #7C7C7C;
     --border-width: 1px;
     --inner-border-width: 0;
     --padding-start: 30px;
@@ -748,7 +759,8 @@ body .button.dashboard-button {
     border-right: 10px solid transparent;
     display: inline-block;
     bottom: 100%;
-    right: 11vw;
+    /* right: 11vw; */
+    right: 165px;
     /* box-shadow: 0 0 5px rgb(0 0 0 / 50%); */
 }
 .change-property-popup .popover-viewport {
@@ -973,6 +985,29 @@ ion-note {
 }
 .apartment-info .sc-ion-input-md-h {
     position: relative;
+    opacity: 80%;
+}
+.add-unit-button ion-label {
+    position: relative;
+}
+.apartment-info .sc-ion-input-md-h:before,
+.add-unit-button ion-label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 64px;
+    height: auto;
+    box-shadow: 0 0 6px 6px rgb(0 0 0 / 20%);
+    background-color: rgb(0 0 0 / 20%);
+    border-radius: 12px;
+}
+.add-unit-button ion-label:before {
+    height: 33px;
+    opacity: 80%;
 }
 .apartment-info .sc-ion-input-md-h:after {
     content: "";
@@ -989,6 +1024,7 @@ ion-note {
 .add-unit-button {
     border: 2px dashed #539CDD;
     padding: 0;
+    background: transparent;
 }
 .add-unit-button .button.button-clear {
     width: 100%;
@@ -1000,14 +1036,28 @@ ion-note {
 
 
 /* Manage tenants css start */
+.manage-tenants-wrapper .dashboard-main-grid {
+    height: 100%;
+}
 .dashboard-content .ion-page {
     background-color: #fff;
-    left: 15px;
-    right: 15px;
+    /* left: 15px;
+    right: 15px; */
+    /* left: auto;
+    right: auto;
+    position: relative;
+    overflow: visible;
+    height: 100%;
+    top: auto;
+    bottom: auto; */
 }
 .dashboard-content .ion-page .ion-page {
-    left: 22px;
-    right: 22px;
+    /* left: 22px; */
+    /* right: 22px; */
+    padding: 0 22px;
+}
+ion-tabs {
+    position: relative !important;
 }
 ion-tab-bar {
     background: transparent;
@@ -1029,9 +1079,16 @@ ion-tab-button {
     --color-selected: #7c7c7c;
     --color-focused: #7c7c7c;
 }
-ion-tab-button.tab-selected {
+ion-tab-button ion-label {
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+}
+ion-tab-button.tab-selected,
+ion-tab-button.tab-selected ion-label {
     font-weight: 600;
 }
+
 ion-tab-button.tab-selected:after {
     content: "";
     position: absolute;
@@ -1042,7 +1099,7 @@ ion-tab-button.tab-selected:after {
     background-color: #FFBB00;
     border-radius: 4px;
 }
-.tab-content ion-grid {
+.tab-content .apartments-list-block ion-grid {
     padding: 0 80px;
     margin-top: 20px;
 }
@@ -1072,7 +1129,7 @@ ion-tab-button.tab-selected:after {
     background-color: #c0c0c0;
     left: calc(100% + 15px);
 }
-.tab-content .button.button-full {
+.tab-content .apartments-list .button.button-full {
     --background: #F7F7F7;
     --background-activated: #F7F7F7;
     --background-hover: #F7F7F7;
@@ -1093,7 +1150,7 @@ ion-tab-button.tab-selected:after {
     --padding-start: 20px;
     --padding-end: 20px;
     --box-shadow: 0 1px 1px #09090926;
-    min-height: 75px;
+    min-height: 100px;
     border-radius: 12px;
     /* --border-right-width: 1px;
     --border-left-width: 1px; */
@@ -1106,15 +1163,150 @@ ion-tab-button.tab-selected:after {
     width: 100%;
     height: 100%;
     justify-content: center;
+    text-align: left;
+    color: #7c7c7c;
 }
 .tab-content .button span {
     font-size: 11px;
+    letter-spacing: 0.5px;
 }
 .tab-content .button h2 {
     margin: 5px 0 0;
     font-size: 32px;
     font-weight: normal;
     text-transform: none;
+    position: relative;
+    opacity: 80%;
+    text-align: center;
+}
+.tab-content .button h2:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 64px;
+    height: auto;
+    box-shadow: 0 0 6px 6px rgb(0 0 0 / 20%);
+    background-color: rgb(0 0 0 / 20%);
+    border-radius: 12px;
+}
+.apartments-list {
+    margin-bottom: 25px;
+}
+body .button.button-full.show-more-button {
+    --background: #c0c0c0;
+    --color: #fff;
+    font-size: 17px;
+    height: auto;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    max-width: 130px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    margin: auto;
+}
+.apartments-list-block {
+    padding: 15px 0;
+}
+
+.find-digi-lease-block {
+    background-color: #F8F8F8;
+    padding: 15px;
+}
+.find-digi-lease-block h6,
+.digi-lease-search-results-box h6 {
+    font-size: 15px;
+    color: #7c7c7c;
+    margin: 0 0 15px;
+}
+.find-digi-lease-block h6 b,
+.digi-lease-search-results-box h6 b {
+    font-weight: 600;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+}
+.search-box ion-label {
+    color: #7c7c7c;
+    font-size: 17px;
+    font-weight: normal;
+}
+.search-box ion-input.sc-ion-input-md-h {
+    flex: 0 0 89px;
+    max-width: 89px;
+    margin: 0 25px;
+}
+.search-box input.native-input.sc-ion-input-md {
+    border-color: #c0c0c0;
+    border-radius: 14px;
+    color: #979797;
+    font-size: 25px;
+    font-weight: normal;
+    text-align: center;
+}
+.search-box .button.button-full {
+    --background: #c0c0c0;
+    --color: #fff;
+}
+.search-box .button.button-full {
+    --background: #c0c0c0;
+    --color: #fff;
+    max-width: 108px;
+    --padding-start: 15px;
+    --padding-end: 15px;
+}
+.search-box .button.button-full div {
+    color: #fff;
+    flex-direction: row;
+    align-items: center;
+}
+.search-box .button.button-full ion-icon {
+    flex: 0 0 30px;
+    max-width: 30px;
+    margin-right: 5px;
+}
+.search-box .button.button-full span {
+    font-size: 15px;
+    letter-spacing: normal;
+}
+.digi-lease-search-results-box {
+    margin-top: 15px;
+}
+.search-result-box h5 {
+    color: #7C7C7C;
+    font-family: 'Segoe UI Semilight';
+    font-weight: 300;
+    margin: 0 0 25px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c0c0c0;
+}
+.lease-renewal {
+    background-color: #FFDFDF;
+    border: 1px solid #7c7c7c;
+    border-radius: 4px;
+}
+.digi-lease-search-results-box .renewal-lease-info h6 {
+    font-weight: 600;
+    color: #575757;
+    margin: 0;
+}
+.digi-lease-search-results-box .renewal-lease-info p {
+    color: #575757;
+    margin: 5px 0 0;
+    font-weight: 300;
+    font-family: 'Segoe UI Semilight';
+}
+.digi-lease-search-results-box .renewal-lease-info p b {
+    font-weight: 600;
+    font-family: 'Segoe UI';
+}
+.lease-renewal ion-icon {
+    font-size: 45px;
+    color: #FF6363;
 }
 /* Manage tenants css end */
 
