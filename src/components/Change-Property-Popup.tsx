@@ -13,7 +13,7 @@ import {
     IonRadio
 } from '@ionic/react';
 
-import { createOutline, addOutline } from "ionicons/icons";
+import { createOutline, addOutline, close } from "ionicons/icons";
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
@@ -21,12 +21,6 @@ import '../assets/css/Responsive.css';
 const ChangePropertyPopover: React.FC <{
     onHide: () => void;
 }>= ({ onHide }) => {
-
-    // const [changePropertypopoverState, setShowchangePropertyPopover] = useState({ showPopover: false, event: undefined });
-
-    interface PopoverOptions {
-        cssClass: 'my-custom-class',
-    }
 
     const inputChangeHandler = (event: CustomEvent) => {
 
@@ -40,7 +34,10 @@ const ChangePropertyPopover: React.FC <{
         //     isOpen={changePropertypopoverState.showPopover}
         //     onDidDismiss={() => setShowchangePropertyPopover({ showPopover: false, event: undefined })}
         // >
-        <IonGrid className="change-property-popup-wrapper">   
+        <IonGrid className="change-property-popup-wrapper">
+            <IonButton className="close-popup-button" onClick={onHide} fill="clear">
+                <IonIcon icon={close} />
+                </IonButton>   
             <IonList>
                 <p>Select a propeprty...</p>
                 <IonRadioGroup onIonChange={inputChangeHandler}>

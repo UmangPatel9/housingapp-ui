@@ -25,11 +25,15 @@ const ForgetPassword: React.FC = () => {
    const onSubmit = (data: any) => {
       console.log(data);
    };
+
+   const doNothing = () => {
+
+   }
    
    return (
       <IonPage>
 
-         <Header />
+         <Header class="with-back-arrow"  onBack={doNothing} />
 
          <IonContent fullscreen>
             <IonGrid>

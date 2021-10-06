@@ -13,6 +13,7 @@ const MANAGEMENT = "management"
 const STAFF = "staff"
 
 const Signup: React.FC = () => {
+
   const [userType, setUserType] = useState<string>();
   // const [selected, setSelected] = useState<string>();
   var radioButtonValue = "";
@@ -72,10 +73,14 @@ const Signup: React.FC = () => {
     // }
   };
 
+  const doNothing = () => {
+
+  }
+
   return (
     <IonPage>
 
-        <Header />
+        <Header class="with-back-arrow" onBack={doNothing} />
 
         <IonContent fullscreen>
             <IonGrid>

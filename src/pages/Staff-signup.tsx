@@ -28,16 +28,16 @@ const slideOpts = {
 };
 
 const StaffSignup: React.FC = () => {
+
    const mySlides = useRef<any>(null);
 
    const methods = useForm();
-   const { register, trigger, handleSubmit, getValues, formState: { errors } } = methods;
-   ;
-   ;
+   const { register, trigger, handleSubmit, getValues, setValue, formState: { errors } } = methods;
    // console.log(errors);
 
    useEffect(() => {
       mySlides.current.lockSwipes(true);
+
    });
 
    const next = async (fields: any) => {
@@ -51,18 +51,16 @@ const StaffSignup: React.FC = () => {
       await mySlides.current.lockSwipes(false);
       await mySlides.current.slidePrev();
       await mySlides.current.lockSwipes(true);
-    };
-  
+   };
     
    const onSubmit = (data: any) => {
       console.log(data);
    };
 
-
    return (
       <IonPage>
 
-         <Header />
+         <Header class="with-back-arrow with-step-arrow" onBack={prev} />
 
          <IonContent fullscreen>
             <IonGrid>
@@ -100,7 +98,7 @@ const StaffSignup: React.FC = () => {
                                              mode="md"
                                              type="password" 
                                              {...register('password1', {
-                                                required: 'Password Is Required'
+                                                required: 'Password is Required'
                                              })}
                                           />
                                           <ErrorMessage
@@ -200,6 +198,10 @@ const StaffSignup: React.FC = () => {
                                              previous
                                           </IonButton>
                                        </IonCol> */}
+
+                                       <IonCol size="12" className="sign-up-btn">
+
+                                       </IonCol>
 
                                        <IonCol size="12" className="sign-up-btn">
                                           <IonButton type="submit" expand="block" shape="round" fill="outline">

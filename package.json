@@ -26,6 +26,7 @@
     "ionicons": "^5.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-google-recaptcha-v3": "^1.9.5",
     "react-hook-form": "^7.16.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",

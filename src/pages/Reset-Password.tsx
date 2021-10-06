@@ -26,10 +26,14 @@ const ResetPassword: React.FC = () => {
       console.log(data);
    };
 
+   const doNothing = () => {
+
+   }
+
    return (
       <IonPage>
 
-         <Header />
+         <Header class="with-back-arrow"  onBack={doNothing}/>
 
          <IonContent fullscreen>
             <IonGrid>
@@ -49,7 +53,7 @@ const ResetPassword: React.FC = () => {
                                        mode="md" 
                                        type="password" 
                                        {...register('password1', {
-                                          required: 'Password Is Required'
+                                          required: 'Password is Required'
                                        })}
                                     />
                                     <ErrorMessage
@@ -60,7 +64,7 @@ const ResetPassword: React.FC = () => {
                                  </IonCol>
 
                                  <IonCol size="12" className="ion-margin-top">
-                                    <IonLabel className="form-lable">Cofnirm new password:</IonLabel>
+                                    <IonLabel className="form-lable">Confirm new password:</IonLabel>
                                     {/* <IonInput type="password" placeholder="Password" /> */}
                                     <IonInput 
                                        mode="md"

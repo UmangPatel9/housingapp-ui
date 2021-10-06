@@ -29,10 +29,14 @@ const Home: React.FC = () => {
     history.push("/Management-dashboard");
   };
 
+  const doNothing = () => {
+
+  }
+
   return (
     <IonPage>
 
-      <Header />
+      <Header class="without-back-arrow" onBack={doNothing} />
 
       <IonContent fullscreen>
         <IonGrid className="full-height-div">
@@ -70,7 +74,7 @@ const Home: React.FC = () => {
                             type="password" 
                             placeholder="Password"
                             {...register('password1', {
-                              required: 'Password is required'
+                              required: 'Password is Required'
                             })}
                           />
                           <ErrorMessage
@@ -81,7 +85,7 @@ const Home: React.FC = () => {
                         </IonCol>
 
                         <IonCol size="12" className="forget-password ion-text-right">
-                          <a href="/Forget-Password">Forget password?</a>
+                          <a href="/forget-password">Forget password?</a>
                         </IonCol>
 
                         <IonCol size="6" className="sign-up-btn">

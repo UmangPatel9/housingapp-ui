@@ -37,7 +37,6 @@ const HeaderMain: React.FC = () => {
                 <IonRow className="">
 
                     <IonButton className="back-buton" fill="clear"  onClick={pageBack}>
-                        {/* <IonBackButton icon="assets/images/back-arrow.svg" text="back" defaultHref="/" /> */}
                         <IonIcon slot="icon-only" src="/assets/images/back-arrow.svg" />
                     </IonButton>
 

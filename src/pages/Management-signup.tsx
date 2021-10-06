@@ -60,7 +60,7 @@ const ManagementSignup: React.FC = () => {
    return (
       <IonPage>
 
-         <Header />
+         <Header class="with-back-arrow with-step-arrow"  onBack={prev} />
 
          <IonContent fullscreen>
             <IonGrid>
@@ -98,7 +98,7 @@ const ManagementSignup: React.FC = () => {
                                              mode="md"
                                              type="password" 
                                              {...register('password1', {
-                                                required: 'Password Is Required'
+                                                required: 'Password is Required'
                                              })}
                                           />
                                           <ErrorMessage

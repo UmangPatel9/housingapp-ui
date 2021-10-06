@@ -285,15 +285,31 @@ body .button.button-clear {
     background: -webkit-linear-gradient(top,  rgba(255,254,250,1) 0%,rgba(255,251,240,0.95) 50%,rgba(255,251,240,1) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  rgba(255,254,250,1) 0%,rgba(255,251,240,0.95) 50%,rgba(255,251,240,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffefa', endColorstr='#fffbf0',GradientType=0 ); /* IE6-9 */
-    border-radius: 0 0 15px 15px;
-    padding: 30px 0;
+    /* border-radius: 0 0 15px 15px; */
+    padding: 30px 15px;
     box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+    display: flex;
+    align-items: center;
 }
 .main-header:after {
     display: none;
 }
+body .main-header .without-back-arrow.button.button-clear {
+    display: none;
+}
+body .main-header .with-back-arrow + .with-back-arrow.with-step-arrow {
+    display: block;
+}
+body .main-header .with-back-arrow + .with-back-arrow {
+    display: none;
+}
+body .main-header .button.button-clear {
+    position: absolute;
+    left: 0;
+}
 .main-logo {
     text-align: center;
+    margin: 0 auto;
 }
 .main-logo a {
     display: inline-block;
@@ -496,6 +512,7 @@ body ion-select {
 .form-lable {
     margin-bottom: 5px;
     display: block;
+    padding-left: 22px;
 }
 body .gmail-btn .button.button-block ion-icon {
     margin-right: 20px;
@@ -601,6 +618,7 @@ body .swiper-slide {
     color: #ff0000;
     font-size: 14px;
     margin: 2px 0 0;
+    padding-left: 22px;
 }
 .signup-form ion-slides {
     display: flex;
@@ -794,14 +812,16 @@ body .change-property-popup .button.button-block.button-solid {
     font-size: 45px;
 }
 .change-property-popup .button-solid ion-icon {
-    flex: 0 0 35px;
-    max-width: 35px;
+    flex: 0 0 30px;
+    max-width: 30px;
     margin-right: 5px;
 }
 .change-property-popup .button-inner span {
     /* flex: 0 0 calc(100% - 60px);
     max-width: calc(100% - 60px); */
     text-align: left;
+    white-space: normal;
+    /* word-break: break-all; */
 }
 .property-item-footer {
     display: flex;
@@ -818,6 +838,18 @@ body .change-property-button.button {
 .change-property-button ion-icon {
     font-size: 25px;
     margin-left: 8px;
+}
+body .button.button-clear.close-popup-button {
+    position: absolute;
+    top: 5px;
+    right: -15px;
+    z-index: 1;
+    font-size: 20px;
+    width: auto;
+    min-width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
 }
 /* Management dashboar css end */
 
