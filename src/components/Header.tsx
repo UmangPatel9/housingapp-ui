@@ -29,9 +29,9 @@ const Header: React.FC<{ class: string; onBack: () => void }> = props => {
                 <IonIcon slot="icon-only" src="/assets/images/back-arrow.svg" />
             </IonButton>
             <div className="main-logo">
-                <a href="/">
+                <IonButton routerLink="/" fill="clear">
                     <IonImg className="logo" src="assets/images/logo.svg" />
-                </a>
+                </IonButton>
             </div>
         </IonHeader>
         

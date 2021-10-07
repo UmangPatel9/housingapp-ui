@@ -37,7 +37,7 @@ const ChangePropertyPopover: React.FC <{
         <IonGrid className="change-property-popup-wrapper">
             <IonButton className="close-popup-button" onClick={onHide} fill="clear">
                 <IonIcon icon={close} />
-                </IonButton>   
+            </IonButton>   
             <IonList>
                 <p>Select a propeprty...</p>
                 <IonRadioGroup onIonChange={inputChangeHandler}>
@@ -80,7 +80,7 @@ const ChangePropertyPopover: React.FC <{
             <IonGrid>
                 <IonRow>
                     <IonCol size="6" className="login-btn">
-                        <IonButton className="manage-property-btn" href="/manage-properties" expand="block" shape="round" fill="solid" >
+                        <IonButton className="manage-property-btn" routerLink="/manage-properties" expand="block" shape="round" fill="solid" >
                         <div className="button-inner">
                             <IonIcon icon={createOutline} />
                             <span>Manage List of Properties</span>
@@ -88,7 +88,7 @@ const ChangePropertyPopover: React.FC <{
                         </IonButton>
                     </IonCol>
                     <IonCol size="6" className="login-btn">
-                        <IonButton className="add-property-btn secondary-button" href="/add-new-property" expand="block" shape="round" fill="solid">
+                        <IonButton className="add-property-btn secondary-button" routerLink="/add-new-property" expand="block" shape="round" fill="solid">
                         <div className="button-inner">
                             <IonIcon icon={addOutline} />
                             <span>Add a Property</span>

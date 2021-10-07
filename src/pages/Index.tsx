@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 
   const onSubmit = (data: any) => {
     console.log(data);
-    history.push("/Management-dashboard");
+    history.push("/management-dashboard");
   };
 
   const doNothing = () => {
@@ -85,11 +85,13 @@ const Home: React.FC = () => {
                         </IonCol>
 
                         <IonCol size="12" className="forget-password ion-text-right">
-                          <a href="/forget-password">Forget password?</a>
+                            <IonButton routerLink="/forget-password" fill="clear">
+                              Forget password?
+                            </IonButton>   
                         </IonCol>
 
                         <IonCol size="6" className="sign-up-btn">
-                          <IonButton  className="secondary-button" href="/Signup" expand="block" shape="round" fill="outline">
+                          <IonButton  className="secondary-button" routerLink="/signup" expand="block" shape="round" fill="outline">
                             Signup
                           </IonButton>
                         </IonCol>

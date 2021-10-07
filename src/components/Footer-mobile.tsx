@@ -55,7 +55,7 @@ const FooterMobile: React.FC = () => {
                     >
                         <IonList className="footer-mobile-menu">
                             <IonItem>
-                                <IonButton className="" fill="clear" href="#">
+                                <IonButton className="" fill="clear" routerLink="#">
                                     <div className="">
                                         <IonIcon icon="/assets/images/swap-horizontal.svg"  />
                                         <span className="">Tenant Account</span>
@@ -64,7 +64,7 @@ const FooterMobile: React.FC = () => {
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" href="#">
+                                <IonButton className="" fill="clear" routerLink="#">
                                     <div className="">    
                                         <IonIcon icon="/assets/images/ios-person.svg"  />
                                         <span className="">Account Settings</span>
@@ -73,7 +73,7 @@ const FooterMobile: React.FC = () => {
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" href="#">
+                                <IonButton className="" fill="clear" routerLink="#">
                                     <div className="">    
                                         <IonIcon icon="/assets/images/bill-icon.svg"  />
                                         <span className="">Billing History</span>
@@ -82,7 +82,7 @@ const FooterMobile: React.FC = () => {
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" href="#">
+                                <IonButton className="" fill="clear" routerLink="#">
                                     <div className="">    
                                         <IonIcon icon={settingsSharp}  />
                                         <span className="">Service Settings</span>
@@ -91,7 +91,7 @@ const FooterMobile: React.FC = () => {
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" href="#">
+                                <IonButton className="" fill="clear" routerLink="#">
                                     <div className="">    
                                         <IonIcon />
                                         <span className="">FAQ</span>
@@ -100,7 +100,7 @@ const FooterMobile: React.FC = () => {
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" href="#">
+                                <IonButton className="" fill="clear" routerLink="#">
                                     <div className="">    
                                         <IonIcon />
                                         <span className="">Logout</span>

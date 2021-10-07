@@ -69,7 +69,10 @@ const ForgetPassword: React.FC = () => {
                               </IonButton>
 
                               <div  className="back-to-login ion-text-right">
-                                 <a href="/">Back to Login page</a>
+                                 {/* <a href="/">Back to Login page</a> */}
+                                 <IonButton routerLink="/" fill="clear">
+                                    Back to Login page
+                                 </IonButton>
                               </div>
 
                            </form>

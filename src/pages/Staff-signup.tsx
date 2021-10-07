@@ -200,10 +200,6 @@ const StaffSignup: React.FC = () => {
                                        </IonCol> */}
 
                                        <IonCol size="12" className="sign-up-btn">
-
-                                       </IonCol>
-
-                                       <IonCol size="12" className="sign-up-btn">
                                           <IonButton type="submit" expand="block" shape="round" fill="outline">
                                              Finalize
                                           </IonButton>

@@ -41,9 +41,9 @@ const HeaderMain: React.FC = () => {
                     </IonButton>
 
                     <div className="apart-logo">
-                        <a href="/">
+                        <IonButton routerLink="/" fill="clear">
                             <IonImg className="logo" src="assets/images/aparto-logo.svg" />
-                        </a>
+                        </IonButton>
                     </div>
 
                     <IonPopover
@@ -64,12 +64,12 @@ const HeaderMain: React.FC = () => {
                         <span className="notification-count">4</span>
                     </IonButton>
 
-                    <IonButton className="message-button ion-hide-lg-down" fill="clear" href="#">
+                    <IonButton className="message-button ion-hide-lg-down" fill="clear" routerLink="#">
                         <IonIcon slot="icon-only" src="/assets/images/mail_outline_black_24dp.svg" />
                         {/* <span className="notification-count">4</span> */}
                     </IonButton>
 
-                    <IonButton className="account-button ion-hide-lg-down" fill="clear" href="#">
+                    <IonButton className="account-button ion-hide-lg-down" fill="clear" routerLink="#">
                         <IonIcon slot="icon-only" src="/assets/images/ios-person.svg"/>
                     </IonButton>
 

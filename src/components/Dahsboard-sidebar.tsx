@@ -20,7 +20,7 @@ const DashboardSidebar: React.FC = () => {
 
             <IonList className="sidebar-menu-list">
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" href="/manage-tenants">
+                    <IonButton className="dashboard-button" fill="clear" routerLink="/manage-tenants">
                         <div className="dashboard-button-inner">
                             <IonAvatar>
                                 <img src="assets/images/Manage-Lease-home.svg" />
@@ -31,7 +31,7 @@ const DashboardSidebar: React.FC = () => {
                 </IonItem>
 
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" href="#">
+                    <IonButton className="dashboard-button" fill="clear" routerLink="#">
                         <div className="dashboard-button-inner">    
                             <IonAvatar>
                                 <img src="assets/images/Pay-Rent-home.svg" />
@@ -42,7 +42,7 @@ const DashboardSidebar: React.FC = () => {
                 </IonItem>
 
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" href="#">
+                    <IonButton className="dashboard-button" fill="clear" routerLink="#">
                         <div className="dashboard-button-inner">
                             <IonAvatar>
                                 <img src="assets/images/Repair-home.svg" />
@@ -53,7 +53,7 @@ const DashboardSidebar: React.FC = () => {
                 </IonItem>
 
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" href="#">
+                    <IonButton className="dashboard-button" fill="clear" routerLink="#">
                         <div className="dashboard-button-inner">
                             <IonAvatar>
                                 <img src="assets/images/Posts-Home-Icon.svg" />
@@ -64,7 +64,7 @@ const DashboardSidebar: React.FC = () => {
                 </IonItem>
 
                 <IonItem>
-                    <IonButton className="dashboard-button" slot="start" fill="clear" href="#">
+                    <IonButton className="dashboard-button" slot="start" fill="clear" routerLink="#">
                         <div className="dashboard-button-inner">
                             <IonAvatar>
                                 <img src="assets/images/Staff-home.svg" />

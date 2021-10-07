@@ -260,7 +260,7 @@ body .button.button-block.button-solid.secondary-button {
 body .button.button-clear {
     font-size: 16px;
     text-transform: none;
-    color: #575757;
+    --color: #575757;
     font-family: 'Segoe UI';
     font-weight: normal;
     --background: transparent;
@@ -303,13 +303,19 @@ body .main-header .with-back-arrow + .with-back-arrow.with-step-arrow {
 body .main-header .with-back-arrow + .with-back-arrow {
     display: none;
 }
-body .main-header .button.button-clear {
+body .main-header .button.button-clear.with-back-arrow {
     position: absolute;
     left: 0;
 }
 .main-logo {
     text-align: center;
     margin: 0 auto;
+}
+body .main-logo .button.button-clear,
+body .apart-logo .button.button-clear,
+body .button.button-clear.page-link {
+    height: auto;
+    margin: 0;
 }
 .main-logo a {
     display: inline-block;
@@ -454,7 +460,20 @@ ion-content {
     margin-top: 10px;
 }
 .login-form .forget-password {
-    margin-top: 5px;
+    margin-top: 0;
+}
+.login-form .forget-password .button.button-clear,
+.back-to-login .button.button-clear,
+body .button.button-clear.page-link {
+    letter-spacing: normal;
+    margin: 0;
+    line-height: 1.2;
+    --border-radius: 0;
+    font-size: 14px;
+    --color: #575757;
+    --color-activated: #FFA800;
+    --color-focused: #FFA800;
+    --color-hover: #FFA800;
 }
 .login-form .sign-up-btn,
 .login-form .login-btn {

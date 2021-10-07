@@ -6,7 +6,8 @@ import {
     IonRow, 
     IonCol, 
     IonList, 
-    IonItem
+    IonItem,
+    IonButton
 } from '@ionic/react';
 
 import '../assets/css/Custom.css';
@@ -19,9 +20,17 @@ const Footer: React.FC = () => {
                 <IonRow>
                     <IonCol className="footer-top-col" size="12">
                         <IonList>
-                            <IonItem><a href="#">Contact Us</a></IonItem>
-                            <IonItem><a href="#">About</a></IonItem>
-                            <IonItem><a href="#">Terms of Use</a></IonItem>
+                            <IonItem>
+                                <IonButton className="page-link" routerLink="/" fill="clear">Contact Us</IonButton>
+                            </IonItem>
+
+                            <IonItem>
+                                <IonButton className="page-link" routerLink="/" fill="clear">About</IonButton>
+                            </IonItem>
+
+                            <IonItem>
+                                <IonButton className="page-link" routerLink="/" fill="clear">Terms of Use</IonButton>
+                            </IonItem>
                         </IonList>
                         
                     </IonCol>
