@@ -274,6 +274,7 @@ body .button.button-clear {
     --border-color: transparent;
     --border-width: 0;
     --inner-border-width: 0;
+    opacity: 1;
 }
 /* Button css end */
 
@@ -424,11 +425,15 @@ body .button.back-buton {
 /* Footer css start */
 ion-footer {
     background-color: #fff;
-    padding: 20px 0 10px;
+    padding: 0;
 }
 ion-footer ion-list {
     display: flex;
     justify-content: center;
+}
+ion-footer ion-list.list-md {
+    margin: 0;
+    padding: 0;
 }
 ion-footer ion-list ion-item {
     --padding-start: 0;
@@ -440,6 +445,26 @@ ion-footer ion-list ion-item a,
 ion-footer p {
     color: #575757;
     font-size: 15px;
+}
+ion-footer p {
+    margin-top: 0;
+}
+body ion-footer .button.button-clear.page-link {
+    font-size: 15px;
+}
+body .button.button-clear.scroll-to-bottom-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 99;
+    height: auto;
+    margin: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+}
+body .button.button-clear.scroll-to-bottom-btn {
+    font-size: 25px;
+    color: #575757;
 }
 /* Footer css end */
 
@@ -650,10 +675,10 @@ body .swiper-slide {
     background-color: #F9F9F9;
     --background: #F9F9F9;
     --padding-top: 15px;
-    --padding-bottom: 15px;
+    --padding-bottom: 0;
 }
 .dashboard-wrapper .dashboard-main-grid {
-    padding: 0;
+    padding: 0 0 15px;
     min-height: 600px;
 }
 .dashboard-wrapper .dashboard-main-row,
@@ -755,13 +780,14 @@ body .button.dashboard-button {
     background-color: rgba(255,255,255,0.95);
     border: 1px solid #7C7C7C;
     border-radius: 4px;
-    padding: 17px 20px 10px;
+    padding: 10px 15px 5px;
     backdrop-filter: blur(1px);
     --webkit-backdrop-filter: blur(1px);
 }
 .property-name {
     font-weight: normal;
     margin: 0 0 15px;
+    text-decoration: underline;
 }
 .property-address {
     font-family: 'Segoe UI Semilight';
@@ -851,12 +877,14 @@ body .change-property-button.button {
     color: #FFBB00;
     font-weight: 600;
     height: auto;
-    margin-bottom: 0;
-    margin-top: 10px;
+    margin: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    height: auto;
 }
 .change-property-button ion-icon {
-    font-size: 25px;
-    margin-left: 8px;
+    font-size: 40px;
+    margin-left: 0px;
 }
 body .button.button-clear.close-popup-button {
     position: absolute;
@@ -1088,9 +1116,6 @@ ion-note {
 
 
 /* Manage tenants css start */
-.manage-tenants-wrapper .dashboard-main-grid {
-    height: 100%;
-}
 .dashboard-content .ion-page {
     background-color: #fff;
     /* left: 15px;
@@ -1108,28 +1133,54 @@ ion-note {
     /* right: 22px; */
     padding: 0 22px;
 }
+.dashboard-content-inner {
+    background-color: #fff;
+    padding: 0 35px 15px;
+}
 ion-tabs {
     position: relative !important;
+}
+ion-segment {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 ion-tab-bar {
     background: transparent;
     border: none;
     justify-content: flex-start;
 }
-ion-tab-button {
+ion-tab-button,
+ion-segment-button {
     --background: transparent;
+    --background-checked: transparent;
+    --background-focused: transparent;
+    --background-hover: transparent;
+    --background-activated: transparent;
+    --background-focused-opacity: 1;
+    --background-hover-opacity: 1;
+    --background-activated-opacity: 1;
     height: auto;
+    font-family: 'Segoe UI Semilight';
     font-size: 17px;
-    font-weight: normal;
-    color: #7c7c7c;
+    font-weight: 300;
+    --color: #3C5871;
+    --color-checked: #3c5871;
+    --color-selected: #3C5871;
+    --color-focused: #3C5871;
     position: relative;
     --padding-top: 10px;
     --padding-bottom: 10px;
     --padding-start: 50px;
     --padding-end: 50px;
     border-bottom: 1px solid #C0C0C0;
-    --color-selected: #7c7c7c;
-    --color-focused: #7c7c7c;
+    text-transform: none;
+    --indicator-color: #FFBB00;
+    --indicator-height: 2px;
+    --transition: color 0.15s linear 0s, opacity 1s linear 0s;
+    min-width: auto;
+    max-width: fit-content;
+    letter-spacing: normal;
 }
 ion-tab-button ion-label {
     font-size: inherit;
@@ -1137,7 +1188,9 @@ ion-tab-button ion-label {
     font-weight: inherit;
 }
 ion-tab-button.tab-selected,
+ion-segment-button.segment-button-checked,
 ion-tab-button.tab-selected ion-label {
+    font-family: 'Segoe UI';
     font-weight: 600;
 }
 
@@ -1157,14 +1210,15 @@ ion-tab-button.tab-selected:after {
 }
 .tab-content {
     margin-top: 20px;
+    width: 100%;
 }
 .requires-renewal-proposal-block {
     overflow: hidden;
 }
 .title-with-line {
     margin: 0;
-    color: #7c7c7c;
-    font-size: 15px;
+    color: #3C5871;
+    font-size: 16px;
     font-family: 'Segoe UI Semilight';
     font-weight: 300;
     position: relative;
@@ -1182,26 +1236,26 @@ ion-tab-button.tab-selected:after {
     left: calc(100% + 15px);
 }
 .tab-content .apartments-list .button.button-full {
-    --background: #F7F7F7;
-    --background-activated: #F7F7F7;
-    --background-hover: #F7F7F7;
-    --background-focused: #F7F7F7;
+    --background: #fff;
+    --background-activated: #fff;
+    --background-hover: #fff;
+    --background-focused: #fff;
     --background-activated-opacity: 1;
     --background-focused-opacity: 1;
     --background-hover-opacity: 1;
     --border-radius: 12px;
     --border-width: 1px;  
-    --border-color: #F1F1F1;
+    --border-color: #B4BEC7;
     --border-style: solid;
-    --color: #7c7c7c;
-    --color-activated: #7c7c7c;
-    --color-focused: #7c7c7c;
-    --color-hover: #7c7c7c;
+    --color: #3C5871;
+    --color-activated: #3C5871;
+    --color-focused: #3C5871;
+    --color-hover: #3C5871;
     --padding-top: 10px;
     --padding-bottom: 10px;
     --padding-start: 20px;
     --padding-end: 20px;
-    --box-shadow: 0 1px 1px #09090926;
+    --box-shadow: 0 1px 1px #C0C0C0;
     min-height: 100px;
     border-radius: 12px;
     /* --border-right-width: 1px;
@@ -1216,7 +1270,7 @@ ion-tab-button.tab-selected:after {
     height: 100%;
     justify-content: center;
     text-align: left;
-    color: #7c7c7c;
+    color: #3C5871;
 }
 .tab-content .button span {
     font-size: 11px;
@@ -1231,7 +1285,7 @@ ion-tab-button.tab-selected:after {
     opacity: 80%;
     text-align: center;
 }
-.tab-content .button h2:before {
+/* .tab-content .button h2:before {
     content: "";
     position: absolute;
     left: 0;
@@ -1244,14 +1298,14 @@ ion-tab-button.tab-selected:after {
     box-shadow: 0 0 6px 6px rgb(0 0 0 / 20%);
     background-color: rgb(0 0 0 / 20%);
     border-radius: 12px;
-}
+} */
 .apartments-list {
     margin-bottom: 25px;
 }
 body .button.button-full.show-more-button {
-    --background: #c0c0c0;
-    --color: #fff;
-    font-size: 17px;
+    --background: #fff;
+    --color: #3C5871;
+    font-size: 15px;
     height: auto;
     --padding-top: 10px;
     --padding-bottom: 10px;
@@ -1259,31 +1313,44 @@ body .button.button-full.show-more-button {
     --padding-start: 10px;
     --padding-end: 10px;
     margin: auto;
+    --box-shadow: none;
+    --border-color: #3C5871;
+    font-weight: normal;
+    --border-style: solid;
+    --border-width: 1px;
 }
 .apartments-list-block {
     padding: 15px 0;
+    overflow: hidden;
 }
 
 .find-digi-lease-block {
-    background-color: #F8F8F8;
+    background-color: #F3F3F3;
     padding: 15px;
+    border-bottom: 1px solid #E2E1E1;
 }
 .find-digi-lease-block h6,
-.digi-lease-search-results-box h6 {
+.digi-lease-search-results-box > h6 {
     font-size: 15px;
-    color: #7c7c7c;
+    color: #575757;
     margin: 0 0 15px;
+    font-weight: normal;
+}
+.digi-lease-search-results-box > h6 {
+    color: #3C5871;
+    font-family: 'Segoe UI Semilight';
+    font-weight: 300;
 }
 .find-digi-lease-block h6 b,
 .digi-lease-search-results-box h6 b {
     font-weight: 600;
+    font-family: 'Segoe UI';
 }
 .search-box {
     display: flex;
     align-items: center;
 }
 .search-box ion-label {
-    color: #7c7c7c;
     font-size: 17px;
     font-weight: normal;
 }
@@ -1305,16 +1372,23 @@ body .button.button-full.show-more-button {
     --color: #fff;
 }
 .search-box .button.button-full {
-    --background: #c0c0c0;
-    --color: #fff;
+    --background: #E5E5E5;
+    --color: #7c7c7c;
     max-width: 108px;
     --padding-start: 15px;
     --padding-end: 15px;
+    --box-shadow: none;
+    --border-color: #ccc;
+    --border-style: solid;
 }
 .search-box .button.button-full div {
-    color: #fff;
+    color: #7c7c7c;
     flex-direction: row;
     align-items: center;
+}
+.search-box .button.button-full div:hover,
+.search-box .button.button-full div:focus {
+    color: #fff;
 }
 .search-box .button.button-full ion-icon {
     flex: 0 0 30px;
@@ -1326,15 +1400,15 @@ body .button.button-full.show-more-button {
     letter-spacing: normal;
 }
 .digi-lease-search-results-box {
-    margin-top: 15px;
+    margin-top: 25px;
 }
 .search-result-box h5 {
-    color: #7C7C7C;
+    color: #3C5871;
     font-family: 'Segoe UI Semilight';
     font-weight: 300;
     margin: 0 0 25px;
     padding-bottom: 5px;
-    border-bottom: 1px solid #c0c0c0;
+    border-bottom: 1px solid #E2E1E1;
 }
 .lease-renewal {
     background-color: #FFDFDF;
@@ -1359,6 +1433,69 @@ body .button.button-full.show-more-button {
 .lease-renewal ion-icon {
     font-size: 45px;
     color: #FF6363;
+}
+.search-result-box + .search-result-box {
+    margin-top: 25px;
+}
+.tenants-lease-info {
+    border: 1px solid #B4BEC7;
+    box-shadow: 0 1px 1px #c0c0c0;
+    border-radius: 4px;
+    padding: 8px 10px;
+}
+.start-end-date-block,
+.tenant-lease-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.start-date-block h6, 
+.end-date-block h6,
+.tenant-lease-info h6 {
+    font-size: 16px;
+    margin: 0 0 18px;
+    border-bottom: 1px solid #C0C0C0;
+    padding-bottom: 5px;
+    font-weight: normal;
+}
+.start-end-date-block > div {
+    text-align: center;
+}
+.start-date-block h6 {
+    color: #1ECB40;
+}
+.end-date-block h6 {
+    color: #FF6363;
+}
+.tenant-lease-info h6 {
+    color: #7FC4FD;
+}
+.start-end-date-block p {
+    color: #3C5871;
+    font-weight: normal;
+    margin: 0 0 5px;
+}
+.start-end-date-block .to-block p {
+    padding-top: 15px;
+}
+.to-block {
+    padding: 0 55px;
+}
+.to-block ion-icon {
+    font-size: 25px;
+}
+.tenant-lease-info {
+    flex-direction: column;
+}
+.tenant-lease-info ol,
+.tenant-lease-info ul {
+    margin: 0;
+}
+.tenant-lease-info li {
+    color: #3C5871;
+    font-size: 15px;
+    font-family: 'Segoe UI Semilight';
+    font-weight: 300;
 }
 /* Manage tenants css end */
 

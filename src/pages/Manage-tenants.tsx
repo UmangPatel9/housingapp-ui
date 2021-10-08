@@ -1,19 +1,16 @@
+import React, {useRef, useState} from "react";
+
 import { 
     IonContent, 
     IonPage, 
-    IonButton, 
     IonGrid, 
     IonRow, 
     IonCol, 
-    IonIcon,
-    IonLabel,
-    IonRouterOutlet,
-    IonTabs,
-    IonTabBar,
-    IonTabButton
+    IonSegment,
+    IonSegmentButton,
+    IonSlides,
+    IonSlide
 } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
   
 import HeaderMain from '../components/Header-main';
 import Footer from '../components/Footer';
@@ -27,10 +24,33 @@ import '../assets/css/Responsive.css';
   
 const ManageTenants: React.FC = () => {
 
-    const openChangePropertyPopup = () => {
-        let element: HTMLElement = document.getElementsByClassName('change-property')[0] as HTMLElement;
-        element.click();
+    // a ref variable to handle the current slider
+    const slider = useRef<HTMLIonSlidesElement>(null);
+    // a state value to bind segment value
+    const [value, setValue] = useState("0");
+
+    const slideOpts = {
+      initialSlide: 0,
+      speed: 400,
+      loop: false,
+      pagination: {
+        el: null
+      },
+    
     };
+
+    // a function to handle the segment changes
+    const handleSegmentChange = (e: any) => {
+      setValue(e.detail.value);
+      slider.current!.slideTo(e.detail.value);
+    };
+
+    // a function to handle the slider changes
+    const handleSlideChange = async (event: any) => {
+      let index: number = 0;
+      await event.target.getActiveIndex().then((value: any) => (index=value));
+      setValue(''+index)
+    }
 
     return (
         <IonPage>
@@ -48,29 +68,26 @@ const ManageTenants: React.FC = () => {
 
                         {/* dashboar content start */}
                         <IonCol className="dashboard-content" size="12" sizeMd="12" sizeLg="6" sizeXl="8">
-                        <IonReactRouter>
-                            <IonPage id="main">
-                                <IonTabs>
+                            <div className="dashboard-content-inner">
+                                <IonSegment scrollable  mode="md" value={value} onIonChange={(e) => handleSegmentChange(e)} >
+                                    <IonSegmentButton value="0">
+                                        General
+                                    </IonSegmentButton>
+                                    <IonSegmentButton value="1">
+                                        Search Tool
+                                    </IonSegmentButton>
+                                </IonSegment>
 
-                                    <IonRouterOutlet>
-                                        <Route path="/:tab(manage-tenants-general)" component={ManageTenantGeneralTab} exact={true} />
-                                        <Route path="/:tab(manage-tenants-search)" component={ManageTenanatSearchTab} exact={true} />
-                                        <Route exact path="/Manage-tenants" render={() => <Redirect to="/manage-tenants-general" />} />
-                                    </IonRouterOutlet>
-
-                                    <IonTabBar slot="top">
-                                        <IonTabButton tab="manage-tenanats-general" href="/manage-tenants-general">
-                                            <IonLabel>General</IonLabel>
-                                        </IonTabButton>
-                                        <IonTabButton tab="tab2" href="/manage-tenants-search">
-                                            <IonLabel>Search</IonLabel>
-                                        </IonTabButton>
-                                        
-                                    </IonTabBar>
-
-                                </IonTabs>
-                            </IonPage>
-                            </IonReactRouter> 
+                                <IonSlides pager={true} options={slideOpts} onIonSlideDidChange={(e) => handleSlideChange(e)} ref={slider}>
+                                    <IonSlide>
+                                        <ManageTenantGeneralTab />
+                                    </IonSlide>
+                                    {/*-- Package Segment --*/}
+                                    <IonSlide>
+                                        <ManageTenanatSearchTab />
+                                    </IonSlide>
+                                </IonSlides>
+                            </div>
                         </IonCol>
                         {/* dashboar content end */}
 

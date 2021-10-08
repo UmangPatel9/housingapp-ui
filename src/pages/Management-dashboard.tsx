@@ -1,3 +1,5 @@
+import React, {useRef} from "react";
+
 import { 
     IonContent, 
     IonPage, 
@@ -24,12 +26,18 @@ const ManagementDashboard: React.FC = () => {
         element.click();
     };
 
+    const contentRef = useRef<HTMLIonContentElement | null>(null);
+
+    const scrollToBottom= () => {
+        contentRef.current && contentRef.current.scrollToBottom(500);
+    };
+
     return (
         <IonPage>
   
            <HeaderMain />
   
-           <IonContent className="dashboard-wrapper" fullscreen>
+           <IonContent className="dashboard-wrapper" ref={contentRef} scrollEvents={true} fullscreen>
                 <IonGrid className="dashboard-main-grid">
                     <IonRow className="dashboard-main-row">
                         
@@ -55,8 +63,8 @@ const ManagementDashboard: React.FC = () => {
                                                 fill="clear" 
                                                 onClick={openChangePropertyPopup}
                                             >
-                                                <span>Change</span>
-                                                <IonIcon src="/assets/images/exchange-icon.svg" />
+                                                {/* <span>Change</span> */}
+                                                <IonIcon src="/assets/images/Switch-Builindings-Icon.svg" />
                                             </IonButton>
                                         </div>
                                     </div>
@@ -74,6 +82,10 @@ const ManagementDashboard: React.FC = () => {
     
                     </IonRow>
                 </IonGrid>
+
+                <IonButton className="scroll-to-bottom-btn" onClick={scrollToBottom} fill="clear">
+                    <IonIcon icon="assets/images/scroll-to-bottom-icon.svg" />
+                </IonButton>
               
                 <Footer />
 

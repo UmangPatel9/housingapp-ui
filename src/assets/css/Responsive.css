@@ -32,9 +32,10 @@
         --padding-start: 0;
         --padding-end: 0;
     }
-    .inner-main-header::before {
+    .inner-main-header::before,
+    .dashboard-sidebar:before  {
         width: 46px;
-        height: 1px;
+        height: 2px;
         background: linear-gradient(to right, rgba(128,128,128,1) 0%,rgba(128,128,128,0.9) 50%,rgba(128,128,128,0.8) 100%);
         content: "";
         position: absolute;
@@ -62,6 +63,7 @@
     .footer-bottom-col {
         padding-top: 0;
         padding-bottom: 0;
+        text-align: center;
     }
     .footer-notification-button ion-icon {
         font-size: 25px;
@@ -102,6 +104,9 @@
         flex: 0 0 75%;
         max-width: 75%;
     }
+    body .button.button-clear.scroll-to-bottom-btn {
+        bottom: 65px;
+    }
     /* footer css end */
 
     /* Management Dashboard css start */
@@ -110,15 +115,23 @@
         --background: #fcfcfc;
     }
     .dashboard-wrapper .dashboard-main-grid {
-        padding-bottom: 50px;
+        padding-bottom: 60px;
     }
     .dashboard-content {
         order: 1;
     }
     .dashboard-sidebar {
         order: 2;
-        margin-top: 30px;
+        margin-top: 25px;
         background-color: #fcfcfc;
+    }
+    .dashboard-wrapper .dashboard-main-row > ion-col.dashboard-sidebar {
+        padding-top: 10px;
+        position: relative;
+    }
+    .dashboard-sidebar:before {
+        bottom: auto;
+        top: 0;
     }
     .dashboard-wrapper .dashboard-main-row > ion-col {
         padding: 0 16px;
@@ -212,24 +225,18 @@
     .tab-content .apartments-list-block ion-grid {
         padding: 0 35px;
     }
-    .tab-content .apartments-list .button.button-full {
-        --background: #ffffff;
-        --border-color: #c0c0c0;
-    }
-    .tab-content .button div {
-        color: #575757;
-    }
     .tab-content .button h2 {
         margin: 10px 0 0;
     }
-    body .button.button-full.show-more-button {
-        --background: #FFFEFA;
-        --color: #7C7C7C;
-        --border-color: #E5E5E5;
-        --border-style: solid;
-    }
     ion-tab-button {
         border-bottom: 1px solid #CCE0F0;
+    }
+    /* Manage tenants css end  */
+
+    /* Manage tenants css start  */
+    .dashboard-content-inner {
+        background-color: transparent;
+        padding: 0 0 15px;
     }
     /* Manage tenants css end  */
 }
@@ -315,9 +322,9 @@
     .change-property-popup {
         --width: 90vw;
     }
-    body .change-property-button.button {
+    /* body .change-property-button.button {
         margin-top: 25px;
-    }
+    } */
     body .change-property-popup .button.button-block.button-solid {
         font-size: 12px;
     } 
@@ -329,6 +336,47 @@
         font-size: 28px;
     }
     /* Management Dashboard css close */
+
+    /* Manage tenants css start */
+    .manage-tenants-wrapper .dashboard-main-grid {
+        margin-top: -15px;
+    }
+    .manage-tenants-wrapper .dashboard-main-row > ion-col {
+        padding: 0;
+    }
+    ion-tab-button,
+    ion-segment-button {
+        flex: 0 0 50%;
+        max-width: 100%;
+        --padding-start: 15px;
+        --padding-end: 15px;
+        align-items: center;
+    }
+    .apartments-list > ion-col {
+        padding: 10px 15px;
+    }
+    .tab-content .apartments-list .button.button-full {
+        --padding-top: 0;
+        --padding-bottom: 0;
+        --padding-start: 10px;
+        --padding-end: 10px;
+    }
+    .tab-content .apartments-list-block ion-grid {
+        padding: 0 10px;
+    }
+    .search-box ion-input.sc-ion-input-md-h {
+        margin: 0 15px;
+    }
+    .search-box ion-label {
+        font-size: 14px;
+    }
+    .lease-renewal ion-icon {
+        width: 100%;
+    }
+    .to-block {
+        padding: 0 15px;
+    }
+    /* Manage tenants css end */
 }
 
 @media (max-width: 320px) {
@@ -349,4 +397,24 @@
         font-size: 14px;
     }
     /* Management Dashboard css end */
+
+    /* Manage tenants css start  */
+    .search-box .button.button-full {
+        max-width: 100px;
+    }
+    .search-box .button.button-full ion-icon {
+        flex: 0 0 25px;
+        max-width: 25px;
+        font-size: 25px;
+    }
+    .search-box ion-input.sc-ion-input-md-h {
+        margin: 0 10px;
+        flex: 0 0 80px;
+        max-width: 80px;
+    }
+    .search-box input.native-input.sc-ion-input-md {
+        font-size: 23px;
+        padding: 5px 15px;
+    }
+    /* Manage tenants css end  */
 }

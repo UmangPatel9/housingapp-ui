@@ -25,7 +25,7 @@ const DashboardSidebar: React.FC = () => {
                             <IonAvatar>
                                 <img src="assets/images/Manage-Lease-home.svg" />
                             </IonAvatar>
-                            <IonLabel  className="dashboard-button-label">Manage <b>Tenants</b> & <b>Leases</b></IonLabel>
+                            <IonLabel  className="dashboard-button-label"><b>Tenants</b> & <b>Leases</b></IonLabel>
                         </div>
                     </IonButton>
                 </IonItem>
@@ -36,7 +36,7 @@ const DashboardSidebar: React.FC = () => {
                             <IonAvatar>
                                 <img src="assets/images/Pay-Rent-home.svg" />
                             </IonAvatar>
-                            <IonLabel  className="dashboard-button-label">Manage <b>Rents</b></IonLabel>
+                            <IonLabel  className="dashboard-button-label"><b>Rents</b></IonLabel>
                         </div>
                     </IonButton>
                 </IonItem>
@@ -47,7 +47,7 @@ const DashboardSidebar: React.FC = () => {
                             <IonAvatar>
                                 <img src="assets/images/Repair-home.svg" />
                             </IonAvatar>
-                            <IonLabel  className="dashboard-button-label">Manage <b>Requests</b></IonLabel>
+                            <IonLabel  className="dashboard-button-label"><b>Repairs</b> & <b>Requests</b></IonLabel>
                         </div>
                     </IonButton>
                 </IonItem>
@@ -58,7 +58,7 @@ const DashboardSidebar: React.FC = () => {
                             <IonAvatar>
                                 <img src="assets/images/Posts-Home-Icon.svg" />
                             </IonAvatar>
-                            <IonLabel  className="dashboard-button-label">Manage <b>Posts</b></IonLabel>
+                            <IonLabel  className="dashboard-button-label"><b>Posts</b> & <b>Marketplace</b></IonLabel>
                         </div>
                     </IonButton>
                 </IonItem>
@@ -69,7 +69,7 @@ const DashboardSidebar: React.FC = () => {
                             <IonAvatar>
                                 <img src="assets/images/Staff-home.svg" />
                             </IonAvatar>
-                            <IonLabel  className="dashboard-button-label">Manage <b>Staff</b> accesses</IonLabel>
+                            <IonLabel  className="dashboard-button-label"><b>Staff</b> accesses</IonLabel>
                         </div>
                     </IonButton>
                 </IonItem>

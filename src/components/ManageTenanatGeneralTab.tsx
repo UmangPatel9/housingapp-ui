@@ -53,7 +53,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                     </IonRow>
                     <IonRow className="ion-justify-content-center">
                         <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
-                            <IonButton className="show-more-button" expand="full" shape="round" fill="solid">Show More</IonButton>
+                            <IonButton className="show-more-button" expand="full" shape="round" fill="solid">More</IonButton>
                         </IonCol>
                     </IonRow>
                 </IonGrid>
@@ -98,7 +98,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                     </IonRow>
                     <IonRow className="ion-justify-content-center">
                         <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
-                            <IonButton className="show-more-button" expand="full" shape="round" fill="solid">Show More</IonButton>
+                            <IonButton className="show-more-button" expand="full" shape="round" fill="solid">More</IonButton>
                         </IonCol>
                     </IonRow>
                 </IonGrid>
