@@ -43,6 +43,7 @@ const ManageTenanatSearchTab: React.FC = () => {
                 <div className="search-result-box">
                     <h5>Upcoming</h5>
                     <div className="lease-renewal">
+                        <IonButton className="lease-renewal-button" fill="clear" expand="full" shape="round" routerLink="/lease-renewal-proposal"></IonButton>
                          <IonGrid className="">
                             <IonRow className="ion-align-items-center">
                                 <IonCol sizeXs="2" sizeMd="1" sizeLg="1" sizeXl="1" className="">
@@ -66,6 +67,7 @@ const ManageTenanatSearchTab: React.FC = () => {
                 <div className="search-result-box">
                     <h5>Current</h5>
                     <div className="tenants-lease-info">
+                        <IonButton className="edit-lease-info-button" fill="clear" expand="full" shape="round" routerLink="/edit-lease-info"></IonButton>
                          <IonGrid className="">
                             <IonRow className="">
                                 <IonCol size="7" className="start-end-date-block">
@@ -103,6 +105,7 @@ const ManageTenanatSearchTab: React.FC = () => {
                 <div className="search-result-box">
                     <h5>Past</h5>
                     <div className="tenants-lease-info">
+                        <IonButton className="view-lease-info-button" fill="clear" expand="full" shape="round" routerLink="/lease-info"></IonButton>
                          <IonGrid className="">
                             <IonRow className="">
                                 <IonCol size="7" className="start-end-date-block">

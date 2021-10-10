@@ -9,10 +9,15 @@ import Signup from './pages/Signup';
 import StaffSignup from './pages/Staff-signup';
 import TenantSignup from './pages/Tenant-signup';
 import ManagementDashboard from './pages/Management-dashboard';
+import ManagementDashboardWithNoProperty from './pages/Management-dashboard-with-no-property';
 import ManagementSignup from './pages/Management-signup';
 import ManageProperties from './pages/Manage-properties';
 import AddNewProperty from './pages/Add-new-property';
 import ManageTenants from './pages/Manage-tenants';
+import LeaseInfo from './pages/Lease-info';
+import EditLeaseInfo from './pages/Edit-lease-info';
+import AddNewLease from './pages/Add-new-lease';
+import LeaseRenewalProposal from './pages/lease-renewal-proposal';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -65,6 +70,9 @@ const App: React.FC = () => (
         <Route exact path="/management-dashboard">
           <ManagementDashboard />
         </Route>
+        <Route exact path="/management-dashboard-with-no-property">
+          <ManagementDashboardWithNoProperty />
+        </Route>
         <Route exact path="/manage-properties">
           <ManageProperties />
         </Route>
@@ -79,6 +87,18 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/manage-tenants-search">
           <ManageTenants />
+        </Route>
+        <Route exact path="/lease-info">
+          <LeaseInfo />
+        </Route>
+        <Route exact path="/edit-lease-info">
+          <EditLeaseInfo />
+        </Route>
+        <Route exact path="/add-new-lease">
+          <AddNewLease />
+        </Route>
+        <Route exact path="/lease-renewal-proposal">
+          <LeaseRenewalProposal />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

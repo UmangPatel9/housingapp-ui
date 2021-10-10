@@ -15,6 +15,17 @@
     }
 }
 
+@media (max-width: 1199px) {
+
+    /* Lease info css start */
+    .lease-code-info .button.button-solid {
+        font-size: 14px;
+    }
+    /* Lease info css end */
+
+}
+
+
 @media (max-width: 991px) {
 
     /* header css start */
@@ -194,6 +205,7 @@
     .manage-property-wrapper .dashboard-sidebar,
     .add-proepry-wrapper .dashboard-sidebar,
     .manage-tenants-wrapper .dashboard-sidebar,
+    .lease-info-wrapper .dashboard-sidebar,
     .manage-tenants-wrapper .dashboard-posts {
         display: none;
     }
@@ -239,6 +251,18 @@
         padding: 0 0 15px;
     }
     /* Manage tenants css end  */
+
+    /* Lease info css start */
+    .lease-info-wrapper .dashboard-main-row > ion-col {
+        padding: 0;
+    }
+    .lease-info-wrapper .dashboard-main-row > ion-col.dashboard-content {
+        padding-bottom: 30px;
+    }
+    .tenant-lease-details-card {
+        margin: 30px 15px 0;
+    }
+    /* Lease info css end */
 }
 
 
@@ -282,7 +306,10 @@
     /* header css close */
 
     /* login css start */
-    body .button.button-block {
+    body .button.button-block,
+    body .button.button-full, 
+    body .button.button-solid,
+    body .button.button-outline {
         font-size: 16px;
         --padding-start: 15px;
         --padding-end: 15px;
@@ -335,6 +362,9 @@
     .property-fab-button ion-fab-button ion-icon {
         font-size: 28px;
     }
+    body .no-property-selected .change-property-button.button ion-icon {
+        font-size: 28px;
+    }
     /* Management Dashboard css close */
 
     /* Manage tenants css start */
@@ -377,6 +407,37 @@
         padding: 0 15px;
     }
     /* Manage tenants css end */
+
+    /* Lease info css start */
+    .apartment-lease-code-info ion-label {
+        font-size: 14px;
+    }
+    body .native-input.sc-ion-input-md[readonly] {
+        font-size: 18px;
+    }
+    .lease-code-info .button.button-solid {
+        font-size: 13px;
+    }
+    .tenant-lease-details-card ion-card-title {
+        font-size: 18px;
+    }
+    .apartment-lease-code-info {
+        padding: 15px 10px;
+    }
+    .apartment-lease-code-info ion-col {
+        padding: 0 5px;
+    }
+    ion-input.width-50 {
+        width: 100px;
+    }
+    ion-input.width-25 {
+        width: 80px;
+        text-align: center;
+    }
+    body .special-actions-card .button.button-outline {
+        margin: 5px;
+    }
+    /* Lease info css end */
 }
 
 @media (max-width: 320px) {
@@ -417,4 +478,10 @@
         padding: 5px 15px;
     }
     /* Manage tenants css end  */
+
+    /* Lease info css start */
+    .dashboard-content .uploaded-file-name {
+        font-size: 14px;
+    }
+    /* Lease info css end */
 }
