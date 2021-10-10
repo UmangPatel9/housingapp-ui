@@ -1328,7 +1328,7 @@ ion-tab-button.tab-selected:after {
     font-weight: normal;
     text-transform: none;
     position: relative;
-    opacity: 80%;
+    opacity: 0.8;
     text-align: center;
 }
 /* .tab-content .button h2:before {
