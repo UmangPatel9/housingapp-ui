@@ -15,7 +15,7 @@ import {
     IonCardHeader,
     IonCardTitle,
     IonCardContent,
-    IonItem
+    IonAlert
 } from '@ionic/react';
 
 import { close, attachOutline, chevronDown } from "ionicons/icons";
@@ -36,6 +36,8 @@ const LeaseRenewalProposal: React.FC = () => {
     const scrollToBottom= () => {
         contentRef.current && contentRef.current.scrollToBottom(500);
     };
+
+    const [generateNewLeaseCodeAlert, setGenerateNewLeaseCodeAlert] = useState(false);
 
     return (
         <IonPage>
@@ -63,9 +65,48 @@ const LeaseRenewalProposal: React.FC = () => {
                                         <IonLabel>Lease Code</IonLabel>
                                         <IonInput mode="md" type="text" value={"Z123 1234 1234"} name="leaseCode" readonly></IonInput>
                                     </div>
-                                    <IonButton fill="solid" shape="round">
+                                    <IonButton 
+                                        fill="solid" 
+                                        shape="round"
+                                        onClick={() =>
+                                            setGenerateNewLeaseCodeAlert(true)
+                                        }
+                                    >
                                         Generate New Lease Code
                                     </IonButton>
+                                    <IonAlert
+                                        isOpen={generateNewLeaseCodeAlert}
+                                        onDidDismiss={() => setGenerateNewLeaseCodeAlert(false)}
+                                        cssClass='orange-alert'
+                                        mode='md'
+                                        header={'New Lease Code'}
+                                        message={'<p>You are about to <strong>change</strong> this lease code.</p><p>This step cannot be undone.</p><p>Please confirm with fingerprint.</p>'}
+                                        inputs={[
+                                            {
+                                              name: 'newLeaseCodeFingerprint',
+                                              type: 'text',
+                                              cssClass: 'fingerprint-input'
+                                            },
+                                        ]}
+                                        buttons={[
+                                            {
+                                                text: 'Yes',
+                                                cssClass: 'btn-outline',
+                                                handler: () => {
+                                                    console.log('Confirm Okay');
+                                                }
+                                            },
+                                            {
+                                                text: 'No',
+                                                role: 'cancel',
+                                                cssClass: 'btn-outline',
+                                                handler: blah => {
+                                                    console.log('Confirm Cancel: blah');
+                                                }
+                                            }
+                                            
+                                        ]}
+                                    />
                                 </IonCol>
                             </IonRow>
 

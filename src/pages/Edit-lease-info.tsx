@@ -1,5 +1,7 @@
 import React, {useRef, useState} from "react";
 
+import { useHistory } from "react-router-dom";
+
 import { 
     IonContent, 
     IonPage,
@@ -16,7 +18,8 @@ import {
     IonCardHeader,
     IonCardTitle,
     IonCardContent,
-    IonItem
+    useIonAlert,
+    IonAlert 
 } from '@ionic/react';
 
 import { close, attachOutline, chevronDown } from "ionicons/icons";
@@ -32,6 +35,8 @@ import '../assets/css/Responsive.css';
 
 const EditLeaseInfo: React.FC = () => {
 
+    let history = useHistory();
+
     const contentRef = useRef<HTMLIonContentElement | null>(null);
 
     const scrollToBottom= () => {
@@ -39,6 +44,16 @@ const EditLeaseInfo: React.FC = () => {
     };
 
     const [selectedDate, setSelectedDate] = useState<string>('');
+
+    const [present] = useIonAlert();
+
+    const [generateNewLeaseCodeAlert, setGenerateNewLeaseCodeAlert] = useState(false);
+    const [leaseRenewalProposalAlert, setLeaseRenewalProposalAlert] = useState(false);
+    const [renewalProposalSentAlert, setRenewalProposalSentAlert] = useState(false);
+    const [cancelLeaseAlert, setCancelLeaseAlert] = useState(false);
+    const [updateFileAlert, setUpdateFileAlert] = useState(false);
+    const [updateFileNotificationSentAlert, setUpdateFileNotificationSentAlert] = useState(false);
+    const [exitFileAlert, setExitFileAlert] = useState(false);
 
     return (
         <IonPage>
@@ -66,9 +81,48 @@ const EditLeaseInfo: React.FC = () => {
                                         <IonLabel>Lease Code</IonLabel>
                                         <IonInput mode="md" type="text" value={"Z123 1234 1234"} name="leaseCode"></IonInput>
                                     </div>
-                                    <IonButton fill="solid" shape="round">
+                                    <IonButton 
+                                        fill="solid" 
+                                        shape="round"
+                                        onClick={() =>
+                                            setGenerateNewLeaseCodeAlert(true)
+                                        }
+                                    >
                                         Generate New Lease Code
                                     </IonButton>
+                                    <IonAlert
+                                        isOpen={generateNewLeaseCodeAlert}
+                                        onDidDismiss={() => setGenerateNewLeaseCodeAlert(false)}
+                                        cssClass='orange-alert'
+                                        mode='md'
+                                        header={'New Lease Code'}
+                                        message={'<p>You are about to <strong>change</strong> this lease code.</p><p>This step cannot be undone.</p><p>Please confirm with fingerprint.</p>'}
+                                        inputs={[
+                                            {
+                                              name: 'newLeaseCodeFingerprint',
+                                              type: 'text',
+                                              cssClass: 'fingerprint-input'
+                                            },
+                                        ]}
+                                        buttons={[
+                                            {
+                                                text: 'Yes',
+                                                cssClass: 'btn-outline',
+                                                handler: () => {
+                                                    console.log('Confirm Okay');
+                                                }
+                                            },
+                                            {
+                                                text: 'No',
+                                                role: 'cancel',
+                                                cssClass: 'btn-outline',
+                                                handler: blah => {
+                                                    console.log('Confirm Cancel: blah');
+                                                }
+                                            }
+                                            
+                                        ]}
+                                    />
                                 </IonCol>
                             </IonRow>
 
@@ -174,15 +228,207 @@ const EditLeaseInfo: React.FC = () => {
                                 </IonCardHeader>
 
                                 <IonCardContent>
-                                    <IonButton className="propose-lease-renewal-btn" routerLink="#" fill="outline" shape="round">Propose lease renewal</IonButton>
-                                    <IonButton className="cancel-lease-btn" routerLink="/manage-tenants" fill="outline" shape="round">Cancel Lease</IonButton>
+                                    <IonButton 
+                                        className="propose-lease-renewal-btn" 
+                                        routerLink="#" 
+                                        fill="outline" 
+                                        shape="round"
+                                        onClick={() =>
+                                            setLeaseRenewalProposalAlert(true)
+                                        }
+                                    >
+                                        Propose lease renewal
+                                    </IonButton>
+                                    <IonAlert
+                                        isOpen={leaseRenewalProposalAlert}
+                                        onDidDismiss={() => setLeaseRenewalProposalAlert(false)}
+                                        cssClass='orange-alert'
+                                        mode='md'
+                                        header={'Lease Renewal Propposal'}
+                                        message={'<p>Are you sure you want to propse the Lease Renewal?</p>'}
+                                        buttons={[
+                                            {
+                                                text: 'Yes',
+                                                cssClass: 'btn-primary',
+                                                handler: () => {
+                                                    setRenewalProposalSentAlert(true)
+                                                    console.log('Lease Renewal Propposal Confirm');
+                                                }
+                                            },
+                                            {
+                                                text: 'No',
+                                                role: 'cancel',
+                                                cssClass: 'btn-outline',
+                                                handler: blah => {
+                                                    console.log('Lease Renewal Propposal Confirm Cancel');
+                                                }
+                                            }
+                                            
+                                        ]}
+                                    />
+                                    <IonAlert
+                                        isOpen={renewalProposalSentAlert}
+                                        onDidDismiss={() => setRenewalProposalSentAlert(false)}
+                                        cssClass='orange-alert'
+                                        mode='md'
+                                        header={'Renewal Proposal Sent'}
+                                        message={'<p>The lease Renewal proposal has been sent to the tenant(s). The file wil be updated if the tenant chooses to renew.</p>'}
+                                        buttons={[
+                                            {
+                                                text: 'Close',
+                                                role: 'cancel',
+                                                cssClass: 'btn-primary',
+                                                handler: blah => {
+                                                    console.log('Renewal Proposal Sent close');
+                                                }
+                                            }
+                                            
+                                        ]}
+                                    />
+                                    <IonButton 
+                                        className="cancel-lease-btn" 
+                                        // routerLink="/manage-tenants" 
+                                        fill="outline" 
+                                        shape="round"
+                                        onClick={() =>
+                                            setCancelLeaseAlert(true)
+                                        }
+                                    >
+                                        Cancel Lease
+                                    </IonButton>
+                                    <IonAlert
+                                        isOpen={cancelLeaseAlert}
+                                        onDidDismiss={() => setCancelLeaseAlert(false)}
+                                        cssClass='red-alert'
+                                        mode='md'
+                                        header={'Cancel Lease'}
+                                        message={'<p>You are about to <strong>cancel</strong> this lease code.</p><p>This step cannot be <strong>undone</strong>.</p><p>Please confirm with fingerprint.</p>'}
+                                        inputs={[
+                                            {
+                                              name: 'newLeaseCodeFingerprint',
+                                              type: 'text',
+                                              cssClass: 'fingerprint-input'
+                                            },
+                                        ]}
+                                        buttons={[
+                                            {
+                                                text: 'Yes',
+                                                cssClass: 'btn-outline',
+                                                handler: () => {
+                                                    console.log('Confirm Okay');
+                                                }
+                                            },
+                                            {
+                                                text: 'No',
+                                                role: 'cancel',
+                                                cssClass: 'btn-outline',
+                                                handler: blah => {
+                                                    console.log('Confirm Cancel: blah');
+                                                }
+                                            }
+                                            
+                                        ]}
+                                    />
                                 </IonCardContent>
                             </IonCard>
                             
                             <IonRow className="ion-justify-content-center">
                                 <IonCol className="ion-text-center">
-                                    <IonButton className="update-file-btn" routerLink="#" fill="solid" shape="round">Update File</IonButton>
-                                    <IonButton className="exit-file-btn" routerLink="/manage-tenants" fill="solid" shape="round">Exit File</IonButton>
+                                    <IonButton 
+                                        className="update-file-btn"
+                                        fill="solid" 
+                                        shape="round"
+                                        onClick={() =>
+                                            setUpdateFileAlert(true)
+                                        }
+                                    >
+                                        Update File
+                                    </IonButton>
+                                    <IonAlert
+                                        isOpen={updateFileAlert}
+                                        onDidDismiss={() => setUpdateFileAlert(false)}
+                                        cssClass='orange-alert'
+                                        mode='md'
+                                        header={'Update File'}
+                                        message={'<p>Are you sure you would like to update this file with new information?</p>'}
+                                        buttons={[
+                                            {
+                                                text: 'Yes',
+                                                cssClass: 'btn-primary',
+                                                handler: () => {
+                                                    setUpdateFileNotificationSentAlert(true)
+                                                    console.log('Update File Confirm');
+                                                }
+                                            },
+                                            {
+                                                text: 'No',
+                                                role: 'cancel',
+                                                cssClass: 'btn-outline',
+                                                handler: blah => {
+                                                    console.log('Update File Cancel');
+                                                }
+                                            }
+                                            
+                                        ]}
+                                    />
+                                    <IonAlert
+                                        isOpen={updateFileNotificationSentAlert}
+                                        onDidDismiss={() => setUpdateFileNotificationSentAlert(false)}
+                                        cssClass='orange-alert'
+                                        mode='md'
+                                        header={'Update File'}
+                                        message={'<p>A notification of your update has been sent to all the tenants on this lease.</p>'}
+                                        buttons={[
+                                            {
+                                                text: 'Close',
+                                                role: 'cancel',
+                                                cssClass: 'btn-primary',
+                                                handler: blah => {
+                                                    console.log('Update File close');
+                                                }
+                                            }
+                                            
+                                        ]}
+                                    />
+
+                                    <IonButton 
+                                        className="exit-file-btn" 
+                                        // routerLink="/manage-tenants" 
+                                        fill="solid" 
+                                        shape="round"
+                                        onClick={() =>
+                                            setExitFileAlert(true)
+                                        }
+                                    >
+                                        Exit File
+                                    </IonButton>
+                                    <IonAlert
+                                        isOpen={exitFileAlert}
+                                        onDidDismiss={() => setExitFileAlert(false)}
+                                        cssClass='red-alert'
+                                        mode='md'
+                                        header={'Exit File'}
+                                        message={'<p>Are you sure you want to Exit the file without saving the updates?</p>'}
+                                        buttons={[
+                                            {
+                                                text: 'Yes',
+                                                cssClass: 'btn-secondary',
+                                                handler: () => {
+                                                    history.goBack();
+                                                    console.log('Exit File Okay');
+                                                }
+                                            },
+                                            {
+                                                text: 'No',
+                                                role: 'cancel',
+                                                cssClass: 'btn-outline',
+                                                handler: () => {
+                                                    console.log('Exit File Cancel');
+                                                }
+                                            }
+                                            
+                                        ]}
+                                    />
                                 </IonCol>
                             </IonRow>
                             </form>

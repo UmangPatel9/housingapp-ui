@@ -960,7 +960,7 @@ body .manage-property-more-menu {
 .manage-property-more-menu .popover-content,
 .property-fab-button .popover-content {
     border-radius: 15px;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 body .button.manage-property-more-menu-button {
     --padding-start: 0;
@@ -970,9 +970,11 @@ body .button.manage-property-more-menu-button {
     color: #c0c0c0;
 }
 .manage-property-more-menu ion-list,
-.property-fab-button  ion-list {
+.manage-property-more-menu .popover-viewport,
+.property-fab-button  ion-list,
+.property-fab-button  .popover-viewport {
     padding: 0;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 .manage-property-more-menu ion-list ion-item,
 .property-fab-button  ion-list ion-item {
@@ -1005,7 +1007,7 @@ body .button.manage-property-more-menu-button {
 }
 .property-fab-button ion-fab-list {
     right: 0;
-    
+    background-color: #ffffff
 }
 .property-fab-button ion-list {
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.4);
@@ -1585,17 +1587,21 @@ body .view-lease-info-button.button.button-full {
     --border-width: 0;
     height: auto;
 }
-.tenant-lease-details-card {
+.tenant-lease-details-card,
+.tenants-rent-details-card {
     margin: 0;
     margin-top: 30px;
+    background-color: #fff;
 }
-.tenant-lease-details-card ion-card-title {
+.tenant-lease-details-card ion-card-title,
+.tenants-rent-details-card ion-card-title {
     font-size: 22px;
     color: #3C5871;
     font-family: 'Segoe UI Semilight';
     font-weight: 300;
 }
-.tenant-lease-details-card ion-card-content {
+.tenant-lease-details-card ion-card-content,
+.tenants-rent-details-card ion-card-content {
     text-align: center;
     padding-bottom: 20px;
 }
@@ -1738,7 +1744,181 @@ body .special-actions-card .button.button-outline {
     --border-radius: 4px;
     margin: 0 7.5px;
 }
+
+body .sc-ion-alert-md-h {
+    --min-width: 305px;
+}
+body .alert-wrapper.sc-ion-alert-md {
+    border: 1px solid #575757;
+}
+body .alert-head.sc-ion-alert-md {
+    text-align: center;
+}
+body .orange-alert .alert-head.sc-ion-alert-md {
+    background-color: #fb0;
+}
+body .red-alert .alert-head.sc-ion-alert-md {
+    background-color: #FF6363;
+}
+body .alert-title.sc-ion-alert-md {
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+}
+body .alert-head.sc-ion-alert-md + .alert-message.sc-ion-alert-md {
+    padding: 30px 15px 15px;
+}
+.alert-message p {
+    text-align: center;
+    font-family: 'Segoe UI';
+    margin: 0 0 15px;
+    font-size: 15px;
+}
+.alert-message p:last-child {
+    margin-bottom: 0;
+}
+body .alert-button-group.sc-ion-alert-md {
+    justify-content: center;
+    padding-bottom: 20px;
+}
+body .alert-button.sc-ion-alert-md {
+    
+    border-radius: 30px;
+    padding: 10px 30px;  
+    background: #fff;
+    font-weight: normal;
+    text-transform: none;
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    white-space: normal;
+    letter-spacing: 0.8px;
+    margin: 0;
+}
+body .alert-button.sc-ion-alert-md.btn-outline {
+    border: 1px solid #575757;
+    color: #575757;
+}
+body .alert-button.sc-ion-alert-md.btn-primary,
+body .alert-button.sc-ion-alert-md:hover,
+body .alert-button.sc-ion-alert-md:focus,
+body .alert-button.sc-ion-alert-md.btn-secondary:hover,
+body .alert-button.sc-ion-alert-md.btn-secondary:focus {
+    color: #fff;
+    background: #FFA800;
+    border-color: #FFA800;
+}
+body .alert-button.sc-ion-alert-md.btn-secondary {
+    background: #FF6363;
+    border-color: #FF6363;
+    color: #fff;
+}
+body .alert-button.sc-ion-alert-md.btn-primary:hover,
+body .alert-button.sc-ion-alert-md.btn-primary:focus {
+    background: #FFBB00;
+}
+body .alert-button.sc-ion-alert-md + .alert-button.sc-ion-alert-md {
+    margin-left: 30px;
+}
+.alert-input-wrapper {
+    text-align: center;
+}
+body .alert-input-group.sc-ion-alert-md {
+    padding: 15px 15px 30px;
+}
+body .alert-input.sc-ion-alert-md.fingerprint-input {
+    border: none;
+    width: 113px;
+    height: 113px;
+    margin: 0 auto;
+    box-shadow: 0 0 5px -1px rgb(0 0 0 / 50%);
+    border-radius: 16px;
+    background-image: url('../images/finger-print-outline.svg');
+    background-position: center;
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+}
 /* Lease info css end */
+
+/* Manage Rents css start  */
+.tenants-rent-details-card {
+    background-color: #F3F3F3;
+    box-shadow: none;
+}
+body .tenants-rent-details-card .button.button-outline {
+    --border-radius: 4px;
+    margin: 0;
+}
+body .tenants-rent-details-card .button + .button {
+    margin-left: 30px;
+}
+body textarea.alert-input.sc-ion-alert-md {
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    min-height: 130px;
+    padding: 15px;
+}
+
+.tenants-lease-payment-info {
+    padding: 0;
+    margin-bottom: 15px;
+}
+.tenants-lease-payment-info ion-grid {
+    padding: 0;
+}
+.tenants-lease-payment-info ion-col {
+    padding: 15px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+.tenants-lease-payment-info ion-col:last-child {
+    border-right: none;
+}
+.tenants-lease-payment-info p:last-child {
+    margin-bottom: 0;
+}
+.due-block h6 {
+    color: #FF6363;
+}
+.paid-block h6 {
+    color: #1ECB40;
+}
+.rent-period-block p {
+    display: flex;
+    align-items: center;
+}
+.rent-period-block p ion-icon {
+    margin: 0 5px;
+}
+.tenants-lease-payment-info h6 {
+    font-size: 16px;
+    margin: 0 0 18px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 5px;
+    font-weight: normal;
+}
+/* Manage Rents css end  */
+
+/* Rent Pay Details css start */
+.rent-pay-details-card {
+    margin-top: 0;
+}
+.tenant-lease-details-info.rent-pay-info {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.paid-btn-wrap {
+    display: flex;
+    justify-content: flex-start;
+}
+.paid-btn-wrap ion-input.width-25 {
+    flex: 0 0 100px;
+    max-width: 100px;
+    margin-right: 15px;
+}
+body .button.button-outline.confirm-btn {
+    margin: 15px 7.5px 0;
+}
+/* Rent Pay Details css end */
 
 /* 
 

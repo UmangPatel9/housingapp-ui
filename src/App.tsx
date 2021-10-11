@@ -18,6 +18,8 @@ import LeaseInfo from './pages/Lease-info';
 import EditLeaseInfo from './pages/Edit-lease-info';
 import AddNewLease from './pages/Add-new-lease';
 import LeaseRenewalProposal from './pages/lease-renewal-proposal';
+import ManageRents from './pages/Manage-rents';
+import RentPayDetails from './pages/Rent-pay-details';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -42,6 +44,7 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+
         <Route exact path="/index">
           <Home />
         </Route>
@@ -100,6 +103,13 @@ const App: React.FC = () => (
         <Route exact path="/lease-renewal-proposal">
           <LeaseRenewalProposal />
         </Route>
+        <Route exact path="/manage-rents">
+          <ManageRents />
+        </Route>
+        <Route exact path="/rent-pay-details">
+          <RentPayDetails />
+        </Route>
+
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

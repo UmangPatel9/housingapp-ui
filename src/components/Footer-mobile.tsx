@@ -47,7 +47,7 @@ const FooterMobile: React.FC = () => {
                     </IonCol>
 
                     <IonPopover
-                        cssClass='my-custom-class' 
+                        cssClass='footer-menu' 
                         mode="ios"
                         event={popoverState.event}
                         isOpen={popoverState.showPopover}

@@ -23,6 +23,19 @@
     }
     /* Lease info css end */
 
+    /* Manage rents css start  */
+    .dashboard-content-inner {
+        padding: 0 20px 15px;
+    }
+    body .tenants-rent-details-card .button.button-outline {
+        font-size: 16px;
+        margin: 5px;
+    }
+    body .tenants-rent-details-card .button + .button {
+        margin-left: 10px;
+    }
+    /* Manage rents css end  */
+
 }
 
 
@@ -87,6 +100,10 @@
         position: relative;
         top: 3px;
     }
+    .footer-menu .popover-content,
+    .footer-mobile-menu {
+        background-color: #fff;
+    }
     .footer-menu-button ion-icon {
         font-size: 40px;
         position: relative;
@@ -139,6 +156,7 @@
     .dashboard-wrapper .dashboard-main-row > ion-col.dashboard-sidebar {
         padding-top: 10px;
         position: relative;
+        padding-bottom: 50px;
     }
     .dashboard-sidebar:before {
         bottom: auto;
@@ -438,6 +456,28 @@
         margin: 5px;
     }
     /* Lease info css end */
+
+    /* Manage Rents css start */
+    .tenants-lease-payment-info h6,
+    .tenants-lease-payment-info p {
+        font-size: 14px;
+    }
+    .tenants-rent-details-card ion-card-header {
+        padding: 15px 10px;
+    }
+    .tenants-rent-details-card ion-card-content {
+        padding: 0 10px 15px;
+    }
+    body .tenants-rent-details-card .button.button-outline {
+        font-size: 14px;
+        margin: 5px;
+        --padding-start: 10px;
+        --padding-end: 10px;
+    }
+    body .tenants-rent-details-card .button + .button {
+        margin-left: 5px;
+    }
+    /* Manage Rents css end */
 }
 
 @media (max-width: 320px) {

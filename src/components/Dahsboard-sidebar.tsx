@@ -31,7 +31,7 @@ const DashboardSidebar: React.FC = () => {
                 </IonItem>
 
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" routerLink="#">
+                    <IonButton className="dashboard-button" fill="clear" routerLink="/manage-rents">
                         <div className="dashboard-button-inner">    
                             <IonAvatar>
                                 <img src="assets/images/Pay-Rent-home.svg" />

@@ -85,7 +85,7 @@ const ManageTenanatSearchTab: React.FC = () => {
                                         <h6>End Date</h6>
                                         <p>June</p>
                                         <p>31<sup>st</sup></p>
-                                        <p>2020</p>
+                                        <p>2021</p>
                                     </div>
                                 </IonCol>
                                 <IonCol size="5" className="">
@@ -123,7 +123,7 @@ const ManageTenanatSearchTab: React.FC = () => {
                                         <h6>End Date</h6>
                                         <p>June</p>
                                         <p>31<sup>st</sup></p>
-                                        <p>2020</p>
+                                        <p>2021</p>
                                     </div>
                                 </IonCol>
                                 <IonCol size="5" className="">

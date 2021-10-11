@@ -18,7 +18,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                 <h5 className="title-with-line">Requires Renewal Proposal (14)</h5>
                 <IonGrid className="">
                     <IonRow className="apartments-list">
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
@@ -26,7 +26,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                                 </div>
                             </IonButton>
                         </IonCol>
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
@@ -34,7 +34,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                                 </div>
                             </IonButton>
                         </IonCol>
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
@@ -42,7 +42,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                                 </div>
                             </IonButton>
                         </IonCol>
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
@@ -52,7 +52,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                         </IonCol>
                     </IonRow>
                     <IonRow className="ion-justify-content-center">
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton className="show-more-button" expand="full" shape="round" fill="solid">More</IonButton>
                         </IonCol>
                     </IonRow>
@@ -63,7 +63,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                 <h5 className="title-with-line">Unoccupied Apartments (7)</h5>
                 <IonGrid className="">
                     <IonRow className="apartments-list">
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
@@ -71,7 +71,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                                 </div>
                             </IonButton>
                         </IonCol>
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
@@ -79,7 +79,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                                 </div>
                             </IonButton>
                         </IonCol>
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
@@ -87,7 +87,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                                 </div>
                             </IonButton>
                         </IonCol>
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
@@ -97,7 +97,7 @@ const ManageTenantGeneralTab: React.FC = () => {
                         </IonCol>
                     </IonRow>
                     <IonRow className="ion-justify-content-center">
-                        <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="3" className="">
+                        <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
                             <IonButton className="show-more-button" expand="full" shape="round" fill="solid">More</IonButton>
                         </IonCol>
                     </IonRow>
