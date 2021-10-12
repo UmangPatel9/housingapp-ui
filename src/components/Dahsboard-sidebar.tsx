@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
+
+import { useHistory } from "react-router-dom";
 
 import {  
     IonLabel, 
@@ -12,7 +14,15 @@ import {
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 
+const TENANTS = "tenants"
+const RENTS = "rents"
+const REPAIRS = "repairs"
+const POSTS = "posts"
+const STAFF = "staff"
+
+
 const DashboardSidebar: React.FC = () => {
+
     return (
 
         <IonCol className="dashboard-sidebar" size="12" sizeMd="12" sizeLg="3" sizeXl="2">

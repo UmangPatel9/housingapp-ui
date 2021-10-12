@@ -33,10 +33,10 @@ const ManagePropertyMoreMenu: React.FC = () => {
             >   
                 <IonList>
                     <IonItem>
-                        <IonButton fill="clear" href="#">Modify</IonButton>
+                        <IonButton fill="clear" routerLink="#">Modify</IonButton>
                     </IonItem>
                     <IonItem>
-                        <IonButton fill="clear"  color="danger" href="#">Remove</IonButton>
+                        <IonButton fill="clear"  color="danger" routerLink="#">Remove</IonButton>
                     </IonItem>
                 </IonList>
             </IonPopover>

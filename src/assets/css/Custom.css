@@ -1857,6 +1857,9 @@ body textarea.alert-input.sc-ion-alert-md {
     min-height: 130px;
     padding: 15px;
 }
+body .alert-input.sc-ion-alert-md:focus {
+    border-bottom: 1px solid #c0c0c0;
+}
 
 .tenants-lease-payment-info {
     padding: 0;

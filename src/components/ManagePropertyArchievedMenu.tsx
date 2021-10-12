@@ -33,7 +33,7 @@ const ManagePropertyArchievedMenu: React.FC = () => {
             >   
                 <IonList>
                     <IonItem>
-                        <IonButton fill="clear" href="#">Restore</IonButton>
+                        <IonButton fill="clear" routerLink="#">Restore</IonButton>
                     </IonItem>
                 </IonList>
             </IonPopover>

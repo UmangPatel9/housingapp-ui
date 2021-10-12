@@ -114,7 +114,7 @@ const ManageRentsGeneralTab: React.FC = () => {
                                 {
                                   name: 'customRemiderMessageBox',
                                   type: 'textarea',
-                                  label: 'Radio 2',
+                                  placeholder: 'Message content',
                                   cssClass: 'custom-reminder-message-box'
                                 },
                             ]}

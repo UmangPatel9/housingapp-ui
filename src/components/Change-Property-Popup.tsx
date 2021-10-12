@@ -44,32 +44,32 @@ const ChangePropertyPopover: React.FC <{
 
                 <IonItem className="user-select-item">
                     <IonLabel>
-                    BL1 - Belvedaire 1
-                    <p>10 Maisonneuve, Montreal</p>
+                        BL1 - Belvedaire 1
+                        <p>10 Maisonneuve, Montreal</p>
                     </IonLabel>
                     <IonRadio mode="md" value="BL1" />
                 </IonItem>
 
                 <IonItem className="user-select-item">
                     <IonLabel>
-                    4MS - 400 Maisonneuve
-                    <p>400 Maisonneuve, Montreal</p>
+                        4MS - 400 Maisonneuve
+                        <p>400 Maisonneuve, Montreal</p>
                     </IonLabel>
                     <IonRadio mode="md" value="4MS" />
                 </IonItem>
 
                 <IonItem className="user-select-item">
                     <IonLabel>
-                    BL2 - Belvedaire 2
-                    <p>20 Maisonneuve, Montreal</p>
+                        BL2 - Belvedaire 2
+                        <p>20 Maisonneuve, Montreal</p>
                     </IonLabel>
                     <IonRadio mode="md" value="BL2" />
                 </IonItem>
 
                 <IonItem className="user-select-item">
                     <IonLabel>
-                    1BR - 100 Berri
-                    <p>400 Maisonneuve, Montreal</p>
+                        1BR - 100 Berri
+                        <p>400 Maisonneuve, Montreal</p>
                     </IonLabel>
                     <IonRadio mode="md" value="1BR" />
                 </IonItem>
@@ -81,18 +81,18 @@ const ChangePropertyPopover: React.FC <{
                 <IonRow>
                     <IonCol size="6" className="login-btn">
                         <IonButton className="manage-property-btn" routerLink="/manage-properties" expand="block" shape="round" fill="solid" >
-                        <div className="button-inner">
-                            <IonIcon icon={createOutline} />
-                            <span>Manage List of Properties</span>
-                        </div>
+                            <div className="button-inner">
+                                <IonIcon icon={createOutline} />
+                                <span>Manage List of Properties</span>
+                            </div>
                         </IonButton>
                     </IonCol>
                     <IonCol size="6" className="login-btn">
                         <IonButton className="add-property-btn secondary-button" routerLink="/add-new-property" expand="block" shape="round" fill="solid">
-                        <div className="button-inner">
-                            <IonIcon icon={addOutline} />
-                            <span>Add a Property</span>
-                        </div>
+                            <div className="button-inner">
+                                <IonIcon icon={addOutline} />
+                                <span>Add a Property</span>
+                            </div>
                         </IonButton>
                     </IonCol>
                 </IonRow>
