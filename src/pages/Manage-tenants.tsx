@@ -1,4 +1,5 @@
 import React, {useRef, useState} from "react";
+import { useLocation } from 'react-router-dom';
 
 import { 
     IonContent, 
@@ -24,6 +25,9 @@ import '../assets/css/Responsive.css';
   
 const ManageTenants: React.FC = () => {
 
+    const location = useLocation();
+    console.log(location.pathname);
+    
     // a ref variable to handle the current slider
     const slider = useRef<HTMLIonSlidesElement>(null);
     // a state value to bind segment value

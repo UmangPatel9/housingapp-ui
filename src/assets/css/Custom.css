@@ -1923,6 +1923,92 @@ body .button.button-outline.confirm-btn {
 }
 /* Rent Pay Details css end */
 
+/* Rent pay receipt popup start */
+.rent-pay-receipt-popup {
+    --width: 300px;
+    --height: 440px;
+}
+.rent-pay-receipt-popup .ion-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+}
+.rent-pay-receipt-popup .popover-content.sc-ion-popover-md {
+    top: 50% !important;
+    /* left: 50% !important; */
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0;
+    margin: auto;
+    position: fixed;
+    transform-origin: 0 0 0!important;
+    bottom: auto !important;
+    border: 1px solid #575757;
+    overflow-x: hidden;
+}
+.rent-pay-receipt-popup ion-grid {
+    padding: 0;
+}
+.popup-title {
+    background-color: #fb0;
+    text-align: center;
+    padding: 15px;
+}
+.popup-title h4 {
+    color: #fff;
+    margin: 0;
+}
+.rent-pay-receipt-popup ion-label {
+    font-size: 14px;
+    color: #575757;
+}
+.rent-pay-receipt-popup .native-input.sc-ion-input-md[readonly] {
+    font-size: 14px;
+    background-color: transparent;
+    padding: 0;
+    height: auto;
+    text-align: right;
+}
+.rent-pay-receipt-popup .receipt-details ion-col {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.rent-pay-receipt-popup ion-icon {
+    color: #fff;
+}
+body .rent-pay-receipt-popup .button.button-clear.close-popup-button {
+    top: 15px;
+    --padding-start: 0;
+    --padding-end: 0;
+    right: 10px;
+}
+.receipt-amount {
+    position: relative;
+    padding-bottom: 15px;
+}
+.receipt-amount ion-col {
+    text-align: center;
+}
+.total-rent-paid {
+    color: #575757;
+}
+.total-rent-paid b {
+    font-weight: 600;
+}
+.rent-paid-date {
+    font-size: 12px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    margin: 0;
+    color: #575757;
+}
+/* Rent pay receipt popup end */
+
 /* 
 
 h1: 26px

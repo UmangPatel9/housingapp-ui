@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import {  
     IonLabel, 
@@ -7,16 +7,48 @@ import {
     IonInput,
     IonGrid,
     IonRow,
-    IonCol
+    IonCol,
+    useIonPopover,
+    createAnimation,
+    IonModal
 } from '@ionic/react';
 
-import { searchSharp, arrowForwardOutline } from "ionicons/icons";
+import { searchSharp, close } from "ionicons/icons";
+
+import RentPayReceiptPopup from "./RentPayReceiptPopup";
 
 import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 
 const ManageRentsSearchTab: React.FC = () => {
+
+    // const [present, dismiss] = useIonPopover(RentPayReceiptPopup, { onHide: () => dismiss() });
+    const [showModal, setShowModal] = useState(false);
+
+    const enterAnimation = (baseEl: any) => {
+        const backdropAnimation = createAnimation()
+          .addElement(baseEl.querySelector('ion-backdrop')!)
+          .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+    
+        const wrapperAnimation = createAnimation()
+          .addElement(baseEl.querySelector('.modal-wrapper')!)
+          .keyframes([
+            { offset: 0, opacity: '0', transform: 'scale(0)' },
+            { offset: 1, opacity: '0.99', transform: 'scale(1)' }
+          ]);
+    
+        return createAnimation()
+          .addElement(baseEl)
+          .easing('ease-out')
+          .duration(500)
+          .addAnimation([backdropAnimation, wrapperAnimation]);
+    }
+    
+    const leaveAnimation = (baseEl: any) => {
+        return enterAnimation(baseEl).direction('reverse');
+    }
+
     return (
         <div className="tab-content">
 
@@ -71,8 +103,27 @@ const ManageRentsSearchTab: React.FC = () => {
                 <div className="search-result-box">
                     <h5>Past</h5>
                     <div className="tenants-lease-info tenants-lease-payment-info ">
-                        {/* <IonButton className="view-lease-info-button" fill="clear" expand="full" shape="round" routerLink="/lease-info"></IonButton> */}
-                         <IonGrid className="">
+                        {/* <IonButton 
+                            className="view-lease-info-button"
+                            fill="clear" 
+                            expand="full" 
+                            shape="round"
+                            onClick={() =>
+                                present({
+                                  cssClass: 'rent-pay-receipt-popup'
+                                })
+                            }
+                        >
+                        </IonButton> */}
+                        <IonButton 
+                            className="view-lease-info-button" 
+                            fill="clear" 
+                            expand="full" 
+                            shape="round" 
+                            onClick={() => setShowModal(true)}
+                        >
+                        </IonButton>
+                        <IonGrid className="">
                             <IonRow className="">
                                 <IonCol size="3" sizeMd="3" sizeLg="2" sizeXl="2" className="rent-price-block paid-block">
                                     <h6>Paid:</h6>
@@ -94,6 +145,16 @@ const ManageRentsSearchTab: React.FC = () => {
                             <IonButton className="show-more-button" expand="full" shape="round" fill="solid">More</IonButton>
                         </IonCol>
                     </IonRow>
+
+                    <IonModal isOpen={showModal} enterAnimation={enterAnimation} leaveAnimation=        {leaveAnimation} cssClass="rent-pay-receipt-popup">
+                            <IonButton className="close-popup-button" fill="clear" onClick={() => setShowModal(false)}> 
+                                <IonIcon icon={close} />
+                            </IonButton>
+                            <RentPayReceiptPopup />
+                            {/* <IonButton onClick={() => setShowModal(false)}>Close Modal</IonButton> */}
+                    </IonModal>
+                    
+
                 </div>
 
             </div>
