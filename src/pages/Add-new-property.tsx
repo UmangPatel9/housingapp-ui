@@ -79,7 +79,7 @@ const AddNewProperty: React.FC = () => {
     return (
     <IonPage>
 
-         <HeaderMain />
+         <HeaderMain pageTitle="Add New Propery"  logoHide="hide-logo"/>
 
          <IonContent className="dashboard-wrapper" ref={contentRef} scrollEvents={true} fullscreen>
 

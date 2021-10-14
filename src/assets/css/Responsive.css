@@ -73,6 +73,23 @@
         bottom: -9px;
         margin-left: -6px;
     }
+    .header-page-title:empty {
+        display: none;
+    }
+    .header-page-title {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    .button.button-clear.hide-logo {
+        display: none;
+    }
+    body .button.back-buton,
+    body .button.button-clear {
+        z-index: 1;
+    }
     /* header css end */
 
     /* footer css start */
@@ -233,9 +250,9 @@
     /* Manage properties css end */
 
     /* Manage tenants css start  */
-    .manage-tenants-wrapper {
-        /* --padding-top: 0; */
-    }
+    /* .manage-tenants-wrapper {
+        --padding-top: 0;
+    } */
     .dashboard-content .ion-page .ion-page {
         padding: 0;
         background-color: #fcfcfc;
@@ -320,6 +337,9 @@
     .main-header {
         border-radius: 0 0 10px 10px;
         padding: 25px 0;
+    }
+    .header-page-title {
+        font-size: 20px;
     }
     /* header css close */
 
@@ -481,6 +501,12 @@
 }
 
 @media (max-width: 320px) {
+
+    /* Header css start */
+    .header-page-title {
+        font-size: 16px;
+    }
+    /* Header css end */
 
     /* footer css start */
     .change-property-popup .button-solid ion-icon {

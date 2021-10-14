@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import { useHistory } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 import {  
     IonLabel, 
@@ -22,6 +22,20 @@ const STAFF = "staff"
 
 
 const DashboardSidebar: React.FC = () => {
+
+    const location = useLocation();
+    console.log(location.pathname);
+
+    window.onload = function () {
+        let element: HTMLElement = document.getElementsByClassName('dashboard-button')[0] as HTMLElement;
+        const buttonLink = element.getAttribute('href');
+        console.log("buttonLink =" + buttonLink);
+        if ( buttonLink == location.pathname ) {
+            // element.className('');
+            console.log("True AF");
+        }
+    }
+
 
     return (
 

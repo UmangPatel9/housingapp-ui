@@ -35,7 +35,7 @@ const ManagementDashboardWithNoProperty: React.FC = () => {
     return (
         <IonPage>
   
-           <HeaderMain />
+           <HeaderMain pageTitle="" logoHide="" />
   
            <IonContent className="dashboard-wrapper" ref={contentRef} scrollEvents={true} fullscreen>
                 <IonGrid className="dashboard-main-grid">

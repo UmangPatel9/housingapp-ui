@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import { withRouter, RouteComponentProps, Route } from "react-router-dom";
 
 import { 
     IonGrid,
@@ -18,9 +19,7 @@ import { createOutline, addOutline, close } from "ionicons/icons";
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 
-const ChangePropertyPopover: React.FC <{
-    onHide: () => void;
-}>= ({ onHide }) => {
+const ChangePropertyPopover: React.FC <{  onHide: () => void; }>= ({ onHide }) => {
 
     const inputChangeHandler = (event: CustomEvent) => {
 

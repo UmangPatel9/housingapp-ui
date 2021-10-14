@@ -55,7 +55,7 @@ const ManageRents: React.FC = () => {
     return (
         <IonPage>
   
-           <HeaderMain />
+           <HeaderMain pageTitle="Manage Rents" logoHide="hide-logo" />
   
            <IonContent className="dashboard-wrapper manage-tenants-wrapper manage-rents-wrapper" fullscreen>
                 <IonGrid className="dashboard-main-grid">

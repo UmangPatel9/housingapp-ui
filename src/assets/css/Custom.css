@@ -422,6 +422,12 @@ body .button.back-buton {
     --padding-start: 0;
     --padding-end: 0;
 }
+
+.header-page-title {
+    margin: 0 auto;
+    justify-self: center;
+    display: none;
+}
 /* Header css end */
 
 /* Footer css start */

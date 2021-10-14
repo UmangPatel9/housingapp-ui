@@ -40,7 +40,7 @@ const LeaseInfo: React.FC = () => {
     return (
         <IonPage>
   
-           <HeaderMain />
+           <HeaderMain pageTitle="Manage Leases" logoHide="hide-logo" />
   
            <IonContent className="dashboard-wrapper lease-info-wrapper" ref={contentRef} scrollEvents={true} fullscreen>
                 <IonGrid className="dashboard-main-grid">

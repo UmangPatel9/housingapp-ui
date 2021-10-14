@@ -44,7 +44,7 @@ const ManageProperties: React.FC = () => {
 
         <IonPage>
   
-            <HeaderMain />
+            <HeaderMain pageTitle="Manage Properties" logoHide="hide-logo" />
   
             <IonContent className="dashboard-wrapper" fullscreen>
 

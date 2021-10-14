@@ -26,7 +26,7 @@ import '../assets/css/Responsive.css';
 const ManageTenants: React.FC = () => {
 
     const location = useLocation();
-    console.log(location.pathname);
+    // console.log(location.pathname);
     
     // a ref variable to handle the current slider
     const slider = useRef<HTMLIonSlidesElement>(null);
@@ -59,7 +59,7 @@ const ManageTenants: React.FC = () => {
     return (
         <IonPage>
   
-           <HeaderMain />
+           <HeaderMain pageTitle="Manage Leases" logoHide="hide-logo" />
   
            <IonContent className="dashboard-wrapper manage-tenants-wrapper" fullscreen>
                 <IonGrid className="dashboard-main-grid">
