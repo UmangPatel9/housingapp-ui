@@ -40,8 +40,8 @@ const slideOpts = {
 
 const AddNewProperty: React.FC = () => {
     const mySlides = useRef<any>(null);
-
-    const [city, setCity] = useState<string>(); 
+    const [counter, updateCounter] = useState(0);
+    const [floor, setFloor] = useState<number>(1); 
 
     const contentRef = useRef<HTMLIonContentElement | null>(null);
     const scrollToTop= () => {
@@ -64,6 +64,16 @@ const AddNewProperty: React.FC = () => {
         scrollToTop();
     };
 
+    // mySlides.current.slideTo(0);
+
+    const slideToFirst = () => {
+        setTimeout(() => {
+            // mySlides.slides.slideTo(0, 500);
+            mySlides.current.slideTo(0);
+        }, 500);
+    }
+    
+
     const prev = async () => {
         await mySlides.current.lockSwipes(false);
         await mySlides.current.slidePrev();
@@ -75,6 +85,62 @@ const AddNewProperty: React.FC = () => {
         console.log(data);
     };
 
+    const defaultList = [
+        { id: 501, value: "501" },
+        { id: 502, value: "502" },
+    ];
+    
+    const [list, setList] = useState(defaultList);
+
+    function handleRemove(id: any) {
+        let newList = list;
+        // const elementToSearch = {id: id};
+        if (newList.length === 1) {
+            newList = defaultList;
+        } else {
+            newList = list.filter(el => el.id !== id);
+            // console.log(newList);
+        }
+
+        setList(newList);
+    };
+
+    function addItems(id: any) {
+        const lastElement = list[list.length - 1];
+        const lastElementID = lastElement.id;
+        let newList = list;
+        // console.log(lastElementID, counter);
+
+        if (newList.length === 0) {
+            newList = defaultList;
+        } else {
+            const newElement = newList[newList.length - 1].id + 1;
+            newList.push({id: newElement, value: ""});
+            // newList.splice(lastElementID, 0, {id: newElement, value: ""});
+            // setList(newList);
+        }
+        updateCounter(counter + 1);
+        // console.log(newList);
+        
+        setList(newList);
+    };
+
+    const renderList = () => {
+    return list.map(item => {
+            return (
+                // <>
+                    <IonCol key={item.id} size="6" sizeMd="4" sizeLg="4" sizeXl="4" id={item.id.toString()}>
+                        <div className="apartment-info">
+                            <IonButton onClick={() => handleRemove(item.id)} fill="clear">
+                                <IonIcon icon={close} />
+                            </IonButton>
+                            <IonInput mode="md" type="text" value={item.value}></IonInput>
+                        </div>
+                    </IonCol>
+                // </>
+            );
+        })
+    }
 
     return (
     <IonPage>
@@ -93,7 +159,7 @@ const AddNewProperty: React.FC = () => {
                     <IonCol className="dashboard-content" size="12" sizeMd="12" sizeLg="6" sizeXl="4">
                         <FormProvider {...methods}>
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <IonSlides pager={true} options={slideOpts} ref={mySlides}>
+                                <IonSlides pager={true} options={slideOpts} ref={mySlides} >
                                     <IonSlide>
                                         <IonGrid>
                                             <IonRow className="ion-justify-content-center">
@@ -350,9 +416,12 @@ const AddNewProperty: React.FC = () => {
                                     <IonSlide>
 
                                         <div>
-                                            <IonNote>You are almost done adding the property to your account. To customize a floor, select a floor from the dropdown menu, then add, remove or change the apartment number format to match the ones that you own.</IonNote>
+                                            <IonNote className="generated-floor-note">You are almost done adding the property to your account. To customize a floor, select a floor from the dropdown menu, then add, remove or change the apartment number format to match the ones that you own.</IonNote>
 
                                             <div className="generated-floor-box">
+                                                <div className="generated-floor-box-title-wrap">
+                                                    <h4 className="generated-floor-box-title">Generated Floors</h4>
+                                                </div>
                                                 <IonGrid>
                                                     <IonRow className="ion-justify-content-center">
                                                         <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="form-field margin-right-auto">
@@ -360,17 +429,18 @@ const AddNewProperty: React.FC = () => {
                                                             <Controller
                                                                 render={({ field }) => (
                                                                 <IonSelect
+                                                                    className="floor-select"
                                                                     mode="md"
                                                                     placeholder=""
                                                                     // value={field.value}
-                                                                    value="5"
-                                                                    onIonChange={e => setValue('chooseFloor', e.detail.value)}
+                                                                    value={5}
+                                                                    onIonChange={e => setFloor(e?.detail?.value || 1)}
                                                                 >
-                                                                    <IonSelectOption value="5">5</IonSelectOption>
-                                                                    <IonSelectOption value="6">6</IonSelectOption>
-                                                                    <IonSelectOption value="7">7</IonSelectOption>
-                                                                    <IonSelectOption value="8">8</IonSelectOption>
-                                                                    <IonSelectOption value="9">9</IonSelectOption>
+                                                                    <IonSelectOption value={5}>5</IonSelectOption>
+                                                                    <IonSelectOption value={6}>6</IonSelectOption>
+                                                                    <IonSelectOption value={7}>7</IonSelectOption>
+                                                                    <IonSelectOption value={8}>8</IonSelectOption>
+                                                                    <IonSelectOption value={9}>9</IonSelectOption>
                                                                 </IonSelect>
                                                                 )}
                                                                 control={control}   
@@ -388,7 +458,7 @@ const AddNewProperty: React.FC = () => {
                                                             <IonLabel className="form-lable">Add, rename or delete apartment:</IonLabel>
                                                             <IonGrid>
                                                                 <IonRow className="ion-justify-content-start">
-                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
+                                                                    {/* <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
                                                                         <div className="apartment-info">
                                                                             <IonButton fill="clear">
                                                                                 <IonIcon icon={close} />
@@ -440,16 +510,19 @@ const AddNewProperty: React.FC = () => {
                                                                             </IonButton>
                                                                             <IonInput mode="md" type="text" value={"506"}></IonInput>
                                                                         </div>
-                                                                    </IonCol>
+                                                                    </IonCol> */}
 
-                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
+                                                                    {renderList()}
+
+                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="" onClick={addItems}>
                                                                         <div className="apartment-info add-unit-button">
                                                                             <IonButton className="" fill="clear">
                                                                                 <IonLabel>Add a Unit</IonLabel>
                                                                             </IonButton>
                                                                             
                                                                         </div>
-                                                                    </IonCol>
+                                                                    </IonCol> 
+                                                                     
                                                                 </IonRow>
                                                             </IonGrid>
                                                         </IonCol>

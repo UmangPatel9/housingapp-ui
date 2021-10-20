@@ -40,6 +40,12 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+export const Routes = {
+  signup: '/signup',
+  manageTenants: '/manage-tenants',
+  manageRents: '/manage-rents',
+}
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
@@ -58,7 +64,7 @@ const App: React.FC = () => (
         <Route exact path="/reset-password">
           <ResetPassword />
         </Route>
-        <Route exact path="/signup">
+        <Route exact path={Routes.signup}>
           <Signup />
         </Route>
         <Route exact path="/management-signup">
@@ -82,7 +88,7 @@ const App: React.FC = () => (
         <Route exact path="/add-new-property">
           <AddNewProperty />
         </Route>
-        <Route exact path="/manage-tenants">
+        <Route exact path={Routes.manageTenants}>
           <ManageTenants />
         </Route>
         <Route exact path="/manage-tenants-general">
@@ -103,7 +109,7 @@ const App: React.FC = () => (
         <Route exact path="/lease-renewal-proposal">
           <LeaseRenewalProposal />
         </Route>
-        <Route exact path="/manage-rents">
+        <Route exact path={Routes.manageRents}>
           <ManageRents />
         </Route>
         <Route exact path="/rent-pay-details">

@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, withRouter } from 'react-router-dom';
 
 import {  
     IonLabel, 
@@ -13,6 +13,8 @@ import {
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from "../App";
+import { addSharp, locateOutline } from "ionicons/icons";
 
 const TENANTS = "tenants"
 const RENTS = "rents"
@@ -23,19 +25,64 @@ const STAFF = "staff"
 
 const DashboardSidebar: React.FC = () => {
 
-    const location = useLocation();
-    console.log(location.pathname);
+    // const location = useLocation();
+    const [counter, updateCounter] = useState(0);
 
-    window.onload = function () {
-        let element: HTMLElement = document.getElementsByClassName('dashboard-button')[0] as HTMLElement;
-        const buttonLink = element.getAttribute('href');
-        console.log("buttonLink =" + buttonLink);
-        if ( buttonLink == location.pathname ) {
-            // element.className('');
-            console.log("True AF");
+    useEffect(() => {
+        changeActiveClass();
+        // console.log('Page refresh', window.location.pathname);
+    },[window.location.pathname])
+
+    // const changeActiveClass = () => {
+    const changeActiveClass = () => { 
+        let element1: HTMLElement = document.getElementById("tenants") as HTMLElement;
+        let element2: HTMLElement = document.getElementById("rents") as HTMLElement;
+        element1.classList.remove('active');
+        element2.classList.remove('active');
+        // console.log(element1);
+        // console.log(element2);
+        const manageTenantsPages = [ Routes.manageTenants, '/lease-renewal-proposal', '/manage-properties' ]
+        // if (manageTenantsPages.indexOf(window.location.pathname) !== -1 ) {
+        //     element1.classList.add('active');
+        // } 
+        // else if (window.location.pathname === Routes.manageRents) {
+        //     element2.classList.add('active');
+        // }
+        // else {
+            
+        // }
+        updateCounter(counter + 1);
+        console.log(counter);
+        const route = window.location.pathname;
+        switch(route) {
+            case Routes.manageTenants: 
+                // element2.classList.remove('active');
+                element1.classList.add('active');
+                // console.log('add tenant', window.location.pathname);
+                break;
+
+            case Routes.manageRents: 
+                // element1.classList.remove('active');
+                element2.classList.add('active');
+                // console.log('add rent', window.location.pathname);
+                break;
+            
+            // case "/manage-properties": {
+            //     element1.classList.add('active');
+            //     break;
+            // }
+            // case "/manage-rents": {
+            //     element2.classList.add('active');
+            //     element1.classList.remove('active');
+            //     break;
+            // }
+            default: 
+                break;
+            
         }
     }
 
+    
 
     return (
 
@@ -44,7 +91,7 @@ const DashboardSidebar: React.FC = () => {
 
             <IonList className="sidebar-menu-list">
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" routerLink="/manage-tenants">
+                    <IonButton id={TENANTS} className="dashboard-button" fill="clear" routerLink="/manage-tenants">
                         <div className="dashboard-button-inner">
                             <IonAvatar>
                                 <img src="assets/images/Manage-Lease-home.svg" />
@@ -55,7 +102,7 @@ const DashboardSidebar: React.FC = () => {
                 </IonItem>
 
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" routerLink="/manage-rents">
+                    <IonButton id={RENTS} className="dashboard-button" fill="clear" routerLink="/manage-rents">
                         <div className="dashboard-button-inner">    
                             <IonAvatar>
                                 <img src="assets/images/Pay-Rent-home.svg" />
@@ -103,4 +150,4 @@ const DashboardSidebar: React.FC = () => {
     );
 };
 
-export default DashboardSidebar;
+export default withRouter(DashboardSidebar);
