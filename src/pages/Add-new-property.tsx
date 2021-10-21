@@ -38,7 +38,7 @@ const slideOpts = {
     speed: 400
 };
 
-const AddNewProperty: React.FC = () => {
+const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
     const mySlides = useRef<any>(null);
     const [counter, updateCounter] = useState(0);
     const [floor, setFloor] = useState<number>(1); 
@@ -53,7 +53,11 @@ const AddNewProperty: React.FC = () => {
 
     useEffect(() => {
         mySlides.current.lockSwipes(true);
-    });
+        // mySlides.slides.slideTo(0, 500);
+        // mySlides.current.slideTo(0);
+        mySlides.current!.slideTo(0);
+        console.log("change slide");
+    },[window.location.pathname]);
 
     const next = async (fields: any) => {
         const result = await trigger(fields);
@@ -66,11 +70,9 @@ const AddNewProperty: React.FC = () => {
 
     // mySlides.current.slideTo(0);
 
+    let element: HTMLElement = document.getElementsByClassName('add-property-btn')[0] as HTMLElement;
     const slideToFirst = () => {
-        setTimeout(() => {
-            // mySlides.slides.slideTo(0, 500);
-            mySlides.current.slideTo(0);
-        }, 500);
+        
     }
     
 
@@ -153,7 +155,7 @@ const AddNewProperty: React.FC = () => {
                 <IonRow className="ion-justify-content-between dashboard-main-row">
 
                     {/* sidebar start  */}
-                    <DashboardSidebar />
+                    <DashboardSidebar path={path} />
                     {/* sidebar end  */}
                         
                     <IonCol className="dashboard-content" size="12" sizeMd="12" sizeLg="6" sizeXl="4">

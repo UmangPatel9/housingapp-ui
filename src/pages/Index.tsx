@@ -17,6 +17,7 @@ import Header from '../components/Header';
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from '../App';
 
 const Home: React.FC = () => {
 
@@ -26,7 +27,7 @@ const Home: React.FC = () => {
 
   const onSubmit = (data: any) => {
     console.log(data);
-    history.push("/management-dashboard");
+    history.push(Routes.managementDashboard);
   };
 
   const doNothing = () => {
@@ -85,13 +86,13 @@ const Home: React.FC = () => {
                         </IonCol>
 
                         <IonCol size="12" className="forget-password ion-text-right">
-                            <IonButton routerLink="/forget-password" fill="clear">
+                            <IonButton routerLink={Routes.forgetPassword} fill="clear">
                               Forget password?
                             </IonButton>   
                         </IonCol>
 
                         <IonCol size="6" className="sign-up-btn">
-                          <IonButton  className="secondary-button" routerLink="/signup" expand="block" shape="round" fill="outline">
+                          <IonButton  className="secondary-button" routerLink={Routes.signup} expand="block" shape="round" fill="outline">
                             Signup
                           </IonButton>
                         </IonCol>

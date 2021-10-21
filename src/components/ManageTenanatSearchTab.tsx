@@ -15,6 +15,7 @@ import { searchSharp, addSharp } from "ionicons/icons";
 import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from "../App";
 
 const ManageTenanatSearchTab: React.FC = () => {
     return (
@@ -43,7 +44,7 @@ const ManageTenanatSearchTab: React.FC = () => {
                 <div className="search-result-box">
                     <h5>Upcoming</h5>
                     <div className="lease-renewal">
-                        <IonButton className="lease-renewal-button" fill="clear" expand="full" shape="round" routerLink="/lease-renewal-proposal"></IonButton>
+                        <IonButton className="lease-renewal-button" fill="clear" expand="full" shape="round" routerLink={Routes.leaseRenewalProposal}></IonButton>
                          <IonGrid className="">
                             <IonRow className="ion-align-items-center">
                                 <IonCol sizeXs="2" sizeMd="1" sizeLg="1" sizeXl="1" className="">
@@ -67,7 +68,7 @@ const ManageTenanatSearchTab: React.FC = () => {
                 <div className="search-result-box">
                     <h5>Current</h5>
                     <div className="tenants-lease-info">
-                        <IonButton className="edit-lease-info-button" fill="clear" expand="full" shape="round" routerLink="/edit-lease-info"></IonButton>
+                        <IonButton className="edit-lease-info-button" fill="clear" expand="full" shape="round" routerLink={Routes.editLeaseInfo}></IonButton>
                          <IonGrid className="">
                             <IonRow className="">
                                 <IonCol size="7" className="start-end-date-block">
@@ -105,7 +106,7 @@ const ManageTenanatSearchTab: React.FC = () => {
                 <div className="search-result-box">
                     <h5>Past</h5>
                     <div className="tenants-lease-info">
-                        <IonButton className="view-lease-info-button" fill="clear" expand="full" shape="round" routerLink="/lease-info"></IonButton>
+                        <IonButton className="view-lease-info-button" fill="clear" expand="full" shape="round" routerLink={Routes.leaseInfo}></IonButton>
                          <IonGrid className="">
                             <IonRow className="">
                                 <IonCol size="7" className="start-end-date-block">

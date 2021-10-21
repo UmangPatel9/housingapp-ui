@@ -20,6 +20,7 @@ import RentPayReceiptPopup from "./RentPayReceiptPopup";
 import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from "../App";
 
 const ManageRentsSearchTab: React.FC = () => {
 
@@ -75,7 +76,7 @@ const ManageRentsSearchTab: React.FC = () => {
                 <div className="search-result-box">
                     <h5>Upcoming (Current Lease)</h5>
                     <div className="tenants-lease-info tenants-lease-payment-info ">
-                        <IonButton className="edit-lease-info-button" fill="clear" expand="full" shape="round" routerLink="/rent-pay-details"></IonButton>
+                        <IonButton className="edit-lease-info-button" fill="clear" expand="full" shape="round" routerLink={Routes.rentPayDetails}></IonButton>
                          <IonGrid className="">
                             <IonRow className="">
                                 <IonCol size="3" sizeMd="3" sizeLg="2" sizeXl="2" className="rent-price-block due-block">

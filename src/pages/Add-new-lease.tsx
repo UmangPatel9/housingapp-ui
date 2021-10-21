@@ -30,7 +30,7 @@ import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 
-const AddNewLease: React.FC = () => {
+const AddNewLease: React.FC<{ path: string }> = ({path}) => {
 
     const contentRef = useRef<HTMLIonContentElement | null>(null);
 
@@ -50,7 +50,7 @@ const AddNewLease: React.FC = () => {
                     <IonRow className="dashboard-main-row">
                         
                         {/* sidebar start  */}
-                        <DashboardSidebar />
+                        <DashboardSidebar path={path} />
                         {/* sidebar end  */}
 
 

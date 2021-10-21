@@ -19,7 +19,7 @@ import DashboardSidebar from '../components/Dahsboard-sidebar';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
   
-const ManagementDashboardWithNoProperty: React.FC = () => {
+const ManagementDashboardWithNoProperty: React.FC<{ path: string }> = ({path}) => {
 
     const openChangePropertyPopup = () => {
         let element: HTMLElement = document.getElementsByClassName('change-property')[0] as HTMLElement;
@@ -42,7 +42,7 @@ const ManagementDashboardWithNoProperty: React.FC = () => {
                     <IonRow className="dashboard-main-row">
                         
                         {/* sidebar start  */}
-                        <DashboardSidebar />
+                        <DashboardSidebar path={path} />
                         {/* sidebar end  */}
 
 

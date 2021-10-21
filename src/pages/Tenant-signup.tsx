@@ -16,6 +16,8 @@ import {
 import { FormProvider, useForm } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 
+import Recaptcha from 'react-recaptcha';
+
 import Header from '../components/Header';
 
 import '@ionic/react/css/ionic-swiper.css';
@@ -26,6 +28,10 @@ const slideOpts = {
    initialSlide: 0,
    speed: 400
 };
+
+function recaptchaLoaded() {
+   console.log('Recaptcha loaded successfully');
+}
 
 const TenantSignup: React.FC = () => {
    const mySlides = useRef<any>(null);
@@ -208,6 +214,14 @@ const TenantSignup: React.FC = () => {
                                              errors={errors}
                                              name="number"
                                              as={<div className="error-message" style={{ color: 'red' }} />}
+                                          />
+                                       </IonCol>
+
+                                       <IonCol size="12" className="google-recaptcha-btn">
+                                          <Recaptcha
+                                             sitekey="6LfL2pMcAAAAAJGqw3rePggWbAJtKARjHPlf-ax2"
+                                             render="explicit"
+                                             onloadCallback={recaptchaLoaded}
                                           />
                                        </IonCol>
 

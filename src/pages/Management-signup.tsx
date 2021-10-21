@@ -18,6 +18,8 @@ import { ErrorMessage } from '@hookform/error-message';
 
 import Header from '../components/Header';
 
+import Recaptcha from 'react-recaptcha';
+
 import '@ionic/react/css/ionic-swiper.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
@@ -26,6 +28,10 @@ const slideOpts = {
    initialSlide: 0,
    speed: 400
 };
+
+function recaptchaLoaded() {
+   console.log('Recaptcha loaded successfully');
+}
 
 const ManagementSignup: React.FC = () => {
    const mySlides = useRef<any>(null);
@@ -190,6 +196,14 @@ const ManagementSignup: React.FC = () => {
                                              errors={errors}
                                              name="telephone"
                                              as={<div className="error-message" style={{ color: 'red' }} />}
+                                          />
+                                       </IonCol>
+
+                                       <IonCol size="12" className="google-recaptcha-btn">
+                                          <Recaptcha
+                                             sitekey="6LfL2pMcAAAAAJGqw3rePggWbAJtKARjHPlf-ax2"
+                                             render="explicit"
+                                             onloadCallback={recaptchaLoaded}
                                           />
                                        </IonCol>
 

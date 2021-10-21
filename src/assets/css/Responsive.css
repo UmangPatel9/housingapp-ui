@@ -171,9 +171,8 @@
         background-color: #fcfcfc;
     }
     .dashboard-wrapper .dashboard-main-row > ion-col.dashboard-sidebar {
-        padding-top: 10px;
+        padding: 10px 15px 50px;
         position: relative;
-        padding-bottom: 50px;
     }
     .dashboard-sidebar:before {
         bottom: auto;
@@ -377,6 +376,10 @@
     }
     .signup-form ion-radio-group ion-item {
         --min-height: 105px;
+    }
+    div#g-recaptcha {
+        transform-origin: 0 0 0;
+        transform: scale(0.9);
     }
     /* signup css end */
 

@@ -27,8 +27,9 @@ import DashboardSidebar from '../components/Dahsboard-sidebar';
 import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from "../App";
 
-const RentPayDetails: React.FC = () => {
+const RentPayDetails: React.FC<{ path: string }> = ({path}) => {
 
     let history = useHistory();
 
@@ -52,7 +53,7 @@ const RentPayDetails: React.FC = () => {
                     <IonRow className="dashboard-main-row">
                         
                         {/* sidebar start  */}
-                        <DashboardSidebar />
+                        <DashboardSidebar path={path} />
                         {/* sidebar end  */}
 
 
@@ -148,7 +149,7 @@ const RentPayDetails: React.FC = () => {
 
                                     <IonButton 
                                         className="exit-file-btn" 
-                                        routerLink="/manage-rents" 
+                                        routerLink={Routes.manageRents} 
                                         fill="solid" 
                                         shape="round"
                                     >

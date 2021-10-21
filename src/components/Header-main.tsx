@@ -24,6 +24,7 @@ import { createOutline, addOutline, close } from "ionicons/icons";
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from '../App';
 
 const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => {
     
@@ -144,7 +145,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                             <IonGrid>
                                 <IonRow>
                                     <IonCol size="6" className="login-btn">
-                                        <IonButton className="manage-property-btn" routerLink="/manage-properties" expand="block" shape="round" fill="solid" onClick={closePopup}>
+                                        <IonButton className="manage-property-btn" routerLink={Routes.manageProperties} expand="block" shape="round" fill="solid" onClick={closePopup}>
                                             <div className="button-inner">
                                                 <IonIcon icon={createOutline} />
                                                 <span>Manage List of Properties</span>
@@ -152,7 +153,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                                         </IonButton>
                                     </IonCol>
                                     <IonCol size="6" className="login-btn">
-                                        <IonButton className="add-property-btn secondary-button" routerLink="/add-new-property" expand="block" shape="round" fill="solid" onClick={closePopup}>
+                                        <IonButton className="add-property-btn secondary-button" routerLink={Routes.addNewProperty} expand="block" shape="round" fill="solid" onClick={closePopup}>
                                             <div className="button-inner">
                                                 <IonIcon icon={addOutline} />
                                                 <span>Add a Property</span>

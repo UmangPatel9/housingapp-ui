@@ -1,6 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
-
-import { useLocation, withRouter } from 'react-router-dom';
+import React, {useState, useEffect} from "react";
 
 import {  
     IonLabel, 
@@ -14,7 +12,7 @@ import {
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 import { Routes } from "../App";
-import { addSharp, locateOutline } from "ionicons/icons";
+import { getClassName } from "@ionic/react/dist/types/components/utils";
 
 const TENANTS = "tenants"
 const RENTS = "rents"
@@ -23,66 +21,49 @@ const POSTS = "posts"
 const STAFF = "staff"
 
 
-const DashboardSidebar: React.FC = () => {
+const DashboardSidebar: React.FC<{path: string}> = ({path}) => {
 
-    // const location = useLocation();
     const [counter, updateCounter] = useState(0);
-
+    
     useEffect(() => {
-        changeActiveClass();
+        // changeActiveClass();
         // console.log('Page refresh', window.location.pathname);
     },[window.location.pathname])
 
-    // const changeActiveClass = () => {
     const changeActiveClass = () => { 
-        let element1: HTMLElement = document.getElementById("tenants") as HTMLElement;
-        let element2: HTMLElement = document.getElementById("rents") as HTMLElement;
-        element1.classList.remove('active');
-        element2.classList.remove('active');
+        // let element1: HTMLElement = document.getElementById("tenants") as HTMLElement;
+        // let element2: HTMLElement = document.getElementById("rents") as HTMLElement;
+        // element1.classList.remove('active');
+        // element2.classList.remove('active');
         // console.log(element1);
         // console.log(element2);
-        const manageTenantsPages = [ Routes.manageTenants, '/lease-renewal-proposal', '/manage-properties' ]
-        // if (manageTenantsPages.indexOf(window.location.pathname) !== -1 ) {
-        //     element1.classList.add('active');
-        // } 
-        // else if (window.location.pathname === Routes.manageRents) {
-        //     element2.classList.add('active');
-        // }
-        // else {
-            
-        // }
-        updateCounter(counter + 1);
-        console.log(counter);
-        const route = window.location.pathname;
-        switch(route) {
-            case Routes.manageTenants: 
-                // element2.classList.remove('active');
-                element1.classList.add('active');
-                // console.log('add tenant', window.location.pathname);
-                break;
 
-            case Routes.manageRents: 
-                // element1.classList.remove('active');
-                element2.classList.add('active');
-                // console.log('add rent', window.location.pathname);
-                break;
+        // updateCounter(counter + 1);
+        // console.log(counter);
+
+        // const route = window.location.pathname;
+        // switch(route) {
+        //     case Routes.manageTenants: 
+        //         // element2.classList.remove('active');
+        //         element1.classList.add('active');
+        //         // console.log('add tenant', window.location.pathname);
+        //         break;
+
+        //     case Routes.manageRents: 
+        //         // element1.classList.remove('active');
+        //         element2.classList.add('active');
+        //         // console.log('add rent', window.location.pathname);
+        //         break;
+        //     default: 
+        //         break;
             
-            // case "/manage-properties": {
-            //     element1.classList.add('active');
-            //     break;
-            // }
-            // case "/manage-rents": {
-            //     element2.classList.add('active');
-            //     element1.classList.remove('active');
-            //     break;
-            // }
-            default: 
-                break;
-            
-        }
+        // }
     }
-
     
+    const getClassName = (routePath: string[], className: string): string => {
+        // let activeClassName = "";
+        return routePath.indexOf(path) > -1 ? (className + " active") : className
+    }
 
     return (
 
@@ -90,8 +71,9 @@ const DashboardSidebar: React.FC = () => {
             <p className="ion-hide-lg-up">What would you like to do today?</p>
 
             <IonList className="sidebar-menu-list">
+
                 <IonItem>
-                    <IonButton id={TENANTS} className="dashboard-button" fill="clear" routerLink="/manage-tenants">
+                    <IonButton id={TENANTS} className={getClassName([Routes.manageTenants, Routes.leaseInfo, Routes.editLeaseInfo, Routes.addNewLease, Routes.leaseRenewalProposal], "dashboard-button")} fill="clear" routerLink={Routes.manageTenants}>
                         <div className="dashboard-button-inner">
                             <IonAvatar>
                                 <img src="assets/images/Manage-Lease-home.svg" />
@@ -102,7 +84,7 @@ const DashboardSidebar: React.FC = () => {
                 </IonItem>
 
                 <IonItem>
-                    <IonButton id={RENTS} className="dashboard-button" fill="clear" routerLink="/manage-rents">
+                    <IonButton id={RENTS} className={getClassName([Routes.manageRents, Routes.rentPayDetails], "dashboard-button")} fill="clear" routerLink={Routes.manageRents}>
                         <div className="dashboard-button-inner">    
                             <IonAvatar>
                                 <img src="assets/images/Pay-Rent-home.svg" />
@@ -144,10 +126,11 @@ const DashboardSidebar: React.FC = () => {
                         </div>
                     </IonButton>
                 </IonItem>
+
             </IonList>
         </IonCol>
         
     );
 };
 
-export default withRouter(DashboardSidebar);
+export default DashboardSidebar;

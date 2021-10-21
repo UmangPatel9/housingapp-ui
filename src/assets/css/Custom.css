@@ -686,6 +686,9 @@ body .swiper-slide {
     display: flex;
     flex-direction: column-reverse;
 }
+.signup-form > ion-col {
+    padding: 0;
+}
 /* Signup page css end */
 
 /* Management dashboar css start */

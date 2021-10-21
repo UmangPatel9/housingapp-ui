@@ -15,6 +15,7 @@ import {
 import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from "../App";
 
 const ManageRentsGeneralTab: React.FC = () => {
 
@@ -162,7 +163,7 @@ const ManageRentsGeneralTab: React.FC = () => {
                 <IonGrid className="">
                     <IonRow className="apartments-list">
                         <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
-                            <IonButton routerLink="/rent-pay-details" expand="full" fill="solid" shape="round">
+                            <IonButton routerLink={Routes.rentPayDetails} expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
                                     <h2>812</h2>
@@ -170,7 +171,7 @@ const ManageRentsGeneralTab: React.FC = () => {
                             </IonButton>
                         </IonCol>
                         <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
-                            <IonButton routerLink="/rent-pay-details" expand="full" fill="solid" shape="round">
+                            <IonButton routerLink={Routes.rentPayDetails} expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
                                     <h2>407</h2>
@@ -178,7 +179,7 @@ const ManageRentsGeneralTab: React.FC = () => {
                             </IonButton>
                         </IonCol>
                         <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
-                            <IonButton routerLink="/rent-pay-details" expand="full" fill="solid" shape="round">
+                            <IonButton routerLink={Routes.rentPayDetails} expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
                                     <h2>300</h2>
@@ -186,7 +187,7 @@ const ManageRentsGeneralTab: React.FC = () => {
                             </IonButton>
                         </IonCol>
                         <IonCol size="6" sizeMd="6" sizeLg="6" sizeXl="3" className="">
-                            <IonButton routerLink="/rent-pay-details" expand="full" fill="solid" shape="round">
+                            <IonButton routerLink={Routes.rentPayDetails} expand="full" fill="solid" shape="round">
                                 <div>
                                     <span>Apt#</span>
                                     <h2>621</h2>

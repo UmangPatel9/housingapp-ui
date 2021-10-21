@@ -41,9 +41,24 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 export const Routes = {
+  indexURL: '/index',
+  forgetPassword: '/forget-password',
+  resetPassword: '/reset-password',
   signup: '/signup',
+  managementSignup: '/management-signup', 
+  staffSignup: '/staff-signup', 
+  tenantSignup: '/tenant-signup',
+  managementDashboard: '/management-dashboard',
+  managementDashboardWithNoProperty: '/management-dashboard-with-no-property',
+  manageProperties: '/manage-properties',
+  addNewProperty: '/add-new-property',
   manageTenants: '/manage-tenants',
+  leaseInfo: '/lease-info',
+  editLeaseInfo: '/edit-lease-info',
+  addNewLease: '/add-new-lease',
+  leaseRenewalProposal: '/lease-renewal-proposal',
   manageRents: '/manage-rents',
+  rentPayDetails: '/rent-pay-details'
 }
 
 const App: React.FC = () => (
@@ -51,69 +66,63 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonRouterOutlet>
 
-        <Route exact path="/index">
+        <Route exact path={Routes.indexURL}>
           <Home />
         </Route>
         <Route exact path="/">
           {/* <Redirect to="/index" /> */}
           <Home />
         </Route>
-        <Route exact path="/forget-password">
+        <Route exact path={Routes.forgetPassword}>
           <ForgetPassword />
         </Route>
-        <Route exact path="/reset-password">
+        <Route exact path={Routes.resetPassword}>
           <ResetPassword />
         </Route>
         <Route exact path={Routes.signup}>
           <Signup />
         </Route>
-        <Route exact path="/management-signup">
+        <Route exact path={Routes.managementSignup}>
           <ManagementSignup />
         </Route>
-        <Route exact path="/staff-signup">
+        <Route exact path={Routes.staffSignup}>
           <StaffSignup />
         </Route>
-        <Route exact path="/tenant-signup">
+        <Route exact path={Routes.tenantSignup}>
           <TenantSignup />
         </Route>
-        <Route exact path="/management-dashboard">
-          <ManagementDashboard />
+        <Route exact path={Routes.managementDashboard}>
+          <ManagementDashboard path={Routes.managementDashboard} />
         </Route>
-        <Route exact path="/management-dashboard-with-no-property">
-          <ManagementDashboardWithNoProperty />
+        <Route exact path={Routes.managementDashboardWithNoProperty}>
+          <ManagementDashboardWithNoProperty path={Routes.managementDashboardWithNoProperty} />
         </Route>
-        <Route exact path="/manage-properties">
-          <ManageProperties />
+        <Route exact path={Routes.manageProperties}>
+          <ManageProperties path={Routes.manageProperties} />
         </Route>
-        <Route exact path="/add-new-property">
-          <AddNewProperty />
+        <Route exact path={Routes.addNewProperty}>
+          <AddNewProperty path={Routes.addNewProperty} />
         </Route>
         <Route exact path={Routes.manageTenants}>
-          <ManageTenants />
+          <ManageTenants path={Routes.manageTenants} />
         </Route>
-        <Route exact path="/manage-tenants-general">
-          <ManageTenants />
+        <Route exact path={Routes.leaseInfo}>
+          <LeaseInfo path={Routes.leaseInfo} />
         </Route>
-        <Route exact path="/manage-tenants-search">
-          <ManageTenants />
+        <Route exact path={Routes.editLeaseInfo}>
+          <EditLeaseInfo path={Routes.editLeaseInfo} />
         </Route>
-        <Route exact path="/lease-info">
-          <LeaseInfo />
+        <Route exact path={Routes.addNewLease}>
+          <AddNewLease path={Routes.addNewLease} />
         </Route>
-        <Route exact path="/edit-lease-info">
-          <EditLeaseInfo />
-        </Route>
-        <Route exact path="/add-new-lease">
-          <AddNewLease />
-        </Route>
-        <Route exact path="/lease-renewal-proposal">
-          <LeaseRenewalProposal />
+        <Route exact path={Routes.leaseRenewalProposal}>
+          <LeaseRenewalProposal path={Routes.leaseRenewalProposal} />
         </Route>
         <Route exact path={Routes.manageRents}>
-          <ManageRents />
+          <ManageRents path={Routes.manageRents} />
         </Route>
-        <Route exact path="/rent-pay-details">
-          <RentPayDetails />
+        <Route exact path={Routes.rentPayDetails}>
+          <RentPayDetails path={Routes.rentPayDetails} />
         </Route>
 
       </IonRouterOutlet>

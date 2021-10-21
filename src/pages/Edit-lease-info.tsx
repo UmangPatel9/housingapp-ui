@@ -33,7 +33,7 @@ import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 
-const EditLeaseInfo: React.FC = () => {
+const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
 
     let history = useHistory();
 
@@ -65,7 +65,7 @@ const EditLeaseInfo: React.FC = () => {
                     <IonRow className="dashboard-main-row">
                         
                         {/* sidebar start  */}
-                        <DashboardSidebar />
+                        <DashboardSidebar path={path} />
                         {/* sidebar end  */}
 
 
@@ -287,7 +287,6 @@ const EditLeaseInfo: React.FC = () => {
                                     />
                                     <IonButton 
                                         className="cancel-lease-btn" 
-                                        // routerLink="/manage-tenants" 
                                         fill="outline" 
                                         shape="round"
                                         onClick={() =>
@@ -393,7 +392,6 @@ const EditLeaseInfo: React.FC = () => {
 
                                     <IonButton 
                                         className="exit-file-btn" 
-                                        // routerLink="/manage-tenants" 
                                         fill="solid" 
                                         shape="round"
                                         onClick={() =>

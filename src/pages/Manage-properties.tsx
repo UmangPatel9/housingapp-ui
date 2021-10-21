@@ -32,9 +32,10 @@ import { add } from "ionicons/icons";
 import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from '../App';
 
 
-const ManageProperties: React.FC = () => {
+const ManageProperties: React.FC<{ path: string }> = ({path}) => {
 
     const toggleReorder = (event: CustomEvent<ItemReorderEventDetail>) => {
         event.detail.complete();
@@ -52,7 +53,7 @@ const ManageProperties: React.FC = () => {
                     <IonRow class="dashboard-main-row">
 
                         {/* sidebar start  */}
-                        <DashboardSidebar />
+                        <DashboardSidebar path={path} />
                         {/* sidebar end  */}
                         
                         <IonCol className="dashboard-content" size="12" sizeMd="12" sizeLg="6" sizeXl="8">
@@ -116,7 +117,7 @@ const ManageProperties: React.FC = () => {
                     <IonFabList side="top">
                         <IonList>
                             <IonItem>
-                                <IonButton fill="clear" routerLink="/add-new-property">
+                                <IonButton fill="clear" routerLink={Routes.addNewProperty}>
                                     <IonIcon icon={add} />  
                                     <span>Add a Property</span>
                                 </IonButton>

@@ -28,8 +28,9 @@ import DashboardSidebar from '../components/Dahsboard-sidebar';
 import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from "../App";
 
-const LeaseRenewalProposal: React.FC = () => {
+const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
 
     const contentRef = useRef<HTMLIonContentElement | null>(null);
 
@@ -49,7 +50,7 @@ const LeaseRenewalProposal: React.FC = () => {
                     <IonRow className="dashboard-main-row">
                         
                         {/* sidebar start  */}
-                        <DashboardSidebar />
+                        <DashboardSidebar path={path} />
                         {/* sidebar end  */}
 
 
@@ -203,7 +204,7 @@ const LeaseRenewalProposal: React.FC = () => {
                             <IonRow className="ion-justify-content-center">
                                 <IonCol className="ion-text-center">
                                     <IonButton className="submit-new-lease-btn" routerLink="#" fill="outline" shape="round">Submit</IonButton>
-                                    <IonButton className="exit-file-btn" routerLink="/manage-tenants" fill="solid" shape="round">Exit File</IonButton>
+                                    <IonButton className="exit-file-btn" routerLink={Routes.manageTenants} fill="solid" shape="round">Exit File</IonButton>
                                 </IonCol>
                             </IonRow>
 
