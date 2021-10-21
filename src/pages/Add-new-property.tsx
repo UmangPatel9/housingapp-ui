@@ -15,7 +15,8 @@ import {
     IonSelectOption,
     IonNote,
     IonItem,
-    IonIcon
+    IonIcon,
+    useIonViewWillEnter 
 } from '@ionic/react';
 
 import { FormProvider, useForm, Controller } from "react-hook-form";
@@ -53,11 +54,7 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
 
     useEffect(() => {
         mySlides.current.lockSwipes(true);
-        // mySlides.slides.slideTo(0, 500);
-        // mySlides.current.slideTo(0);
-        mySlides.current!.slideTo(0);
-        console.log("change slide");
-    },[window.location.pathname]);
+    });
 
     const next = async (fields: any) => {
         const result = await trigger(fields);
@@ -68,21 +65,18 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
         scrollToTop();
     };
 
-    // mySlides.current.slideTo(0);
-
-    let element: HTMLElement = document.getElementsByClassName('add-property-btn')[0] as HTMLElement;
-    const slideToFirst = () => {
-        
-    }
-    
+    useIonViewWillEnter(() => {
+        console.log('useIonViewWillEnter event fired');
+        mySlides.current.lockSwipes(false);
+        mySlides.current.slideTo(0);
+    });
 
     const prev = async () => {
         await mySlides.current.lockSwipes(false);
         await mySlides.current.slidePrev();
         await mySlides.current.lockSwipes(true);
     };
-    
-        
+      
     const onSubmit = (data: any) => {
         console.log(data);
     };
@@ -123,7 +117,6 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
         }
         updateCounter(counter + 1);
         // console.log(newList);
-        
         setList(newList);
     };
 
@@ -460,59 +453,6 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                                             <IonLabel className="form-lable">Add, rename or delete apartment:</IonLabel>
                                                             <IonGrid>
                                                                 <IonRow className="ion-justify-content-start">
-                                                                    {/* <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
-                                                                        <div className="apartment-info">
-                                                                            <IonButton fill="clear">
-                                                                                <IonIcon icon={close} />
-                                                                            </IonButton>
-                                                                            <IonInput mode="md" type="text" value={"501"}></IonInput>
-                                                                        </div>
-                                                                    </IonCol>
-
-                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
-                                                                        <div className="apartment-info">
-                                                                            <IonButton fill="clear">
-                                                                                <IonIcon icon={close} />
-                                                                            </IonButton>
-                                                                            <IonInput mode="md" type="text" value={"502"}></IonInput>
-                                                                        </div>
-                                                                    </IonCol>
-
-                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
-                                                                        <div className="apartment-info">
-                                                                            <IonButton fill="clear">
-                                                                                <IonIcon icon={close} />
-                                                                            </IonButton>
-                                                                            <IonInput mode="md" type="text" value={"503"}></IonInput>
-                                                                        </div>
-                                                                    </IonCol>
-
-                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
-                                                                        <div className="apartment-info">
-                                                                            <IonButton fill="clear">
-                                                                                <IonIcon icon={close} />
-                                                                            </IonButton>
-                                                                            <IonInput mode="md" type="text" value={"504"}></IonInput>
-                                                                        </div>
-                                                                    </IonCol>
-
-                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
-                                                                        <div className="apartment-info">
-                                                                            <IonButton fill="clear">
-                                                                                <IonIcon icon={close} />
-                                                                            </IonButton>
-                                                                            <IonInput mode="md" type="text" value={"505"}></IonInput>
-                                                                        </div>
-                                                                    </IonCol>
-
-                                                                    <IonCol size="6" sizeMd="4" sizeLg="4" sizeXl="4" className="">
-                                                                        <div className="apartment-info">
-                                                                            <IonButton fill="clear">
-                                                                                <IonIcon icon={close} />
-                                                                            </IonButton>
-                                                                            <IonInput mode="md" type="text" value={"506"}></IonInput>
-                                                                        </div>
-                                                                    </IonCol> */}
 
                                                                     {renderList()}
 
