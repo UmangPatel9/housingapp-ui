@@ -78,25 +78,29 @@ const LeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                 <IonCardContent>
                                     <div className="tenant-lease-details-info tenants-info">
                                         <h4>Tenant 1</h4>
-                                        <div>
-                                            <IonLabel>First Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"John"} name="t1FirstName" readonly></IonInput>
-                                        </div>
-                                        <div>
-                                            <IonLabel>Last Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Smith"} name="t1LastName" readonly></IonInput>
-                                        </div>
+                                        <IonRow>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>First Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"John"} name="t1FirstName" readonly></IonInput>
+                                            </IonCol>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>Last Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"Smith"} name="t1LastName" readonly></IonInput>
+                                            </IonCol>
+                                        </IonRow>
                                     </div>
                                     <div className="tenant-lease-details-info tenants-info">
                                         <h4>Tenant 2</h4>
-                                        <div>
-                                            <IonLabel>First Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Dianna"} name="t2FirstName" readonly></IonInput>
-                                        </div>
-                                        <div>
-                                            <IonLabel>Last Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Smith"} name="t2LastName" readonly></IonInput>
-                                        </div>
+                                        <IonRow>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>First Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"Dianna"} name="t2FirstName" readonly></IonInput>
+                                            </IonCol>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>Last Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"Smith"} name="t2LastName" readonly></IonInput>
+                                            </IonCol>
+                                        </IonRow>
                                     </div>
                                     <IonButton fill="solid" shape="round" disabled>
                                             <IonIcon icon="assets/images/plus-icon-gray.svg" />

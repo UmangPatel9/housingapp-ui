@@ -79,7 +79,7 @@ const ChangePropertyPopover: React.FC <{  onHide: () => void; }>= ({ onHide }) =
             <IonGrid>
                 <IonRow>
                     <IonCol size="6" className="login-btn">
-                        <IonButton className="manage-property-btn" routerLink={Routes.manageProperties} expand="block" shape="round" fill="solid" >
+                        <IonButton className="manage-property-btn" routerLink={Routes.manageProperties} expand="block" shape="round" fill="outline" >
                             <div className="button-inner">
                                 <IonIcon icon={createOutline} />
                                 <span>Manage List of Properties</span>
@@ -87,7 +87,7 @@ const ChangePropertyPopover: React.FC <{  onHide: () => void; }>= ({ onHide }) =
                         </IonButton>
                     </IonCol>
                     <IonCol size="6" className="login-btn">
-                        <IonButton className="add-property-btn secondary-button" routerLink={Routes.addNewProperty} expand="block" shape="round" fill="solid">
+                        <IonButton className="add-property-btn secondary-button" routerLink={Routes.addNewProperty} expand="block" shape="round" fill="outline">
                             <div className="button-inner">
                                 <IonIcon icon={addOutline} />
                                 <span>Add a Property</span>

@@ -55,6 +55,56 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
     const [updateFileNotificationSentAlert, setUpdateFileNotificationSentAlert] = useState(false);
     const [exitFileAlert, setExitFileAlert] = useState(false);
 
+    const defaultList = [
+        { firstName: "John", lastName: "Smith" },
+        { firstName: "Dianna", lastName: "Smith" },
+    ];
+
+    const [inputList, setInputList] = useState(defaultList);
+
+    // handle input change
+    const handleInputChange = (e:any, index:number) => {
+        // const { name, value } = e.target;
+        // const list = [...inputList];
+        // list[index][name] = value;
+        // setInputList(list);
+    };
+    
+    // handle click event of the Remove button
+    const handleRemoveClick = (index:any) => {
+        const list = [...inputList];
+        list.splice(index, 1);
+        setInputList(list);
+    };
+    
+    // handle click event of the Add button
+    const handleAddClick = () => {
+        setInputList([...inputList, { firstName: "", lastName: "" }]);
+    };
+
+    const renderList = () => {
+        return inputList.map((x, i) => {
+            return (
+                <div className="tenant-lease-details-info tenants-info">
+                    <div className="tenant-title-wrap">
+                        <h4>Tenant 1</h4>
+                        <IonButton fill="clear" onClick={() => handleRemoveClick(i)}><IonIcon icon={close} /></IonButton>
+                    </div>
+                    <IonRow>
+                        <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                            <IonLabel>First Name*</IonLabel>
+                            <IonInput mode="md" type="text" value={x.firstName} name="firstName" onChange={e => handleInputChange(e, i)}></IonInput>
+                            </IonCol>
+                        <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                            <IonLabel>Last Name*</IonLabel>
+                            <IonInput mode="md" type="text" value={x.lastName} name="lastName" onChange={e => handleInputChange(e, i)}></IonInput>
+                        </IonCol>
+                    </IonRow>
+                </div>
+            );
+        })
+    }
+
     return (
         <IonPage>
   
@@ -96,14 +146,7 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                         cssClass='orange-alert'
                                         mode='md'
                                         header={'New Lease Code'}
-                                        message={'<p>You are about to <strong>change</strong> this lease code.</p><p>This step cannot be undone.</p><p>Please confirm with fingerprint.</p>'}
-                                        inputs={[
-                                            {
-                                              name: 'newLeaseCodeFingerprint',
-                                              type: 'text',
-                                              cssClass: 'fingerprint-input'
-                                            },
-                                        ]}
+                                        message={'<p>You are about to <strong>change</strong> this lease code.</p><p>This step cannot be undone.</p>'}
                                         buttons={[
                                             {
                                                 text: 'Yes',
@@ -133,32 +176,42 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                 </IonCardHeader>
 
                                 <IonCardContent>
-                                    <div className="tenant-lease-details-info tenants-info">
+                                    {/* <div className="tenant-lease-details-info tenants-info">
                                         <div className="tenant-title-wrap">
                                             <h4>Tenant 1</h4>
                                             <IonButton fill="clear"><IonIcon icon={close} /></IonButton>
                                         </div>
-                                        <div>
-                                            <IonLabel>First Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"John"} name="t1FirstName"></IonInput>
-                                        </div>
-                                        <div>
-                                            <IonLabel>Last Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Smith"} name="t1LastName"></IonInput>
-                                        </div>
+                                        <IonRow>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>First Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"John"} name="t1FirstName"></IonInput>
+                                                </IonCol>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>Last Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"Smith"} name="t1LastName"></IonInput>
+                                            </IonCol>
+                                        </IonRow>
                                     </div>
                                     <div className="tenant-lease-details-info tenants-info">
-                                        <h4>Tenant 2</h4>
-                                        <div>
-                                            <IonLabel>First Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Dianna"} name="t2FirstName"></IonInput>
+                                        <div className="tenant-title-wrap">
+                                            <h4>Tenant 2</h4>
+                                            <IonButton fill="clear"><IonIcon icon={close} /></IonButton>
                                         </div>
-                                        <div>
-                                            <IonLabel>Last Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Smith"} name="t2LastName"></IonInput>
-                                        </div>
-                                    </div>
-                                    <IonButton fill="solid" shape="round">
+                                        <IonRow>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>First Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"Dianna"} name="t2FirstName"></IonInput>
+                                            </IonCol>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                    <IonLabel>Last Name*</IonLabel>
+                                                    <IonInput mode="md" type="text" value={"Smith"} name="t2LastName"></IonInput>
+                                            </IonCol>
+                                        </IonRow>
+                                    </div> */}
+
+                                    {renderList()}
+
+                                    <IonButton fill="solid" shape="round" onClick={handleAddClick}>
                                             <IonIcon icon="assets/images/plus-icon-gray.svg" />
                                             <span className="">Add Another Tenant</span>
                                     </IonButton>
@@ -182,14 +235,14 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                         </div>
                                         <div>
                                             <IonLabel>Lease Start Date*</IonLabel>
-                                            <div className="date-picker">
+                                            <div className="date-picker width-50">
                                                 <IonDatetime displayFormat="MMM DD, YYYY" name="leaseStartDate" placeholder="Select Date" value={selectedDate} onIonChange={e => setSelectedDate(e.detail.value!)}></IonDatetime>
                                                 <IonIcon icon="assets/images/calendar-icon.svg" />
                                             </div>
                                         </div>
                                         <div>
                                             <IonLabel>Lease End Date*</IonLabel>
-                                            <div className="date-picker">
+                                            <div className="date-picker width-50">
                                                 <IonDatetime displayFormat="MMM DD, YYYY" name="leaseEndDate" placeholder="Select Date" value={selectedDate} onIonChange={e => setSelectedDate(e.detail.value!)}></IonDatetime>
                                                 <IonIcon icon="assets/images/calendar-icon.svg" />
                                             </div>
