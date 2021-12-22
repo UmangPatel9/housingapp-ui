@@ -106,7 +106,11 @@ const StaffSignup: React.FC = () => {
                                              mode="md"
                                              type="password" 
                                              {...register('password1', {
-                                                required: 'Password is Required'
+                                                required: 'Password is Required',
+                                                pattern: {
+                                                  value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/i,
+                                                  message: 'Password should be minimum 8 characters and maximum 12 characters long, with 1 upparcase and 1 special character.'
+                                                }
                                              })}
                                           />
                                           <ErrorMessage
@@ -186,7 +190,10 @@ const StaffSignup: React.FC = () => {
                                        </IonCol>
 
                                        <IonCol size="12" className="email-field">
-                                          <IonLabel className="form-lable">Telephone:</IonLabel>
+                                          <div className="label-with-tooltip">
+                                             <IonLabel className="form-lable">Telephone:</IonLabel>
+                                             <div className="tooltip" title="Add Telephone">!</div>
+                                          </div>
                                           <IonInput
                                              mode="md"
                                              type="number" 
@@ -217,7 +224,7 @@ const StaffSignup: React.FC = () => {
                                        </IonCol> */}
 
                                        <IonCol size="12" className="sign-up-btn">
-                                          <IonButton type="submit" expand="block" shape="round" fill="outline">
+                                          <IonButton className="secondary-button" type="submit" expand="block" shape="round" fill="outline">
                                              Finalize
                                           </IonButton>
                                        </IonCol>

@@ -117,12 +117,13 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
             // setList(newList);
         }
         updateCounter(counter + 1);
+        
         // console.log(newList);
         setList(newList);
     };
 
     const renderList = () => {
-    return list.map(item => {
+        return list.map(item => {
             return (
                 // <>
                     <IonCol key={item.id} size="6" sizeMd="4" sizeLg="4" sizeXl="4" id={item.id.toString()}>
@@ -160,7 +161,10 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                         <IonGrid>
                                             <IonRow className="ion-justify-content-center">
                                                 <IonCol size="12" className="form-field">
-                                                    <IonLabel className="form-lable">Property Name</IonLabel>
+                                                    <div className="label-with-tooltip">
+                                                        <IonLabel className="form-lable">Property Name</IonLabel>
+                                                        <div className="tooltip" title="Add Property Name">!</div>
+                                                    </div>
                                                     <IonInput
                                                         mode="md"
                                                         type="text"
@@ -176,7 +180,11 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                                 </IonCol>
 
                                                 <IonCol size="12" className="form-field">
-                                                    <IonLabel className="form-lable">Property Name Suffix (3 Characters)</IonLabel>
+                                                    <div className="label-with-tooltip">
+                                                        <IonLabel className="form-lable">Property Name Suffix (3 Characters)</IonLabel>
+                                                        <div className="tooltip" title="Add Property Name Suffix (3 Characters)">!</div>
+                                                    </div>
+                                                    
                                                     <IonInput
                                                         mode="md"
                                                         type="text"
@@ -268,7 +276,10 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                                 </IonCol>
 
                                                 <IonCol size="12" className="form-field">
-                                                    <IonLabel className="form-lable">Country</IonLabel>
+                                                    <div className="label-with-tooltip">
+                                                        <IonLabel className="form-lable">Country</IonLabel>
+                                                        <div className="tooltip" title="Add Country">!</div>
+                                                    </div>
                                                     <IonInput
                                                         mode="md"
                                                         type="text"
@@ -284,7 +295,10 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                                 </IonCol>
 
                                                 <IonCol size="12" className="form-field">
-                                                    <IonLabel className="form-lable">Postal code</IonLabel>
+                                                    <div className="label-with-tooltip">
+                                                        <IonLabel className="form-lable">Postal code</IonLabel>
+                                                        <div className="tooltip" title="Add Postal code">!</div>
+                                                    </div>
                                                     <IonInput
                                                         mode="md"
                                                         type="text"
@@ -309,7 +323,7 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                                     </IonButton>
                                                 </IonCol> */}
 
-                                                <IonCol  size="12" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
+                                                <IonCol  size="6" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
                                                     <IonButton expand="block" shape="round" fill="outline" onClick={() => next([])}>
                                                         Continue
                                                     </IonButton>
@@ -346,7 +360,10 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                                 </IonCol>
 
                                                 <IonCol size="12" className="form-filed">
-                                                    <IonLabel className="form-lable">Number of Apartments per Floor</IonLabel>
+                                                    <div className="label-with-tooltip">
+                                                        <IonLabel className="form-lable">Number of Apartments per Floor</IonLabel>
+                                                        <div className="tooltip" title="Add Number of Apartments per Floor">!</div>
+                                                    </div>
                                                     <IonInput
                                                         mode="md"
                                                         type="number"   
@@ -399,9 +416,9 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                                     </IonButton>
                                                 </IonCol> */}
 
-                                                <IonCol  size="12" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
-                                                    <IonButton expand="block" shape="round" fill="outline" onClick={() => next([])}>
-                                                        Continue
+                                                <IonCol  size="6" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
+                                                    <IonButton className="secondary-button" expand="block" shape="round" fill="outline" onClick={() => next([])}>
+                                                        Generate Property
                                                     </IonButton>
                                                 </IonCol>
 
@@ -415,8 +432,9 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                             <IonNote className="generated-floor-note">You are almost done adding the property to your account. To customize a floor, select a floor from the dropdown menu, then add, remove or change the apartment number format to match the ones that you own.</IonNote>
 
                                             <div className="generated-floor-box">
-                                                <div className="generated-floor-box-title-wrap">
+                                                <div className="generated-floor-box-title-wrap label-with-tooltip">
                                                     <h4 className="generated-floor-box-title">Generated Floors</h4>
+                                                    <div className="tooltip" title="Choose Floors">!</div>
                                                 </div>
                                                 <IonGrid>
                                                     <IonRow className="ion-justify-content-center">
@@ -474,8 +492,8 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                             </div>
 
                                             <IonGrid>
-                                                <IonRow className="ion-justify-content-center">                     <IonCol size="12" sizeMd="12" sizeLg="6" sizeXl="6"     className="form-field sign-up-btn">
-                                                        <IonButton type="submit" expand="block" shape="round" fill="outline">
+                                                <IonRow className="ion-justify-content-center">                     <IonCol size="6" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
+                                                        <IonButton className="secondary-button" type="submit" expand="block" shape="round" fill="outline">
                                                                 Submit
                                                         </IonButton>
                                                     </IonCol>

@@ -88,7 +88,7 @@ const ResetPassword: React.FC = () => {
                                  </IonCol>
 
                                  <IonCol size="12" className="ion-margin-top">
-                                    <IonButton type="submit" expand="block" shape="round" fill="outline" >
+                                    <IonButton className="secondary-button" type="submit" expand="block" shape="round" fill="outline" >
                                     Reset Password
                                     </IonButton>
                                  </IonCol>

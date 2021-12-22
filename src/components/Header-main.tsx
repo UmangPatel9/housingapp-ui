@@ -145,7 +145,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                             <IonGrid>
                                 <IonRow>
                                     <IonCol size="6" className="login-btn">
-                                        <IonButton className="manage-property-btn" routerLink={Routes.manageProperties} expand="block" shape="round" fill="solid" onClick={closePopup}>
+                                        <IonButton className="manage-property-btn secondary-button" routerLink={Routes.manageProperties} expand="block" shape="round" fill="outline" onClick={closePopup}>
                                             <div className="button-inner">
                                                 <IonIcon icon={createOutline} />
                                                 <span>Manage List of Properties</span>
@@ -153,7 +153,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                                         </IonButton>
                                     </IonCol>
                                     <IonCol size="6" className="login-btn">
-                                        <IonButton className="add-property-btn secondary-button" routerLink={Routes.addNewProperty} expand="block" shape="round" fill="solid" onClick={closePopup}>
+                                        <IonButton className="add-property-btn" routerLink={Routes.addNewProperty} expand="block" shape="round" fill="outline" onClick={closePopup}>
                                             <div className="button-inner">
                                                 <IonIcon icon={addOutline} />
                                                 <span>Add a Property</span>

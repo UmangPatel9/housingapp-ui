@@ -122,7 +122,7 @@ const ManageRentsGeneralTab: React.FC = () => {
                             buttons={[
                                 {
                                     text: 'Send',
-                                    cssClass: 'btn-outline',
+                                    cssClass: 'btn-outline secondary-button',
                                     handler: () => {
                                         setCustomMessageAlertSentAlert(true)
                                     }

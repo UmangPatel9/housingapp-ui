@@ -224,7 +224,8 @@ body .button.button-outline {
     white-space: normal;
     letter-spacing: 0.8px;
 }
-body .button.button-block.secondary-button {
+body .button.button-block.secondary-button,
+body .button.button-round.secondary-button {
     --background: #FFFEFA;
     --background-focused: #FFA800;
     --background-hover: #FFA800;
@@ -529,9 +530,10 @@ body ion-datetime {
     --placeholder-font-weight: 300;
     --placeholder-opacity: 1;
 }
+
 body .is-invalid .native-input.sc-ion-input-md,
 body .is-invalid ion-select,
-body .is-invalid ion-datetime {
+body .is-invalid ion-datetime{
     border-color: #f00;
 }
 body ion-datetime {
@@ -579,7 +581,7 @@ body .native-input.sc-ion-input-md[readonly] {
 .form-lable {
     margin-bottom: 5px;
     display: block;
-    padding-left: 22px;
+    /* padding-left: 22px; */
 }
 body .gmail-btn .button.button-block ion-icon {
     margin-right: 20px;
@@ -680,13 +682,14 @@ body .swiper-slide {
 .swiper-slide .form-lable {
     color: #575757;
     font-size: 14px;
+    padding-left: 0;
 }
 .error-message,
 .error-summary {
     color: #ff0000;
     font-size: 14px;
     margin: 2px 0 0;
-    padding-left: 22px;
+    /* padding-left: 22px; */
 }
 .signup-form ion-slides {
     display: flex;
@@ -845,10 +848,18 @@ body .button.dashboard-button.active {
 }
 .change-property-popup .popover-content {
     top: 65px !important;
-    padding: 30px 15px;
+    padding: 30px 15px 76px;
     overflow: visible;
     box-shadow: 0 0 5px rgb(0 0 0 / 50%);
     background-color: #fff;
+}
+.change-property-popup-wrapper ion-grid {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 5px 10px;
 }
 .change-property-popup .popover-content:before {
     content: "";
@@ -883,18 +894,19 @@ body .change-property-popup ion-row {
     padding-top: 0;
     background-color: #fff;
 }
-body .change-property-popup .button.button-block.button-solid {
+body .change-property-popup .button.button-block.button-solid,
+body .change-property-popup .button.button-block.button.button-outline {
     --padding-start: 15px;
     --padding-end: 15px;
     font-size: 14px;
 }
-.button-solid.manage-property-btn ion-icon {
+.manage-property-btn ion-icon {
     font-size: 35px;
 }
-.button-solid.add-property-btn ion-icon {
+.add-property-btn ion-icon {
     font-size: 45px;
 }
-.change-property-popup .button-solid ion-icon {
+.change-property-popup .button-inner ion-icon {
     flex: 0 0 30px;
     max-width: 30px;
     margin-right: 5px;
@@ -1003,12 +1015,14 @@ body .button.manage-property-more-menu-button {
     background-color: #ffffff;
 }
 .manage-property-more-menu ion-list ion-item,
-.property-fab-button  ion-list ion-item {
+.property-fab-button  ion-list ion-item,
+.property-change-menu-popup  ion-list ion-item {
     --padding-start: 0;
     --inner-padding-end: 0;
 }
 .manage-property-more-menu ion-list ion-item:last-child,
-.property-fab-button  ion-list ion-item:last-child {
+.property-fab-button  ion-list ion-item:last-child,
+.property-change-menu-popup  ion-list ion-item:last-child {
     --inner-border-width: 0;
 }
 .manage-property-more-menu .button.button-clear,
@@ -1031,11 +1045,13 @@ body .button.manage-property-more-menu-button {
 .property-fab-button ion-fab-button ion-icon {
     font-size: 35px;
 }
-.property-fab-button ion-fab-list {
+.property-fab-button ion-fab-list,
+.property-change-menu-popup ion-fab-list {
     right: 0;
     background-color: #ffffff
 }
-.property-fab-button ion-list {
+.property-fab-button ion-list,
+.property-change-menu-popup ion-list {
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.4);
     border-radius: 10px;
     overflow: hidden;
@@ -1070,7 +1086,8 @@ body .button.manage-property-more-menu-button {
     font-size: 16px;
     letter-spacing: 0;
 }
-.property-fab-button .button.button-clear ion-icon {
+.property-fab-button .button.button-clear ion-icon,
+.property-change-menu-popup .button.button-clear ion-icon {
     margin-right: 15px;
     font-weight: bold;
 }
@@ -1078,6 +1095,24 @@ body .manage-property-more-menu ion-backdrop {
     /* display: none; */
     cursor: inherit;
 }
+
+.dashboard-wrapper .dashboard-main-grid.manage-property-wrapper {
+    min-height: auto;    
+    position: relative;
+}
+body .button.button-clear.property-change-button {
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    right: 8px;
+    bottom: -13px;
+    z-index: 9999;
+    background: #2699FB;
+    border-radius: 50%;
+}
+/* .property-change-menu-popup {
+    --backdrop-opacity: 0;
+} */
 /* Manage property page css end */
 
 
@@ -1194,11 +1229,22 @@ ion-note {
     border-radius: 10px;
     border: 1px solid #B4BEC7;
 }
-.generated-floor-box-title {
+.generated-floor-box-title-wrap {
     margin: 0 0 15px;
 }
+.generated-floor-box-title {
+    margin: 0;
+}
+.generated-floor-box-title-wrap .tooltip {
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+}
+.generated-floor-box-title-wrap .tooltip:hover:before {
+    right: 3px;
+}
 .generated-floor-note {
-    margin: 0 30px 15px;
+    margin: 0 5px 15px;
     position: relative;
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 50%);
 }
@@ -1241,6 +1287,121 @@ ion-note {
     right: 24px;
     box-shadow: 0 0 5px rgb(0 0 0 / 50%);
 } */
+.tooltip {
+    display: flex;
+    position: relative;
+    width: 15px;
+    height: 15px;
+    border: 1px solid;
+    color: #7c7c7c;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.label-with-tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* Applies to all tooltips */
+.tooltip::before,
+.tooltip::after {
+  text-transform: none; /* opinion 2 */
+  font-size: .9em; /* opinion 3 */
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+}
+/* Make the tooltips respond to hover */
+.tooltip:hover::before,
+.tooltip:hover::after {
+  display: block;
+}
+/* don't show empty tooltips */
+.tooltip[title='']::before,
+.tooltip[title='']::after {
+  display: none !important;
+}
+.tooltip:hover:after{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    /* background: #fff; */
+    background: #7C7C7C;
+    /* box-shadow: 0 0 5px 0 rgb(0 0 0 / 50%); */
+    border-radius: 8px;
+    color: #fff;
+    content: attr(title); 
+    font-size: 14px;
+    padding: 5px;
+    /* width: 220px; */
+    position: absolute;
+    right: -15px;
+    bottom: calc(100% + 12px);
+    z-index: 3;
+    text-align: center;
+    min-width: 3em;
+    max-width: 21em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* .tooltip:hover:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    display: inline-block;
+    bottom: 15px;
+    right: 3px;
+    border: 10px solid black;
+    border-color: transparent transparent #fff #fff;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 5px rgb(0 0 0 / 50%);
+} */
+.tooltip:hover:before{
+    border: solid;
+    border-color: #7C7C7C transparent;
+    border-width: 12px 6px 0 6px;
+    content: "";
+    bottom: 15px;
+    right: 0px;
+    position: absolute;
+  }
+.tooltip::after {
+  bottom: calc(100% + 5px);
+}
+.tooltip::after {
+  right: -10px;
+  transform: translate(10px, -.5em);
+}
+@keyframes tooltips-vert {
+    to {
+        opacity: 1;
+        transform: translate(-10px, 0);
+    }
+}
+@keyframes tooltips-horz {
+    to {
+        opacity: 1;
+        transform: translate(0, -3px);
+    }
+}
+.tooltip:hover::after {
+    animation: tooltips-vert 300ms ease-out forwards;
+}
+.tooltip:hover::before {
+    animation: tooltips-horz 300ms ease-out forwards;
+}
 /* Add property page css end  */
 
 
@@ -1693,11 +1854,14 @@ body .view-lease-info-button.button.button-full {
     text-align: left;
 }
 .tenant-lease-details-info h4 {
-    text-align: center;
+    /* text-align: center; */
     font-size: 15px;
     color: #3C5871;
     font-family: 'Segoe UI Semilight';
     font-weight: 300;
+}
+.tenant-lease-details-info > ion-row {
+    margin: 0 -5px;
 }
 .tenant-lease-details-info div + div {
     margin-top: 15px;
@@ -1791,13 +1955,13 @@ body .button.button-solid.update-file-btn {
 .tenant-title-wrap {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: relative;
 }
-body .tenant-title-wrap .button.button-clear {
+/* body .tenant-title-wrap .button.button-clear {
     position: absolute;
     right: 0;
-}
+} */
 body .tenant-title-wrap ion-icon {
     color: #FF6363;
     font-size: 30px;
@@ -1815,10 +1979,12 @@ body .tenant-title-wrap ion-icon {
     font-size: 25px;
     color: #636161;
 }
-ion-input.width-25 {
+ion-input.width-25,
+.width-25 {
     width: 100px;
 }
-ion-input.width-50 {
+ion-input.width-50,
+.width-50 {
     width: 300px;
 }
 body .special-actions-card .button.button-outline {
@@ -1879,6 +2045,13 @@ body .alert-button.sc-ion-alert-md.btn-outline {
     border: 1px solid #575757;
     color: #575757;
 }
+body .alert-button.sc-ion-alert-md.btn-outline.secondary-button {
+    color: #FFA800;
+}
+body .alert-button.sc-ion-alert-md.btn-outline.secondary-button:hover,
+body .alert-button.sc-ion-alert-md.btn-outline.secondary-button:focus {
+    color: #fff;
+}
 body .alert-button.sc-ion-alert-md.btn-primary,
 body .alert-button.sc-ion-alert-md:hover,
 body .alert-button.sc-ion-alert-md:focus,
@@ -1917,6 +2090,18 @@ body .alert-input.sc-ion-alert-md.fingerprint-input {
     background-position: center;
     background-size: 80% auto;
     background-repeat: no-repeat;
+}
+.lease-price {
+    position: relative;
+}
+.lease-price:before {
+    content: "$";
+    left: 12px;
+    position: absolute;
+    top: 13px;    
+    font-size: 16px;
+    font-family: 'Segoe UI';
+    color: #7C7C7C;
 }
 /* Lease info css end */
 
@@ -1979,6 +2164,10 @@ body .alert-input.sc-ion-alert-md:focus {
     padding-bottom: 5px;
     font-weight: normal;
 }
+.tenants-lease-payment-info ion-col:not(.due-block) h6,
+.tenants-lease-payment-info ion-col p {
+    color: #3C5871;
+}
 /* Manage Rents css end  */
 
 /* Rent Pay Details css start */
@@ -1989,6 +2178,10 @@ body .alert-input.sc-ion-alert-md:focus {
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
+}
+.rent-pay-details-card  ion-label,
+body .rent-pay-details-card .native-input.sc-ion-input-md[readonly] {
+    color: #3C5871;
 }
 .paid-btn-wrap {
     display: flex;
@@ -2089,6 +2282,88 @@ body .rent-pay-receipt-popup .button.button-clear.close-popup-button {
     color: #575757;
 }
 /* Rent pay receipt popup end */
+
+/* Tenant Dahsboar posts start  */
+.tenants-dashboard .dashboard-content-inner {
+    padding: 0 0 15px;
+    background-color: #FFFBF0;
+}
+.tenants-dashboard ion-segment-button.segment-button-checked {
+    background-color: #FFFBF0;
+    border-radius: 10px 10px 0 0;
+}
+.tenants-dashboard ion-segment-button {
+    border-bottom: none;
+    font-size: 20px;
+}
+.tenant-tab-content {
+    background-color: #FFFBF0;
+    margin-top: 0;
+}
+.posts-list-block {
+    position: relative;
+    padding: 0;
+    margin: 15px;
+}
+.posts-list-block ion-grid {
+    padding: 0;
+}
+.post-row {
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 0 2px #e2e1e1;
+    padding: 10px 5px;
+    align-items: center;
+}
+.post-image {
+    flex: 0 0 115px;
+    max-width: 115px;
+    border-right: 1px solid #C0C0C0;
+    padding-right: 15px;
+}
+.post-content {
+    flex: 0 0 calc(100% - 115px);
+    max-width: calc(100% - 115px);
+    padding-left: 10px;
+}
+.post-image .image-wrapper {
+    width: 90px;
+    height: 63px;
+    border-radius: 12px;
+    overflow: hidden;   
+}
+.post-image .image-wrapper ion-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.post-title {
+    margin: 0 0 3px;
+}
+.post-price {
+    font-size: 30px;
+    margin: 5px 0 0;
+}
+.dashboard-content p.post-date {
+    margin: 0;
+    text-align: right;
+    font-size: 11px;
+    color: #7C7C7C;
+    position: absolute;
+    right: 9px;
+    bottom: 3px;
+}
+body .button.button-clear.post-details-link-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+/* Tenant Dahsboar posts end  */
 
 /* 
 

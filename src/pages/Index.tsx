@@ -26,8 +26,14 @@ const Home: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = methods;
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    history.push(Routes.managementDashboard);
+    console.log(data.email);
+    console.log(data.password1);
+    if (data.email == "tenant@gmail.com" && data.password1 == "12345") {
+      history.push(Routes.tenantDahsboard);
+    }
+    else {
+      history.push(Routes.managementDashboard);
+    }
   };
 
   const doNothing = () => {
@@ -37,7 +43,6 @@ const Home: React.FC = () => {
   type ErrorSummaryProps<T> = {
     errors: FieldErrors<T>;
   };
-
   function ErrorSummary<T>({ errors }: ErrorSummaryProps<T>) {
     if (Object.keys(errors).length === 0) {
       return null;
@@ -54,6 +59,9 @@ const Home: React.FC = () => {
   type ErrorMessageContainerProps = {
     children?: React.ReactNode;
   };
+  const ErrorMessageContainer = ({ children }: ErrorMessageContainerProps) => (
+    <span className="error">{children}</span>
+  );
 
   return (
     <IonPage>
@@ -66,25 +74,22 @@ const Home: React.FC = () => {
             <IonCol size="10" sizeMd="6" sizeLg="4">
               <FormProvider {...methods}>
                 <form className="login-form" onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+
+                  
+
                   <IonGrid>
                     <IonRow>
-                        <ErrorSummary errors={errors} />
-                        {/* <ErrorMessage
-                          errors={errors}
-                          name="email"
-                          as={<div className="error-message" style={{ color: 'red' }} />}
-                        />
-                        <ErrorMessage
-                          errors={errors}
-                          name="password1"
-                          as={<div className="error-message" style={{ color: 'red' }} />}
-                        /> */}
+
+                        <IonCol size="12">
+                          <ErrorSummary errors={errors} />
+                        </IonCol>
+
                         <IonCol size="12" className="email-field">
                           {/* <IonInput placeholder="Email"/> */}
                           <IonInput
-                            className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                             mode="md"
                             type="email"
+                            className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                             placeholder="Email"
                             {...register('email', {
                               required: 'Email is a required',
@@ -94,21 +99,29 @@ const Home: React.FC = () => {
                               }
                             })}
                           />
-                          
+                          {/* <ErrorMessage
+                            errors={errors}
+                            name="email"
+                            as={<div className="error-message" style={{ color: 'red' }} />}
+                          /> */}
                         </IonCol>
 
                         <IonCol size="12" className="password-field">
                           {/* <IonInput type="password" placeholder="Password" /> */}
                           <IonInput 
-                            className={`form-control ${errors.password1 ? 'is-invalid' : ''}`}
                             mode="md"
-                            type="password" 
+                            type="password"
+                            className={`form-control ${errors.password1 ? 'is-invalid' : ''}`} 
                             placeholder="Password"
                             {...register('password1', {
-                              required: 'Password is Required'
+                              required: 'Password is required'
                             })}
                           />
-                          
+                          {/* <ErrorMessage
+                            errors={errors}
+                            name="password1"
+                            as={<div className="error-message" style={{ color: 'red' }} />}
+                          /> */}
                         </IonCol>
 
                         <IonCol size="12" className="forget-password ion-text-right">

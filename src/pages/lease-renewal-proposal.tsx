@@ -8,6 +8,7 @@ import {
     IonCol, 
     IonList,
     IonInput, 
+    IonDatetime,
     IonLabel, 
     IonButton, 
     IonIcon,
@@ -37,6 +38,9 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
     const scrollToBottom= () => {
         contentRef.current && contentRef.current.scrollToBottom(500);
     };
+
+    const [selectedStartDate, setSelectedStartDate] = useState<string>('Jan 8th, 2020');
+    const [selectedEndDate, setSelectedEndDate] = useState<string>('Feb 8th, 2021');
 
     const [generateNewLeaseCodeAlert, setGenerateNewLeaseCodeAlert] = useState(false);
 
@@ -81,14 +85,7 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
                                         cssClass='orange-alert'
                                         mode='md'
                                         header={'New Lease Code'}
-                                        message={'<p>You are about to <strong>change</strong> this lease code.</p><p>This step cannot be undone.</p><p>Please confirm with fingerprint.</p>'}
-                                        inputs={[
-                                            {
-                                              name: 'newLeaseCodeFingerprint',
-                                              type: 'text',
-                                              cssClass: 'fingerprint-input'
-                                            },
-                                        ]}
+                                        message={'<p>You are about to <strong>change</strong> this lease code.</p><p>This step cannot be undone.</p>'}
                                         buttons={[
                                             {
                                                 text: 'Yes',
@@ -119,25 +116,29 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
                                 <IonCardContent>
                                     <div className="tenant-lease-details-info tenants-info">
                                         <h4>Tenant 1</h4>
-                                        <div>
-                                            <IonLabel>First Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"John"} name="t1FirstName" readonly></IonInput>
-                                        </div>
-                                        <div>
-                                            <IonLabel>Last Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Smith"} name="t1LastName" readonly></IonInput>
-                                        </div>
+                                        <IonRow>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>First Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"John"} name="t1FirstName" readonly></IonInput>
+                                            </IonCol>
+                                            <IonCol size="12" sizeMd="6s" sizeLg="6" sizeXl="6">
+                                                <IonLabel>Last Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"Smith"} name="t1LastName" readonly></IonInput>
+                                            </IonCol>
+                                        </IonRow>
                                     </div>
                                     <div className="tenant-lease-details-info tenants-info">
                                         <h4>Tenant 2</h4>
-                                        <div>
-                                            <IonLabel>First Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Dianna"} name="t2FirstName" readonly></IonInput>
-                                        </div>
-                                        <div>
-                                            <IonLabel>Last Name*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Smith"} name="t2LastName" readonly></IonInput>
-                                        </div>
+                                        <IonRow>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>First Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"Dianna"} name="t2FirstName" readonly></IonInput>
+                                            </IonCol>
+                                            <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
+                                                <IonLabel>Last Name*</IonLabel>
+                                                <IonInput mode="md" type="text" value={"Smith"} name="t2LastName" readonly></IonInput>
+                                            </IonCol>
+                                        </IonRow>
                                     </div>
                                     <IonButton fill="solid" shape="round" disabled>
                                             <IonIcon icon="assets/images/plus-icon-gray.svg" />
@@ -165,13 +166,21 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
                                             <IonLabel>New Lease price</IonLabel>
                                             <IonInput className="width-25" mode="md" type="text" value="" name="newLeasePrice"></IonInput>
                                         </div>
-                                        <div>
+                                        <div className="width-50">
                                             <IonLabel>Lease Start Date*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Jan. 8th, 2020"} name="leaseStartDate" readonly></IonInput>
+                                            {/* <IonInput mode="md" type="text" value={"Jan. 8th, 2020"} name="leaseStartDate"></IonInput> */}
+                                            <div className="date-picker">
+                                                <IonDatetime displayFormat="MMM DD, YYYY" name="leaseStartDate" placeholder="Select Date" value={selectedStartDate} onIonChange={e => setSelectedStartDate(e.detail.value!)}></IonDatetime>
+                                                <IonIcon icon="assets/images/calendar-icon.svg" />
+                                            </div>
                                         </div>
-                                        <div>
+                                        <div className="width-50">
                                             <IonLabel>Lease End Date*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Feb. 8th, 2021"} name="leaseEndDate" readonly></IonInput>
+                                            {/* <IonInput mode="md" type="text" value={"Feb. 8th, 2021"} name="leaseEndDate"></IonInput> */}
+                                            <div className="date-picker">
+                                                <IonDatetime displayFormat="MMM DD, YYYY" name="leaseEndDate" placeholder="Select Date" value={selectedEndDate} onIonChange={e => setSelectedEndDate(e.detail.value!)}></IonDatetime>
+                                                <IonIcon icon="assets/images/calendar-icon.svg" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="lease-scan-block">
@@ -203,7 +212,7 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
                             
                             <IonRow className="ion-justify-content-center">
                                 <IonCol className="ion-text-center">
-                                    <IonButton className="submit-new-lease-btn" routerLink="#" fill="outline" shape="round">Submit</IonButton>
+                                    <IonButton  className="secondary-button submit-new-lease-btn" routerLink="#" fill="outline" shape="round">Submit</IonButton>
                                     <IonButton className="exit-file-btn" routerLink={Routes.manageTenants} fill="solid" shape="round">Exit File</IonButton>
                                 </IonCol>
                             </IonRow>

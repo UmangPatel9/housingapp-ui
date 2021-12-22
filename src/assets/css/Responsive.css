@@ -1,3 +1,10 @@
+@media (prefers-color-scheme: dark) {
+    ion-footer ion-list.list-md,
+    ion-footer ion-list ion-item {
+        background-color: #fff;
+    }
+  }
+
 @media (min-width: 992px){
     .dashboard-content .ion-page {
         left: auto;
@@ -246,6 +253,12 @@
     ion-note {
         font-size: 16px;
     }
+    .dashboard-wrapper .dashboard-main-grid.manage-property-wrapper {
+        position: static;
+    }
+    body .button.button-clear.property-change-button {
+        bottom: 115px;
+    }
     /* Manage properties css end */
 
     /* Manage tenants css start  */
@@ -393,7 +406,8 @@
     /* body .change-property-button.button {
         margin-top: 25px;
     } */
-    body .change-property-popup .button.button-block.button-solid {
+    body .change-property-popup .button.button-block.button-solid,
+    body .change-property-popup .button.button-block.button.button-outline {
         font-size: 12px;
     } 
     /* .property-fab-button ion-fab-button {
@@ -468,15 +482,20 @@
     .apartment-lease-code-info ion-col {
         padding: 0 5px;
     }
-    ion-input.width-50 {
+    ion-input.width-50,
+    .width-50 {
         width: 100px;
     }
-    ion-input.width-25 {
+    ion-input.width-25,
+    .width-25 {
         width: 80px;
         text-align: center;
     }
     body .special-actions-card .button.button-outline {
         margin: 5px;
+    }
+    .date-picker.width-50 {
+        width: 100%;
     }
     /* Lease info css end */
 
@@ -512,7 +531,7 @@
     /* Header css end */
 
     /* footer css start */
-    .change-property-popup .button-solid ion-icon {
+    .change-property-popup .button-inner ion-icon {
         flex: 0 0 30px;
         max-width: 30px;
         margin-right: 3px;
