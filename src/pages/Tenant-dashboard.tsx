@@ -10,7 +10,9 @@ import {
     IonSegment,
     IonSegmentButton,
     IonSlides,
-    IonSlide
+    IonSlide,
+    IonButton,
+    IonIcon
 } from '@ionic/react';
   
 import HeaderMain from '../components/Header-main';
@@ -31,7 +33,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
     // const slider = useRef<HTMLIonSlidesElement>(null);
     const slider = useRef<any>(null);
     // a state value to bind segment value
-    const [value, setValue] = useState("0");
+    const [value, setValue] = useState("1");
 
     useEffect(() => {
         slider.current.lockSwipes(true);
@@ -103,6 +105,11 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                         <TanatDahsboadPostsTab />
                                     </IonSlide>
                                 </IonSlides>
+
+                                <IonButton className="post-add-button" fill="clear">
+                                    <IonIcon src="assets/images/post-AD-icon.svg"  />
+                                    {/* <IonImg className="logo" src="assets/images/post1.png" /> */}
+                                </IonButton>
                             </div>
                         </IonCol>
                         {/* dashboar content end */}

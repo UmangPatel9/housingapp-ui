@@ -2283,10 +2283,14 @@ body .rent-pay-receipt-popup .button.button-clear.close-popup-button {
 }
 /* Rent pay receipt popup end */
 
-/* Tenant Dahsboar posts start  */
+/* Tenant Dahsboard posts start  */
 .tenants-dashboard .dashboard-content-inner {
     padding: 0 0 15px;
     background-color: #FFFBF0;
+    position: relative;
+}
+.tenants-dashboard ion-segment {
+    background-color: #fff;
 }
 .tenants-dashboard ion-segment-button.segment-button-checked {
     background-color: #FFFBF0;
@@ -2295,6 +2299,23 @@ body .rent-pay-receipt-popup .button.button-clear.close-popup-button {
 .tenants-dashboard ion-segment-button {
     border-bottom: none;
     font-size: 20px;
+    --indicator-height: 0;
+    position: relative;
+}
+.tenants-dashboard ion-segment-button:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 54%;
+    height: 3px;
+    background-color: #FFBB00;
+    opacity: 0;
+}
+.tenants-dashboard ion-segment-button.segment-button-checked:after {
+    opacity: 1;
 }
 .tenant-tab-content {
     background-color: #FFFBF0;
@@ -2303,7 +2324,7 @@ body .rent-pay-receipt-popup .button.button-clear.close-popup-button {
 .posts-list-block {
     position: relative;
     padding: 0;
-    margin: 15px;
+    margin: 20px;
 }
 .posts-list-block ion-grid {
     padding: 0;
@@ -2363,7 +2384,17 @@ body .button.button-clear.post-details-link-button {
     height: 100%;
     z-index: 1;
 }
-/* Tenant Dahsboar posts end  */
+body .button.button-clear.post-add-button {
+    width: 51px;
+    height: 51px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    border: 1px solid #707070;
+    border-radius: 50%;
+}
+/* Tenant Dahsboard posts end  */
 
 /* 
 
