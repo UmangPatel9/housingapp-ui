@@ -112,6 +112,7 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
         } else {
             const newElement = newList[newList.length - 1].id + 1;
             newList.push({id: newElement, value: ""});
+            // newElement.current.setFocus(); 
             // newList.splice(lastElementID, 0, {id: newElement, value: ""});
             // setList(newList);
         }
