@@ -529,6 +529,11 @@ body ion-datetime {
     --placeholder-font-weight: 300;
     --placeholder-opacity: 1;
 }
+body .is-invalid .native-input.sc-ion-input-md,
+body .is-invalid ion-select,
+body .is-invalid ion-datetime {
+    border-color: #f00;
+}
 body ion-datetime {
     align-items: center;
 }
@@ -676,7 +681,8 @@ body .swiper-slide {
     color: #575757;
     font-size: 14px;
 }
-.error-message {
+.error-message,
+.error-summary {
     color: #ff0000;
     font-size: 14px;
     margin: 2px 0 0;
