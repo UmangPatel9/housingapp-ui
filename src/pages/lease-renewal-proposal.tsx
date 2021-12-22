@@ -8,6 +8,7 @@ import {
     IonCol, 
     IonList,
     IonInput, 
+    IonDatetime,
     IonLabel, 
     IonButton, 
     IonIcon,
@@ -37,6 +38,9 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
     const scrollToBottom= () => {
         contentRef.current && contentRef.current.scrollToBottom(500);
     };
+
+    const [selectedStartDate, setSelectedStartDate] = useState<string>('Jan 8th, 2020');
+    const [selectedEndDate, setSelectedEndDate] = useState<string>('Feb 8th, 2021');
 
     const [generateNewLeaseCodeAlert, setGenerateNewLeaseCodeAlert] = useState(false);
 
@@ -162,13 +166,21 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
                                             <IonLabel>New Lease price</IonLabel>
                                             <IonInput className="width-25" mode="md" type="text" value="" name="newLeasePrice"></IonInput>
                                         </div>
-                                        <div>
+                                        <div className="width-50">
                                             <IonLabel>Lease Start Date*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Jan. 8th, 2020"} name="leaseStartDate" readonly></IonInput>
+                                            {/* <IonInput mode="md" type="text" value={"Jan. 8th, 2020"} name="leaseStartDate"></IonInput> */}
+                                            <div className="date-picker">
+                                                <IonDatetime displayFormat="MMM DD, YYYY" name="leaseStartDate" placeholder="Select Date" value={selectedStartDate} onIonChange={e => setSelectedStartDate(e.detail.value!)}></IonDatetime>
+                                                <IonIcon icon="assets/images/calendar-icon.svg" />
+                                            </div>
                                         </div>
-                                        <div>
+                                        <div className="width-50">
                                             <IonLabel>Lease End Date*</IonLabel>
-                                            <IonInput mode="md" type="text" value={"Feb. 8th, 2021"} name="leaseEndDate" readonly></IonInput>
+                                            {/* <IonInput mode="md" type="text" value={"Feb. 8th, 2021"} name="leaseEndDate"></IonInput> */}
+                                            <div className="date-picker">
+                                                <IonDatetime displayFormat="MMM DD, YYYY" name="leaseEndDate" placeholder="Select Date" value={selectedEndDate} onIonChange={e => setSelectedEndDate(e.detail.value!)}></IonDatetime>
+                                                <IonIcon icon="assets/images/calendar-icon.svg" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="lease-scan-block">
@@ -200,7 +212,7 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
                             
                             <IonRow className="ion-justify-content-center">
                                 <IonCol className="ion-text-center">
-                                    <IonButton className="submit-new-lease-btn" routerLink="#" fill="outline" shape="round">Submit</IonButton>
+                                    <IonButton  className="secondary-button submit-new-lease-btn" routerLink="#" fill="outline" shape="round">Submit</IonButton>
                                     <IonButton className="exit-file-btn" routerLink={Routes.manageTenants} fill="solid" shape="round">Exit File</IonButton>
                                 </IonCol>
                             </IonRow>

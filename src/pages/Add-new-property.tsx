@@ -116,6 +116,7 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
             // setList(newList);
         }
         updateCounter(counter + 1);
+        
         // console.log(newList);
         setList(newList);
     };
@@ -415,7 +416,7 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
                                                 </IonCol> */}
 
                                                 <IonCol  size="6" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
-                                                    <IonButton expand="block" shape="round" fill="outline" onClick={() => next([])}>
+                                                    <IonButton className="secondary-button" expand="block" shape="round" fill="outline" onClick={() => next([])}>
                                                         Generate Property
                                                     </IonButton>
                                                 </IonCol>
@@ -491,7 +492,7 @@ const AddNewProperty: React.FC<{ path: string }> = ({path}) => {
 
                                             <IonGrid>
                                                 <IonRow className="ion-justify-content-center">                     <IonCol size="6" sizeMd="12" sizeLg="6" sizeXl="6" className="form-field sign-up-btn">
-                                                        <IonButton type="submit" expand="block" shape="round" fill="outline">
+                                                        <IonButton className="secondary-button" type="submit" expand="block" shape="round" fill="outline">
                                                                 Submit
                                                         </IonButton>
                                                     </IonCol>

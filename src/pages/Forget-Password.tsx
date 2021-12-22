@@ -64,7 +64,7 @@ const ForgetPassword: React.FC = () => {
                                  as={<div className="error-message" style={{ color: 'red' }} />}
                               />
 
-                              <IonButton type="submit" className="ion-margin-top" expand="block" shape="round" fill="outline" >
+                              <IonButton type="submit"  className="secondary-button ion-margin-top" expand="block" shape="round" fill="outline" >
                                  Send
                               </IonButton>
 

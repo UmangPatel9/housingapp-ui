@@ -16,7 +16,8 @@ import {
     IonFabList,
     IonButton,
     IonReorder, 
-    IonReorderGroup
+    IonReorderGroup,
+    IonPopover
 } from '@ionic/react';
 import { ItemReorderEventDetail } from '@ionic/core';
 
@@ -40,6 +41,8 @@ const ManageProperties: React.FC<{ path: string }> = ({path}) => {
     const toggleReorder = (event: CustomEvent<ItemReorderEventDetail>) => {
         event.detail.complete();
     };
+
+    const [popoverState, setShowPopover] = useState<{showPopover: boolean, event: Event | undefined}>({ showPopover: false, event: undefined });
 
     return (
 
@@ -107,10 +110,51 @@ const ManageProperties: React.FC<{ path: string }> = ({path}) => {
                     
                     </IonRow>
 
+                    <IonPopover
+                        cssClass='property-change-menu-popup' 
+                        mode="ios"
+                        event={popoverState.event}
+                        isOpen={popoverState.showPopover}
+                        onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined })}
+                    >
+                        <IonList>
+                            <IonItem>
+                                <IonButton fill="clear" routerLink={Routes.addNewProperty}>
+                                    <IonIcon icon={add} />  
+                                    <span>Add a Property</span>
+                                </IonButton>
+                            </IonItem>
+                            <IonItem>
+                                <IonButton fill="clear">
+                                    <IonIcon icon="/assets/images/reorder.svg"  />
+                                    <span>Rearrange List</span>
+                                </IonButton>
+                            </IonItem>
+                            <IonItem>
+                                <IonButton fill="clear">
+                                    <IonIcon />
+                                    <span>Hide Archieved</span>
+                                </IonButton>
+                            </IonItem>
+                        </IonList>
+                    </IonPopover>
+
+                    <IonButton 
+                        className="property-change-button" 
+                        fill="clear"
+                        onClick={
+                                (e) => {
+                                // e.persist();
+                                setShowPopover({ showPopover: true, event: e.nativeEvent })
+                            }}
+                    >
+                        <IonIcon src="/assets/images/format_list_bulleted.svg"  />
+                    </IonButton>
+
                 </IonGrid>
                  
 
-                <IonFab className="property-fab-button" vertical="bottom" horizontal="end" slot="fixed">
+                {/* <IonFab className="property-fab-button" vertical="bottom" horizontal="end" slot="fixed">
                     <IonFabButton>
                         <IonIcon src="/assets/images/format_list_bulleted.svg"  />
                     </IonFabButton>
@@ -136,7 +180,8 @@ const ManageProperties: React.FC<{ path: string }> = ({path}) => {
                             </IonItem>
                         </IonList>
                     </IonFabList>
-                </IonFab>
+                </IonFab> */}
+
             </IonContent>
 
             <Footer />

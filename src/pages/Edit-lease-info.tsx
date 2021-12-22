@@ -53,11 +53,12 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
     const [cancelLeaseAlert, setCancelLeaseAlert] = useState(false);
     const [updateFileAlert, setUpdateFileAlert] = useState(false);
     const [updateFileNotificationSentAlert, setUpdateFileNotificationSentAlert] = useState(false);
+    const [removeTenant, setRemoveTenant] = useState(false);
     const [exitFileAlert, setExitFileAlert] = useState(false);
 
     const defaultList = [
-        { firstName: "John", lastName: "Smith" },
-        { firstName: "Dianna", lastName: "Smith" },
+        { number: "1", firstName: "John", lastName: "Smith" },
+        { number: "2", firstName: "Dianna", lastName: "Smith" },
     ];
 
     const [inputList, setInputList] = useState(defaultList);
@@ -79,7 +80,7 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
     
     // handle click event of the Add button
     const handleAddClick = () => {
-        setInputList([...inputList, { firstName: "", lastName: "" }]);
+        setInputList([...inputList, { number: "", firstName: "", lastName: "" }]);
     };
 
     const renderList = () => {
@@ -88,7 +89,7 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                 <div className="tenant-lease-details-info tenants-info">
                     <div className="tenant-title-wrap">
                         <h4>Tenant 1</h4>
-                        <IonButton fill="clear" onClick={() => handleRemoveClick(i)}><IonIcon icon={close} /></IonButton>
+                        <IonButton fill="clear" onClick={() => setRemoveTenant(true)}><IonIcon icon={close} /></IonButton>
                     </div>
                     <IonRow>
                         <IonCol size="12" sizeMd="6" sizeLg="6" sizeXl="6">
@@ -100,7 +101,35 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                             <IonInput mode="md" type="text" value={x.lastName} name="lastName" onChange={e => handleInputChange(e, i)}></IonInput>
                         </IonCol>
                     </IonRow>
+                    <IonAlert
+                        isOpen={removeTenant}
+                        onDidDismiss={() => setRemoveTenant(false)}
+                        cssClass='red-alert'
+                        mode='md'
+                        header={'Remove Tenant'}
+                        message={'<p>Are you sure you want to remove this tenant form this lease?</p>'}
+                        buttons={[
+                            {
+                                text: 'Yes',
+                                cssClass: 'btn-secondary',
+                                handler: () => {
+                                    handleRemoveClick(i);
+                                    console.log('Exit File Okay');
+                                }
+                            },
+                            {
+                                text: 'No',
+                                role: 'cancel',
+                                cssClass: 'btn-outline',
+                                handler: () => {
+                                    console.log('Exit File Cancel');
+                                }
+                            }
+                            
+                        ]}
+                    />
                 </div>
+                
             );
         })
     }
@@ -231,7 +260,7 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                         </div>
                                         <div>
                                             <IonLabel>Current Lease price</IonLabel>
-                                            <IonInput className="width-50" mode="md" type="text" value={"$900"} name="currentLeasePrice"></IonInput>
+                                            <IonInput className="width-50 lease-price" mode="md" type="text" value={"900"} name="currentLeasePrice"></IonInput>
                                         </div>
                                         <div>
                                             <IonLabel>Lease Start Date*</IonLabel>
@@ -354,14 +383,7 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                         cssClass='red-alert'
                                         mode='md'
                                         header={'Cancel Lease'}
-                                        message={'<p>You are about to <strong>cancel</strong> this lease code.</p><p>This step cannot be <strong>undone</strong>.</p><p>Please confirm with fingerprint.</p>'}
-                                        inputs={[
-                                            {
-                                              name: 'newLeaseCodeFingerprint',
-                                              type: 'text',
-                                              cssClass: 'fingerprint-input'
-                                            },
-                                        ]}
+                                        message={'<p>You are about to <strong>cancel</strong> this lease code.</p><p>This step cannot be <strong>undone</strong>.'}
                                         buttons={[
                                             {
                                                 text: 'Yes',
@@ -402,13 +424,13 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                         cssClass='orange-alert'
                                         mode='md'
                                         header={'Update File'}
-                                        message={'<p>Are you sure you would like to update this file with new information?</p>'}
+                                        message={'<p>All tenants will be notified of the changes. Are you sure you would like to update the file with the new information?'}
                                         buttons={[
                                             {
                                                 text: 'Yes',
                                                 cssClass: 'btn-primary',
                                                 handler: () => {
-                                                    setUpdateFileNotificationSentAlert(true)
+                                                    // setUpdateFileNotificationSentAlert(true)
                                                     console.log('Update File Confirm');
                                                 }
                                             },
@@ -423,7 +445,7 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                             
                                         ]}
                                     />
-                                    <IonAlert
+                                    {/* <IonAlert
                                         isOpen={updateFileNotificationSentAlert}
                                         onDidDismiss={() => setUpdateFileNotificationSentAlert(false)}
                                         cssClass='orange-alert'
@@ -441,7 +463,7 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                             }
                                             
                                         ]}
-                                    />
+                                    /> */}
 
                                     <IonButton 
                                         className="exit-file-btn" 

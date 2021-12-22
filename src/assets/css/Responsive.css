@@ -253,6 +253,12 @@
     ion-note {
         font-size: 16px;
     }
+    .dashboard-wrapper .dashboard-main-grid.manage-property-wrapper {
+        position: static;
+    }
+    body .button.button-clear.property-change-button {
+        bottom: 115px;
+    }
     /* Manage properties css end */
 
     /* Manage tenants css start  */
@@ -487,6 +493,9 @@
     }
     body .special-actions-card .button.button-outline {
         margin: 5px;
+    }
+    .date-picker.width-50 {
+        width: 100%;
     }
     /* Lease info css end */
 

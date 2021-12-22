@@ -18,6 +18,7 @@ import { menuOutline, settingsSharp } from "ionicons/icons";
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import { Routes } from '../App';
 
 const FooterMobile: React.FC = () => {
 
@@ -35,7 +36,7 @@ const FooterMobile: React.FC = () => {
                     </IonCol>
 
                     <IonCol className="footer-bottom-col" size="3">
-                        <IonButton className="footer-home-button" fill="clear">
+                        <IonButton className="footer-home-button" fill="clear" routerLink={Routes.managementDashboard}>
                             <IonIcon slot="icon-only" src="/assets/images/home-icon.svg" />
                         </IonButton>
                     </IonCol>

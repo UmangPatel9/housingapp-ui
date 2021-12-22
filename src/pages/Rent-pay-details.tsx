@@ -94,7 +94,7 @@ const RentPayDetails: React.FC<{ path: string }> = ({path}) => {
                             <IonRow className="ion-justify-content-center">
                                 <IonCol className="ion-text-center">
                                     <IonButton 
-                                        className="confirm-btn"
+                                        className="confirm-btn secondary-button"
                                         fill="outline" 
                                         shape="round"
                                         onClick={() =>

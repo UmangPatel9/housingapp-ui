@@ -26,8 +26,14 @@ const Home: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = methods;
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    history.push(Routes.managementDashboard);
+    console.log(data.email);
+    console.log(data.password1);
+    if (data.email == "tenant@gmail.com" && data.password1 == "12345") {
+      history.push(Routes.tenantDahsboard);
+    }
+    else {
+      history.push(Routes.managementDashboard);
+    }
   };
 
   const doNothing = () => {
