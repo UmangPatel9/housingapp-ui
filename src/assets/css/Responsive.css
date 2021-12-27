@@ -3,7 +3,19 @@
     ion-footer ion-list ion-item {
         background-color: #fff;
     }
-  }
+}
+
+
+@media (min-width: 1200px) { 
+
+    /* Tenants pay rents start  */
+    .tenants-lease-payment-info ion-row {
+        align-items: center;
+    }
+    /* Tenants pay rents end  */
+
+}
+
 
 @media (min-width: 992px){
     .dashboard-content .ion-page {
@@ -42,6 +54,24 @@
         margin-left: 10px;
     }
     /* Manage rents css end  */
+
+    /* Tenant Dahsboard posts start  */
+    .tenants-dashboard ion-segment-button {
+        font-size: 17px;
+        --padding-start: 30px;
+        --padding-end: 30px;
+    }
+    /* Tenant Dahsboard posts end  */
+
+    /* Tenants pay rents start  */
+    .rent-pay-buttons .button.button-round {
+        width: 46%;
+        height: 100%;
+        --border-radius: 12px;
+        --padding-start: 5px;
+        --padding-end: 5px;
+    }
+    /* Tenants pay rents end  */
 
 }
 
@@ -310,6 +340,14 @@
         margin: 30px 15px 0;
     }
     /* Lease info css end */
+
+    /* Tenant Dahsboard posts start  */
+    .tenants-dashboard ion-segment-button {
+        font-size: 20px;
+        --padding-start: 38px;
+        --padding-end: 38px;
+    }
+    /* Tenant Dahsboard posts end  */
 }
 
 
@@ -327,6 +365,12 @@
         max-width: 50%;
     }
     /* Management Dashboard css close */
+
+    /* Tenant Dahsboard posts start  */
+    .post-title {
+        font-size: 17px;
+    }
+    /* Tenant Dahsboard posts end  */
 }
 
 
@@ -343,7 +387,7 @@
 }
 
 
-@media (max-width: 575px) {
+@media screen and (max-width: 575px) {
 
     /* header css start */
     .main-header {
@@ -520,7 +564,57 @@
         margin-left: 5px;
     }
     /* Manage Rents css end */
+
+    /* Tenant Dahsboard posts start  */
+    .dashboard-wrapper.tenants-dashboard .dashboard-main-row > ion-col {
+        padding: 0;
+    }
+    .tenants-dashboard .dashboard-main-grid {
+        margin-top: -15px;
+    }
+    .tenants-dashboard ion-segment-button {
+        font-size: 16px;
+        --padding-start: 15px;
+        --padding-end: 15px;
+        flex: 0 0 33.33%;
+    }
+    .posts-list-block {
+        margin: 10px 4px;
+    }
+    .post-row {
+        padding: 0px 5px;
+    }
+    .post-image {
+        flex: 0 0 105px;
+        max-width: 105px;
+        padding-right: 10px;
+    }
+    .post-content {
+        flex: 0 0 calc(100% - 105px);
+        max-width: calc(100% - 105px);
+    }
+    .dashboard-content p.post-date {
+        position: relative;
+        right: auto;
+        bottom: auto;
+    }
+    .post-price {
+        margin: 10px 0 0;
+    }
+    /* Tenant Dahsboard posts end  */
 }
+
+
+@media (max-width: 375px) {
+
+    /* Tenants pay rents start  */
+    .rent-pay-buttons .button.button-round {
+        font-size: 14px;
+    }
+    /* Tenants pay rents end  */
+
+}
+
 
 @media (max-width: 320px) {
 
@@ -572,4 +666,12 @@
         font-size: 14px;
     }
     /* Lease info css end */
+
+    /* Tenant Dahsboard posts start  */
+    .tenants-dashboard ion-segment-button {
+        font-size: 14px;
+        --padding-start: 10px;
+        --padding-end: 10px;
+    }
+    /* Tenant Dahsboard posts end  */
 }
