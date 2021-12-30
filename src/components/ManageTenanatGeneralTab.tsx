@@ -5,7 +5,7 @@ import {
     IonGrid,
     IonRow, 
     IonCol
-  } from '@ionic/react';
+} from '@ionic/react';
 
 import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';

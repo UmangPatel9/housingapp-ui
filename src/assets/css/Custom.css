@@ -364,7 +364,7 @@ body .button.notification-button {
     margin: 0 0 0 auto;
     position: relative;
 }
-.notification-button span {
+.notification-count {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -739,6 +739,7 @@ body .swiper-slide {
     --background-activated-opacity: 1;
     --background-focused-opacity: 1;
     --background-hover-opacity: 1;
+    --border-radius: 12px;
 }
 body .button.dashboard-button {
     height: auto;
@@ -806,6 +807,7 @@ body .button.dashboard-button.active {
 }
 .dashboard-content p {
     font-size: 15px;
+    color: #3C5871;
 }
 .property-list {
     padding: 0;
@@ -1509,11 +1511,13 @@ ion-tab-button.tab-selected:after {
 .title-with-line {
     margin: 0;
     color: #3C5871;
-    font-size: 16px;
     font-family: 'Segoe UI Semilight';
     font-weight: 300;
     position: relative;
     display: inline-block;
+}
+.requires-renewal-proposal-block .title-with-line {
+    font-size: 16px;
 }
 .title-with-line:after {
     content: "";
@@ -1742,6 +1746,7 @@ body .view-lease-info-button.button.button-full {
 .search-result-box + .search-result-box {
     margin-top: 25px;
 }
+.tenants-lease-info,
 .tenants-lease-info.tenants-lease-payment-info {
     border: 1px solid #B4BEC7;
     box-shadow: 0 1px 1px #c0c0c0;
@@ -2299,6 +2304,11 @@ body .rent-pay-receipt-popup .button.button-clear.close-popup-button {
 .tenants-dashboard ion-segment-button.segment-button-checked {
     background-color: #FFFBF0;
     border-radius: 10px 10px 0 0;
+    font-weight: 300;
+}
+.tenants-dashboard ion-segment-button.posts-tab-button {
+    font-weight: 600;
+    text-decoration: underline;
 }
 .tenants-dashboard ion-segment-button {
     border-bottom: none;
@@ -2334,7 +2344,7 @@ body .rent-pay-receipt-popup .button.button-clear.close-popup-button {
     padding: 0;
 }
 .post-row {
-    border: 1px solid #E5E5E5;
+    border: 1px solid #6187AA;
     border-radius: 12px;
     background-color: #fff;
     box-shadow: 0 0 2px #e2e1e1;
@@ -2365,16 +2375,19 @@ body .rent-pay-receipt-popup .button.button-clear.close-popup-button {
 }
 .post-title {
     margin: 0 0 3px;
+    color: #3C5871;
+    font-size: 17px;
 }
 .post-price {
     font-size: 30px;
     margin: 5px 0 0;
+    color: #3C5871;
 }
 .dashboard-content p.post-date {
     margin: 0;
     text-align: right;
     font-size: 11px;
-    color: #7C7C7C;
+    color: #3C5871;
     position: absolute;
     right: 9px;
     bottom: 3px;
@@ -2409,8 +2422,13 @@ body .button.button-clear.post-add-button ion-icon.md.hydrated {
     border-radius: 0;
     border-top: 1px solid #E5E5E5;
 }
-body .cofirm-lease-code-form .button.button-block {
+body .cofirm-lease-code-form .button.button-outline {
     margin: 0;
+    --border-color: #7c7c7c;
+    --background: #e5e5e5;
+    --color: #7c7c7c;
+    font-size: 15px;
+    height: 32px;
 }
 .cofirm-lease-code-form ion-input:after {
     content: "";
@@ -2423,10 +2441,20 @@ body .cofirm-lease-code-form .button.button-block {
 }
 .cofirm-lease-code-form ion-label {
     margin: 0;
+    font-size: 13px;
+    color: #3C5871;
+    font-weight: 600;
+}
+body .dashboard-content .cofirm-lease-code-form .native-input.sc-ion-input-md {
+    border-radius: 7px;
+    border-color: #3C5871;
+}
+body .dashboard-content .cofirm-lease-code-form .is-invalid .native-input.sc-ion-input-md {
+    border-color: #ff0000;
 }
 body .tenant-dhaboard-button-list .button.button-block {
-    height: auto;
-    --border-color: #C0C0C0;
+    height: 100%;
+    --border-color: #6187AA;
     --border-radius: 12px;
     --padding-start: 24px;
     --padding-end: 24px;
@@ -2443,17 +2471,28 @@ body .tenant-dhaboard-button-list .button.button-block {
 .tenant-dhaboard-button ion-avatar.md.hydrated {
     flex: 0 0 50px;
     max-width: 50px;
+    height: 50px;
 }
 .tenant-dhaboard-button-content {
     flex: 0 0 calc(100% - 50px);
     max-width: calc(100% - 50px);
     padding-left: 25px;
 }
-.card-content-md .tenant-dhaboard-button h4 {
+ion-card-content .tenant-dhaboard-button h4 {
     margin: 0 0 10px;
     font-size: 20px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #B4BEC7;
     padding-bottom: 8px;
+    color: #3C5871;
+}
+ion-card-content .button:hover .tenant-dhaboard-button h4,
+ion-card-content .button:focus .tenant-dhaboard-button h4,
+ion-card-content .button:hover .tenant-dhaboard-button p,
+ion-card-content .button:focus .tenant-dhaboard-button p {
+    color: #fff;
+}
+ion-card-content .tenant-dhaboard-button h4 b {
+    font-weight: 600;
 }
 .tenant-dhaboard-button p {
     font-weight: 300;
@@ -2467,6 +2506,51 @@ body .tenant-dhaboard-button-list .button.button-block {
 }
 .tenant-dhaboard-button-list ion-col:nth-child(2n) {
     padding-left: 30px;
+}
+.enter-lease-code-card ion-card-header {
+    padding-bottom: 10px;
+}
+ion-card-title {
+    color: #3C5871;
+    font-size: 20px;
+    font-weight: normal;
+}
+.before-lease-code-content {
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.before-lease-code-content:before {
+    width: 46px;
+    height: 2px;
+    background: linear-gradient(to right, rgba(128,128,128,1) 0%,rgba(128,128,128,0.5) 50%,rgba(255,255,255,0.8) 100%);
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 0;
+    border-radius: 2px;
+}
+.before-lease-code-content p + p {
+    margin-top: 15px;
+}
+.cofirm-lease-code-form ion-grid {
+    padding: 0;
+}
+.cofirm-lease-code-form > ion-grid > ion-row {
+    margin: 0 -5px;
+}
+.tenants-dashboard ion-segment-button .notification-count {
+    left: auto;
+    right: -20px;
+    top: -5px;
+}
+.before-lease-code-content p {
+    font-weight: 300;
+}
+.before-lease-code-content p b {
+    font-weight: 600;
 }
 /* Tenant Dahsboard posts end  */
 
@@ -2494,6 +2578,188 @@ body .tenant-dhaboard-button-list .button.button-block {
     margin: 0 0 3px;
 }
 /* Tenants pay rents end  */
+
+/* Tenants choose payment method start */
+.choose-payment-method-dashboard .dashboard-content-inner {
+    padding-left: 0;
+    padding-right: 0;
+}
+.rent-pay-summary,
+.choose-payment-method-block {
+    padding: 15px 35px;
+}
+.choose-payment-method-block {
+    border-top: 1px solid #B4BEC7;
+}
+.rent-pay-summary > h3,
+.rents-pay-details h4,
+.rents-pay-details p,
+.choose-payment-method-block > h4 {
+    color: #3C5871;
+}
+.rent-pay-summary > h3 {
+    margin: 0 0 25px;
+    text-align: center;
+    padding-top: 15px;
+}
+.rents-pay-details p {
+    margin-bottom: 5px;
+}
+.rents-pay-details h4 {
+    margin: 0;
+}
+.payment-method-wrapper h4 {
+    font-weight: 600;
+    margin-top: 0;
+}
+.choose-payment-method-block > h4 {
+    margin-bottom: 25px;
+}
+.choose-payment-method-block ion-segment-button {
+    --border-color: #3C5871;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-radius: 7px;
+    border-bottom-color: #3c5871;
+    --indicator-height: 0;
+    --color-checked: #fff;
+    --color-selected: #fff;
+    --color-focused: #fff;
+    --background-checked: #FFBB00;
+    --background-focused: #FFBB00;
+    --background-hover: #FFBB00;
+    overflow: hidden;
+}
+ion-segment-button.segment-button-checked {
+    --border-color: #FFBB00;
+    border-bottom-color: #FFBB00;
+    font-weight: normal;
+}
+.choose-payment-method-block ion-segment-button + ion-segment-button {
+    margin-left: 30px;
+}
+.choose-payment-method-block form {
+    width: 100%;
+}
+.visa-logo {
+    max-width: 70px;
+}
+.credit-card-details {
+    border: 1px solid #6187AA;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0 0;
+}
+.checkbox-wrap {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+.checkbox-wrap {
+    display: inline-block;
+    align-items: center;
+    margin-top: 15px;
+    --inner-border-width: 0;
+    --min-height: auto;
+    --background: transparent;
+    --background-activated: transparent;
+    --background-focused: transparent;
+    --background-hover: transparent;
+    --ripple-color: transparent;
+    --padding-start: 0;
+    --padding-end: 0;
+    --inner-padding-start: 0;
+    --inner-padding-end: 0;
+}
+.checkbox-wrap ion-checkbox {
+    margin: 0;
+    --border-color: #3C5871;
+    --border-color-checked: #3C5871;
+    --background-checked: transparent;
+    --checkmark-color: #3C5871;
+}
+.checkbox-wrap .form-lable {
+    margin: 0 0 0 15px;
+    font-size: 16px;
+    color: #3C5871;
+    position: relative;
+    top: 1px;
+}
+.rents-pay-details ion-col:last-child {
+    padding-left: 20px;
+}
+/* Tenants choose payment method end */
+
+/* Manage Posts start */
+.accordion-button {
+    background-color: #FFFFFF;
+    color: #3C5871;
+    transition: 0.4s;
+    border: 1px solid #6187AA;
+    border-radius: 12px;
+}
+.active,
+.accordion:hover {
+    background-color: #ccc;
+}
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.manage-posts-wrapper {
+    overflow: hidden;
+}
+.manage-posts-wrapper {
+    padding: 15px 0;
+}
+body .accordion-edit-button .button.button-clear {
+    --color: #FF9900;
+    font-size: 30px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    border-right: 1px solid #B4BEC7;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+}
+body .accordion-click-button .button.button-clear {
+    height: auto;
+    --color: #3C5871;
+    --color-hover: #3C5871;
+    --color-activated: #3C5871;
+    --padding-start: 0;
+    --padding-end: 0;
+}
+.accordion-click-button-inner {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 100%;
+}
+.accordion-click-button-inner p {
+    margin: 0;
+    flex: 0 0 calc(100% - 25px);
+    max-width: calc(100% - 25px);
+    text-align: left;
+}
+.accordion-click-button-inner ion-icon {
+    font-size: 25px;
+    flex: 0 0 25px;
+    max-width: 25px;
+}
+.posts-list.pinned-posts {
+    margin-top: 30px;
+}
+.posts-list + .posts-list {
+    margin-top: 40px;
+}
+.accordion-item {
+    margin-top: 15px;
+}
+/* Manage Posts end */
 
 /* 
 

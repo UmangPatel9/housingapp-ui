@@ -41,7 +41,7 @@ const RentsPayUpcomingTab: React.FC = () => {
                                                 <p>01/12/2021</p>
                                             </IonCol>
                                             <IonCol size="7" sizeMd="8" className="rent-pay-buttons ion-text-right">
-                                                <IonButton className="secondary-button choose-payment-method-button"  shape="round" fill="outline">Choose Payment Method</IonButton>
+                                                <IonButton className="secondary-button choose-payment-method-button"  shape="round" fill="outline" routerLink={Routes.paymentMethod}>Choose Payment Method</IonButton>
                                                 <IonButton className="quick-pay-button"  shape="round" fill="outline" onClick={() => setQuickPayAlert(true)}>Quick Pay</IonButton>
                                             </IonCol>
                                         </IonRow>
@@ -59,15 +59,15 @@ const RentsPayUpcomingTab: React.FC = () => {
                             <IonCol size="12" sizeMd="12">
                                 <div className="tenants-lease-info tenants-lease-payment-info ">
                                     <IonGrid className="">
-                                        <IonRow className="ion-align-items-center">
+                                        <IonRow className="">
                                             <IonCol size="5" sizeMd="4" className="rent-price-block paid-block">
                                                 <p><span>Due</span>: $900 CAD</p>
                                                 <h4>January</h4>
                                                 <p>01/01/2022</p>
                                             </IonCol>
-                                            <IonCol size="7" sizeMd="8" className="rent-period-block ion-text-right">
-                                                <IonButton className="secondary-button choose-payment-method-button"  shape="round" fill="outline">Choose Payment Method</IonButton>
-                                                <IonButton className="quick-pay-button"  shape="round" fill="outline">Quick Pay</IonButton>
+                                            <IonCol size="7" sizeMd="8" className="rent-pay-buttons ion-text-right">
+                                                <IonButton className="secondary-button choose-payment-method-button"  shape="round" fill="outline" routerLink={Routes.paymentMethod}>Choose Payment Method</IonButton>
+                                                <IonButton className="quick-pay-button"  shape="round" fill="outline" onClick={() => setQuickPayAlert(true)}>Quick Pay</IonButton>
                                             </IonCol>
                                         </IonRow>
                                     </IonGrid> 
@@ -77,14 +77,15 @@ const RentsPayUpcomingTab: React.FC = () => {
                             <IonCol size="12" sizeMd="12">
                                 <div className="tenants-lease-info tenants-lease-payment-info ">
                                     <IonGrid className="">
-                                        <IonRow className="ion-align-items-center">
+                                        <IonRow className="">
                                             <IonCol size="5" sizeMd="4" className="rent-price-block paid-block">
                                                 <p><span>Due</span>: $900 CAD</p>
                                                 <h4>February</h4>
                                                 <p>01/02/2022</p>
                                             </IonCol>
-                                            <IonCol size="7" sizeMd="8" className="rent-period-block ion-text-right">
-                                                <IonButton className="secondary-button view-receipt-button"  shape="round" fill="outline">View Receipt</IonButton>
+                                            <IonCol size="7" sizeMd="8" className="rent-pay-buttons ion-text-right">
+                                                <IonButton className="secondary-button choose-payment-method-button"  shape="round" fill="outline" routerLink={Routes.paymentMethod}>Choose Payment Method</IonButton>
+                                                <IonButton className="quick-pay-button"  shape="round" fill="outline" onClick={() => setQuickPayAlert(true)}>Quick Pay</IonButton>
                                             </IonCol>
                                         </IonRow>
                                     </IonGrid>  
@@ -94,14 +95,15 @@ const RentsPayUpcomingTab: React.FC = () => {
                             <IonCol size="12" sizeMd="12">
                                 <div className="tenants-lease-info tenants-lease-payment-info ">
                                     <IonGrid className="">
-                                        <IonRow className="ion-align-items-center">
+                                        <IonRow className="">
                                             <IonCol size="5" sizeMd="4" className="rent-price-block paid-block">
                                                 <p><span>Due</span>: $900 CAD</p>
                                                 <h4>March</h4>
                                                 <p>01/03/2021</p>
                                             </IonCol>
-                                            <IonCol size="7" sizeMd="8" className="rent-period-block ion-text-right">
-                                                <IonButton className="secondary-button view-receipt-button"  shape="round" fill="outline">View Receipt</IonButton>
+                                            <IonCol size="7" sizeMd="8" className="rent-pay-buttons ion-text-right">
+                                                <IonButton className="secondary-button choose-payment-method-button"  shape="round" fill="outline" routerLink={Routes.paymentMethod}>Choose Payment Method</IonButton>
+                                                <IonButton className="quick-pay-button"  shape="round" fill="outline" onClick={() => setQuickPayAlert(true)}>Quick Pay</IonButton>
                                             </IonCol>
                                         </IonRow>
                                     </IonGrid>

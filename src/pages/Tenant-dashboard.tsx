@@ -130,7 +130,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                         <IonCol className="dashboard-content" size="12" sizeMd="12" sizeLg="6" sizeXl="8">
                             <div className="dashboard-content-inner">
                                 <IonSegment scrollable  mode="md" value={value} onIonChange={(e) => handleSegmentChange(e)} >
-                                    <IonSegmentButton value="0">
+                                    <IonSegmentButton className="posts-tab-button" value="0">
                                         Posts
                                     </IonSegmentButton>
                                     <IonSegmentButton value="1">
@@ -138,6 +138,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                     </IonSegmentButton>
                                     <IonSegmentButton value="2">
                                         Management
+                                        <span className="notification-count">4</span>
                                     </IonSegmentButton>
                                 </IonSegment>
 
@@ -171,7 +172,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
 
                                             <form className="cofirm-lease-code-form" onSubmit={handleSubmit(onSubmit)} autoComplete="off">
                                             <IonGrid>
-                                                <IonRow>
+                                                <IonRow className="ion-align-items-center">
                                                     <IonCol size="12">
                                                         <ErrorSummary errors={errors} />
                                                     </IonCol>
@@ -180,7 +181,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                                         <IonLabel className="form-lable">Lease Code</IonLabel>
                                                     </IonCol>
 
-                                                    <IonCol sizeMd="8" sizeLg="4">
+                                                    <IonCol size="12" sizeMd="12" sizeLg="12" sizeXl="4">
                                                         <IonInput
                                                             mode="md"
                                                             type="text"
@@ -192,8 +193,8 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                                         />
                                                     </IonCol>
 
-                                                    <IonCol sizeMd="4" sizeLg="2">
-                                                        <IonButton type="submit" expand="block" shape="round" fill="outline">
+                                                    <IonCol className="lease-code-confirm-button" size="12" sizeMd="12" sizeLg="12" sizeXl="2">
+                                                        <IonButton type="submit" shape="round" fill="outline">
                                                             Confirm
                                                         </IonButton>
                                                     </IonCol>
@@ -227,7 +228,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
 
                                         <IonGrid className="tenant-dhaboard-button-list">
                                         <IonRow>
-                                            <IonCol sizeLg="6">
+                                            <IonCol size="12" sizeMd="6" sizeLg="12" sizeXl="6">
                                                 <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.payRents}>
                                                     <div className="tenant-dhaboard-button">
                                                         <IonAvatar>
@@ -241,7 +242,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                                 </IonButton>
                                             </IonCol>
 
-                                            <IonCol sizeLg="6">
+                                            {/* <IonCol size="12" sizeMd="6" sizeLg="12" sizeXl="6">
                                                 <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.manageTenants}>
                                                     <div className="tenant-dhaboard-button">
                                                         <IonAvatar>
@@ -253,9 +254,9 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                                         </div>
                                                     </div>
                                                 </IonButton>
-                                            </IonCol>
+                                            </IonCol> */}
 
-                                            <IonCol sizeLg="6">
+                                            <IonCol size="12" sizeMd="6" sizeLg="12" sizeXl="6">
                                                 <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.manageTenants}>
                                                     <div className="tenant-dhaboard-button">
                                                         <IonAvatar>
@@ -269,11 +270,11 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                                 </IonButton>
                                             </IonCol>
 
-                                            <IonCol sizeLg="6">
+                                            <IonCol size="12" sizeMd="6" sizeLg="12" sizeXl="6">
                                                 <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.manageTenants}>
                                                     <div className="tenant-dhaboard-button">
                                                         <IonAvatar>
-                                                            <img src="assets/images/Pay-Rent-home.svg" />
+                                                            <img src="assets/images/Manage-Lease-home.svg" />
                                                         </IonAvatar>
                                                         <div className="tenant-dhaboard-button-content">
                                                             <h4>Manage <b>Lease</b></h4>

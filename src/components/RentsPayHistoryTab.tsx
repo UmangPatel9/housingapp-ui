@@ -27,14 +27,14 @@ const RentsPayHistoryTab: React.FC = () => {
                     <h3>2020</h3>
                     <IonGrid className="">
                         <IonRow className="paid-rents-list">
-                            <IonCol size="12" sizeMd="6">
+                            <IonCol size="12" sizeXl="6">
                                 <div className="tenants-lease-info tenants-lease-payment-info ">
                                     <IonGrid className="">
                                         <IonRow className="ion-align-items-center">
                                             <IonCol size="5" sizeMd="4" className="rent-price-block paid-block">
                                                 <p><span>Paid</span>: $900 CAD</p>
                                                 <h4>October</h4>
-                                                <p>01/11/2021</p>
+                                                <p>01/10/2021</p>
                                             </IonCol>
                                             <IonCol size="7" sizeMd="8" className="rent-period-block ion-text-right">
                                                 <IonButton className="secondary-button view-receipt-button"  shape="round" fill="outline">View Receipt</IonButton>
@@ -44,13 +44,13 @@ const RentsPayHistoryTab: React.FC = () => {
                                 </div>                                   
                             </IonCol>
 
-                            <IonCol size="12" sizeMd="6">
+                            <IonCol size="12" sizeXl="6">
                                 <div className="tenants-lease-info tenants-lease-payment-info ">
                                     <IonGrid className="">
                                         <IonRow className="ion-align-items-center">
                                             <IonCol size="5" sizeMd="4" className="rent-price-block paid-block">
                                                 <p><span>Paid</span>: $900 CAD</p>
-                                                <h4>October</h4>
+                                                <h4>November</h4>
                                                 <p>01/11/2021</p>
                                             </IonCol>
                                             <IonCol size="7" sizeMd="8" className="rent-period-block ion-text-right">
@@ -61,14 +61,14 @@ const RentsPayHistoryTab: React.FC = () => {
                                 </div>                                  
                             </IonCol>
 
-                            <IonCol size="12" sizeMd="6">
+                            <IonCol size="12" sizeXl="6">
                                 <div className="tenants-lease-info tenants-lease-payment-info ">
                                     <IonGrid className="">
                                         <IonRow className="ion-align-items-center">
                                             <IonCol size="5" sizeMd="4" className="rent-price-block paid-block">
                                                 <p><span>Paid</span>: $900 CAD</p>
-                                                <h4>October</h4>
-                                                <p>01/11/2021</p>
+                                                <h4>December</h4>
+                                                <p>01/12/2021</p>
                                             </IonCol>
                                             <IonCol size="7" sizeMd="8" className="rent-period-block ion-text-right">
                                                 <IonButton className="secondary-button view-receipt-button"  shape="round" fill="outline">View Receipt</IonButton>

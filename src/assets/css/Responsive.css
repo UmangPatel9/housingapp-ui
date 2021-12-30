@@ -34,6 +34,21 @@
     }
 }
 
+
+@media (max-width: 1366px) { 
+
+    /* Tenants Dahsboard posts start  */
+    .tenant-dhaboard-button-list ion-col:nth-child(2n) {
+        padding-left: 15px;
+    }
+    .tenant-dhaboard-button-list ion-col:nth-child(2n+1) {
+        padding-right: 15px;
+    }
+    /* Tenants Dahsboard posts end  */
+
+}
+
+
 @media (max-width: 1199px) {
 
     /* Lease info css start */
@@ -60,6 +75,15 @@
         font-size: 17px;
         --padding-start: 30px;
         --padding-end: 30px;
+    }
+    .tenant-dhaboard-button-list ion-col:nth-child(2n) {
+        padding-left: 5px;
+    }
+    .tenant-dhaboard-button-list ion-col:nth-child(2n+1) {
+        padding-right: 5px;
+    }
+    .lease-code-confirm-button {
+        text-align: center;
     }
     /* Tenant Dahsboard posts end  */
 
@@ -307,8 +331,8 @@
         margin-top: 20px;
         padding: 0 15px;
     }
-    .title-with-line {
-        color: #575757;
+    .requires-renewal-proposal-block .title-with-line {
+        /* color: #575757; */
         font-size: 16px;
     }
     .tab-content .apartments-list-block ion-grid {
@@ -348,6 +372,12 @@
         --padding-end: 38px;
     }
     /* Tenant Dahsboard posts end  */
+
+    /* Tenants choose payment method start */
+    .rent-pay-summary, .choose-payment-method-block {
+        padding: 15px;
+    }
+    /* Tenants choose payment method end */
 }
 
 
@@ -371,6 +401,27 @@
         font-size: 17px;
     }
     /* Tenant Dahsboard posts end  */
+
+    /* Tenants choose payment method start */
+    .choose-payment-method-block ion-segment-button + ion-segment-button {
+        margin-left: 15px;
+    }
+    .choose-payment-method-block ion-segment-button {
+        --padding-start: 25px;
+        --padding-end: 25px;
+        flex: 0 0 auto;
+    }
+    .credit-card-details {
+        padding: 30px 15px;
+    }
+    .credit-card-details > ion-col:first-child {
+        padding-right: 15px;
+    }
+    .default-payment-method-checkbox,
+    .payment-method-cofirm-method {
+        text-align: center;
+    }
+    /* Tenants choose payment method end */
 }
 
 
@@ -599,9 +650,26 @@
         bottom: auto;
     }
     .post-price {
-        margin: 10px 0 0;
+        margin: 15px 0 0;
+    }
+    body .tenant-dhaboard-button-list .button.button-block {
+        --padding-start: 15px;
+        --padding-end: 15px;
+    }
+    .tenants-dashboard ion-segment-button .notification-count {
+        right: -7px;
+        top: -3px;
+        width: 15px;
+        height: 15px;
+        font-size: 10px;
     }
     /* Tenant Dahsboard posts end  */
+
+    /* Tenants choose payment method start */
+    .payment-method-wrapper h4 {
+        font-size: 16px;
+    }
+    /* Tenants choose payment method end */
 }
 
 

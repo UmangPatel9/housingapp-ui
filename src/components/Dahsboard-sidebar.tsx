@@ -22,43 +22,6 @@ const STAFF = "staff"
 
 
 const DashboardSidebar: React.FC<{path: string}> = ({path}) => {
-
-    const [counter, updateCounter] = useState(0);
-    
-    useEffect(() => {
-        // changeActiveClass();
-        // console.log('Page refresh', window.location.pathname);
-    },[window.location.pathname])
-
-    const changeActiveClass = () => { 
-        // let element1: HTMLElement = document.getElementById("tenants") as HTMLElement;
-        // let element2: HTMLElement = document.getElementById("rents") as HTMLElement;
-        // element1.classList.remove('active');
-        // element2.classList.remove('active');
-        // console.log(element1);
-        // console.log(element2);
-
-        // updateCounter(counter + 1);
-        // console.log(counter);
-
-        // const route = window.location.pathname;
-        // switch(route) {
-        //     case Routes.manageTenants: 
-        //         // element2.classList.remove('active');
-        //         element1.classList.add('active');
-        //         // console.log('add tenant', window.location.pathname);
-        //         break;
-
-        //     case Routes.manageRents: 
-        //         // element1.classList.remove('active');
-        //         element2.classList.add('active');
-        //         // console.log('add rent', window.location.pathname);
-        //         break;
-        //     default: 
-        //         break;
-            
-        // }
-    }
     
     const getClassName = (routePath: string[], className: string): string => {
         // let activeClassName = "";
@@ -106,7 +69,7 @@ const DashboardSidebar: React.FC<{path: string}> = ({path}) => {
                 </IonItem>
 
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" routerLink="#">
+                    <IonButton id={POSTS} className={getClassName([Routes.managePosts], "dashboard-button")} fill="clear" routerLink={Routes.managePosts}>
                         <div className="dashboard-button-inner">
                             <IonAvatar>
                                 <img src="assets/images/Posts-Home-Icon.svg" />
