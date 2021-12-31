@@ -378,6 +378,16 @@
         padding: 15px;
     }
     /* Tenants choose payment method end */
+
+    /* Manage Posts start */
+    .manage-posts-wrapper {
+        padding: 15px 20px;
+    }
+    body .manage-posts-wrapper .button.button-clear.property-change-button {
+        bottom: 65px;
+        right: 10px
+    }
+    /* Manage Posts end */
 }
 
 
@@ -422,6 +432,17 @@
         text-align: center;
     }
     /* Tenants choose payment method end */
+
+    /* Manage Posts start */
+    .post-date {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        font-size: 10px;
+        display: block;
+        text-align: right;
+    }
+    /* Manage Posts end */
 }
 
 

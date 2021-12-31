@@ -8,13 +8,14 @@ import {
     IonGrid,
     IonRow,
     IonCol, 
-    IonInput, 
-    IonLabel, 
     IonButton, 
     IonIcon,
     IonItem,
-    IonImg
+    IonPopover,
+    IonList
 } from '@ionic/react';
+
+import { add } from "ionicons/icons";
 
 import HeaderMain from '../components/Header-main';
 import Footer from '../components/Footer';
@@ -31,6 +32,8 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
 
     const contentRef = useRef<HTMLIonContentElement | null>(null);
 
+    const [popoverState, setShowPopover] = useState<{showPopover: boolean, event: Event | undefined}>({ showPopover: false, event: undefined });
+
     const scrollToBottom= () => {
         contentRef.current && contentRef.current.scrollToBottom(500);
     };
@@ -39,7 +42,9 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
         { 
             id: "1",
             title: "How to change Lease Code for your apartment?", 
-            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code." 
+            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code.",
+            date: "Last Modified: Jun. 22, 2020",
+            attachFile: "1. My Filename1.jpg" 
         }
     ];
 
@@ -47,27 +52,37 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
         { 
             id: "1",
             title: "How to change Lease Code for your apartment?", 
-            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code." 
+            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code.",
+            date: "Last Modified: Jun. 22, 2020",
+            attachFile: "1. My Filename1.jpg"  
         },
         { 
             id: "2",
             title: "How to change Lease Code for your apartment?", 
-            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code." 
+            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code.",
+            date: "Last Modified: Jun. 22, 2020",
+            attachFile: "1. My Filename1.jpg" 
         },
         { 
             id: "3",
             title: "How to change Lease Code for your apartment?", 
-            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code." 
+            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code.",
+            date: "Last Modified: Jun. 22, 2020",
+            attachFile: "1. My Filename1.jpg"  
         },
         { 
             id: "4",
             title: "How to change Lease Code for your apartment?", 
-            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code." 
+            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code.",
+            date: "Last Modified: Jun. 22, 2020",
+            attachFile: "1. My Filename1.jpg" 
         },
         { 
             id: "5",
             title: "How to change Lease Code for your apartment?", 
-            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code." 
+            content: "You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code.",
+            date: "Last Modified: Jun. 22, 2020",
+            attachFile: "1. My Filename1.jpg" 
         }
     ];
 
@@ -85,6 +100,8 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
                     <Accordion
                         title={item.title}
                         content={item.content}
+                        date={item.date}
+                        attachFile={item.attachFile}
                     />
                 </div>
             );
@@ -98,6 +115,8 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
                     <Accordion
                         title={item.title}
                         content={item.content}
+                        date={item.date}
+                        attachFile={item.attachFile}
                     />
                 </div>
             );
@@ -138,13 +157,48 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
                                                 );
                                             }}
                                         /> */}
-                                        {renderPinnedPostsData()}
+                                        {/* {renderPinnedPostsData()} */}
                                     </div>
                                     
                                     <div className="posts-list general-posts">
                                         <h3 className="title-with-line">General Posts:</h3>
-                                        {renderGeneralPostsData()}
+                                        {/* {renderGeneralPostsData()} */}
                                     </div>
+
+                                    <IonButton 
+                                        className="property-change-button" 
+                                        fill="clear"
+                                        onClick={
+                                                (e) => {
+                                                // e.persist();
+                                                setShowPopover({ showPopover: true, event: e.nativeEvent })
+                                            }}
+                                    >
+                                        <IonIcon src="/assets/images/format_list_bulleted.svg"  />
+                                    </IonButton>
+
+                                    <IonPopover
+                                        cssClass='property-change-menu-popup' 
+                                        mode="ios"
+                                        event={popoverState.event}
+                                        isOpen={popoverState.showPopover}
+                                        onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined })}
+                                    >
+                                        <IonList>
+                                            <IonItem>
+                                                <IonButton fill="clear" routerLink={Routes.createPosts}>
+                                                    <IonIcon icon={add} />  
+                                                    <span>Create a Post</span>
+                                                </IonButton>
+                                            </IonItem>
+                                            <IonItem>
+                                                <IonButton fill="clear">
+                                                    <IonIcon icon="/assets/images/reorder.svg"  />
+                                                    <span>Rearrange List</span>
+                                                </IonButton>
+                                            </IonItem>
+                                        </IonList>
+                                    </IonPopover>
 
                                 </div>
                             </div>

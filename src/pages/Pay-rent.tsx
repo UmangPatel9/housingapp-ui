@@ -61,7 +61,7 @@ const PayRents: React.FC<{ path: string }> = ({path}) => {
     return (
         <IonPage>
   
-           <HeaderMain pageTitle="Rent Pay" logoHide="hide-logo" />
+           <HeaderMain pageTitle="Manage Rent" logoHide="hide-logo" />
   
            <IonContent className="dashboard-wrapper manage-tenants-wrapper manage-rents-wrapper" fullscreen>
                 <IonGrid className="dashboard-main-grid">

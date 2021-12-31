@@ -2691,23 +2691,48 @@ ion-segment-button.segment-button-checked {
 /* Tenants choose payment method end */
 
 /* Manage Posts start */
-.accordion-button {
+.accordion-item {
     background-color: #FFFFFF;
     color: #3C5871;
     transition: 0.4s;
     border: 1px solid #6187AA;
     border-radius: 12px;
+    overflow: hidden;
+    margin-top: 15px;
 }
-.active,
-.accordion:hover {
-    background-color: #ccc;
+.accordion-button {
+    background-color: #FFFBF0;
+    padding: 5px 0;
+    position: relative;
+}
+.post-date {
+    position: absolute;
+    right: 15px;
+    bottom: -5px;
+    font-size: 10px;
+}
+.accordion-edit-button {
+    flex: 0 0 63px;
+    max-width: 63px;
+}
+.accordion-click-button {
+    flex: 0 0 calc(100% - 63px);
+    max-width: calc(100% - 63px);
+    padding-left: 15px;
 }
 .panel {
-    padding: 0 18px;
     background-color: white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+   
+}
+.accordion-content {
+    border-top: 1px solid #FF9900;
+    padding: 15px;
+}
+.accordion-content p:last-child {
+    margin-bottom: 0;
 }
 .manage-posts-wrapper {
     overflow: hidden;
@@ -2741,23 +2766,43 @@ body .accordion-click-button .button.button-clear {
 }
 .accordion-click-button-inner p {
     margin: 0;
-    flex: 0 0 calc(100% - 25px);
-    max-width: calc(100% - 25px);
+    flex: 0 0 calc(100% - 30px);
+    max-width: calc(100% - 30px);
     text-align: left;
+    line-height: 1.2;
 }
 .accordion-click-button-inner ion-icon {
-    font-size: 25px;
-    flex: 0 0 25px;
-    max-width: 25px;
+    font-size: 30px;
+    flex: 0 0 30px;
+    max-width: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'%3E%3Ctitle%3ECaret Down%3C/title%3E%3Cpath fill='none' stroke='%233C5871' stroke-width='10' d='M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z'/%3E%3C/svg%3E");
 }
-.posts-list.pinned-posts {
-    margin-top: 30px;
+.accordion-item.active .accordion-click-button-inner ion-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'%3E%3Ctitle%3ECaret Down%3C/title%3E%3Cpath fill='%233C5871' d='M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z'/%3E%3C/svg%3E");
+}
+.posts-list {
+    overflow: hidden;
 }
 .posts-list + .posts-list {
     margin-top: 40px;
 }
-.accordion-item {
-    margin-top: 15px;
+.posts-list.pinned-posts {
+    margin-top: 30px;
+}
+.attached-files-list {
+    text-align: right;
+}
+.attached-file {
+    display: inline-block;
+    background-color: #3C5871;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+}
+body .manage-posts-wrapper .button.button-clear.property-change-button {
+    position: fixed;
+    bottom: 15px;
+    right: 30px;
 }
 /* Manage Posts end */
 

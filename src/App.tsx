@@ -24,6 +24,7 @@ import TenantDashboard from './pages/Tenant-dashboard';
 import PayRents from './pages/Pay-rent';
 import PaymentMethod from './pages/Payment-method';
 import ManagePosts from './pages/Manage-posts';
+import CreatePosts from './pages/Create-post';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -66,7 +67,8 @@ export const Routes = {
   tenantDahsboard: '/tenant-dashboard',
   payRents: '/pay-rents',
   paymentMethod: '/payment-method',
-  managePosts: '/manage-posts'
+  managePosts: '/manage-posts',
+  createPosts: '/create-posts'
 }
 
 const App: React.FC = () => (
@@ -143,6 +145,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path={Routes.managePosts}>
           <ManagePosts path={Routes.managePosts} />
+        </Route>
+        <Route exact path={Routes.createPosts}>
+          <CreatePosts path={Routes.createPosts} />
         </Route>
 
       </IonRouterOutlet>
