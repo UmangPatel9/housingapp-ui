@@ -89,8 +89,8 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
     const [pinnedPostsData, setPinnedPostsData] = useState<Array<any>>(pinnedPosts);
     const [generalPostsData, setGeneralPostsData] = useState<Array<any>>(generalPosts);
     useEffect(() => {
-        setPinnedPostsData(pinnedPosts);
-        setGeneralPostsData(generalPosts);
+        // setPinnedPostsData(pinnedPosts);
+        // setGeneralPostsData(generalPosts);
     });
 
     const renderPinnedPostsData = () => {

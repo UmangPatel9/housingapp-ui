@@ -519,7 +519,9 @@ body .button.button-clear.page-link {
 }
 body .native-input.sc-ion-input-md,
 body ion-select,
-body ion-datetime {
+body ion-datetime,
+body ion-textarea,
+body .sc-ion-textarea-md-h {
     border: 1px solid #7C7C7C;
     border-radius: 30px;
     background-color: #fff;
@@ -531,10 +533,21 @@ body ion-datetime {
     --placeholder-font-weight: 300;
     --placeholder-opacity: 1;
 }
-
+body ion-textarea,
+body .sc-ion-textarea-md-h {
+    height: auto;
+    padding: 15px 20px;
+}
+.native-textarea.sc-ion-textarea-md {
+    padding: 0;
+}
 body .is-invalid .native-input.sc-ion-input-md,
 body .is-invalid ion-select,
-body .is-invalid ion-datetime{
+body .is-invalid ion-datetime,
+body ion-select.is-invalid,
+body ion-datetime.is-invalid,
+body ion-textarea.is-invalid,
+body .sc-ion-textarea-md-h.is-invalid {
     border-color: #f00;
 }
 body ion-datetime {
@@ -1130,7 +1143,9 @@ body .button.button-clear.property-change-button {
 }
 body .dashboard-content .native-input.sc-ion-input-md, 
 body .dashboard-content ion-select,
-body .dashboard-content ion-datetime {
+body .dashboard-content ion-datetime,
+body .dashboard-content ion-textarea,
+body .dashboard-content .sc-ion-textarea-md-h {
     border-radius: 15px;
 }
 ion-note {
@@ -1912,9 +1927,12 @@ body .tenant-lease-details-card .button.button-solid {
     border: 1px solid #7c7c7c;
     background-color: #fff;
     border-radius: 15px;
-    height: 48px;
+    min-height: 48px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
     padding: 0 20px;
-    line-height: 48px;
     margin: 0;
     font-family: 'Segoe UI';
     font-size: 16px;
@@ -2805,6 +2823,48 @@ body .manage-posts-wrapper .button.button-clear.property-change-button {
     right: 30px;
 }
 /* Manage Posts end */
+
+/* Create Posts start  */
+.dashboard-content-inner.create-posts-wrapper {
+    padding: 25px;
+}
+.create-posts-wrapper ion-card {
+    border-radius: 12px;
+    box-shadow: none;
+    border: 1px solid #6187AA;
+    background-color: #F8F8F8;
+    margin-bottom: 30px;
+}
+.create-posts-wrapper ion-card-content ion-row {
+    flex-direction: column;
+}
+body .upload-photo-block .button.button-solid {
+    --border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    --padding-start: 0;
+    --padding-end: 0;
+}
+body .create-posts-wrapper .upload-photo-block .button.button-solid {
+    --background: #2B89E0;
+    --border-color: #2B89E0;
+}
+.create-posts-wrapper .upload-photo-block .button ion-icon {
+    color: #fff;
+}
+body .create-posts-wrapper .button.button-solid.exit-file-btn {
+    margin-top: 0;
+}
+.dashboard-content .uploaded-file-name {
+    max-width: calc(100% - 65px);
+    flex: 0 0 calc(100% - 65px);
+}
+.create-posts-wrapper .uploaded-file .button.button-clear {
+    flex: 0 0 65px;
+    max-width: 65px;
+}
+/* Create Posts end  */
 
 /* 
 

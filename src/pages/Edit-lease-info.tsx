@@ -88,7 +88,7 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
             return (
                 <div className="tenant-lease-details-info tenants-info">
                     <div className="tenant-title-wrap">
-                        <h4>Tenant 1</h4>
+                        <h4>Tenant {i+1}</h4>
                         <IonButton fill="clear" onClick={() => setRemoveTenant(true)}><IonIcon icon={close} /></IonButton>
                     </div>
                     <IonRow>
