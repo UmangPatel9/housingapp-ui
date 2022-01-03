@@ -36,7 +36,7 @@ import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 import { Routes } from "../App";
 
-const CreatePosts: React.FC<{ path: string }> = ({path}) => {
+const EditPosts: React.FC<{ path: string }> = ({path}) => {
 
     let history = useHistory();
 
@@ -54,11 +54,12 @@ const CreatePosts: React.FC<{ path: string }> = ({path}) => {
     };
 
     const defaultList = [
-        { id: "1", fileName: "" }
+        { id: "1", fileName: "1. My Filename1.jpg" },
+        { id: "2", fileName: "2. My Filename1.jpg" }
     ];
 
-    const [selectedActivationDate, setSelectedActivationDate] = useState<string>('');
-    const [selectedExpirationDate, setSelectedExpirationDate] = useState<string>('');
+    const [selectedActivationDate, setSelectedActivationDate] = useState<string>('2022-01-01T13:47:20.789');
+    const [selectedExpirationDate, setSelectedExpirationDate] = useState<string>('2022-02-01T13:47:20.789');
     const [removeFile, setRemoveFile] = useState(false);
     const fileInput = useRef(null);
 
@@ -133,7 +134,7 @@ const CreatePosts: React.FC<{ path: string }> = ({path}) => {
     return (
         <IonPage>
   
-           <HeaderMain pageTitle="New Posts"  logoHide="hide-logo" />
+           <HeaderMain pageTitle="Update Posts"  logoHide="hide-logo" />
   
            <IonContent className="dashboard-wrapper lease-info-wrapper" ref={contentRef} scrollEvents={true} fullscreen>
                 <IonGrid className="dashboard-main-grid">
@@ -165,6 +166,7 @@ const CreatePosts: React.FC<{ path: string }> = ({path}) => {
                                                     {...register('postTitle', {
                                                         required: 'Please enter Post Title'
                                                     })}
+                                                    value="How to change apartment Lease Code"
                                                 />
                                                 <ErrorMessage
                                                     errors={errors}
@@ -180,6 +182,7 @@ const CreatePosts: React.FC<{ path: string }> = ({path}) => {
                                                     {...register('postMessage', {
                                                         required: 'Please enter Post Message'
                                                     })}
+                                                    value="You may want to change Lease Code for your apartment in case it was accidently leaked. To do so, contact the management who will be able to generate a new Lease Code."
                                                 />
                                                 <ErrorMessage
                                                     errors={errors}
@@ -194,13 +197,6 @@ const CreatePosts: React.FC<{ path: string }> = ({path}) => {
                                                 {renderList()}
                                             </IonCol>
                                             <IonCol size="12" sizeMd="6" className="upload-photo-block ion-text-center">
-                                                <IonInput
-                                                    mode="md"
-                                                    type="text"
-                                                    readonly
-                                                    className="form-control upload-file-input-button"
-                                                    value="Upload File"
-                                                />
                                                 <input
                                                     ref={fileInput}
                                                     hidden
@@ -335,4 +331,4 @@ const CreatePosts: React.FC<{ path: string }> = ({path}) => {
     );
 };
 
-export default CreatePosts;
+export default EditPosts;

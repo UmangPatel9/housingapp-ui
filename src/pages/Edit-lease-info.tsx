@@ -43,7 +43,8 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
         contentRef.current && contentRef.current.scrollToBottom(500);
     };
 
-    const [selectedDate, setSelectedDate] = useState<string>('');
+    const [selectedStartDate, setSelectedStartDate] = useState<string>('2022-01-01T13:47:20.789');
+    const [selectedEndDate, setSelectedEndDate] = useState<string>('2022-02-01T13:47:20.789');
 
     const [present] = useIonAlert();
 
@@ -86,7 +87,7 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
     const renderList = () => {
         return inputList.map((x, i) => {
             return (
-                <div className="tenant-lease-details-info tenants-info">
+                <div key={i} className="tenant-lease-details-info tenants-info">
                     <div className="tenant-title-wrap">
                         <h4>Tenant {i+1}</h4>
                         <IonButton fill="clear" onClick={() => setRemoveTenant(true)}><IonIcon icon={close} /></IonButton>
@@ -130,6 +131,82 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                     />
                 </div>
                 
+            );
+        })
+    }
+
+    const defaultFileList = [
+        { id: "1", fileName: "1. My Filename1.jpg" },
+        { id: "2", fileName: "2. My Filename1.jpg" }
+    ];
+
+    const [removeFile, setRemoveFile] = useState(false);
+    const fileInput = useRef(null);
+
+    const [fileList, setFileList] = useState(defaultFileList);
+    
+    // handle click event of the Remove button
+    const handleFileRemoveClick = (index:any) => {
+        const list = [...fileList];
+        list.splice(index, 1);
+        setFileList(list);
+    };
+
+    const loadImageFromDevice = (event:any) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsArrayBuffer(file);
+        reader.onload = () => {
+            // get the blob of the image:
+            let blob: Blob = new Blob([new Uint8Array((reader.result as ArrayBuffer))]);
+            // create blobURL, such that we could use it in an image element:
+            let blobURL: string = URL.createObjectURL(blob);
+            let filename: string = file.name;
+            console.log(filename);
+            setFileList([...fileList, { id: "", fileName: filename}]);
+        };
+
+        reader.onerror = (error) => {
+            //handle errors
+        };
+    };
+
+    const renderFileList = () => {
+        return fileList.map((x, i) => {
+            return (
+                <div key={i} className="uploaded-file">
+                    <p className="uploaded-file-name read-only">{x.fileName}</p>
+                    <IonButton fill="clear" onClick={() => setRemoveFile(true)}>
+                        <IonIcon icon={close} />
+                    </IonButton>
+                    <IonAlert
+                        isOpen={removeFile}
+                        onDidDismiss={() => setRemoveFile(false)}
+                        cssClass='red-alert'
+                        mode='md'
+                        header={'Remove File'}
+                        message={'<p>Are you sure you want to remove this file?</p>'}
+                        buttons={[
+                            {
+                                text: 'Yes',
+                                cssClass: 'btn-secondary',
+                                handler: () => {
+                                    handleFileRemoveClick(i);
+                                    console.log('Exit File Okay');
+                                }
+                            },
+                            {
+                                text: 'No',
+                                role: 'cancel',
+                                cssClass: 'btn-outline',
+                                handler: () => {
+                                    console.log('Exit File Cancel');
+                                }
+                            }
+                            
+                        ]}
+                    />
+                </div>
             );
         })
     }
@@ -265,21 +342,22 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                         <div>
                                             <IonLabel>Lease Start Date*</IonLabel>
                                             <div className="date-picker width-50">
-                                                <IonDatetime displayFormat="MMM DD, YYYY" name="leaseStartDate" placeholder="Select Date" value={selectedDate} onIonChange={e => setSelectedDate(e.detail.value!)}></IonDatetime>
+                                                <IonDatetime displayFormat="MMM DD, YYYY" name="leaseStartDate" placeholder="Select Date" value={selectedStartDate} onIonChange={e => setSelectedStartDate(e.detail.value!)}></IonDatetime>
                                                 <IonIcon icon="assets/images/calendar-icon.svg" />
                                             </div>
                                         </div>
                                         <div>
                                             <IonLabel>Lease End Date*</IonLabel>
                                             <div className="date-picker width-50">
-                                                <IonDatetime displayFormat="MMM DD, YYYY" name="leaseEndDate" placeholder="Select Date" value={selectedDate} onIonChange={e => setSelectedDate(e.detail.value!)}></IonDatetime>
+                                                <IonDatetime displayFormat="MMM DD, YYYY" name="leaseEndDate" placeholder="Select Date" value={selectedEndDate} onIonChange={e => setSelectedEndDate(e.detail.value!)}></IonDatetime>
                                                 <IonIcon icon="assets/images/calendar-icon.svg" />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="lease-scan-block">
                                         <IonLabel>Lease Scans</IonLabel>
-                                        <div className="uploaded-file">
+                                        {renderFileList()}
+                                        {/* <div className="uploaded-file">
                                             <p className="uploaded-file-name read-only">1. My Filename1.jpg</p>
                                             <IonButton fill="clear">
                                                 <IonIcon icon={close} />
@@ -290,9 +368,28 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                             <IonButton fill="clear">
                                                 <IonIcon icon={close} />
                                             </IonButton>
-                                        </div>
+                                        </div> */}
                                         <div className="upload-photo-block">
-                                            <IonButton className="upload-photo-btn" fill="solid" shape="round">
+                                            <input
+                                                ref={fileInput}
+                                                hidden
+                                                type="file"
+                                                accept="image/*"
+                                                name="postFile"
+                                                onChange={loadImageFromDevice}
+                                                onClick={() => {
+                                                    console.log('onClick');
+                                                }}
+                                            />
+                                            <IonButton 
+                                                className="upload-photo-btn" 
+                                                fill="solid" 
+                                                shape="round" 
+                                                onClick={() => {
+                                                    // @ts-ignore
+                                                    fileInput?.current?.click();
+                                                }}
+                                            >
                                                 <IonIcon icon={attachOutline} />
                                             </IonButton>
                                             <IonButton className="take-photo-btn" fill="solid" shape="round">
@@ -409,8 +506,8 @@ const EditLeaseInfo: React.FC<{ path: string }> = ({path}) => {
                             <IonRow className="ion-justify-content-center">
                                 <IonCol className="ion-text-center">
                                     <IonButton 
-                                        className="update-file-btn"
-                                        fill="solid" 
+                                        className="update-file-btn secondary-button"
+                                        fill="outline" 
                                         shape="round"
                                         onClick={() =>
                                             setUpdateFileAlert(true)

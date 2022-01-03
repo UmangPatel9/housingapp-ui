@@ -119,19 +119,38 @@ const ManageProperties: React.FC<{ path: string }> = ({path}) => {
                     >
                         <IonList>
                             <IonItem>
-                                <IonButton fill="clear" routerLink={Routes.addNewProperty}>
+                                <IonButton 
+                                    fill="clear" 
+                                    routerLink={Routes.addNewProperty}
+                                    onClick={
+                                        () => {
+                                        setShowPopover({ showPopover: false, event: undefined })
+                                    }}
+                                >
                                     <IonIcon icon={add} />  
                                     <span>Add a Property</span>
                                 </IonButton>
                             </IonItem>
                             <IonItem>
-                                <IonButton fill="clear">
+                                <IonButton 
+                                    fill="clear"
+                                    onClick={
+                                        () => {
+                                        setShowPopover({ showPopover: false, event: undefined })
+                                    }}
+                                >
                                     <IonIcon icon="/assets/images/reorder.svg"  />
                                     <span>Rearrange List</span>
                                 </IonButton>
                             </IonItem>
                             <IonItem>
-                                <IonButton fill="clear">
+                                <IonButton 
+                                    fill="clear"
+                                    onClick={
+                                        () => {
+                                        setShowPopover({ showPopover: false, event: undefined })
+                                    }}
+                                >
                                     <IonIcon />
                                     <span>Hide Archieved</span>
                                 </IonButton>

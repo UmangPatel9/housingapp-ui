@@ -157,12 +157,12 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
                                                 );
                                             }}
                                         /> */}
-                                        {/* {renderPinnedPostsData()} */}
+                                        {renderPinnedPostsData()}
                                     </div>
                                     
                                     <div className="posts-list general-posts">
                                         <h3 className="title-with-line">General Posts:</h3>
-                                        {/* {renderGeneralPostsData()} */}
+                                        {renderGeneralPostsData()}
                                     </div>
 
                                     <IonButton 
@@ -186,13 +186,26 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
                                     >
                                         <IonList>
                                             <IonItem>
-                                                <IonButton fill="clear" routerLink={Routes.createPosts}>
+                                                <IonButton 
+                                                    fill="clear" 
+                                                    routerLink={Routes.createPosts}
+                                                    onClick={
+                                                        () => {
+                                                        setShowPopover({ showPopover: false, event: undefined })
+                                                    }}
+                                                >
                                                     <IonIcon icon={add} />  
                                                     <span>Create a Post</span>
                                                 </IonButton>
                                             </IonItem>
                                             <IonItem>
-                                                <IonButton fill="clear">
+                                                <IonButton 
+                                                    fill="clear"
+                                                    onClick={
+                                                        () => {
+                                                        setShowPopover({ showPopover: false, event: undefined })
+                                                    }}
+                                                >
                                                     <IonIcon icon="/assets/images/reorder.svg"  />
                                                     <span>Rearrange List</span>
                                                 </IonButton>

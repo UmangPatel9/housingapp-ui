@@ -32,6 +32,15 @@
         /* right: 22px; */
         padding: 0 22px;
     }
+
+    /* Notification popup start  */
+    .notification-popup .popover-content {
+        top: 63px !important;
+    }
+    .notification-popup .popover-arrow {
+        display: none;
+    }
+    /* Notification popup end  */
 }
 
 
@@ -387,7 +396,33 @@
         bottom: 65px;
         right: 10px
     }
+    .dashboard-content-inner.create-posts-wrapper {
+        padding: 15px;
+    }
     /* Manage Posts end */
+
+    /* Notification popup start  */
+    .sc-ion-popover-ios-h.notification-popup {
+        --width: 95vw;
+    }
+    body .button.notification-button {
+        position: fixed;
+        bottom: 25px;
+        display: block !important;
+    }
+    .notification-popup .popover-content:after {
+        display: none;
+    }
+    .notification-popup .popover-content:before {
+        top: auto;
+        bottom: 0;
+    }
+    .notification-popup .popover-arrow::after {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #C0C0C0;
+    }
+    /* Notification popup end  */
 }
 
 
@@ -613,6 +648,10 @@
     .date-picker.width-50 {
         width: 100%;
     }
+    .lease-info .width-50 {
+        width: 100%;
+    }
+    
     /* Lease info css end */
 
     /* Manage Rents css start */

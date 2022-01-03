@@ -8,6 +8,7 @@ import {
 } from '@ionic/react';
 
 import { caretDownOutline, createOutline } from "ionicons/icons";
+import { Routes } from "../App";
 
 interface AccordionProps {
     title: React.ReactNode
@@ -37,7 +38,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, content, date, atta
 
             <IonRow className="accordion-button ion-align-items-center">
                 <IonCol className="accordion-edit-button">
-                    <IonButton fill="clear">
+                    <IonButton fill="clear" routerLink={Routes.editPost} >
                         <IonIcon icon={createOutline} />
                     </IonButton>
                 </IonCol>

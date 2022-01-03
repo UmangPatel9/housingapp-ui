@@ -24,13 +24,18 @@ const FooterMobile: React.FC = () => {
 
     const [popoverState, setShowPopover] = useState<{showPopover: boolean, event: Event | undefined}>({ showPopover: false, event: undefined });
 
+    const openNotificationPopup = () => {
+        let element: HTMLElement = document.getElementsByClassName('notification-button')[0] as HTMLElement;
+        element.click();
+    };
+
     return (
         <IonFooter className="ion-hide-lg-up">
             <IonGrid>
 
                 <IonRow>
                     <IonCol className="footer-bottom-col" size="3">
-                        <IonButton className="footer-notification-button" fill="clear">
+                        <IonButton className="footer-notification-button" fill="clear" onClick={openNotificationPopup}>
                             <IonIcon slot="icon-only" src="/assets/images/bell-icon.svg" />
                         </IonButton>
                     </IonCol>

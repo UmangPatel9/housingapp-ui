@@ -1714,7 +1714,8 @@ body .button.button-full.show-more-button {
     margin-top: 25px;
 }
 .search-result-box h5,
-.search-result-box h3 {
+.search-result-box h3,
+.notification-list h5 {
     color: #3C5871;
     font-family: 'Segoe UI Semilight';
     font-weight: 300;
@@ -1730,7 +1731,8 @@ body .button.button-full.show-more-button {
 }
 body .lease-renewal-button.button.button-full,
 body .edit-lease-info-button.button.button-full,
-body .view-lease-info-button.button.button-full {
+body .view-lease-info-button.button.button-full,
+body .notification-detail-button.button.button-clear {
     position: absolute;
     top: 0;
     left: 0;
@@ -1971,13 +1973,14 @@ body .button.button-solid.cancle-btn {
 body .button.button.button-outline.submit-new-lease-btn {
     margin: 15px 7.5px 0;
 }
-body .button.button-solid.update-file-btn {
-    --background: #FFA800;
-    --color: #fff;
+body .button.button-solid.update-file-btn,
+body .button.button-outline.update-file-btn {
+    /* --background: #FFA800; */
+    /* --color: #fff; */
     margin: 15px 7.5px 0;
-    --background-focused: #FFBB00;
+    /* --background-focused: #FFBB00;
     --background-hover: #FFBB00;
-    --background-activated: #FFBB00;
+    --background-activated: #FFBB00; */
 }
 .tenant-title-wrap {
     display: flex;
@@ -2834,6 +2837,7 @@ body .manage-posts-wrapper .button.button-clear.property-change-button {
     border: 1px solid #6187AA;
     background-color: #F8F8F8;
     margin-bottom: 30px;
+    margin-top: 0;
 }
 .create-posts-wrapper ion-card-content ion-row {
     flex-direction: column;
@@ -2856,7 +2860,7 @@ body .create-posts-wrapper .upload-photo-block .button.button-solid {
 body .create-posts-wrapper .button.button-solid.exit-file-btn {
     margin-top: 0;
 }
-.dashboard-content .uploaded-file-name {
+.dashboard-content .create-posts-wrapper .uploaded-file-name {
     max-width: calc(100% - 65px);
     flex: 0 0 calc(100% - 65px);
 }
@@ -2864,7 +2868,152 @@ body .create-posts-wrapper .button.button-solid.exit-file-btn {
     flex: 0 0 65px;
     max-width: 65px;
 }
+body .upload-file-input-button .native-input.sc-ion-input-md {
+    border-color: #7c7c7c;
+    background-color: #fff;
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
 /* Create Posts end  */
+
+/* Notification popup start  */
+.sc-ion-popover-ios-h.notification-popup {
+    --width: 30vw;
+    --background: #FFFEFA;
+    padding: 30px;
+    color: #3C5871;
+}
+.notification-popup .popover-content {
+    padding: 30px;
+    overflow: visible;
+    /* box-shadow: 0 0 5px rgb(0 0 0 / 50%); */
+    border: 1px solid #C0C0C0;
+}
+.notification-popup .popover-viewport {
+    cursor: inherit;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.notification-popup .popover-arrow {
+    width: 20px;
+    height: 18px;
+    /* display: none; */
+}
+.notification-popup .popover-content:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: 1px solid #C0C0C0;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    /* box-shadow: -3px 3px 3px 0 rgb(0 0 0 / 40%); */
+    display: inline-block;
+    top: 0%;
+    right: 0;
+    /* box-shadow: 0 0 5px rgb(0 0 0 / 50%); */
+    left: -8px;
+    margin: auto;
+    background-color: inherit;
+}
+.notification-popup .popover-content:before {
+    content: "";
+    position: absolute;
+    width: 38px;
+    height: 18px;
+    right: 0;
+    top: 0;
+    background-color: inherit;
+    z-index: 1;
+    left: 0;
+    margin: auto;
+}
+.notification-box {
+    position: relative;
+    border: 1px solid #707070;
+    border-radius: 5px;
+    background-color: #FFFEFA;
+    padding: 10px 15px 3px;
+}
+.notification-box + .notification-box {
+    margin-top: 15px;
+}
+.notification-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid;
+    width: 100%;
+}
+.red-notification .notification-box-header {
+    border-bottom-color: #FF6363;
+}
+.yellow-notification .notification-box-header {
+    border-bottom-color: #FFBB00;
+    padding-bottom: 0;
+}.notofication-content h6 {
+    margin: 0;
+}
+.red-notification .notofication-content h6 span  {
+    color: #FF6363;
+}
+.yellow-notification .notofication-content h6 span  {
+    color: #FFBB00;
+}
+.notofication-content p {
+    font-weight: 300;
+}
+.notofication-content p {
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.2;
+    min-height: 39px;
+}
+.notofication-content p + p {
+    margin-top: 10px;
+}
+.notofication-content p b {
+    font-weight: normal;
+}
+.notification-date {
+    text-align: right;
+    display: block;
+    font-size: 11px;
+    font-weight: 300;
+    margin-top: 5px;
+}
+body .notification-detail-button.button.button-clear {
+    margin: 0;
+}
+.red-notification ion-icon {
+    color: #FF6363;
+    font-size: 23px;
+}
+.yellow-notification ion-icon {
+    font-size: 35px;
+}
+.notification-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+body .notification-footer .button.button-clear {
+    height: 100%;
+    margin: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    line-height: 1.2;
+    --color-hover: #FFBB00;
+    --color-focused: #FFBB00;
+    --color-activated: #FFBB00;
+}
+/* Notification popup end  */
 
 /* 
 
