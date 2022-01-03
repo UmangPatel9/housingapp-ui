@@ -380,6 +380,9 @@
         --padding-start: 38px;
         --padding-end: 38px;
     }
+    body .button.button-clear.post-add-button {
+        bottom: 70px;
+    }
     /* Tenant Dahsboard posts end  */
 
     /* Tenants choose payment method start */
@@ -404,25 +407,43 @@
     /* Notification popup start  */
     .sc-ion-popover-ios-h.notification-popup {
         --width: 95vw;
+        --max-height: 85%;
     }
     body .button.notification-button {
         position: fixed;
-        bottom: 25px;
+        bottom: 10px;
         display: block !important;
+        left: 22px;
     }
     .notification-popup .popover-content:after {
         display: none;
     }
     .notification-popup .popover-content:before {
         top: auto;
-        bottom: 0;
+        bottom: -2px;
+        left: 30px;
+        right: auto;
+        width: 26px;
     }
     .notification-popup .popover-arrow::after {
         width: 20px;
         height: 20px;
         border: 1px solid #C0C0C0;
     }
+    .notification-popup .popover-arrow {
+        width: 35px;
+    }
+    .popover-bottom.sc-ion-popover-ios-h.notification-popup .popover-arrow.sc-ion-popover-ios::after {
+        top: -10px;
+    }
     /* Notification popup end  */
+
+    /* Post details strat  */
+    .post-images-slider ion-slides {
+        width: 70%;
+
+    }
+    /* Post details end  */
 }
 
 
@@ -478,6 +499,18 @@
         text-align: right;
     }
     /* Manage Posts end */
+
+    /* Post details strat  */
+    .post-images-slider ion-slide {
+        height: 300px;
+    }
+    body .button.button-outline.message-poster-button {
+        font-size: 15px;
+    }
+    body .button.button-outline.message-poster-button span {
+        width: 65px;
+    }
+    /* Post details end  */
 }
 
 
@@ -730,6 +763,45 @@
         font-size: 16px;
     }
     /* Tenants choose payment method end */
+
+    /* Post details strat  */
+    .dashboard-content-inner.post-details {
+        margin-top: -13px;
+    }
+    .post-images-slider {
+        padding: 5px 0 15px;
+    }
+    .post-images-slider ion-slides {
+        width: 100%;
+    }
+    .post-images-slider ion-slide {
+        height: 198px;
+    }
+    .main-post-image {
+        width: 100%;
+    }
+    .post-images-slider ion-segment {
+        justify-content: flex-start;
+        padding: 0 15px;
+    }
+    body .button.button-outline.message-poster-button ion-icon {
+        font-size: 25px;
+        top: 4px;
+    }
+    body .button.button-outline.message-poster-button {
+        --padding-start: 15px;
+        --padding-end: 15px;
+        --padding-top: 10px;
+        --padding-bottom: 10px;
+    }
+    .post-details-title p {
+        margin-top: 0;
+        line-height: 1.2;
+    }
+    body .button.button-outline.message-poster-button span {
+        margin-left: 10px;
+    }
+    /* Post details end  */
 }
 
 

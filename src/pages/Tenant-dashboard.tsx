@@ -115,7 +115,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
     return (
         <IonPage>
   
-           <HeaderMain pageTitle="Manage Leases" logoHide="hide-logo" />
+           <HeaderMain pageTitle="" logoHide="hide-logo" />
   
            <IonContent className="dashboard-wrapper tenants-dashboard" fullscreen>
                 <IonGrid className="dashboard-main-grid">
@@ -155,8 +155,8 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                     </IonSlide>
                                 </IonSlides>
 
-                                <IonButton className="post-add-button" fill="clear">
-                                    <IonIcon src="assets/images/post-icon.svg"  />
+                                <IonButton className="post-add-button" fill="clear" routerLink={Routes.createPosts} >
+                                    <IonIcon src="assets/images/post-icon.svg" />
                                     {/* <IonImg className="logo" src="assets/images/post1.png" /> */}
                                 </IonButton>
 

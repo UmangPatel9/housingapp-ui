@@ -21,7 +21,7 @@ const TanatDahsboadTanatsTab: React.FC = () => {
             <div className="posts-lists">
 
                 <div className="posts-list-block">
-                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.rentPayDetails}></IonButton>
+                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.postDetails}></IonButton>
                     <IonGrid className="">
                         <IonRow className="post-row">
                             <IonCol className="post-image">
@@ -39,7 +39,7 @@ const TanatDahsboadTanatsTab: React.FC = () => {
                 </div>
 
                 <div className="posts-list-block">
-                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.rentPayDetails}></IonButton>
+                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.postDetails}></IonButton>
                     <IonGrid className="">
                         <IonRow className="post-row">
                             <IonCol className="post-image">
@@ -57,7 +57,7 @@ const TanatDahsboadTanatsTab: React.FC = () => {
                 </div>
 
                 <div className="posts-list-block">
-                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.rentPayDetails}></IonButton>
+                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.postDetails}></IonButton>
                     <IonGrid className="">
                         <IonRow className="post-row">
                             <IonCol className="post-image">
@@ -75,7 +75,7 @@ const TanatDahsboadTanatsTab: React.FC = () => {
                 </div>
 
                 <div className="posts-list-block">
-                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.rentPayDetails}></IonButton>
+                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.postDetails}></IonButton>
                     <IonGrid className="">
                         <IonRow className="post-row">
                             <IonCol className="post-image">

@@ -26,6 +26,8 @@ import PaymentMethod from './pages/Payment-method';
 import ManagePosts from './pages/Manage-posts';
 import CreatePosts from './pages/Create-post';
 import EditPosts from './pages/Edit-post';
+import NotificationHistory from './pages/Notification-history';
+import PostDetails from './pages/Post-details';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -70,7 +72,9 @@ export const Routes = {
   paymentMethod: '/payment-method',
   managePosts: '/manage-posts',
   createPosts: '/create-posts',
-  editPost: '/edit-post'
+  editPost: '/edit-post',
+  notificationHistory: '/notification-history',
+  postDetails: '/post-details'
 }
 
 const App: React.FC = () => (
@@ -153,6 +157,12 @@ const App: React.FC = () => (
         </Route>
         <Route exact path={Routes.editPost}>
           <EditPosts path={Routes.editPost} />
+        </Route>
+        <Route exact path={Routes.notificationHistory}>
+          <NotificationHistory path={Routes.notificationHistory} />
+        </Route>
+        <Route exact path={Routes.postDetails}>
+          <PostDetails path={Routes.postDetails} />
         </Route>
 
       </IonRouterOutlet>

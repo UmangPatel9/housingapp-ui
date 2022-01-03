@@ -1,4 +1,4 @@
-    import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 import { useHistory } from "react-router-dom";
 import { 
@@ -77,6 +77,9 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                         isOpen={popoverState.showPopover}
                         onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined })}
                     >
+                        <IonButton className="close-popup-button ion-hide-lg-up" fill="clear" onClick={closeNotificationPopup}>
+                                <IonIcon icon={close} />
+                        </IonButton>
                         <div className="notification-list">
                             <h6>Urgent</h6>
                             <div className="notification-box red-notification">
@@ -88,7 +91,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                                         <IonIcon icon={alertCircleSharp} />
                                     </div>
                                     <p>Your lease ends <b>Sept. 03, 2020</b>. Tap here to see details.</p>
-                                    <span className="notification-date">Feb. 2nd, 2020</span>                                  
+                                    <span className="notification-date">Jan. 1st, 2021</span>                                  
                                 </div>
                             </div>
                             <div className="notification-box red-notification">
@@ -99,7 +102,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                                         <IonIcon icon={alertCircleSharp} />
                                     </div>
                                     <p>Payment for the month of <b>Nov, 2020</b> is overdue. Tap here to pay now.</p>
-                                    <span className="notification-date">Feb. 2nd, 2020</span>                                  
+                                    <span className="notification-date">Jan. 1st, 2021</span>                                  
                                 </div>
                             </div>
                             <h6>Today</h6>
@@ -111,13 +114,38 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                                         {/* <div className="icon">!</div> */}
                                         <IonIcon slot="icon-only" src="/assets/images/Pay-Rent-icon-only.svg" />
                                     </div>
+                                    <p>Payment for the month of <b>Jan, 2021</b> is due soon. Tap here to see details.</p>
+                                    <span className="notification-date">Jan. 1st, 2021</span>                                  
+                                </div>
+                            </div>
+                            <h6>31-12-2021</h6>
+                            <div className="notification-box yellow-notification">
+                                <IonButton className="notification-detail-button" fill="clear" expand="full" shape="round" routerLink={Routes.rentPayDetails} onClick={closeNotificationPopup}></IonButton>
+                                <div className="notofication-content">
+                                    <div className="notification-box-header">
+                                        <h6>Rent <span>Reminder</span></h6>
+                                        {/* <div className="icon">!</div> */}
+                                        <IonIcon slot="icon-only" src="/assets/images/Pay-Rent-icon-only.svg" />
+                                    </div>
+                                    <p>Payment for the month of <b>Dec, 2020</b> is due soon. Tap here to see details.</p>
+                                    <span className="notification-date">Dec. 31st, 2020</span>                                  
+                                </div>
+                            </div>
+                            <div className="notification-box yellow-notification">
+                                <IonButton className="notification-detail-button" fill="clear" expand="full" shape="round" routerLink={Routes.rentPayDetails} onClick={closeNotificationPopup}></IonButton>
+                                <div className="notofication-content">
+                                    <div className="notification-box-header">
+                                        <h6>Rent <span>Reminder</span></h6>
+                                        {/* <div className="icon">!</div> */}
+                                        <IonIcon slot="icon-only" src="/assets/images/Pay-Rent-icon-only.svg" />
+                                    </div>
                                     <p>Payment for the month of <b>Nov, 2020</b> is due soon. Tap here to see details.</p>
-                                    <span className="notification-date">Feb. 2nd, 2020</span>                                  
+                                    <span className="notification-date">Dec. 31st, 2020</span>                                  
                                 </div>
                             </div>
                         </div>
                         <div className="notification-footer">
-                            <IonButton className="notification-history-button" fill="clear"  routerLink={Routes.rentPayDetails} onClick={closeNotificationPopup}>History</IonButton>
+                            <IonButton className="notification-history-button" fill="clear"  routerLink={Routes.notificationHistory} onClick={closeNotificationPopup}>History</IonButton>
                             <IonButton className="notification-clear-button" fill="clear"  routerLink={Routes.rentPayDetails}>Clear Norifications</IonButton>
                         </div>
                     </IonPopover>
