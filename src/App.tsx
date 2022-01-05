@@ -28,6 +28,7 @@ import CreatePosts from './pages/Create-post';
 import EditPosts from './pages/Edit-post';
 import NotificationHistory from './pages/Notification-history';
 import PostDetails from './pages/Post-details';
+import Messaging from './pages/Messaging';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -74,7 +75,8 @@ export const Routes = {
   createPosts: '/create-posts',
   editPost: '/edit-post',
   notificationHistory: '/notification-history',
-  postDetails: '/post-details'
+  postDetails: '/post-details',
+  messaging: '/messaging'
 }
 
 const App: React.FC = () => (
@@ -163,6 +165,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path={Routes.postDetails}>
           <PostDetails path={Routes.postDetails} />
+        </Route>
+        <Route exact path={Routes.messaging}>
+          <Messaging path={Routes.messaging} />
         </Route>
 
       </IonRouterOutlet>

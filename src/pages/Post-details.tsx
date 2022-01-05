@@ -19,60 +19,40 @@ import {
 
 import { chevronBackSharp, chevronForwardSharp } from "ionicons/icons";
 
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import { Navigation, Controller, Thumbs  } from 'swiper';
+
 import HeaderMain from '../components/Header-main';
 import Footer from '../components/Footer';
 import FooterMobile from '../components/Footer-mobile';
 
+
+
 import '@ionic/react/css/flex-utils.css';
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
+import 'swiper/swiper.min.css';
+import 'swiper/modules/navigation/navigation.min.css';
 import { Routes } from "../App";
 
 const PostDetails: React.FC<{ path: string }> = ({path}) => {
 
     const contentRef = useRef<HTMLIonContentElement | null>(null);
+    const firstSwiper1 = useRef<HTMLIonContentElement | null>(null);
+    const [firstSwiper, setFirstSwiper] = useState();
+    const [secondSwiper, setSecondSwiper] = useState();
+    const [thumbsSwiper, setThumbsSwiper] = useState();
+
+   
+
+    useEffect(() => {
+        // firstSwiper1.controller.control = secondSwiper;  
+        // secondSwiper.controller.control = firstSwiper;
+    });
+
 
     const scrollToBottom= () => {
         contentRef.current && contentRef.current.scrollToBottom(500);
-    };
-
-    const slider = useRef<any>(null);
-    const [value, setValue] = useState("0");
-
-    useEffect(() => {
-        // slider.current.lockSwipes(true);
-    });
-
-    const slideOpts = {
-        initialSlide: 0,
-        speed: 400,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    };
-
-    // a function to handle the segment changes
-    const handleSegmentChange = async (e: any) => {
-        await slider.current.lockSwipes(false);
-        setValue(e.detail.value);
-        slider.current!.slideTo(e.detail.value);
-        await slider.current.lockSwipes(true);
-    };
-
-    // a function to handle the slider changes
-    const handleSlideChange = async (event: any) => {
-      let index: number = 0;
-      await event.target.getActiveIndex().then((value: any) => (index=value));
-      setValue(''+index)
-    };
-
-    const nextSlideChange = async (event: any) => {
-        event.Slides.slideNext();
-    };
-
-    const prevSlideChange = async (event: any) => {
-        event.Slides.slidePrev();
     };
 
     return (
@@ -93,38 +73,50 @@ const PostDetails: React.FC<{ path: string }> = ({path}) => {
                         <IonCol className="dashboard-content" size="12" sizeMd="12" sizeLg="6" sizeXl="8">
                             <div className="dashboard-content-inner post-details">
                                 <div className="post-images-slider">
-                                    <IonSlides options={slideOpts} onIonSlideDidChange={(e) => handleSlideChange(e)} ref={slider}>
-                                        <IonSlide>  
-                                            <IonImg className="main-post-image" src="assets/images/sofa.jpg" />
-                                        </IonSlide>
-                                        <IonSlide>
-                                            <IonImg className="main-post-image" src="assets/images/sofa2.jpg" />
-                                        </IonSlide>
-                                        <IonSlide>
-                                            <IonImg className="main-post-image" src="assets/images/sofa.jpg" />
-                                        </IonSlide>
-                                    </IonSlides>
-
-                                    <div className="slider-arrows">
-                                        <IonButton className="swiper-button-prev" fill="clear" onClick={prevSlideChange}>
-                                            <IonIcon icon={chevronBackSharp} />
-                                        </IonButton>
-                                        <IonButton className="swiper-button-next" fill="clear" onClick={nextSlideChange}>
-                                            <IonIcon icon={chevronForwardSharp} />
-                                        </IonButton>
+                                    <div className="swipe-slider">
+                                        <Swiper
+                                            className="post-main-image-slider"
+                                            // ref={firstSwiper}
+                                            modules={[Navigation, Controller, Thumbs]}
+                                            // loop={true}
+                                            navigation
+                                            onSwiper={() => setFirstSwiper}
+                                            controller={{ control: secondSwiper }}
+                                            thumbs={{ swiper: thumbsSwiper }}
+                                        >
+                                            <SwiperSlide>  
+                                                <IonImg className="main-post-image" src="assets/images/sofa.jpg" />
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <IonImg className="main-post-image" src="assets/images/sofa2.jpg" />
+                                            </SwiperSlide>
+                                            <SwiperSlide>
+                                                <IonImg className="main-post-image" src="assets/images/sofa.jpg" />
+                                            </SwiperSlide>
+                                        </Swiper>
                                     </div>
 
-                                    <IonSegment scrollable  mode="md" value={value} onIonChange={(e) => handleSegmentChange(e)} >
-                                        <IonSegmentButton value="0">
+                                    <Swiper 
+                                        className="post-thumbnail-slider"
+                                        modules={[Controller, Thumbs]}
+                                        // slidesPerView={3}
+                                        spaceBetween={15}
+                                        // loop={true}
+                                        onSwiper={() => setSecondSwiper}
+                                        controller={{ control: firstSwiper }}
+                                        // watchSlidesProgress
+                                        // onSwiper={() => setThumbsSwiper}
+                                    >
+                                        <SwiperSlide>
                                             <IonImg className="thumbnail-post-image" src="assets/images/sofa.jpg" />
-                                        </IonSegmentButton>
-                                        <IonSegmentButton value="1">
+                                        </SwiperSlide>
+                                        <SwiperSlide>
                                             <IonImg className="thumbnail-post-image" src="assets/images/sofa2.jpg" />
-                                        </IonSegmentButton>
-                                        <IonSegmentButton value="2">
+                                        </SwiperSlide>
+                                        <SwiperSlide>
                                             <IonImg className="thumbnail-post-image" src="assets/images/sofa.jpg" />
-                                        </IonSegmentButton>
-                                    </IonSegment>
+                                        </SwiperSlide>
+                                    </Swiper>
                                 </div>
 
                                 <div className="post-details-content">

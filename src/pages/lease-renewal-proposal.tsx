@@ -279,7 +279,7 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
                                                 ref={fileInput}
                                                 hidden
                                                 type="file"
-                                                accept="image/*"
+                                                accept="image/png, image/jpg, image/jpeg"
                                                 name="postFile"
                                                 onChange={loadImageFromDevice}
                                                 onClick={() => {

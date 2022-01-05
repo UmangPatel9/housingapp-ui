@@ -15,7 +15,7 @@ import {
     IonCardHeader,
     IonCardTitle,
     IonCardContent,
-    IonItem
+    IonAlert
 } from '@ionic/react';
 
 import { close, attachOutline, chevronDown } from "ionicons/icons";
@@ -37,6 +37,82 @@ const LeaseInfo: React.FC<{ path: string }> = ({path}) => {
     const scrollToBottom= () => {
         contentRef.current && contentRef.current.scrollToBottom(500);
     };
+
+    const defaultList = [
+        { id: "1", fileName: "1. My Filename1.jpg" },
+        { id: "2", fileName: "2. My Filename1.jpg" }
+    ];
+
+    const [removeFile, setRemoveFile] = useState(false);
+    const fileInput = useRef(null);
+
+    const [fileList, setFileList] = useState(defaultList);
+    
+    // handle click event of the Remove button
+    const handleRemoveClick = (index:any) => {
+        const list = [...fileList];
+        list.splice(index, 1);
+        setFileList(list);
+    };
+
+    const loadImageFromDevice = (event:any) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsArrayBuffer(file);
+        reader.onload = () => {
+            // get the blob of the image:
+            let blob: Blob = new Blob([new Uint8Array((reader.result as ArrayBuffer))]);
+            // create blobURL, such that we could use it in an image element:
+            let blobURL: string = URL.createObjectURL(blob);
+            let filename: string = file.name;
+            console.log(filename);
+            setFileList([...fileList, { id: "", fileName: filename}]);
+        };
+
+        reader.onerror = (error) => {
+            //handle errors
+        };
+    };
+
+    const renderList = () => {
+        return fileList.map((x, i) => {
+            return (
+                <div key={i} className="uploaded-file">
+                    <p className="uploaded-file-name read-only">{x.fileName}</p>
+                    <IonButton fill="clear" onClick={() => setRemoveFile(true)}>
+                        <IonIcon icon={close} />
+                    </IonButton>
+                    <IonAlert
+                        isOpen={removeFile}
+                        onDidDismiss={() => setRemoveFile(false)}
+                        cssClass='red-alert'
+                        mode='md'
+                        header={'Remove File'}
+                        message={'<p>Are you sure you want to remove this file?</p>'}
+                        buttons={[
+                            {
+                                text: 'Yes',
+                                cssClass: 'btn-secondary',
+                                handler: () => {
+                                    handleRemoveClick(i);
+                                    console.log('Exit File Okay');
+                                }
+                            },
+                            {
+                                text: 'No',
+                                role: 'cancel',
+                                cssClass: 'btn-outline',
+                                handler: () => {
+                                    console.log('Exit File Cancel');
+                                }
+                            }
+                            
+                        ]}
+                    />
+                </div>
+            );
+        })
+    }
 
     return (
         <IonPage>
@@ -135,7 +211,8 @@ const LeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                     </div>
                                     <div className="lease-scan-block">
                                         <IonLabel>Lease Scans</IonLabel>
-                                        <div className="uploaded-file">
+                                        {renderList()}
+                                        {/* <div className="uploaded-file">
                                             <p className="uploaded-file-name read-only">1. My Filename1.jpg</p>
                                             <IonButton fill="clear">
                                                 <IonIcon icon={close} />
@@ -146,9 +223,28 @@ const LeaseInfo: React.FC<{ path: string }> = ({path}) => {
                                             <IonButton fill="clear">
                                                 <IonIcon icon={close} />
                                             </IonButton>
-                                        </div>
+                                        </div> */}
                                         <div className="upload-photo-block">
-                                            <IonButton className="upload-photo-btn" fill="solid" shape="round">
+                                        <input
+                                                ref={fileInput}
+                                                hidden
+                                                type="file"
+                                                accept="image/png, image/jpg, image/jpeg"
+                                                name="postFile"
+                                                onChange={loadImageFromDevice}
+                                                onClick={() => {
+                                                    console.log('onClick');
+                                                }}
+                                            />
+                                            <IonButton 
+                                                className="upload-photo-btn" 
+                                                fill="solid" 
+                                                shape="round" 
+                                                onClick={() => {
+                                                    // @ts-ignore
+                                                    fileInput?.current?.click();
+                                                }}
+                                            >
                                                 <IonIcon icon={attachOutline} />
                                             </IonButton>
                                             <IonButton className="take-photo-btn" fill="solid" shape="round">

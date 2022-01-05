@@ -145,8 +145,8 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                             </div>
                         </div>
                         <div className="notification-footer">
-                            <IonButton className="notification-history-button" fill="clear"  routerLink={Routes.notificationHistory} onClick={closeNotificationPopup}>History</IonButton>
-                            <IonButton className="notification-clear-button" fill="clear"  routerLink={Routes.rentPayDetails}>Clear Norifications</IonButton>
+                            <IonButton className="notification-history-button" fill="clear" routerLink={Routes.notificationHistory} onClick={closeNotificationPopup}>History</IonButton>
+                            <IonButton className="notification-clear-button" fill="clear" routerLink={Routes.rentPayDetails}>Clear Norifications</IonButton>
                         </div>
                     </IonPopover>
                     <IonButton className="notification-button ion-hide-lg-down" fill="clear" onClick={
@@ -159,7 +159,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                         <span className="notification-count">4</span>
                     </IonButton>
 
-                    <IonButton className="message-button ion-hide-lg-down" fill="clear" routerLink="#">
+                    <IonButton className="message-button ion-hide-lg-down" fill="clear" routerLink={Routes.messaging}>
                         <IonIcon slot="icon-only" src="/assets/images/mail_outline_black_24dp.svg" />
                         {/* <span className="notification-count">4</span> */}
                     </IonButton>

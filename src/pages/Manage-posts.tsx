@@ -198,7 +198,7 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
                                                     <span>Create a Post</span>
                                                 </IonButton>
                                             </IonItem>
-                                            <IonItem>
+                                            {/* <IonItem>
                                                 <IonButton 
                                                     fill="clear"
                                                     onClick={
@@ -209,7 +209,7 @@ const ManagePosts: React.FC<{ path: string }> = ({path}) => {
                                                     <IonIcon icon="/assets/images/reorder.svg"  />
                                                     <span>Rearrange List</span>
                                                 </IonButton>
-                                            </IonItem>
+                                            </IonItem> */}
                                         </IonList>
                                     </IonPopover>
 

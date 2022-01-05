@@ -439,7 +439,7 @@
     /* Notification popup end  */
 
     /* Post details strat  */
-    .post-images-slider ion-slides {
+    .swipe-slider {
         width: 70%;
 
     }
@@ -501,7 +501,7 @@
     /* Manage Posts end */
 
     /* Post details strat  */
-    .post-images-slider ion-slide {
+    .post-main-image-slider .swiper-slide {
         height: 300px;
     }
     body .button.button-outline.message-poster-button {
@@ -511,6 +511,18 @@
         width: 65px;
     }
     /* Post details end  */
+
+    /* Messaging start  */
+    .message-list .post-content {
+        padding-top: 10px;
+    }
+    .message-list .post-title {
+        margin: 0 0 5px;
+    }
+    .dashboard-content .message-list p.post-date {
+        bottom: 0;
+    }
+    /* Messaging end  */
 }
 
 
@@ -771,16 +783,16 @@
     .post-images-slider {
         padding: 5px 0 15px;
     }
-    .post-images-slider ion-slides {
+    .swipe-slider {
         width: 100%;
     }
-    .post-images-slider ion-slide {
+    .post-main-image-slider .swiper-slide {
         height: 198px;
     }
     .main-post-image {
         width: 100%;
     }
-    .post-images-slider ion-segment {
+    .post-thumbnail-slider .swiper-wrapper {
         justify-content: flex-start;
         padding: 0 15px;
     }
@@ -802,6 +814,12 @@
         margin-left: 10px;
     }
     /* Post details end  */
+
+    /* Messaging start  */
+    .message-list .post-row {
+        padding: 5px;
+    }
+    /* Messaging end  */
 }
 
 
