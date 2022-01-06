@@ -3195,6 +3195,79 @@ body .messaging-content .button.button-clear.property-change-button {
     --padding-start: 0;
     --padding-top: 0;
 }
+.start-conversation-popup {
+    --box-shadow: none;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: #C0C0C0;
+    --border-radius: 10px;
+}
+.start-conversation-popup .modal-wrapper {
+    overflow: hidden; 
+}
+.start-conversation-popup ion-grid {
+    width: 100%;
+}
+.start-conversation-popup-wrapper .popup-title {
+    background-color: transparent;
+    border: 1px solid #707070;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f8f8f8+47,f8f8f8+100 */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f8f8f8 47%, #f8f8f8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f8f8f8 47%,#f8f8f8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #ffffff 0%,#f8f8f8 47%,#f8f8f8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f8f8f8',GradientType=0 ); /* IE6-9 */
+    color: #575757;
+    font-weight: normal;
+    border-radius: 10px 10px 0 0;
+}
+.start-conversation-popup-wrapper .popup-title h3 {
+    font-weight: normal;
+}
+.start-conversation-popup-wrapper .popup-title span {
+    color: #FFA31A;
+}
+body .start-conversation-popup .button.button-clear.close-popup-button {
+    --color: #575757;
+    --color-hover:#FFA31A; 
+    --color-focused:#FFA31A; 
+    --color-activated:#FFA31A; 
+}
+.start-conversation-popup ion-icon {
+    color: #575757;
+}
+.start-conversation-popup .popup-content {
+    border-color: #C0C0C0;
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+}
+.search-box {
+    padding: 20px 14px;
+}
+.search-box ion-searchbar {
+    --background: transparent;
+    border: 1px solid #7C7C7C;
+    --border-radius: 5px;
+    --placeholder-color: #7C7C7C;
+    --placeholder-opacity: 1;
+    --placeholder-font-weight: 300;
+}
+.search-box .searchbar-search-icon {
+    color: #ccc;
+    width: 30px;
+}
+.search-box .searchbar-input, 
+.search-box .searchbar-left-aligned.sc-ion-searchbar-ios-h .searchbar-input.sc-ion-searchbar-ios {
+    padding-inline-start: 40px;
+    padding-inline-end: 0;
+    font-size: 16px;
+    font-family: 'Segoe UI Semilight';
+    font-weight: 300;
+}
+body .popup-buttons .button.button-outline {
+    --border-radius: 10px;
+    min-width: 112px;
+}
 /* Messaging end  */
 
 /* 

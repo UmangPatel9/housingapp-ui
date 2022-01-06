@@ -11,17 +11,20 @@ import {
     IonSlides,
     IonSlide,
     IonButton,
-    IonIcon
+    IonIcon,
+    createAnimation,
+    IonModal
 } from '@ionic/react';
 
-import { addSharp } from "ionicons/icons";
-  
+import { addSharp, close } from "ionicons/icons";
+
 import HeaderMain from '../components/Header-main';
 import Footer from '../components/Footer';
 import FooterMobile from '../components/Footer-mobile';
 import DashboardSidebar from '../components/Dahsboard-sidebar';
 import MessagingTenantsTab from "../components/MessagingTenantsTab";
 import MessagingStaffTab from "../components/MessagingStaffTab";
+import StartConversationPopup from "../components/StartConversationPopup";
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
@@ -63,6 +66,31 @@ const Messaging: React.FC<{ path: string }> = ({path}) => {
       setValue(''+index)
     }
 
+    const [showModal, setShowModal] = useState(false);
+
+    const enterAnimation = (baseEl: any) => {
+        const backdropAnimation = createAnimation()
+          .addElement(baseEl.querySelector('ion-backdrop')!)
+          .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+    
+        const wrapperAnimation = createAnimation()
+          .addElement(baseEl.querySelector('.modal-wrapper')!)
+          .keyframes([
+            { offset: 0, opacity: '0', transform: 'scale(0)' },
+            { offset: 1, opacity: '0.99', transform: 'scale(1)' }
+          ]);
+    
+        return createAnimation()
+          .addElement(baseEl)
+          .easing('ease-out')
+          .duration(500)
+          .addAnimation([backdropAnimation, wrapperAnimation]);
+    }
+    
+    const leaveAnimation = (baseEl: any) => {
+        return enterAnimation(baseEl).direction('reverse');
+    }
+
     return (
         <IonPage>
   
@@ -102,11 +130,20 @@ const Messaging: React.FC<{ path: string }> = ({path}) => {
                                 <IonButton 
                                     className="property-change-button" 
                                     fill="clear"
-                                    routerLink={Routes.messaging}
+                                    onClick={() => setShowModal(true)}
                                 >
                                         <IonIcon icon={addSharp}  />
                                 </IonButton>
                             </div>
+
+                            <IonModal isOpen={showModal} enterAnimation={enterAnimation} leaveAnimation={leaveAnimation} cssClass="rent-pay-receipt-popup start-conversation-popup">
+                                <IonButton className="close-popup-button" fill="clear" onClick={() => setShowModal(false)}> 
+                                    <IonIcon icon={close} />
+                                </IonButton>
+                                <StartConversationPopup />
+                                {/* <IonButton onClick={() => setShowModal(false)}>Close Modal</IonButton> */}
+                            </IonModal>
+
                         </IonCol>
                         {/* dashboar content end */}
 
