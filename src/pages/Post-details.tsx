@@ -125,7 +125,7 @@ const PostDetails: React.FC<{ path: string }> = ({path}) => {
                                             <h3>Mask Requirement</h3>
                                             <p className="post-detail-date">Date posted: Jun, 22nd , 2020</p>
                                         </div>
-                                        <IonButton className="message-poster-button" routerLink={Routes.addNewProperty} shape="round" fill="outline">
+                                        <IonButton className="message-poster-button" routerLink="#" shape="round" fill="outline">
                                             <div className="button-inner">
                                                 <IonIcon src="assets/images/Chat-Bubble.svg" />
                                                 <span>Message Poster</span>

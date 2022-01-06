@@ -18,9 +18,7 @@ import {
     IonRadio
 } from '@ionic/react';
 
-import ChangePropertyPopover from './Change-Property-Popup';
-
-import { createOutline, addOutline, close, alertCircleSharp } from "ionicons/icons";
+import { createOutline, addOutline, close, alertCircleSharp, settingsSharp } from "ionicons/icons";
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
@@ -32,9 +30,9 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
     
     const [popoverState, setShowPopover] = useState<{showPopover: boolean, event: Event | undefined}>({ showPopover: false, event: undefined });
 
-    const [changeProperty, setChangeProperty] = useState({ showPopover: false, event: undefined });
+    const [accountPopoverState, setAccountShowPopover] = useState<{showAccountPopover: boolean, event: Event | undefined}>({ showAccountPopover: false, event: undefined });
 
-    const [present, dismiss] = useIonPopover(ChangePropertyPopover, { onHide: () => dismiss() });
+    const [changeProperty, setChangeProperty] = useState({ showPopover: false, event: undefined });
 
     const pageBack = () => {
       history.goBack();
@@ -70,6 +68,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
 
                     <h2 className="header-page-title">{props.pageTitle}</h2>
 
+                    {/* notification popup and button start  */}
                     <IonPopover
                         cssClass='notification-popup'
                         mode="ios"
@@ -158,16 +157,94 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                         <IonIcon slot="icon-only" src="/assets/images/bell-icon.svg" />
                         <span className="notification-count">4</span>
                     </IonButton>
+                    {/* notification popup and button end  */}
+
 
                     <IonButton className="message-button ion-hide-lg-down" fill="clear" routerLink={Routes.messaging}>
                         <IonIcon slot="icon-only" src="/assets/images/mail_outline_black_24dp.svg" />
                         {/* <span className="notification-count">4</span> */}
                     </IonButton>
 
-                    <IonButton className="account-button ion-hide-lg-down" fill="clear" routerLink="#">
+                    
+                    {/* account popup and button start  */}    
+                    <IonPopover
+                        cssClass='footer-menu' 
+                        mode="ios"
+                        event={accountPopoverState.event}
+                        isOpen={accountPopoverState.showAccountPopover}
+                        onDidDismiss={() => setAccountShowPopover({ showAccountPopover: false, event: undefined })}
+                    >
+                        <IonList className="footer-mobile-menu">
+                            <IonItem>
+                                <IonButton className="" fill="clear" routerLink="#">
+                                    <div className="">
+                                        <IonIcon icon="/assets/images/swap-horizontal.svg"  />
+                                        <span className="">Tenant Account</span>
+                                    </div>
+                                </IonButton>
+                            </IonItem>
+
+                            <IonItem>
+                                <IonButton className="" fill="clear" routerLink="#">
+                                    <div className="">    
+                                        <IonIcon icon="/assets/images/ios-person.svg"  />
+                                        <span className="">Account Settings</span>
+                                    </div>
+                                </IonButton>
+                            </IonItem>
+
+                            <IonItem>
+                                <IonButton className="" fill="clear" routerLink="#">
+                                    <div className="">    
+                                        <IonIcon icon="/assets/images/bill-icon.svg"  />
+                                        <span className="">Billing History</span>
+                                    </div>
+                                </IonButton>
+                            </IonItem>
+
+                            <IonItem>
+                                <IonButton className="" fill="clear" routerLink="#">
+                                    <div className="">    
+                                        <IonIcon icon={settingsSharp}  />
+                                        <span className="">Service Settings</span>
+                                    </div>
+                                </IonButton>
+                            </IonItem>
+
+                            <IonItem>
+                                <IonButton className="" fill="clear" routerLink={Routes.faq}>
+                                    <div className="">    
+                                        <IonIcon />
+                                        <span className="">FAQ</span>   
+                                    </div>
+                                </IonButton>
+                            </IonItem>
+
+                            <IonItem>
+                                <IonButton className="" fill="clear" routerLink="#">
+                                    <div className="">    
+                                        <IonIcon />
+                                        <span className="">Logout</span>
+                                    </div>
+                                </IonButton>
+                            </IonItem>
+
+                        </IonList>
+                    </IonPopover>
+                    <IonButton 
+                        className="account-button ion-hide-lg-down" 
+                        fill="clear" 
+                        routerLink="#"onClick={
+                            (e) => {
+                            // e.persist();
+                            setAccountShowPopover({ showAccountPopover: true, event: e.nativeEvent })
+                        }}
+                    >
                         <IonIcon slot="icon-only" src="/assets/images/ios-person.svg"/>
                     </IonButton>
+                    {/* account popup and button end  */} 
                         
+                    {/* change property popup and button start  */} 
                     <IonPopover
                         cssClass='change-property-popup'
                         event={changeProperty.event}
@@ -258,6 +335,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                         <IonIcon slot="icon-only" src="/assets/images/home-icon.svg" />
                         <div className="proerty-name">BL1 <span className="ion-hide-lg-down">- Belvedaire 1</span></div>
                     </IonButton>
+                    {/* change property popup and button end  */} 
 
                 </IonRow>
             </IonGrid>

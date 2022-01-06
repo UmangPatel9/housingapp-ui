@@ -481,6 +481,39 @@ body .button.button-clear.scroll-to-bottom-btn {
     font-size: 25px;
     color: #575757;
 }
+
+.footer-menu .popover-content,
+.footer-mobile-menu {
+    background-color: #fff;
+}
+.footer-menu-button ion-icon {
+    font-size: 40px;
+    position: relative;
+    top: 5px;
+}
+.footer-mobile-menu ion-item {
+    --inner-border-width: 0;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+}
+.footer-mobile-menu .button.button-clear {
+    width: 100%;
+}
+.footer-mobile-menu .button div {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    align-items: center;
+}
+.footer-mobile-menu ion-icon {
+    flex: 0 0 25%;
+    max-width: 25%;
+    font-size: 25px;
+}
+.footer-mobile-menu .button span {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
 /* Footer css end */
 
 /* Login ppage start */
@@ -3196,11 +3229,24 @@ body .messaging-content .button.button-clear.property-change-button {
     --padding-top: 0;
 }
 .start-conversation-popup {
-    --box-shadow: none;
-    --border-width: 1px;
+    --box-shadow: none !important;
+    --border-width: 0;
     --border-style: solid;
     --border-color: #C0C0C0;
-    --border-radius: 10px;
+    --border-radius: 5px;
+    --height: auto;
+    --backdrop-opacity: 0.9;
+}
+.sc-ion-modal-md-h.start-conversation-popup:first-of-type,
+.sc-ion-modal-ios-h.start-conversation-popup:first-of-type {
+    --backdrop-opacity: 0.9;
+}
+.start-conversation-popup ion-backdrop {
+    background-color: #fff;
+}
+.start-conversation-popup .ion-page {
+    max-height: 90vh;
+    contain: content;
 }
 .start-conversation-popup .modal-wrapper {
     overflow: hidden; 
@@ -3209,8 +3255,7 @@ body .messaging-content .button.button-clear.property-change-button {
     width: 100%;
 }
 .start-conversation-popup-wrapper .popup-title {
-    background-color: transparent;
-    border: 1px solid #707070;
+    border: 0.5px solid #707070;
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f8f8f8+47,f8f8f8+100 */
     background: #ffffff; /* Old browsers */
     background: -moz-linear-gradient(top,  #ffffff 0%, #f8f8f8 47%, #f8f8f8 100%); /* FF3.6-15 */
@@ -3219,10 +3264,12 @@ body .messaging-content .button.button-clear.property-change-button {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f8f8f8',GradientType=0 ); /* IE6-9 */
     color: #575757;
     font-weight: normal;
-    border-radius: 10px 10px 0 0;
+    border-radius: 5px 5px 0 0;
+    padding: 18px 15px;
 }
 .start-conversation-popup-wrapper .popup-title h3 {
     font-weight: normal;
+    margin: 0;
 }
 .start-conversation-popup-wrapper .popup-title span {
     color: #FFA31A;
@@ -3240,6 +3287,7 @@ body .start-conversation-popup .button.button-clear.close-popup-button {
     border-color: #C0C0C0;
     border-style: solid;
     border-width: 0 1px 1px 1px;
+    border-radius: 0 0 10px 10px;
 }
 .search-box {
     padding: 20px 14px;
@@ -3247,10 +3295,12 @@ body .start-conversation-popup .button.button-clear.close-popup-button {
 .search-box ion-searchbar {
     --background: transparent;
     border: 1px solid #7C7C7C;
-    --border-radius: 5px;
+    border-radius: 5px;
+    --border-radius: 0;
     --placeholder-color: #7C7C7C;
     --placeholder-opacity: 1;
     --placeholder-font-weight: 300;
+    height: 65px;
 }
 .search-box .searchbar-search-icon {
     color: #ccc;
@@ -3263,10 +3313,28 @@ body .start-conversation-popup .button.button-clear.close-popup-button {
     font-size: 16px;
     font-family: 'Segoe UI Semilight';
     font-weight: 300;
+    border-bottom: 1px solid;
+}
+.popup-buttons {
+    padding: 0 20px 30px;
+}
+body .popup-buttons ion-col {
+    padding: 0;
+}
+body .popup-buttons ion-col:last-child {
+    text-align: right;
 }
 body .popup-buttons .button.button-outline {
-    --border-radius: 10px;
+    --border-radius: 14px;
     min-width: 112px;
+    height: 36px;
+}
+body .popup-buttons .button.button-outline.exit-button {
+    --color: #3C5871;
+    --border-color: #3C5871;
+}
+body .popup-buttons .button.button-outline.secondary-button {
+    --border-color: #FFA800;
 }
 /* Messaging end  */
 

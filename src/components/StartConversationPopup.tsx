@@ -11,8 +11,6 @@ import {
     IonSearchbar
 } from '@ionic/react';
 
-import { close } from "ionicons/icons";
-
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
 
@@ -33,9 +31,12 @@ const StartConversationPopup: React.FC = () => {
                 <div className="search-box">
                     <IonSearchbar mode="ios" placeholder="Search Apt # or Contact name" value={searchText} onIonChange={(e) => setSearchText(e.detail.value!)}></IonSearchbar>
                 </div>
+                <div className="search-results">
+
+                </div>
                 <IonRow  className="popup-buttons">
                     <IonCol size="6">
-                        <IonButton className="" fill="outline" shape="round">
+                        <IonButton className="exit-button" fill="outline" shape="round">
                             Exit
                         </IonButton>
                     </IonCol>

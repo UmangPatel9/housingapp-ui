@@ -66,7 +66,7 @@ const Messaging: React.FC<{ path: string }> = ({path}) => {
       setValue(''+index)
     }
 
-    const [showModal, setShowModal] = useState(false);
+    const [showMessageModal, setShowMessageModal] = useState(false);
 
     const enterAnimation = (baseEl: any) => {
         const backdropAnimation = createAnimation()
@@ -130,18 +130,18 @@ const Messaging: React.FC<{ path: string }> = ({path}) => {
                                 <IonButton 
                                     className="property-change-button" 
                                     fill="clear"
-                                    onClick={() => setShowModal(true)}
+                                    onClick={() => setShowMessageModal(true)}
                                 >
                                         <IonIcon icon={addSharp}  />
                                 </IonButton>
                             </div>
 
-                            <IonModal isOpen={showModal} enterAnimation={enterAnimation} leaveAnimation={leaveAnimation} cssClass="rent-pay-receipt-popup start-conversation-popup">
-                                <IonButton className="close-popup-button" fill="clear" onClick={() => setShowModal(false)}> 
+                            <IonModal isOpen={showMessageModal} cssClass="rent-pay-receipt-popup start-conversation-popup">
+                                {/* <IonButton className="close-popup-button" fill="clear" onClick={() => setShowMessageModal(false)}> 
                                     <IonIcon icon={close} />
-                                </IonButton>
+                                </IonButton> */}
                                 <StartConversationPopup />
-                                {/* <IonButton onClick={() => setShowModal(false)}>Close Modal</IonButton> */}
+                                {/* <IonButton onClick={() => setShowMessageModal(false)}>Close Modal</IonButton> */}
                             </IonModal>
 
                         </IonCol>

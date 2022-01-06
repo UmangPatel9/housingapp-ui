@@ -29,6 +29,11 @@ const FooterMobile: React.FC = () => {
         element.click();
     };
 
+    const openAccountPopup = () => {
+        let element: HTMLElement = document.getElementsByClassName('account-button')[0] as HTMLElement;
+        element.click();
+    };
+
     return (
         <IonFooter className="ion-hide-lg-up">
             <IonGrid>
@@ -47,12 +52,12 @@ const FooterMobile: React.FC = () => {
                     </IonCol>
 
                     <IonCol className="footer-bottom-col" size="3">
-                        <IonButton className="footer-message-button" fill="clear">
+                        <IonButton className="footer-message-button" fill="clear" routerLink={Routes.messaging}>
                             <IonIcon slot="icon-only" src="/assets/images/mail_outline_black_24dp.svg" />
                         </IonButton>
                     </IonCol>
 
-                    <IonPopover
+                    {/* <IonPopover
                         cssClass='footer-menu' 
                         mode="ios"
                         event={popoverState.event}
@@ -97,7 +102,7 @@ const FooterMobile: React.FC = () => {
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" routerLink="#">
+                                <IonButton className="" fill="clear" routerLink={Routes.faq}>
                                     <div className="">    
                                         <IonIcon />
                                         <span className="">FAQ</span>
@@ -115,16 +120,12 @@ const FooterMobile: React.FC = () => {
                             </IonItem>
 
                         </IonList>
-                    </IonPopover>
+                    </IonPopover> */}
                     <IonCol className="footer-bottom-col" size="3">
                         <IonButton 
                             className="footer-menu-button" 
                             fill="clear"
-                            onClick={
-                                    (e) => {
-                                    // e.persist();
-                                    setShowPopover({ showPopover: true, event: e.nativeEvent })
-                                }}
+                            onClick={openAccountPopup}
                         >
                             <IonIcon slot="icon-only" icon={menuOutline} />
                         </IonButton>

@@ -25,7 +25,7 @@ const Home: React.FC = () => {
   const methods = useForm({ mode: "all"});
   const { register, handleSubmit, formState: { errors } } = methods;
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: any) => { 
     console.log(data.email);
     console.log(data.password1);
     if (data.email == "tenant@gmail.com" && data.password1 == "12345") {

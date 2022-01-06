@@ -160,6 +160,13 @@
     body .button.button-clear {
         z-index: 1;
     }
+    body .inner-main-header .button.account-button {
+        display: block !important;
+        bottom: 0;
+        position: fixed;
+        margin: auto;
+        right: 5px;
+    }
     /* header css end */
 
     /* footer css start */
@@ -186,38 +193,6 @@
         font-size: 30px;
         position: relative;
         top: 3px;
-    }
-    .footer-menu .popover-content,
-    .footer-mobile-menu {
-        background-color: #fff;
-    }
-    .footer-menu-button ion-icon {
-        font-size: 40px;
-        position: relative;
-        top: 5px;
-    }
-    .footer-mobile-menu ion-item {
-        --inner-border-width: 0;
-        --padding-start: 0;
-        --inner-padding-end: 0;
-    }
-    .footer-mobile-menu .button.button-clear {
-        width: 100%;
-    }
-    .footer-mobile-menu .button div {
-        display: flex;
-        width: 100%;
-        text-align: left;
-        align-items: center;
-    }
-    .footer-mobile-menu ion-icon {
-        flex: 0 0 25%;
-        max-width: 25%;
-        font-size: 25px;
-    }
-    .footer-mobile-menu .button span {
-        flex: 0 0 75%;
-        max-width: 75%;
     }
     body .button.button-clear.scroll-to-bottom-btn {
         bottom: 65px;
@@ -320,7 +295,8 @@
         position: static;
     }
     body .button.button-clear.property-change-button {
-        bottom: 115px;
+        bottom: 70px;
+       right: 10px;
     }
     /* Manage properties css end */
 
