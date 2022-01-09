@@ -50,6 +50,10 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
         setShowPopover({ showPopover: false, event: undefined })
     };
 
+    const closeAccountPopup = () => {
+        setAccountShowPopover({ showAccountPopover: false, event: undefined })
+    };
+
     return (
         
         <IonHeader className="inner-main-header">
@@ -176,7 +180,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                     >
                         <IonList className="footer-mobile-menu">
                             <IonItem>
-                                <IonButton className="" fill="clear" routerLink="#">
+                                <IonButton className="" fill="clear" routerLink="#" onClick={closeAccountPopup}>
                                     <div className="">
                                         <IonIcon icon="/assets/images/swap-horizontal.svg"  />
                                         <span className="">Tenant Account</span>
@@ -185,7 +189,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" routerLink="#">
+                                <IonButton className="" fill="clear" routerLink={Routes.myAccount} onClick={closeAccountPopup}>
                                     <div className="">    
                                         <IonIcon icon="/assets/images/ios-person.svg"  />
                                         <span className="">Account Settings</span>
@@ -194,7 +198,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" routerLink="#">
+                                <IonButton className="" fill="clear" routerLink="#" onClick={closeAccountPopup}>
                                     <div className="">    
                                         <IonIcon icon="/assets/images/bill-icon.svg"  />
                                         <span className="">Billing History</span>
@@ -203,7 +207,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" routerLink="#">
+                                <IonButton className="" fill="clear" routerLink={Routes.serviceSettings} onClick={closeAccountPopup}>
                                     <div className="">    
                                         <IonIcon icon={settingsSharp}  />
                                         <span className="">Service Settings</span>
@@ -212,7 +216,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" routerLink={Routes.faq}>
+                                <IonButton className="" fill="clear" routerLink={Routes.faq} onClick={closeAccountPopup}>
                                     <div className="">    
                                         <IonIcon />
                                         <span className="">FAQ</span>   
@@ -221,7 +225,7 @@ const HeaderMain: React.FC<{ pageTitle: string; logoHide: string; }> = props => 
                             </IonItem>
 
                             <IonItem>
-                                <IonButton className="" fill="clear" routerLink="#">
+                                <IonButton className="" fill="clear" routerLink="#" onClick={closeAccountPopup}>
                                     <div className="">    
                                         <IonIcon />
                                         <span className="">Logout</span>

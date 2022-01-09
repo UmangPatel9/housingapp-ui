@@ -38,8 +38,6 @@ const TenantSignup: React.FC = () => {
 
    const methods = useForm();
    const { register, trigger, handleSubmit, getValues, formState: { errors } } = methods;
-   ;
-   ;
    // console.log(errors);
 
    useEffect(() => {

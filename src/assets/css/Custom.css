@@ -908,7 +908,7 @@ body .button.dashboard-button.active {
     background-color: #fff;
 }
 .change-property-popup-wrapper ion-grid {
-    position: fixed;
+    position: absolute;
     bottom: 5px;
     left: 0;
     right: 0;
@@ -1804,7 +1804,8 @@ body .notification-detail-button.button.button-clear {
     margin-top: 25px;
 }
 .tenants-lease-info,
-.tenants-lease-info.tenants-lease-payment-info {
+.tenants-lease-info.tenants-lease-payment-info,
+.request-box-info {
     border: 1px solid #B4BEC7;
     box-shadow: 0 1px 1px #c0c0c0;
     border-radius: 4px;
@@ -2227,7 +2228,8 @@ body .alert-input.sc-ion-alert-md:focus {
 .rent-period-block p ion-icon {
     margin: 0 5px;
 }
-.tenants-lease-payment-info h6 {
+.tenants-lease-payment-info h6,
+.request-box-info h6 {
     font-size: 16px;
     margin: 0 0 18px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -3337,6 +3339,125 @@ body .popup-buttons .button.button-outline.secondary-button {
     --border-color: #FFA800;
 }
 /* Messaging end  */
+
+/* My Account start  */
+.my-account-content .dashboard-content-inner,
+.services-settings .dashboard-content-inner {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+body .button.button-block.my-account-button {
+    --color: #3C5871;
+    --border-color: #3C5871;
+}
+.my-account-button .button-inner {
+    justify-content: space-between;
+    width: 100%;
+}
+.my-account-button + .my-account-button {
+    margin-top: 30px;
+}
+.my-account-content .choose-payment-method-block {
+    border-top: 0;
+    padding: 0;
+}
+body .my-account-content .button.button-solid.exit-file-btn {
+    margin-top: 16px;
+}
+.toggle-button-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ion-toggle {
+    --background: #575757;
+    --background-checked: #fb0;
+    --handle-background: #fff;
+    --handle-background-checked: #fff;
+}
+.form-field.toggle-button-field, 
+.form-field.toggle-button-field + .form-field.toggle-button-field {
+    margin-top: 40px;
+}
+body .services-settings .button.button-round.secondary-button {
+    margin-top: 40px;
+}
+/* My Account end  */
+
+/* Manage Request start  */
+.request-box + .request-box {
+    margin-top: 30px;
+}
+.request-box-info {
+    padding: 0;
+    border-color: #6187AA;
+    border-radius: 12px;
+    overflow: hidden;
+    color:#3C5871;
+}
+.request-date {
+    margin: 0;
+}
+.selected-filter {
+    font-size: 13px;
+    font-family: 'Segoe UI Semilight';
+    font-weight: 300;
+}
+.search-result-box-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e2e1e1;
+    margin-bottom: 20px;
+}   
+.request-box-info {
+    padding: 0;
+}
+.request-box-info ion-grid {
+    padding: 0;
+}
+.request-title-col {
+    padding: 8px 5px 5px 15px;
+}
+.request-title {
+    margin: 0;
+}
+.request-status-col {
+    text-align: right;
+    padding: 0;
+}
+.request-status {
+    display: inline-block;
+    font-size: 13px;
+    padding: 8px 15px;
+}
+.request-status.pending {
+    background-color: #FFF6DC;
+    color: #FFBB00;
+}
+.request-status.confirmed {
+    background-color: #E5F8E6;
+    color: #77CF7B;
+}
+.request-details-col {
+    text-align: center;
+    padding: 15px;
+}
+.request-details-col h6 {
+    margin: 0 0 5px;
+    font-size: 13px;
+    font-family: 'Segoe UI Semilight';
+    font-weight: 300;
+}
+.request-details-col p {
+    margin: 0;
+    font-size: 20px;
+}
+.request-box-info + .request-box-info {
+    margin-top: 22px;
+}
+/* Manage Request end  */
 
 /* 
 

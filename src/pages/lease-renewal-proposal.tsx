@@ -39,8 +39,8 @@ const LeaseRenewalProposal: React.FC<{ path: string }> = ({path}) => {
         contentRef.current && contentRef.current.scrollToBottom(500);
     };
 
-    const [selectedStartDate, setSelectedStartDate] = useState<string>('');
-    const [selectedEndDate, setSelectedEndDate] = useState<string>('');
+    const [selectedStartDate, setSelectedStartDate] = useState<string>('2022-01-01T13:47:20.789');
+    const [selectedEndDate, setSelectedEndDate] = useState<string>('2022-02-01T13:47:20.789');
 
     const [generateNewLeaseCodeAlert, setGenerateNewLeaseCodeAlert] = useState(false);
 

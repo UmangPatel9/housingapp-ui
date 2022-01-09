@@ -30,6 +30,13 @@ import NotificationHistory from './pages/Notification-history';
 import PostDetails from './pages/Post-details';
 import Messaging from './pages/Messaging';
 import FAQ from './pages/FAQ';
+import MyAccount from './pages/My-account';
+import PersonalInfo from './pages/Personal-info';
+import BillingInfo from './pages/Billing-Info';
+import PasswordChange from './pages/Password-change';
+import Notifications from './pages/Notifications';
+import ServiceSettings from './pages/Service-settings';
+import ManageRequests from './pages/Manage-requests';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -78,7 +85,14 @@ export const Routes = {
   notificationHistory: '/notification-history',
   postDetails: '/post-details',
   messaging: '/messaging',
-  faq: '/faq'
+  faq: '/faq',
+  myAccount: '/my-account',
+  personalInfo: '/personal-info',
+  billingInfo: '/billing-info',
+  passwordChange: '/password-change',
+  notifications: '/notifications',
+  serviceSettings: '/servicesettings',
+  manageRequests: '/manage-requests'
 }
 
 const App: React.FC = () => (
@@ -173,6 +187,27 @@ const App: React.FC = () => (
         </Route>
         <Route exact path={Routes.faq}>
           <FAQ path={Routes.faq} />
+        </Route>
+        <Route exact path={Routes.myAccount}>
+          <MyAccount path={Routes.myAccount} />
+        </Route>
+        <Route exact path={Routes.personalInfo}>
+          <PersonalInfo path={Routes.personalInfo} />
+        </Route>
+        <Route exact path={Routes.billingInfo}>
+          <BillingInfo path={Routes.billingInfo} />
+        </Route>
+        <Route exact path={Routes.passwordChange}>
+          <PasswordChange path={Routes.passwordChange} />
+        </Route>
+        <Route exact path={Routes.notifications}>
+          <Notifications path={Routes.notifications} />
+        </Route>
+        <Route exact path={Routes.serviceSettings}>
+          <ServiceSettings path={Routes.serviceSettings} />
+        </Route>
+        <Route exact path={Routes.manageRequests}>
+          <ManageRequests path={Routes.manageRequests} />
         </Route>
 
       </IonRouterOutlet>

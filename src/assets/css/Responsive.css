@@ -420,6 +420,13 @@
 
     }
     /* Post details end  */
+
+    /* My Account start  */
+    .my-account-content .dashboard-content-inner,
+    .services-settings .dashboard-content-inner {
+        padding: 30px 20px;
+    }
+    /* My Account end  */
 }
 
 
@@ -499,6 +506,15 @@
         bottom: 0;
     }
     /* Messaging end  */
+
+    /* Manage Request start  */
+    .request-details-col {
+        padding: 15px 10px;
+    }
+    .request-details-col p {
+        font-size: 15px;
+    }
+    /* Manage Request end  */
 }
 
 
@@ -796,6 +812,14 @@
         padding: 5px;
     }
     /* Messaging end  */
+
+    /* Manage Request start  */
+    .manage-requests-content ion-segment-button {
+        flex: 0 0 33.33%;
+        --padding-start: 0;
+        --padding-end: 0;
+    }
+    /* Manage Request end  */
 }
 
 

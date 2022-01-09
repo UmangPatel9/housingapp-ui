@@ -58,7 +58,7 @@ const DashboardSidebar: React.FC<{path: string}> = ({path}) => {
                 </IonItem>
 
                 <IonItem>
-                    <IonButton className="dashboard-button" fill="clear" routerLink="#">
+                    <IonButton className={getClassName([Routes.manageRequests], "dashboard-button")} fill="clear" routerLink={Routes.manageRequests}>
                         <div className="dashboard-button-inner">
                             <IonAvatar>
                                 <img src="assets/images/Repair-home.svg" />
