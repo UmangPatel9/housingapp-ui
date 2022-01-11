@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { IonContent, IonPage, IonLabel, IonInput, IonButton, IonGrid, IonRow, IonCol, IonItem, IonList, IonRadioGroup, IonListHeader, IonRadio } from '@ionic/react';
 
-import { FormProvider, useForm, FieldErrors } from "react-hook-form";
+import { FormProvider, useForm, FieldErrors, Controller } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 
 import Header from '../components/Header';
@@ -18,8 +18,8 @@ const STAFF = "staff"
 const Signup: React.FC = () => {
 
   const [userType, setUserType] = useState<string>();
-  const methods = useForm({ mode: "all"});
-  const { register, handleSubmit, formState: { errors } } = methods;
+  const methods = useForm({ mode: "onSubmit"});
+  const { control, register, handleSubmit, formState: { errors } } = methods;
 
 
   // const [selected, setSelected] = useState<string>();
@@ -45,9 +45,9 @@ const Signup: React.FC = () => {
 
   const onSubmit = (data: any) => {
     console.log('submit button clicked' , data);
-    // if(userType) {
+    if(userType) {
       history.push(`/${userType}-signup`);
-    // }
+    }
   };
   
 
@@ -102,15 +102,28 @@ const Signup: React.FC = () => {
           <FormProvider {...methods}>
             <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
             
-            <IonGrid>
+              <IonGrid>
                 <IonRow className="signup-form login-form-row ">
-                    <IonCol size="10" sizeMd="6" sizeLg="6">
-                        {/* <p>What are you registering as?</p> */}
-                        <IonList>
+                  <IonCol size="10" sizeMd="6" sizeLg="6">
+                    {/* <p>What are you registering as?</p> */}
+                    <IonList>
+
+                      <Controller
+                        control={control}   
+                        name="radioGrp"
+                        rules={{ required: 'Please make a selection' }}
+                        // onChangeName="onIonChange"
+                        // onChange={inputChangeHandler}
+                        render={({ field: { onChange, value } }) => (
                           <IonRadioGroup 
-                            defaultValue={TENANT} 
-                            onIonChange={inputChangeHandler}
-                            {...register('radioGrp', { required: 'Please make a selection' })}
+                            // defaultValue={TENANT} 
+                            // onIonChange={inputChangeHandler}
+                            value={value}
+                            onIonChange={(e:any) => { 
+                              onChange(e); 
+                              inputChangeHandler(e);
+                            }}
+                            // {...register('radioGrp', { required: 'Please make a selection' })}
                           >
                             <IonListHeader>
                               <IonLabel>
@@ -144,27 +157,27 @@ const Signup: React.FC = () => {
                             </IonItem>
 
                           </IonRadioGroup>
-                        </IonList>
-
-                        
-                    </IonCol>
-
-                    <ErrorMessage
-                      errors={errors}
-                      name="radioGrp"
-                      as={<div className="error-message" style={{ color: 'red' }} />}
-                    />
-
-                    <IonCol size="8" sizeMd="4" sizeLg="4">
-                      <IonButton className="secondary-button" type="submit" expand="block" shape="round" fill="outline">
-                          Continue
-                      </IonButton>
-                    </IonCol>
+                        )}
+                      />
+                    </IonList>      
+                  </IonCol>
+                  
+                  <ErrorMessage
+                        errors={errors}
+                        name="radioGrp"
+                        as={<div className="error-message" style={{ color: 'red' }} />}
+                      />
+                      
+                  <IonCol size="8" sizeMd="4" sizeLg="4">
+                    <IonButton className="secondary-button" type="submit" expand="block" shape="round" fill="outline">
+                      Continue
+                    </IonButton>
+                  </IonCol>
 
                 </IonRow>
-            </IonGrid>
+              </IonGrid>
             </form>
-              </FormProvider>
+          </FormProvider>
         </IonContent>
 
     </IonPage>

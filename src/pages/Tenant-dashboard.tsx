@@ -42,13 +42,12 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
     const location = useLocation();
     // console.log(location.pathname);
     
-    // a ref variable to handle the current slider
-    // const slider = useRef<HTMLIonSlidesElement>(null);
     const slider = useRef<any>(null);
-    // a state value to bind segment value
     const [value, setValue] = useState("1");
     const btnref = useRef<HTMLIonButtonElement>(null);
     const [addedLeaseCodeAlert, setAddedLeaseCodeAlert] = useState(false);
+    const [leasCode, setLeasecode] = useState(false);
+    const [showMessage, setShowMessage] = useState(false);
 
     useEffect(() => {
         slider.current.lockSwipes(true);
@@ -79,7 +78,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
       setValue(''+index)
     }
 
-    const methods = useForm({ mode: "all"});
+    const methods = useForm();
     const { register, handleSubmit, formState: { errors } } = methods;
 
     const onSubmit = (data: any) => {
@@ -91,10 +90,6 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
         // }
         setAddedLeaseCodeAlert(true)
     };
-
-    const myCondition = () => {
-
-    }
 
     type ErrorSummaryProps<T> = {
         errors: FieldErrors<T>;
@@ -166,7 +161,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                     </IonCardHeader>
 
                                     <IonCardContent>
-                                        <div className="before-lease-code-content">
+                                        <div className={`before-lease-code-content ${showMessage ? 'hide-div' : ''}`}>
                                             <p>Enter your <b>Lease code</b> below to unlock all the features and services of the app.</p> 
                                             <p>The <b>Lease Code</b> is a unique code linking you to your Lease and it should not be shared unless you are with a partner under the same Lease.</p>
 
@@ -185,6 +180,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                                         <IonInput
                                                             mode="md"
                                                             type="text"
+                                                        
                                                             className={`form-control ${errors.confirmLeaseCode ? 'is-invalid' : ''}`}
                                                             placeholder=""
                                                             {...register('confirmLeaseCode', {
@@ -215,6 +211,8 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                                         role: 'cancel',
                                                         cssClass: 'btn-primary',
                                                         handler: () => {
+                                                            setLeasecode(true);
+                                                            setShowMessage(true);
                                                         }
                                                     }
                                                     
@@ -222,14 +220,14 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                             />
                                         </div>
 
-                                        <div className="after-lease-code-content">
+                                        <div className={`after-lease-code-content ${!showMessage ? 'hide-div' : ''}`}>
                                             <p>What would you like to do today?</p>
                                         </div>
 
                                         <IonGrid className="tenant-dhaboard-button-list">
                                         <IonRow>
                                             <IonCol size="12" sizeMd="6" sizeLg="12" sizeXl="6">
-                                                <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.payRents}>
+                                                <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.payRents} disabled={!leasCode}>
                                                     <div className="tenant-dhaboard-button">
                                                         <IonAvatar>
                                                             <img src="assets/images/Pay-Rent-home.svg" />
@@ -257,7 +255,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                             </IonCol> */}
 
                                             <IonCol size="12" sizeMd="6" sizeLg="12" sizeXl="6">
-                                                <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.manageTenants}>
+                                                <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.manageTenants} disabled={!leasCode}>
                                                     <div className="tenant-dhaboard-button">
                                                         <IonAvatar>
                                                             <img src="assets/images/Repair-home.svg" />
@@ -271,7 +269,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                             </IonCol>
 
                                             <IonCol size="12" sizeMd="6" sizeLg="12" sizeXl="6">
-                                                <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.manageTenants}>
+                                                <IonButton  className="" expand="block" shape="round" fill="outline" routerLink={Routes.manageTenants} disabled={!leasCode}>
                                                     <div className="tenant-dhaboard-button">
                                                         <IonAvatar>
                                                             <img src="assets/images/Manage-Lease-home.svg" />

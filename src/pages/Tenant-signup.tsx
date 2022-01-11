@@ -84,10 +84,10 @@ const TenantSignup: React.FC = () => {
                                              mode="md"
                                              type="email"
                                              {...register('email', {
-                                                required: 'Email is a required field',
+                                                required: 'Please enter a valid email.',
                                                 pattern: {
                                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                                message: 'invalid email address'
+                                                message: 'Please enter a valid email.'
                                                 }
                                              })}
                                           />
@@ -104,10 +104,10 @@ const TenantSignup: React.FC = () => {
                                              mode="md"
                                              type="password" 
                                              {...register('password1', {
-                                                required: 'Password is Required',
+                                                required: 'The password must match the following criteria: Minimum 8 characters, Include at least 1 letter, Include at least 1 number and maximum 12 characters long.',
                                                 pattern: {
                                                   value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/i,
-                                                  message: 'Password should be minimum 8 characters and maximum 12 characters long, with 1 upparcase and 1 special character.'
+                                                  message: 'The password must match the following criteria: Minimum 8 characters, Include at least 1 letter, Include at least 1 number and maximum 12 characters long.'
                                                 }
                                              })}
                                           />
@@ -128,7 +128,7 @@ const TenantSignup: React.FC = () => {
                                                 validate: {
                                                    noMatch: (value: string) => {
                                                       return value !== getValues("password1")
-                                                         ? "Passwords do not match"
+                                                         ? "The passwords do not match."
                                                          : undefined;
                                                    },
                                                 },
@@ -161,7 +161,7 @@ const TenantSignup: React.FC = () => {
                                              mode="md"
                                              type="text"   
                                              {...register('firstName', {
-                                                required: 'First name is a required field'
+                                                required: 'This info is mandatory. Please fill it.'
                                              })}
                                           />
                                           <ErrorMessage
@@ -177,7 +177,7 @@ const TenantSignup: React.FC = () => {
                                              mode="md"
                                              type="text" 
                                              {...register('lastName', {
-                                                required: 'Last name is a required field'
+                                                required: 'This info is mandatory. Please fill it.'
                                              })}
                                           />
                                           <ErrorMessage

@@ -22,7 +22,7 @@ import { Routes } from '../App';
 const Home: React.FC = () => {
 
   let history = useHistory();
-  const methods = useForm({ mode: "all"});
+  const methods = useForm({ mode: "onSubmit"});
   const { register, handleSubmit, formState: { errors } } = methods;
 
   const onSubmit = (data: any) => { 

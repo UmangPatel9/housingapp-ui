@@ -2484,7 +2484,10 @@ body .button.button-clear.post-add-button ion-icon {
     margin: .0;
     box-shadow: 0 0 2px 0px #e2e1e1;
     border-radius: 0;
-    border-top: 1px solid #E5E5E5;
+    border-top: 1px solid #E5E5E5;    
+    position: relative;
+    bottom: 90px;
+    z-index: 1;
 }
 body .cofirm-lease-code-form .button.button-outline {
     margin: 0;
@@ -2615,6 +2618,14 @@ ion-card-title {
 }
 .before-lease-code-content p b {
     font-weight: 600;
+}
+.after-lease-code-content.hide-div,
+.before-lease-code-content.hide-div {
+    display: none;
+}
+.after-lease-code-content,
+.before-lease-code-content {
+    display: block;
 }
 /* Tenant Dahsboard posts end  */
 
