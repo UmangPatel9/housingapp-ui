@@ -20,7 +20,7 @@ const MessagingTenantsTab: React.FC = () => {
             <div className="posts-lists message-list">
                 <h4>Today</h4>
                 <div className="posts-list-block">
-                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.postDetails}></IonButton>
+                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.chat}></IonButton>
                     <IonGrid className="">
                         <IonRow className="post-row">
                             <IonCol className="post-image">
@@ -35,7 +35,7 @@ const MessagingTenantsTab: React.FC = () => {
                     </IonGrid>                                    
                 </div>
                 <div className="posts-list-block">
-                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.postDetails}></IonButton>
+                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.chat}></IonButton>
                     <IonGrid className="">
                         <IonRow className="post-row">
                             <IonCol className="post-image">
@@ -55,7 +55,7 @@ const MessagingTenantsTab: React.FC = () => {
             <div className="posts-lists message-list">
                 <h4>Yesterday</h4>
                 <div className="posts-list-block">
-                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.postDetails}></IonButton>
+                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.chat}></IonButton>
                     <IonGrid className="">
                         <IonRow className="post-row">
                             <IonCol className="post-image">
@@ -70,7 +70,7 @@ const MessagingTenantsTab: React.FC = () => {
                     </IonGrid>                                    
                 </div>
                 <div className="posts-list-block">
-                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.postDetails}></IonButton>
+                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.chat}></IonButton>
                     <IonGrid className="">
                         <IonRow className="post-row">
                             <IonCol className="post-image">
@@ -85,7 +85,7 @@ const MessagingTenantsTab: React.FC = () => {
                     </IonGrid>                                    
                 </div>
                 <div className="posts-list-block">
-                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.postDetails}></IonButton>
+                    <IonButton className="post-details-link-button" fill="clear" expand="full" shape="round" routerLink={Routes.chat}></IonButton>
                     <IonGrid className="">
                         <IonRow className="post-row">
                             <IonCol className="post-image">

@@ -37,6 +37,7 @@ import PasswordChange from './pages/Password-change';
 import Notifications from './pages/Notifications';
 import ServiceSettings from './pages/Service-settings';
 import ManageRequests from './pages/Manage-requests';
+import Chat from './pages/chat';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -92,7 +93,8 @@ export const Routes = {
   passwordChange: '/password-change',
   notifications: '/notifications',
   serviceSettings: '/servicesettings',
-  manageRequests: '/manage-requests'
+  manageRequests: '/manage-requests',
+  chat: '/chat'
 }
 
 const App: React.FC = () => (
@@ -208,6 +210,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path={Routes.manageRequests}>
           <ManageRequests path={Routes.manageRequests} />
+        </Route>
+        <Route exact path={Routes.chat}>
+          <Chat path={Routes.chat} />
         </Route>
 
       </IonRouterOutlet>

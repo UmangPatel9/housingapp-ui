@@ -3421,7 +3421,7 @@ body .button.button-outline.select-all-result-button {
     height: 100%;
     --background: transparent;
     --border-width: 0;
-    --background-checked: transparent;
+    /* --background-checked: transparent; */
     --checkmark-color: transparent;
 }
 .search-results-rows.row-checked {
@@ -3551,6 +3551,121 @@ body .services-settings .button.button-round.secondary-button {
     margin-top: 22px;
 }
 /* Manage Request end  */
+
+/* Chat start  */
+.dashboard-wrapper ion-col.dashboard-content.chat-content {
+    padding-bottom: 0;
+}
+.chat-header {
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-bottom: 1px solid #e2e1e1;
+}
+.chat-header h6, .chat-header h5, .chat-header p {
+    margin: 0;
+}
+.sender-details h5 {
+    margin: 5px 0 3px;
+}
+.sender-details p {
+    font-size: 12px;
+    color: #575757;
+}
+.chat-time h6 {
+    margin: 0 0 5px;
+}
+.sender-number {
+    background: #FFBB00;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.sender-number:hover,
+.sender-number:focus {
+    background: #FFA800;
+    color: #fff;
+}
+.chat-screens {
+    /* height: 100%; */
+    background: #fff;
+    margin-top: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+    align-items: flex-end;
+}
+.chat-date {
+    margin: 0 auto;
+    display: inline-block;
+    color: #FBFBFB;
+    background: #C0C0C0;
+    border-radius: 15px;
+    font-size: 14px;
+    padding: 5px 8px;
+    margin-bottom: 30px;
+}
+.message {
+    padding: 15px;
+    background-color: #FFF6DC;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    position: relative;
+}
+.message.sender {
+    margin-right: auto;
+    background-color: #D8F3D9;
+}
+.message:before {
+    content: "";
+    position: absolute;
+    right: 10px;
+    bottom: -15px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid #FFF6DC;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+.message.sender:before {
+    border-top: none;
+    border-bottom: 15px solid#D8F3D9;
+    right: auto;
+    left: 10px;
+    bottom: auto;
+    top: -15px;
+}
+.message p {
+    margin-bottom: 8px;
+}
+.chat-time {
+    font-size: 12px;
+    display: block;
+}
+.type-message {
+    width: 100%;
+    position: relative;
+}
+body .type-message ion-textarea {
+    height: 50px;
+    padding: 15px 50px;
+}
+body .dashboard-content .type-message ion-textarea {
+    border-radius: 50px;
+}
+body .button.button-clear.send-message-button,
+body .button.button-clear.emoji-popup-button {
+    position: absolute;
+    top: 11px;
+    right: 0;
+    z-index: 3;
+}
+body .button.button-clear.emoji-popup-button {
+    right: auto;
+    left: 0;
+}
+/* Chat end  */
 
 /* 
 
