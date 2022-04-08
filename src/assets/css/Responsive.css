@@ -515,10 +515,17 @@
         font-size: 15px;
     }
     /* Manage Request end  */
-
+    .dashboard-wrapper.tenants-dashboard .dashboard-main-row > ion-col,
+    .tenants-dashboard .dashboard-content-inner {
+        position: static;
+    }
     .enter-lease-code-card {
-        position: relative;
-        bottom: 48vh;
+        /* position: relative; */
+        bottom: auto;
+        top: 50vh;
+        overflow-x: hiddne;
+        overflow-y: auto;
+        height: 100vh;
     }
 }
 
