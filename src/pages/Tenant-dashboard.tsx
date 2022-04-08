@@ -124,23 +124,28 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                         {/* dashboar content start */}
                         <IonCol className="dashboard-content" size="12" sizeMd="12" sizeLg="6" sizeXl="8">
                             <div className="dashboard-content-inner">
-                                <IonSegment scrollable  mode="md" value={value} onIonChange={(e) => handleSegmentChange(e)} >
-                                    <IonSegmentButton className="posts-tab-button" value="0">
+                                <div className="tab-button-wrap">
+                                    <IonButton className="post-add-button-besides-tab" fill="clear" routerLink={Routes.createPosts} >
                                         Posts
-                                    </IonSegmentButton>
-                                    <IonSegmentButton value="1">
-                                        Tenants
-                                    </IonSegmentButton>
-                                    <IonSegmentButton value="2">
-                                        Management
-                                        <span className="notification-count">4</span>
-                                    </IonSegmentButton>
-                                </IonSegment>
+                                    </IonButton>
+                                    <IonSegment scrollable  mode="md" value={value} onIonChange={(e) => handleSegmentChange(e)} >
+                                        {/* <IonSegmentButton className="posts-tab-button" value="0" >
+                                            Posts
+                                        </IonSegmentButton> */}
+                                        <IonSegmentButton value="1">
+                                            Tenants
+                                        </IonSegmentButton>
+                                        <IonSegmentButton value="2">
+                                            Management
+                                            <span className="notification-count">4</span>
+                                        </IonSegmentButton>
+                                    </IonSegment>
+                                </div>
 
                                 <IonSlides pager={true} options={slideOpts} onIonSlideDidChange={(e) => handleSlideChange(e)} ref={slider}>
-                                    <IonSlide>
+                                    {/* <IonSlide>
                                         <TanatDahsboadPostsTab />
-                                    </IonSlide>
+                                    </IonSlide> */}
                                     {/*-- Package Segment --*/}
                                     <IonSlide>
                                         <TanatDahsboadTanatsTab />

@@ -3630,7 +3630,7 @@ body .services-settings .button.button-round.secondary-button {
 }
 .message.sender:before {
     border-top: none;
-    border-bottom: 15px solid#D8F3D9;
+    border-bottom: 15px solid #D8F3D9;
     right: auto;
     left: 10px;
     bottom: auto;
@@ -3666,6 +3666,32 @@ body .button.button-clear.emoji-popup-button {
     left: 0;
 }
 /* Chat end  */
+
+/* Tanant dhaboard page changes start */
+.tab-button-wrap {
+    display: flex;
+    align-items: center;
+}
+body .button.button-clear.post-add-button-besides-tab {
+    --background: #fff;
+    margin: 0;
+    font-weight: 600;
+    text-decoration: underline;
+    font-size: 20px;
+    font-family: 'Segoe UI Semilight';
+    --color: #3C5871;
+    --color-checked: #3c5871;
+    --color-selected: #3C5871;
+    --color-focused: #3C5871;
+    position: relative;
+    --padding-top: 14px;
+    --padding-bottom: 14px;
+    --padding-start: 50px;
+    --padding-end: 50px;
+    height: 100%;
+    --border-radius: 0;
+}
+/* Tanant dhaboard page changes end */
 
 /* 
 

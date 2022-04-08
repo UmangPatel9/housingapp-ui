@@ -760,6 +760,17 @@
         height: 15px;
         font-size: 10px;
     }
+    body .button.button-clear.post-add-button-besides-tab {
+        flex: 0 0 33.33%;
+        --padding-end: 15px;
+        --padding-start: 15px;
+    }
+    .tab-button-wrap ion-segment {
+        flex: 0 0 66.66%;
+    }
+    .tenants-dashboard .tab-button-wrap ion-segment-button {
+        flex: 0 0 50%;
+    }
     /* Tenant Dahsboard posts end  */
 
     /* Tenants choose payment method start */
