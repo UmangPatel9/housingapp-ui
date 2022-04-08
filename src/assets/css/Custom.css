@@ -3691,6 +3691,13 @@ body .button.button-clear.post-add-button-besides-tab {
     height: 100%;
     --border-radius: 0;
 }
+.enter-lease-code-card.hide-div {
+    display: none;
+}
+.enter-lease-code-card {
+    position: absolute;
+    bottom: 0;
+}
 /* Tanant dhaboard page changes end */
 
 /* 

@@ -515,6 +515,11 @@
         font-size: 15px;
     }
     /* Manage Request end  */
+
+    .enter-lease-code-card {
+        position: relative;
+        bottom: 48vh;
+    }
 }
 
 

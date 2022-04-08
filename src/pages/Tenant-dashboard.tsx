@@ -43,7 +43,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
     // console.log(location.pathname);
     
     const slider = useRef<any>(null);
-    const [value, setValue] = useState("1");
+    const [value, setValue] = useState("0");
     const btnref = useRef<HTMLIonButtonElement>(null);
     const [addedLeaseCodeAlert, setAddedLeaseCodeAlert] = useState(false);
     const [leasCode, setLeasecode] = useState(false);
@@ -107,6 +107,20 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
         );
     }
 
+    // const [clickedButton, setClickedButton] = useState('');
+
+    // const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    //     event.preventDefault();
+
+    //     const button: HTMLButtonElement = event.currentTarget;
+    //     setClickedButton(button.name);
+    // };
+
+    const [showResults, setShowResults] = React.useState(false)
+    const buttonHandler = () => {
+        setShowResults(true)
+    }
+
     return (
         <IonPage>
   
@@ -124,6 +138,7 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                         {/* dashboar content start */}
                         <IonCol className="dashboard-content" size="12" sizeMd="12" sizeLg="6" sizeXl="8">
                             <div className="dashboard-content-inner">
+                                <div className="tab-wrap" onClick={buttonHandler}>
                                 <div className="tab-button-wrap">
                                     <IonButton className="post-add-button-besides-tab" fill="clear" routerLink={Routes.createPosts} >
                                         Posts
@@ -132,10 +147,10 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                         {/* <IonSegmentButton className="posts-tab-button" value="0" >
                                             Posts
                                         </IonSegmentButton> */}
-                                        <IonSegmentButton value="1">
+                                        <IonSegmentButton value="0">
                                             Tenants
                                         </IonSegmentButton>
-                                        <IonSegmentButton value="2">
+                                        <IonSegmentButton value="1">
                                             Management
                                             <span className="notification-count">4</span>
                                         </IonSegmentButton>
@@ -154,13 +169,14 @@ const TenantDashboard: React.FC<{ path: string }> = ({path}) => {
                                         <TanatDahsboadPostsTab />
                                     </IonSlide>
                                 </IonSlides>
+                                </div>
 
                                 <IonButton className="post-add-button" fill="clear" routerLink={Routes.createPosts} >
                                     <IonIcon src="assets/images/post-icon.svg" />
                                     {/* <IonImg className="logo" src="assets/images/post1.png" /> */}
                                 </IonButton>
 
-                                <IonCard className="enter-lease-code-card">
+                                <IonCard className={`enter-lease-code-card ${showResults ? 'hide-div' : ''}`}>
                                     <IonCardHeader>
                                         <IonCardTitle>Hi John,</IonCardTitle>
                                     </IonCardHeader>
