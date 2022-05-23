@@ -3700,6 +3700,17 @@ body .button.button-clear.post-add-button-besides-tab {
     position: absolute;
     bottom: 0;
 }
+.dashboard-wrapper.tenants-dashboard .dashboard-main-row > ion-col,
+.tenants-dashboard .dashboard-content-inner {
+    position: static;
+}
+/* .enter-lease-code-card {
+    bottom: auto;
+    top: 50vh;
+    overflow-x: hiddne;
+    overflow-y: auto;
+    height: 100vh;
+} */
 /* Tanant dhaboard page changes end */
 
 /* 

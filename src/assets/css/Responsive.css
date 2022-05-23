@@ -3,6 +3,9 @@
     ion-footer ion-list ion-item {
         background-color: #fff;
     }
+    .main-header {
+        background-color: #FFFBF0;
+    }
 }
 
 
